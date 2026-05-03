@@ -1,0 +1,1883 @@
+Query: A028
+Total chunks: 64
+================================================================================
+
+Chunk 1:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_123
+Source: bm25
+--------------------------------------------------------------------------------
+2.4 本章小结及疑难点
+1. 传输媒体是物理层吗?
+传输媒体和物理层的主要区别是什么?
+传输媒体并不是物理层。
+由于传输媒体在物理层的下面，而物理层是体系结构的第一层，因 此有时称传输媒体为0层。
+在传输媒体中传输的是信号，但传输媒体并不知道所传输的信号代表 什么。
+也就是说，传输媒体不知道所传输的信号什么时候是1什么时候是0。
+但物理层由于规定 了电气特性，因此能够识别所传送的比特流。
+图2.12描述了上述概念。
+图2.12 传输媒体与物理层
+================================================================================
+
+Chunk 2:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_25
+Source: tfidf
+--------------------------------------------------------------------------------
+A great and famous read about the fundamentals of the scientiﬁc process.
+Mop-up work, anomaly, crisis, and revolution.
+We are mostly destined to do mop-up work, alas. xii CONTENTS CONTENTS xiii xvi CONTENTS CONTENTS xvii List of Figures
+xxiv LIST OF FIGURES LIST OF FIGURES xxv
+xxvi LIST OF FIGURES
+LIST OF FIGURES xxvii List of Tables xxx LIST OF TABLES
+A Dialogue on the Book
+Professor: Welcome to this book!
+It’s called Operating Systems in Three Easy Pieces, and I am here to teach you the things you need to know about operating systems.
+I am called “Professor”; who are you?
+Student: Hi Professor!
+I am called “Student”, as you might have guessed.
+And I am here and ready to learn!
+Professor: Sounds good. Any questions? Student: Sure!
+Why is it called “Three Easy Pieces”?
+Professor: That’s an easy one.
+================================================================================
+
+Chunk 3:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_430
+Source: tfidf
+--------------------------------------------------------------------------------
+Thus far we have treated our simple free list as a conceptual entity; it is just a list describing the free chunks of memory in the heap.
+But how do we build such a list inside the free space itself?
+In a more typical list, when allocating a new node, you would just call malloc() when you need space for the node.
+Unfortunately, within the memory-allocation library, you can’t do this!
+Instead, you need to build the list inside the free space itself.
+Don’t worry if this sounds a little weird; it is, but not so weird that you can’t do it!
+Assume we have a 4096-byte chunk of memory to manage (i.e., the heap is 4KB).
+To manage this as a free list, we ﬁrst have to initialize said list; initially, the list should have one entry, of size 4096 (minus the header size).
+Here is the description of a node of the list:
+typedef struct __node_t { int size;
+struct __node_t *next; } node_t;
+================================================================================
+
+Chunk 4:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_441
+Source: tfidf
+--------------------------------------------------------------------------------
+Thus, how the allocator manages the free list’s order becomes an issue.
+One approach is to use address-based or- dering; by keeping the list ordered by the address of the free space, coa- lescing becomes easier, and fragmentation tends to be reduced. Next Fit
+Instead of always beginning the ﬁrst-ﬁt search at the beginning of the list, the next ﬁt algorithm keeps an extra pointer to the location within the list where one was looking last.
+The idea is to spread the searches for free space throughout the list more uniformly, thus avoiding splintering of the beginning of the list.
+The performance of such an approach is quite similar to ﬁrst ﬁt, as an exhaustive search is once again avoided. Examples
+Here are a few examples of the above strategies.
+================================================================================
+
+Chunk 5:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_663
+Source: tfidf
+--------------------------------------------------------------------------------
+To improve FIFO’s performance, VMS introduced two second- chance lists where pages are placed before getting evicted from memory, speciﬁcally a global clean-page free list and dirty-page list.
+When a process P exceeds its RSS, a page is removed from its per-process FIFO; if clean (not modiﬁed), it is placed on the end of the clean-page list; if dirty (mod- iﬁed), it is placed on the end of the dirty-page list.
+If another process Q needs a free page, it takes the ﬁrst free page off of the global clean list.
+However, if the original process P faults on that page before it is reclaimed, P reclaims it from the free (or dirty) list, thus avoiding a costly disk access.
+The bigger these global second-chance lists are, the closer the segmented FIFO algorithm performs to LRU [RL81]. Page Clustering
+Another optimization used in VMS also helps overcome the small page size in VMS.
+================================================================================
+
+Chunk 6:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_823
+Source: tfidf
+--------------------------------------------------------------------------------
+The answer, in this case, is yes.
+Speciﬁcally, we can rearrange the code a bit so that the lock and release only surround the actual critical section in the insert code, and that a common exit path is used in the lookup code.
+The former works because part of the lookup actually need not be locked; assuming that malloc() itself is thread-safe, each thread can call into it without worry of race conditions or other concurrency bugs.
+Only when updating the shared list does a lock need to be held.
+See Figure29.7for the details of these modiﬁcations.
+1 // basic node structure
+2 typedef struct __node_t { 3 int key;
+4 struct __node_t *next; 5 } node_t; 6
+7 // basic list structure (one used per list)
+8 typedef struct __list_t { 9 node_t *head;
+10 pthread_mutex_t lock; 11 } list_t; 12
+13 void List_Init(list_t *L) { 14 L->head = NULL;
+15 pthread_mutex_init(&L->lock, NULL); 16 } 17
+================================================================================
+
+Chunk 7:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_825
+Source: tfidf
+--------------------------------------------------------------------------------
+As for the lookup routine, it is a simple code transformation to jump out of the main search loop to a single return path.
+Doing so again re- duces the number of lock acquire/release points in the code, and thus decreases the chances of accidentally introducing bugs (such as forget- ting to unlock before returning) into the code.
+Scaling Linked Lists
+Though we again have a basic concurrent linked list, once again we are in a situation where it does not scale particularly well.
+One technique that researchers have explored to enable more concurrency within a list is
+1 void List_Init(list_t *L) { 2 L->head = NULL;
+3 pthread_mutex_init(&L->lock, NULL); 4 } 5
+6 void List_Insert(list_t *L, int key) {
+7 // synchronization not needed
+8 node_t *new = malloc(sizeof(node_t));
+9 if (new == NULL) {
+10 perror("malloc"); 11 return;
+13 new->key = key; 14
+15 // just lock critical section
+================================================================================
+
+Chunk 8:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_116
+Source: tfidf
+--------------------------------------------------------------------------------
+4.2.1 计算一列数之和
+代码清单4-1 循环求和函数
+总和=(1+(3+(5+(7+9))))
+总和=(1+(3+(5+16))
+总和=(1+(3+21))
+总和=(1+24)
+总和=25
+之和。
+可以用函数的形式来表述这个定义。
+list_sum(num_list)=first(num_list)+list_sum(rest(num_list) 4
+first(num_list)返回列表中的第一个元素，rest(num_list)则返回其余元素。
+用Python可以轻松 地实现这个等式，如代码清单4-2所示。
+代码清单4-2 递归求和函数
+在这一段代码中，有两个重要的思想值得探讨。
+首先，第2行检查列表是否只包含一个元素。
+这个检查非常重要，同时也是该函数的退出语句。
+对于长度为1的列表，其元素之和就是列表 中的数。
+其次，list_sum 函数在第5行调用了自己!
+这就是我们将list_sum 称为递归函数的 原因——递归函数会调用自己。
+图4-1展示了在求解[1,3,5,7, 9]之和时的一系列递归调用。
+我们需要将这一系列调 用看作一系列简化操作。
+每一次递归调用都是在解决一个更小的问题，如此进行下去，直到问题 本身不能再简化为止。
+1 1 0 第 4 章 递 归
+图4-1 求和过程中的递归调用
+图4-2 求和过程中的一系列返回操作
+================================================================================
+
+Chunk 9:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_15
+Source: tfidf
+--------------------------------------------------------------------------------
+2. 内建集合数据类型
+除了数值类和布尔类，Python 还有众多强大的内建集合类。
+列表、字符串以及元组是概念上 非常相似的有序集合，但是只有理解它们的差别，才能正确运用。
+集(set) 和字典是无序集合。
+列表是零个或多个指向 Python数据对象的引用的有序集合，通过在方括号内以逗号分隔的 一系列值来表达。
+空列表就是[]。
+列表是异构的，这意味着其指向的数据对象不需要都是同一个 类，并且这一集合可以赋值给一个变量。
+下面的代码段展示了列表含有多个不同的 Python 数据 对 象 。
+>>>[1,3,True,6.5]
+[1,3,True,6.5]
+>>>my_list =[1,3,True,6.5]
+>>>my_list
+[1,3,True,6.5]
+注意，当 Python 计算一个列表时，这个列表自己会被返回。
+然而，为了记住该列表以便后 续处理，其引用需要被赋给一个变量。
+由于列表是有序的，因此它支持一系列可应用于任意Python 序列的运算，如表1-2所示。
+表1-2可应用于任意Python序列的运算
+需要注意的是，列表和序列的下标从0开始。
+my_list[1:3] 会返回一个包含下标从1到2 的元素列表(并没有包含下标为3的元素)。
+如果需要快速初始化列表，可以通过重复运算来实现，如下所示。
+>>>my_list =[0]*6
+>>>my_list
+[0,0,0,0,0,0]
+非常重要的一点是，重复运算返回的结果是序列中指向数据对象的引用的重复。
+下面的例子 可以很好地说明这一点。
+>>>my_list =[1,2,3,4]
+>>>big_list =[my_list]*3
+>>>big_list
+[[1,2,3,4],[1,2,3,4],[1,2,3,4]]
+>>>my_list[2]=45
+>>>big_list
+[[1,2,45,4],[1,2,45,4],[1,2,45,4]]
+变量big_list 包含3个指向my_list 的引用。
+my_list 中的一个元素发生改变，big_list 中的3处都随即改变。
+================================================================================
+
+Chunk 10:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_16
+Source: tfidf
+--------------------------------------------------------------------------------
+my_list 中的一个元素发生改变，big_list 中的3处都随即改变。
+列表支持一些用于构建数据结构的方法，如表1-3所示。
+后面的例子展示了用法。
+表1-3 Python列表提供的方法
+续
+>>>my_list =[1024,3,True,6.5]
+>>>my_list
+[1024,3,True,6.5]
+>>>my_list.append(False)
+>>>my_list
+[1024,3,True,6.5,False]
+>>>my_list.insert(2,4.5)
+>>>my_list
+[1024,3,4.5,True,6.5,False]
+>>>my_list.pop()
+False
+>>>my_list
+[1024,3,4.5,True,6.5]
+>>>my_list.pop(1)
+3
+>>>my_list
+[1024,4.5,True,6.5]
+>>>my_list.pop(2)
+True
+>>>my_list
+[1024,4.5,6.5]
+>>>my_list.sort()
+>>>my_list
+[4.5,6.5,1024]
+>>>my_list.reverse()
+>>>my_list
+[1024,6.5,4.5]
+>>>my_list.count(6.5)
+1
+>>>my_list.index(4.5)
+2
+>>>my_list.remove(6.5)
+>>>my_list
+[1024,4.5]
+>>>del my_list[01
+>>>my_list
+[4.5]
+你会发现，像pop 这样的方法在返回值的同时也会修改列表的内容， reverse 等方法则仅 修改列表而不返回任何值。
+pop 默认返回并删除列表的最后一个元素，但是也可以用来返回并删 除特定的元素。
+这些方法默认下标从0开始。
+你也会注意到那个熟悉的句点符号，它被用来调用
+某个对象的方法。
+my_list.append(False) 可以读作“请求my_list 调用其append 方法并
+将 False 这一值传给它”。
+就连整数这类简单的数据对象都能通过这种方式调用方法。
+================================================================================
+
+Chunk 11:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_166
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+5.5 关键术语
+步长 冲突
+二分搜索 归并
+聚集
+链接法
+平方探测 散列表
+完美散列函数 线性探测
+载荷因子
+5.6 练习
+槽
+冲突处理 分割点
+归并排序
+开放定址法 冒泡排序
+三数取中法 散列函数
+稳定算法 选择排序 再散列
+插入排序 短冒泡
+划分
+基准值
+快速排序
+平方取中法 散列
+顺序搜索 希尔排序 映射
+折叠法
+1. 利用本章给出的公式，计算散列表处于以下情况时的平均比较次数：
+口占用率为10%;
+口占用率为25%;
+口占用率为50%;
+口占用率为75%;
+口占用率为90%;
+口占用率为99%。
+你认为在哪种情况下散列表过小?
+请给出理由。
+================================================================================
+
+Chunk 12:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_177
+Source: dense
+--------------------------------------------------------------------------------
+6.4.1 列表之列表
+用“列表之列表”表示树时，先从Python 的列表数据结构开始，编写前面定义的函数。
+尽管 将对列表的操作实现为接口与已经实现的其他抽象数据类型有些不同，但其实很有意思，这会给 我们提供一个简单的递归数据类型，供我们直接查看和检查。
+在“列表之列表”的树中，我们将 根节点的值作为列表的第一个元素；第二个元素是代表左子树的列表；第三个元素是代表右子树 的列表。
+要理解这个存储技巧，来看一个例子。
+图6-6展示了一棵简单的树及其对应的列表实现。
+1 7 6 第 6 章 树 及 其 算 法
+代码清单6-2 插入左子树
+1 def get_root_val(root):
+2 return root[0] 3
+4 def set_root_val(root,new_value):
+5 root[0]=new_value 6
+7 def get_left_child(root):
+8 return root[1] 9
+10 def get_right_child(root):
+================================================================================
+
+Chunk 13:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_187
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+6.6 利用二叉堆实现优先级队列
+前面介绍过队列这一先进先出的数据结构。
+队列有一个重要的变体，叫作优先级队列。
+和队 列一样，优先级队列从头部移除元素，不过元素的逻辑顺序是由优先级决定的。
+优先级最高的元 素在队列最前面，优先级最低的元素在队列最后面。
+因此，当一个元素入队时，它可能直接被移 到优先级队列的头部。
+你在第7章中会看到，对于一些图算法来说，优先级队列是一个有用的数 据结构。
+你或许可以想到一些使用排序函数和列表实现优先级队列的简单方法。
+但是，就时间复杂度 而言，列表的插入操作是O(n), 排序操作是O(nlogn)。
+其实，我们可以找到更优解。
+实现优先 级队列的经典方法是使用叫作二叉堆的数据结构。
+二叉堆的入队操作和出队操作均可达到 O(logn)。
+二叉堆学起来很有意思，它画出来很像一棵树，但其内部实现只用了一个列表。
+二叉堆有两 个常见的变体：最小堆(最小键值的元素一直在队首)与最大堆(最大键值的元素一直在队首)。
+本节将实现最小堆，并将最大堆的实现留作练习。
+================================================================================
+
+Chunk 14:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_263
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+8.4 复习字典：跳表
+举个例子，图8-4展示了一个包含键-值对的映射。
+其中，键是整数，值是由两个字母组成 的单词。
+从逻辑角度看，对与对之间不存在顺序。
+不过，如果给定一个键(如93),就可以得到 它所关联的值(be)。
+8
+键
+93
+26-
+54-
+93
+at
+it
+be
+31
+17-
+77
+or
+by
+of
+值
+be
+图8-4 映射示例
+8.4.1 映射抽象数据类型
+映射这 一抽象数据类型由下面的结构和操作定义。
+如前所述，映射是键 一值对的集合，可以 通过键访问关联的值。
+映射支持以下操作。
+□Map() 创建一个空的映射。
+它不需要参数，并会返回一个空的映射集合。
+□ get(key)在映射中搜索给定的键，并返回它对应的值。
+注意，映射抽象数据类型还支持其他一些操作，我们会在练习中探讨。
+================================================================================
+
+Chunk 15:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_264
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+8.4.2 用 Python 实现字典
+我们已经了解了多种实现映射的有趣方法。
+在第5章中，我们探讨了如何用散列表实现映射。
+给定一组键和一个散列函数，可以将键放到集合中，并搜索和取出关联的值。
+我们分析过，这种 搜索操作的时间复杂度是O(1)。
+不过，性能会因为表的大小、冲突、冲突解决策略等因素而降低。
+第6章探讨了用二叉搜索树实现映射。
+当把键存储在树中时，搜索操作的时间复杂度是O(logn)。
+不过，这只有在树平衡时才成立，即树的左右子树要差不多大。
+不幸的是，根据插入顺序，键可 能左倾或右倾，搜索性能随之下降。
+本节要解决的问题就是给出一种实现方法，既能高效搜索，又能避免上述缺点。
+一种解决方 案是使用跳表。
+图8-5给出了图8-4中的键-值对集合可能对应的一个跳表(后面会说明为什么说 “可能”)。
+如你所见，跳表其实就是二维链表，链接的方向向前(也就是向右)或向下。
+表头在 图中的左上角，它是跳表结构唯一的入口。
+深入学习跳表之前，有必要理解一些术语的含义。
+图8-6展示了跳表的主要结构，跳表由 一些数据节点构成，每个节点存有一个键及其关联的值。
+此外，每个节点还有两个向外的引用。
+图8-7展示了单个数据节点的详情。
+图8-5 跳表示例
+图8-6 跳表的主体由数据节点构成
+图8-7 单个数据节点
+图8-8展示了两种纵列。
+最左边的一列由头节点的链表组成。
+每个头节点都有两个引用，分 别是 down 和 next 。
+down 引用指向下一层的头节点，next 引用指向数据节点的链表。
+图8-9 展示了头节点的详情。
+图8-8 头节点和塔
+图8-9 每个头节点都有两个引用
+图8-10突出展示了水平方向上的节点集合。
+仔细观察后会发现，每一层实际上都是由数据节 点组成的有序链表，其顺序由键决定。
+每个链表都有自己的名字，通常用其层数指代。
+层数从0 开始，底层就是第0层，包括整个节点集合。
+每个键一值对都必须出现在第0层的链表中。
+不过， 层数越高，节点数就越少。
+跳表的这个重要特征有助于提高搜索效率。
+可以看到，每一层的节点 数和塔的高度息息相关。
+层数
+0
+图8-10 水平方向上的每一组数据节点构成一层
+8 . 4 复 习 字 典 ： 跳 表 2 7 9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+class DataNode:
+def_init (self,key,value):
+================================================================================
+
+Chunk 16:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_266
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+如果匹配，就说明搜索成功，可以 返回它的值(第7~8行)。
+代 码 清 单 8 - 1 5 s e a r c h 方 法
+因为每一层是一个有序链表，所以不匹配的键提供了很有用的信息。
+如果要找的键小于数据 节点中的键(第9行),就说明这一层不会有包含目标键的数据节点，因为往右的所有节点只会 更大。
+这时，就需要下降一层(第10行)。
+如果已经降至底层(None), 说明跳表中没有要找的 键，于是跳出循环并且返回 None。
+另外，只要当前层的节点有比目标键更小的键，就往下一个 节点移动(第12行)。
+进入下一层后，重复上述过程，检查是否有下一个节点。
+每降一层，跳表就可以提供更多的 数据节点。
+如果目标键在跳表中，不会到了第0层还不出现，因为第0层是完整的有序链表。
+我 们希望通过跳表尽早地找到目标键。
+在已有跳表的情况下， search 方法实现起来相对简单。
+本节的任务是理解如何构建跳表， 以及为何以相同的顺序插入同一组键会得到不同的跳表。
+图8-12 搜索键65
+使用和前一节一样的搜索策略，我们发现65比31大。
+第3层没有更多的节点，因此降至 第2层。
+在这一层，我们发现77比65大。
+继续降至第1层，下一个节点是54,它小于65。
+继 续向右，遇到77,再往下转，遇到None。
+图8-13 为65构建数据节点和塔
+利用随机数生成器可以方便地模拟抛硬币。
+我们可以使用random 模块中的randrange 函 数。
+如果它返回1,我们就认为得到硬币的正面。
+代 码 清 单 8 - 1 6 i n s e r t 方 法
+def insert(self,key,value):
+if self._head is None:
+self._head =HeaderNode()
+temp =DataNode(key,value)
+self._head.next =temp
+top =temp
+while randrange(2)==1:
+newhead=HeaderNode()
+temp =DataNode(key,value)
+temp.down =top
+================================================================================
+
+Chunk 17:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_267
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+temp.down =top
+newhead.next =temp
+newhead.down =self._head
+self._head =newhead
+top =temp
+else:
+tower =Stack()
+current =self._head
+while current:
+if current.next is None:
+tower.push(current)
+current =current.down
+else: if current.next.key>key:
+tower.push(current)
+current =current.down else:
+current =current.next
+lowest_level =tower.pop()
+temp =DataNode(key,value)
+temp.next =lowest_level.next lowest_level.next =temp
+top =temp
+while randrange(2)==1:
+if tower.is_empty():
+newhead =HeaderNode()
+temp =DataNode(key,value) temp.down =top
+newhead.next =temp
+newhead.down =self._head self._head =newhead
+top =temp
+else:
+next_level =tower.pop()
+temp =DataNode(key,value)
+45 temp.down =top
+46 temp.next =next_level.next
+47 next level.next =temp
+48 top =temp
+4.分析跳表
+如果只用一个有序链表来存储键-值对，那么搜索方法的时间复杂度将是O(n) 。
+跳表是否会 有更好的性能呢?
+你应该记得，跳表是基于概率的数据结构，这意味着其性能基于某些事件的概 率——本例中的事件就是抛硬币。
+虽然详细的分析超出了本书的范围，但我们可以给出一个不太 正式的有力论证。
+================================================================================
+
+Chunk 18:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_268
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+虽然详细的分析超出了本书的范围，但我们可以给出一个不太 正式的有力论证。
+出“正面”的概率是,我们可以说有 个键的高度是2。
+再抛一次硬币，有 个键的高度是3,
+对应连续抛出两次正面的概率。
+同理，有 个键的高度是4,依次类推。
+这意味着塔的最大高度 是log₂n+1。
+使用大O 记法，可以说跳表的高度是O(logn)。
+给定一个键，在查找时要扫描两个方向。
+第一个方向是向下。
+前面的结果表明，在最坏情况 下，找到目标键要查找O(logn)层。
+第二个方向是沿着每一层向前扫描。
+每当遇到以下两种情况 之一时，就下降一层：要么数据节点的键比目标键大，要么抵达这一层的终点。
+对于下一个节点，
+发生上述两种情况之一的概率是 这意味着查看2个链接后，就会下降一层(抛两次硬币后 得到正面)。
+无论哪种情况，在任一层需要查看的节点数都是常数。
+因此，搜索操作的时间复杂 度是O(logn) 。
+因为插入操作的大部分时间花在查找插入位置上，所以插入操作的时间复杂度也 是O(logn)。
+================================================================================
+
+Chunk 19:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_284
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+8.7 小结
+口映射(字典)是关联形式的内存结构。
+口跳表是可以提供O(logn)搜索的链表。
+口简单的模式匹配效率很低。
+□ DFA图易于使用，但不易构建。
+口 KMP图既易于使用，也易于构建。
+8.8 关键术语
+1. 跳表名字的意义是什么?
+2. 比较跳表与完全平衡的二叉搜索树。
+你能画图描述这两个概念吗?
+3. 如果跳表中所有塔的高度都为1,意味着什么?
+4. 给定20个键，塔的高度是否可能达到20?
+================================================================================
+
+Chunk 20:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_287
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+14. 为跳表实现 delete 方法。
+可以假设键存在。
+15. 为跳表实现方法，让映射支持下列操作。
+□ contai ns 返回一个布尔值，用于说明键是否存在于映射中。
+□ keys()返回映射中键的列表。
+□ values()返回映射中值的列表。
+16. 为跳表实现 getitem 方法和 setitem 方法。
+17. 修改 octree 类，使用更高效的数据结构记录叶子节点，以改善reduce 方法的性能。
+================================================================================
+
+Chunk 21:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_29
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+使用列表解析式，只需一行代码即可创建完成。
+>>>sq_list=[x*x for x in range(1,11)]
+>>>sq_list
+[1,4,9,16,25,36,49,64,81,100]
+构建的列表中。
+>>>sq_list=[x*x for x in range(1,11)if x%2 !
+=0]
+>>>sq_list
+[1,9,25,49,81]
+这一列表解析式构建的列表只包含1到10中奇数的平方数。
+任意支持迭代的序列都可用于
+列表解析式。
+>>>[ch.upper()for ch in"comprehension"if ch not in"aeiou"]
+['C','M','P','R','H','N','S','N']
+================================================================================
+
+Chunk 22:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_321
+Source: tfidf
+--------------------------------------------------------------------------------
+不过，由于冒泡排序要遍历列表中未排序的部分，因此它具有其他排序算 法没有的用途。
+如果在一轮遍历中没有发生元素交换，就可以确定列表已经有序。
+可以修改冒泡 排序函数，使其在遇到这种情况时提前终止。
+对于只需要遍历几次的列表，冒泡排序可能有优势， 因为它能判断出有序列表并终止排序过程。
+代码清单5-10实现了如上所述的修改，这种排序通 常被称作短冒泡。
+代码清单5-10短冒泡排序函数
+1 def bubble_sort_short(a_list):
+2 fori in range(len(a_list)-1,0,-1):
+3 exchanges =False
+4 for j in range(i):
+5 if a_list[j]>a_list[j+1]:
+6 exchanges =True
+7 a_list[j],a_list[j+1]=(
+8 a_list[j+1], 9 a_list[j],
+10 )
+11 if not exchanges:
+12 break 1 def bubble_sort_short(a_list):
+2 fori in range(len(a_list)-1,0,-1):
+3 exchanges =False
+4 for j in range(i):
+5 if a_list[j]>a_list[j+1]:
+6 exchanges =True
+7 a_list[j],a_list[j+1]=(
+8 a_list[j+1], 9 a_list[j],
+10 )
+11 if not exchanges:
+12 break
+1 def selection_sort(lst):
+2 for i,item in enumerate(lst):
+3 min_idx=len(lst)-1
+4 for j in range(i,len(lst)):
+5 if lst[j]<lst[min_idx]:
+6 min_idx=j
+7 if min_idx !
+=i:
+8 lst[min_idx],lst[i]=lst[i],1st[nin_idx]
+================================================================================
+
+Chunk 23:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_323
+Source: tfidf
+--------------------------------------------------------------------------------
+13
+14 for i in range(start+gap,len(a_list),gap): cur_val=a_list[i]
+15 cur_pos =i
+16 while(
+17 cur_pos >=gap
+18 and a_list[cur_pos-gap] cur val
+19 ):
+20 a_list[cur_pos]:a_list【cur_pos -gapl
+21 cur pos .cur pos gap
+22 a_list[cur_posl:cur val
+54 26 93 17 77 31 44 55 20
+54 26 93 17 77 31 44 55 20
+54 26 93 17 77 31 44 55 20
+54 26 93 17 77 31 44 55 20
+1 def merge_sort(a_list):
+2 print("Splitting",a_list)
+3 if len(a list)>1:
+4 mid =len(a_list)//2
+5 left_half =a_list[:mid]
+6 right_half =a_list[mid:]
+7 merge_sort(left_half)
+8 merge_sort(right_half)
+9 i,j,k=0,0,0
+10 whilei<len(left_half)and j<len(right_half):
+11 if left_half[i]<=right._half[j]:
+12 a_list[k]=left_half[i]
+13 i=i+1
+14 else:
+15 a_list[k]=right_half[j]
+16 j=j+1
+17 k =k +1
+18 while i<len(left_half):
+19 a_list[k]=left_half[i]
+20 i=i+1
+21 k =k+1
+22 while j<len(right half):
+23 a list[k]=right half[j]
+24 j=j+1
+25 k =k+1
+================================================================================
+
+Chunk 24:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_324
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+25 k =k+1
+26 print("Merging",a_list)
+54
+31 26 20 17 44
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41 while not done:
+while(
+left_nark<=right_mark
+and a_list[left_mark]<=pivot_val
+):
+left_mark =left_mark +1 while(
+left_mark <=right_mark
+and a_list[right_mark]>=pivot_val ):
+right mark =right mark -1 if right_mark<left_mark:
+done =True else:
+a_list[left_mark],a_list[right_mark]=(
+a list[right mark], a_list[left_mark], )
+a_list[first],a_list[right_mark]=( a_list[right_mark]
+a_list[first] )
+return right_mark
+<ul>
+<li>List item one</li>
+<li>List item two</li>
+</ul>
+<h2>
+<h2>
+</body>
+</html>
+(b) 对应的列表实现
+图6-6 树的“列表之列表”表示法
+注意，可以通过标准的列表索引操作访问子树。
+树的根节点是 my_tree[0], 左子树是 my_tree[1], 右子树是my_tree[2]。
+下面的Python会话展示了如何使用列表创建树。
+一旦创 建完成，就可以访问它的根节点、左子树和右子树。
+“列表之列表”表示法有个很好的性质，那 就是表示子树的列表结构符合树的定义，这样的结构是递归的!
+由一个根节点和两个空列表构成 的子树是一个叶子节点。
+还有一个很好的性质，那就是这种表示法可以推广到有很多子树的情况。
+================================================================================
+
+Chunk 25:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_350
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+1 class SkipList:
+2 def init (self):
+3 self._head =None
+1 def search(self,key): search(self,key):
+2 current =self._head
+3 while current:
+4 if current.next is None:
+5 current =current.down
+6 else:
+7 if current.next.key ==key:
+8 return current.next.data
+9 if key<current.next.key:
+10 current =current.down
+11 else:
+12 current =current.next
+13 return None
+如前所述，对于非空跳表(第15行),我们需要搜索插入位置。
+由于没法知道塔中会有多少 个数据节点，因此需要在搜索的过程中为每一层都保存插入点。
+因为这些插入点会按逆序处理， 所以栈可以很好地帮助我们按照与插人节点相反的顺序遍历链表。
+图8-13中的星星标出了栈中 的插入点，它们只表示在搜索过程中降至下一层的地方。
+从第33行开始，我们通过抛硬币决定塔的层数。
+从插人栈弹出下一个插入点。
+只有当栈为 空之后，才需要返回并新建头节点。
+更多的细节留给读者自行研究。
+关于跳表的结构，还有一点需要注意。
+之前提过，即使以相同的顺序插入同一组键，也可能 得到不同的跳表。
+你现在应该已经知道原因了。
+根据抛硬币的随机本质，任意键的塔高在每次构 建跳表时都会改变。
+3.构建映射
+方法。
+代码清单8-17用跳表实现Map类
+1 class Map:
+2 def init (self):
+3 self.collection =SkipList()
+4
+5 def put(self,key,value):
+6 self.collection.insert(key,value
+7
+8 def get(self,key):
+9 return self.collection.search(key)
+================================================================================
+
+Chunk 26:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_236
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+6.2 队列
+队 列是另一种基本的数据结构，它与栈互为“表亲”关系，队列是由一系列对象组成的 集合，这些对象的插入和删除遵循先进先出(First in First out,FIFO)的原则。
+也就是说， 元素可以在任何时刻进行插入，但是只有处在队列最前面的元素才能被删除。
+图6-4 现实世界中一个先进先出的队列实例
+6.2.1 队列的抽象数据类型
+通常来说，队列的抽象数据类型定义了一个包含一系列对象的集合，其中元素的访问和 删除被限制在队列的第一个元素，而且元素的插入被限制在序列的尾部。
+这个限制根据先进 先出原则执行元素的插入和删除操作。
+对于队列Q 而言，队列的抽象数据类型 (ADT) 支 持 如下两个基本方法：
+·Q.dequeue(): 从队列Q 中移除并返回第一个元素，如果队列为空，则触发一个错误。
+队列的抽象数据类型(ADT) 还包括如下方法(第一个类似于堆栈的pop 方法):
+·Q.first(): 在不移除的前提下返回队列的第一个元素；如果队列为空，则触发一个错误。
+·Q.is_empty(): 如果队列Q 没有包含任何元素则返回布尔值 “True”。
+● len(Q): 返回队列Q 中元素的数量；在Python 中，我们通过 len 这个特殊的方 法实现。
+例题6-4: 下表列出了一系列队列的操作和在最初为空的整数类型队列中实施这些操作 后的效果。
+================================================================================
+
+Chunk 27:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_284
+Source: dense_bm25
+--------------------------------------------------------------------------------
+7.6.1 使用有序表
+管理收藏夹的第一种方法是在链表中存储元素，按访问次数的降序顺序来存储这些元 素。
+在访问或者移除一个元素时，通过从最经常访问的到最少经常访问的元素的方式查询列 表的方法进行元素定位。
+返回前k 个访问最频繁的元素很容易，因为只要返回列表中的前k 个元素记录即可。
+使用组合模式
+我们希望利用PositionalList 类作为存储辅助实现一个收藏夹列表。
+如果位置列表的元素 是收藏夹的简单元素，我们将面临的挑战是当列表的内容被重新排序时，维护访问次数以及 保持列表中相关联元素的适当数量。
+我们使用一个通用的面向对象的设计模式——组合模式。
+在这个模式中，我们定义了一个由两个或两个以上其他对象组成的单一对象。
+具体地说，我 们定义了一个名为_Item 的非公有嵌套类，用于存储元素并以其访问次数作为一个实例。
+然 后，将收藏夹作为item 实例以PositionalList 来维护，这样用户元素的访问次数就都可以被嵌 入我们的表示方法中(_Item 从来不会暴露给FavoritesList 的用户，见代码段7-18和7-19)。
+代码段7-18 FavoritesList类(后续代码段7-19)
+1 class FavoritesList:
+2 """List of elements ordered from most frequently accessed to least.""" 3
+4 #--------------------nested Item class--
+5 class _Item:
+6 _slots ='_value','_count' #streamline memory usage
+7 def_init (self,e):
+8 self._value =e #the user's element
+9 self._count=0 #access count initially zero 10
+11 #--------------------nonpublic utilitie ---------------------
+================================================================================
+
+Chunk 28:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_287
+Source: dense
+--------------------------------------------------------------------------------
+Move-to-Front启发式的权衡
+当要求寻找收藏夹列表中前k 个访问最多的元素时，如果不再保存列表中通过访问次数 排序的元素，就需要搜索所有元素。
+实现top(k) 方法的步骤如下：
+1)将所有收藏夹列表中的元素复制到另一个列表，并将该列表命名为temp。
+2)扫描 temp 列表k 次，每次扫描时，找出访问量最大的元素记录， 从temp 中移除这条记录，并且在结果中给出报告。
+实现 top 方法的时间复杂度是O(kn), 因此，当k 是一个常数时，top 方法的运行时间复 杂度为0(n) 。
+例如，想得到 “top ten” 列表，就是这种情况。
+但是，如果k 和 n 是成比例 的，那么 top运行时间复制度为O(n²),例如，我们需要一个“top 25%”列表时。
+在第9章中，我们将介绍一种以O(n+klogn) 的时间复杂度实现top 方法的数据结构 (见练习P-9.54), 并且可以使用更多先进的技术在O(n+klogn) 时间复杂度内来实现top 方法。
+如果在报告前k 个元素之前，使用一个标准的排序算法来对临时列表重新排序(见12 章),很容易地实现O(nlogn) 的时间复杂度。
+这种方法在k 是Ω(logn) 的情况下优于原始方 法(回想3.3.1节中介绍的大Ω概念，它给出了一个更接近运行时间下限的排序算法)。
+还 有更多专门的排序算法(见12.4.2节),这些算法可以借助访问次数是整数实现对任何一个k 值 ，top 方法的时间复杂度为0(n)。
+用 Python 实现 More-to-Front 启发式
+在代码段7-20中，我们给出了一个采用Move-to-Front 启发式实现的收藏夹列表。
+其中 的新FavoritesListMTF 类继承了原始FavoritesList 基类的绝大部分功能。
+FavoritesListMTF 类中更复杂的部分是top 方法的新定义。
+我们借助上文所概述的第一 种方法，将条目的副本插入临时列表中，然后重复地查找、报告，移除在剩余元素中访问量 最大的元素。
+================================================================================
+
+Chunk 29:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_356
+Source: dense
+--------------------------------------------------------------------------------
+9.2 优先级队列的实现
+在本节中，我们将展示如何通过给一个位置列表L 中的条目排序来实现一个优先级队列 (见7.4节)。
+根据在列表L中保存条目时是否按键排序，我们提供了两种实现。
+9.2.1 组合设计模式
+即使在数据结构中已经重新定义了元组，我们仍需要同时追踪元素和它的键值，这是实 现优先级队列的挑战之一。
+这一点让我们想起在7.6节的案例讨论中，我们为每个元素维护 一个访问计数器的做法。
+在那种设定下，我们介绍了组合设计模式，定义了一个_Item 类 ， 用它来确保在主要的数据结构中每个元组保存它相关计数值。
+对于优先级队列，我们将使用组合设计模式来存储内部元组，该元组包含键k 和值v构 成的数值对。
+为了在所有优先级队列中实现这种概念，我们给出了一个PriorityQueueBase 类(见代码段9-1),其中包含一个嵌套类_Item 的定义。
+对于元组实例a 和 b, 我们基于关 键字定义了语法a<b。
+代码段9-1 PriorityQueueBase 类包含一个嵌套类_ltem, 它将键和值组成单独的对象。
+为了方便，
+我们给出了is_empty的具体实现，它是在一个假定的 len_ _的实现的基础上实现的
+1 class PriorityQueueBase:
+2 """Abstract base class for a priority queue.""" 3
+4 class _Item:
+5 """Lightweight composite to store priority queue items."""
+6 _slots ='_key','_value'
+7
+8 def init (self, k,v):
+9 self.key =k
+10 self._value=v 11
+12 def It (self,other):
+13 return self..key<other.key #compare items based on their keys 14
+15 def is_empty(self): #concrete method assuming abstract len
+16 """Return True if the priority queue is empty."""
+17 return len(self)==0
+================================================================================
+
+Chunk 30:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_357
+Source: dense
+--------------------------------------------------------------------------------
+9.2.2 使用未排序列表实现优先级队列
+在第一个具体的优先级队列实现中，我们使用一个未排序列表存储各个条目。
+代码段9-2中 给出了UnsortedPriorityQueue 类，它继承自代码段9-1中的PriorityQueueBase 类。
+对于内 部存储，键一值对是使用继承类_Item 的实例进行组合表示的。
+这些元组是用PositionalList 存储的，它们被视为类中的_data 成员。
+在7.4节中，我们假设位置列表用一个双向链表实 现，因此所有ADT 操作执行的时间复杂度为0(1)。
+在构建一个新的优先级队列时，我们从一个空的列表开始。
+无论何时，列表的大小都 等于存储在优先级队列中键-值对的数量。
+由于这个原因，优先级队列 len 方法能够简 单地返回内部_data 列表的长度。
+通过设计我们的PriorityQueueBase 类，可以继承is_empty 方法的具体实现，这种方法依赖于调用我们的 len 方法。
+当min 或者remove_min 方法被调用时，我们必须定位键值最小的元组，这是另一个 挑战。
+由于元组没有被排序，我们必须检查所有元组才能找到键值最小的元组。
+为了方便， 我们定义了一个非公有的方法_find_min, 它用于返回键值最小的元组的位置。
+获得了位 置信息，就允许remove_min 方法可以在位置列表上调用delete 方法。
+当准备返回一个键一 值对元组时，min 方法可以简单地使用位置来检索列表元组。
+由于是用循环查找最小键值 的，因此min 和 remove_min 方法的时间复杂度均为O(n), 其 中n 为优先级队列中元组的 数量。
+对于UnsortedPriorityQueue 类的时间复杂度的总结见表9-1。
+表9-1 长度为n 的优先级队列中各方法最坏情况下的运行时间。
+以未排序的双
+代码段9-2 使用未排序列表实现的优先级队列。
+父类PriorityQueueBase由代码 段9-1给出，PositionalList类来源于7.4节
+================================================================================
+
+Chunk 31:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_358
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+9.2.3 使用排序列表实现优先级队列
+优先级队列的另一个替代实现是使用位置列表，列表中的元组以键值非递减的顺序进行 排序。
+这样可以保证列表的第一个元组是拥有最小键值的元组。
+代码段9-3给出了SortedPriorityQueue 类。
+方法min 和 remove_min 的实现相当直接地
+给出了列表的第一个元素拥有最小键值的信息。
+我们根据位置列表的first 方法来找到第一 个元组的位置，并使用delete方法来删除列表中的元组。
+假设列表是使用一个双向链表实现 的，那么min 和 remove_min 操作的时间复杂度为0(1)。
+然而，这个好处是以add 方法花费更多的时间成本为代价的，我们需要扫描列表来找到 合适的位置，以插入新的元组。
+实现从列表的结尾开始反方向查找，直到新的键值比当前元 组的键值小为止；在最坏情况下，这个操作会一直扫描到列表的最前端。
+因此，add 方法在 最坏情况下的时间复杂度是O(n),n 是执行该方法时优先级队列元组的数量。
+总之，当使用 一个已排序列表来实现优先级队列时，插入操作的运行时间是线性的，而查找和移除最小键 值的元组的操作则能在常数时间内完成。
+比较两种基于列表的实现
+表9-2详细地比较了分别通过已排序列表和未排序列表实现的优先级队列的各方法的运 行时间。
+当使用列表来实现优先级队列ADT 时，我们看到一个有趣的权衡。
+一个未排序的
+列表会支持快速插入操作，但是查询和删除操作就会比较慢；相反，一个已排序列表实现的
+优先级队列支持快速查询和删除操作，但是插入操作就比较慢。
+表9-2 大小为n 的优先级队列的各方法在最坏情况下的运行时间。
+假设列表是
+由双向链表实现的，其空间使用量为O(n)
+代码段9-3 使用排序列表实现的优先级队列。
+父类PriorityQueueBase 在代码段9-1 中给出，PositionaList类在7.4节给出
+I class SortedPriorityQueue(PriorityQueueBase):#base class defines Item
+================================================================================
+
+Chunk 32:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_369
+Source: dense
+--------------------------------------------------------------------------------
+9.3.5 基于堆的优先级队列的分析
+表9-3显示了基于堆实现的优先级队列ADT 各方法的运行时间，其中，假设两个键的 比较能够在时间复杂度O(1) 内完成，而且堆T 是基于数组表示的树或基于链表表示的树实 现的。
+简言之，每个优先级队列ADT 方法能够在时间复杂度O(1) 或 O(log n)内完成，其中n 是执行方法时堆中元组的数量。
+这些方法的运行时间的分析是基于以下结论得出的：
+● 堆T 有 n 个节点，每个节点存储一个键-值对的引用。
+● 由于堆T 是完全二叉树，所有堆T 的高度是O(log n)(命题9-1)。
+●由于树的根部包含最小元组，因此min 操作运行的时间复杂度是O(1)。
+● 如add 和 remove_min 操作中所需要的，定位堆的最后一个位置的操作，在基于数组 表示的堆上完成需要的时间复杂度为O(1), 在基于链表树表示的堆上需要以O(logn) 的时间复杂度完成(见练习C-9.34)。
+●堆向上冒泡和堆向下冒泡执行交换的次数在最坏情况下等于T 的高度。
+表9-3 利用堆实现的优先级队列P 的性能。
+n 表示执行一个操作时优先级队列中元组的数量，空间
+需求量为O(n)。
+操作min和remove_min的运行时间在基于数组表示的实现中是摊销的结果，
+我们可以得出这样的结论：无论堆使用链表结构还是数组结构实现，堆数据结构都是优 先级队列ADT 非常有效的实现方式。
+与基于未排序或已排序列表的实现不同，基于堆的实 现在插入和移除操作中均能快速地获得运行结果。
+================================================================================
+
+Chunk 33:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_379
+Source: dense
+--------------------------------------------------------------------------------
+9.5.1 定位器
+对于一个优先级队列P, 当 执 行update 或 者remove 方法时，我们需要用户提供一个合适的 定位器作为参数，详情如下：
+● P.update(loc,k,v): 用定位器loc 代替键和值作为元组的标识。
+● P.remove(loc):从优先级队列中删除以loc 标识的特定元组，并返回它的(key,value) 对 。
+定位抽象类似于我们从7 .4节开始使用的位置列表ADT 中使用的位置抽象和第8章介
+绍的树的ADT 中使用的位置抽象。
+但是，定位器和位置不同，因为优先级队列的定位器并 不代表结构中一个元素的具体位置。
+在优先级队列中， 一些看似与元素没有直接关系的操 作， 一旦执行，该元素可能在数据结构中被重新定位。
+只要一个元组项一直在队列中的某个 地方，这个元组的定位器将一直有效。
+================================================================================
+
+Chunk 34:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_380
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+9.5.2 适应性优先级队列的实现
+图9-10 用一个定位器序列表示堆。
+数组中每个元组的索引对应每个定位器实例中的第三个元素。
+假 定标识符token 是用户域中的一个定位器的引用(reference)
+该列表是一个指向定位器实例的序列，每个定位器都存储一个key,value 和列表内元 组的当前索引。
+用户会获得每个插入的元素的定位器实例的引用，如图9-10中的token 标 识所示。
+在堆上执行优先级队列操作时，元组在结构中被重新定位，我们重新设置列表中各定位 器实例的位置，并更新每个定位器的第三个字段以反映该定位器在列表中的新索引。
+图9-11 展示了上述的堆在调用remove_min() 方法后状态的 一个例子。
+堆操作使得最小元组(4,C) 被删除，并使元组(16,X) 暂时从最后一个位置移到根位置，这之后是向下冒泡的处理阶 段。
+在下堆阶段，元素(16,X) 与它在列表索引为1的位置的左孩子(5,A) 做了交换，
+然后又与它在列表的索引值为4的右孩子元组(9,F) 交换。
+在最后的配置中，所有受影响 的元组的定位器实例都已经被修改了，以反映它们的新位置。
+强调定位器实例没有改变元组标识非常重要。
+如图9- 10和图9- 11所示，用户 token 的 指针将继续指向相同的实例。
+我们只是简单地改变了实例的第三个域，并改变了列表序列中 引用该实例的索引的位置。
+Python 实现
+代码段9-8和代码段9-9展示了可适应性优先级队列的Python 实现，它是9.3.4节 HeapPriorityQueue类的子类。
+我们在原始类上做的修改非常小。
+我们定义了一个公有的 Locator 类，该类继承非公有的_Item 类并通过额外的_index 域增强它。
+之所以将它定义为 公有类，是因为我们要同时用locators 作为返回值和参数，但是，用户定位器类的公有接口 不包括任何其他功能。
+================================================================================
+
+Chunk 35:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_413
+Source: dense
+--------------------------------------------------------------------------------
+10.3.1 排序检索表
+一些数据结构能有效地支持排序映射ADT, 我们将在10.4节和第11章中讨论一些先进 的技术。
+在本节中，首先，我们从探索一个简单有序映射的实现开始。
+我们将映射的元组存 储在一个基于数组的序列A中，以键的升序排列，假定键是天然定义的顺序(见图10-8)。
+我们将这个映射实现为排序检索表(sorted search table)。
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+图10-8 一个通过排序检索表实现的映射。
+图中我们仅展示了映射的键，以凸显它们的顺序
+对于10.1.5节中以未排序表实现映射的例子，若根据映射中的元组数量按比例增减数 组的大小，其空间的需求量是O(n) 。
+我们坚持A基于数组存储元组以及这种表示的最主要 优势是，它支持用二分查找算法来做各种有效的操作。
+二分查找和不精确查找
+我们在4.1.3节中介绍了二分查找算法，能检测一个给定的目标是否存储在已排序的序 列中。
+在原来的介绍中(代码段4-3),binary search函数返回True 或 False 来检测指定目 标是否被发现。
+由于这样的方法可以用来实现映射ADT 的 contains 方法，我们可以 在实现以各种形式的不精确查找支持有序映射ADT 时，应用二分查找算法以提供更多有用 信息。
+当实施二分查找时， 一个重要的实现是我们可以决定要查找的目标或是临近目标的项 目的索引。
+在查找成功时，一个标准实现会决定所找到目标的精确索引。
+在一次失败的查找 中，即使目标没有被发现，算法也会有确定一组索引有效地指定集合中的元素是小于还是大 于未找到的目标。
+作为引入的例子，我们原来在图4-5中的模拟，展示了一个成功查找目标22的二分查 找，在图10-8中又用相同的数据进行描述。
+如果我们要查找21,算法的前四个步骤和原来 是相同的，后继的差异是我们将调用倒置参数，即high =9,low =10,这将有效得出未找 到的目标值位于值19和22之间。
+实现
+================================================================================
+
+Chunk 36:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_423
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+10.4 跳跃表
+一种实现排序映射ADT 的有趣的数据结构是跳跃表。
+在10.3.1节中，一个排序数组允 许通过二分搜索以O(log n)时间做查询。
+不幸的是，由于需要调整元素位置，排序数组更新 操作的最坏情况下的运行时间需要O(n) 。
+在第7章，我们讲过只要列表中的位置是明确的， 用链表可以非常有效地支持更新操作。
+不幸的是，我们不能在一个标准链表中执行快速查 找。
+举例来说，二分查找算法需要一个有效的手段来通过索引直接访问一个元素的序列。
+● 列表S₀ 包含映射M 中的每一项(包含- ∞和+∞)。
+● 对于i=1,…,h-1, 列表S 包含一个列表S-1 随机生成的元组的子集(还有-∞和+∞)。
+● 列表Sh仅包含- ∞和+∞。
+一个跳跃表如图10-10所示。
+这是一个常用的可视化表示，在列表S 中，列表S₀ 在 最 底部，在So 之上有列表S₁,…,Sh 。
+并且，我们称h 为列表S 的高度。
+图10-10 存储有10个元组的跳跃表。
+为简单起见，我们仅展示每个元组的键而不包含其相关的值
+直观地，列表Si+1建立时包含更多或更少的S 中的备选元组。
+当我们在观察插入方法的 细节时会发现，Si+1中的元组是从S 中随机挑选出来的，从S; 挑选到S₁+1中的概率也为1/2, 大体上，S;中的每一项都是通过“抛硬币”的方式挑选出来的，如果正面朝上则将该项置于 Si+1中。
+因此，我们希望S₁ 含有n/2 个元组，S₂ 有 n/4 个元组，一般地说就是S 含有 n/2 个 元组。
+换言之，我们希望S 的高度为log n。
+从一个列表到下一个列表，对含有的元组数做折 半处理并不是强制地作为跳跃表的一个明确的特性。
+取而代之的是采用随机化的方法。
+生成数字的功能可以视为大多数现代计算机内置的随机数字，因为它们被广泛使用在电 脑游戏、密码学和计算机仿真中。
+一些叫作伪随机数生成器的功能，从一颗初始种子开始生 成类似随机的数(参考1.11节中有关随机模块的讨论)。
+其他方法使用硬件设备来从自然中 提取“真”随机数。
+================================================================================
+
+Chunk 37:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_425
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+10.4.1 跳跃表中的查找和更新操作
+跳跃表结构提供简单的映射查找和更新算法。
+事实上，所有的跳跃表查找和更新算法都 依赖于一个简洁的SkipSearch方法，其需要一个键k 并发现S 列表中具有小于等于键k( 可 能为-∞)的最大键的元组p 的位置。
+在跳跃表中查找
+假设给出一个搜索键k 。
+我们开始 SkipSearch 方法，在跳跃表S中最顶层靠左的位置设 立一个位置变量p, 并称为S 的开始位置。
+这就是说，开始位置是在Sh中存储键为-∞的特 殊条目。
+然后我们执行以下步骤(如图10-11所示),key(p) 表示在位置p 处的元组的键：
+1 ) 如 果S.below(p) 为空，那么查找结束——我们在底部并且已经定位到了小于等于键 k的最大值对应的元组在S中的位置。
+否则，我们通过设置p=S.below(p) 从当前垂直塔位 置下降到下一个水平层。
+2)从位置p 开始，我们将p 向前移动直到它在当前水平层的最右边的位置，这样key (p)≤k 。
+我们把这称为正向扫描步骤。
+注意，由于每个水平层都包含键+∞和-∞,因此 这一位置总是存在的。
+我们在这一水平层上执行扫描操作后p 可能仍然在它开始的位置。
+3)返回到第1步。
+图10-11 一个在跳跃表中搜索的例子。
+重点标记了查找键50时所检测的位置
+我们在代码段10-12中给出了一个跳跃表查询算法SkipSearch的伪代码描述。
+鉴于这 种方法，映射操作M[k]的执行是通过处理p=SkipSearch(k) 和判断是否有key(p)=k 来进 行的。
+如果这两个键是相同的，我们将返回k 对应的值，否则返回KeyError。
+代码段10-12在跳跃表S中查找键k的算法
+事实证明，在含有n 个条目的跳跃表中执行算法 SkipSearch 时期望的运行时间是 O(log n)。
+我们把这个结论的验证推迟到讨论跳跃表更新的实现方法之后。
+可以简单地从 SkipSearch(k) 确认的位置开始导航，以便在有序映射ADT中提供其他的搜索形式(如 find_gt 、find_range)。
+跳跃表中的插入操作
+================================================================================
+
+Chunk 38:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_427
+Source: tfidf
+--------------------------------------------------------------------------------
+Input: Key k and value v
+Output: Topmost position of the item inserted in the skip list
+p=SkipSearch(k)
+q= None {q will represent top node in new item's tower}
+i=-1
+repeat
+i=i+1
+if i≥h then
+h=h+1 {add a new level to the skip list}
+t=next(s)
+s=insertAfterAbove(None,s,(-∞, None)) {grow leftmost tower}
+insertAfterAbove(s,t,(+x, None)) {grow rightmost tower} while above(p)is None do
+p=prev(p) {scan backward}
+p=above(p) {jump up to higher level}
+q=insertAfterAbove(p,q,(k,v)) {increase height of new item's tower} until coinFlip()==tails
+n=n+1
+return q
+图10- 12 在图10- 10的跳跃表中插入一个键为42的条目。
+我们假设为新条目随机“抛硬币”出现了 三次正面，紧随其后的是反面。
+突出显示了访问过的位置。
+用粗线画出了插入的用于存 储新条目的位置，并且它们之前的位置已经被标记了
+在跳跃表中移除
+跳跃表中的移除算法和搜索、插入算法是类似的。
+事实上，甚至比插入算法更简单。
+为 了执行映射操作 del M[k],我们首先执行方法SkipSearch(k) 。
+如果位置p 存储的条目与键k 不同，则返回KeyError 。
+否则，我们将移除p 和p 之上所有的位置，因为用above 方法来访 问 S 中从位置p 开始的垂直塔更容易访问到这个条目。
+当移除塔中的各层时，我们将重新建 立每一个移除位置与水平邻居之间的链接。
+================================================================================
+
+Chunk 39:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_428
+Source: dense
+--------------------------------------------------------------------------------
+当移除塔中的各层时，我们将重新建 立每一个移除位置与水平邻居之间的链接。
+删除算法在图10-13中阐述并将它的一个细节性 的描述留作练习R-10.24 。
+正如我们在下一个部分中展示的，含有n 个条目的跳跃表中删除 操 作 的 运 行 时 间 为O(log n)。
+然而，在给出这个分析之前，我们想讨论一下对于跳跃表数据结构的一些小的改进。
+首 先，我们实际上不需要存储在跳跃表底层之上的层中各值的引用，因为这些层中需要键的引 用。
+事实上，我们可以更有效地视垂直塔为一个单独的对象，其能够存储键值对，如果垂直 塔到达了S 层，则维护j 的 previous 引用和j 的 next 引用。
+其次，对于水平轴能够保持只存 储 next 引 用 的 单 向 链 表 。
+我 们 可 以 通 过 自 顶 向 下 、 正 向 扫 描 的 更 新 来 执 行 插 入 和 删 除 操 作 。
+我们将在练习C-10.44 中探讨这种优化的细节。
+这两种优化都不能提升跳跃表的超过一个常 数因子的性能，但是这些进步在实践中是有意义的。
+事实上，实验结果表明，在实际中优化 跳跃表比AVL树和其他的平衡搜索树都快，这将在第11章中讨论。
+图10-13 从图10-12中的跳跃表中删除键为25的条目。
+S₀ 中在搜索访问过的位
+维护最高水平层
+一种可能的方法是限制最高层h 保持在某一个固定值，这是一个n 的函数，代表当前 map的条目数。
+(从分析中我们看到h=max{10,2「log n7}是一个合理选择，并且挑选h=3 「long n]更安全。
+)实现这个函数选择意味着我们必须修改插入算法，这样就可以在一旦到达 最高层时停止一个新位置的插入(除非「log n)<「log(n-1)7,在这种情况下，由于高度的 边界在增长，我们至少可以再多达到 一 个水平层)。
+另一种可能的方法是，只要头部不断地从随机数生成器获得返回值，就让插入操作持续 插入新的位置。
+代码段10-13中的SkipInsert 算法就是采用的这种方法。
+================================================================================
+
+Chunk 40:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_583
+Source: dense
+--------------------------------------------------------------------------------
+14.2.1 边列表结构
+边列表结构作为图G 的表示方式可能是最简单的，但是却不是最有效的。
+所有顶点存 储在一个无序的列表V中，并且所有边对象存储在一个无序的列表E 中。
+我们在图14-4中
+举例说明图G 的边列表结构。
+● 顶点对象。
+存储元素x 的 顶 点v 的 顶 点 对象有以下实例变量：
+● 对 元 素x 的 引 用 ， 为 了 支 持element() 方法。
+● 对列表V 中顶点实例位置的引用，如果
+v 从图中移除了，由此允许v 有效地从 V 中移除。
+● 边对象。
+存储元素x 的 边e 的边对象有 以下实例变量：
+● 对 元 素x 的 引 用 ， 为 了 支 持element() 方法。
+● 和e 的端点相关联的顶点对象的引用， 从 而 允 许 边 实 例 为 方 法endpoints()和
+opposite(v) 提供固定时间支持。
+● 列表E 中边实例的位置的引用，如果e 在 图中被移除了，由此允许e 更高效地从E 中移除。
+边列表结构的性能
+在 实 现Graph ADT过程中边列表结构的 性能总结在表14-2中。
+我们首先讨论空间的使 用，表示一个有n 个顶点和m 条边的图的使用
+就运行时间而言，边列表结构在报告顶点和边的数目，或者在产生那些顶点或者边的 循环中，并不如人们希望的一样好。
+通过查询相应的列表V或者E, 顶点和边的计算方法的 运行时间是O(1), 并且在正确的列表中循环，该方法对顶点和边的运行时间分别是O(n) 和 O(m)。
+边列表结构最显著的局限性，尤其是和其他图形表示方法相比较而言，是get_edge(u, v)、degree(v)和incident_edges(v)方法的运行时间O(m)。
+问题是，图的所有边在无序列表E 中，能响应那些查询的唯一方法是通过对所有边进行详尽的排查。
+在本节中介绍的其他数据 结构将会更有效地实现这些方法。
+讨论为什么remove_vertex(v)方法的运行时间是O(m) 是值得的。
+================================================================================
+
+Chunk 41:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_682
+Source: dense_bm25/tfidf
+--------------------------------------------------------------------------------
+[81]T.Papadakis,J.I.Munro,and P.V.Poblete,“Average search and update costs in skip lists,"BIT,vol.32,pp.316-332,1992.
+[83]D.Phillips,Python 3:Object Oriented Programming.Packt Publishing,2010.
+[84]P.V.Poblete,J.I.Munro,and T.Papadakis,"The binomial transform and its appli- cation to the analysis of skip lists,"in Proceedings of the European Symposium on Algorithms (ESA),pp.554-569,1995.
+[85]R.C.Prim,"Shortest connection networks and some generalizations,"Bell Syst. Tech.J.,vol.36,pp.1389-1401,1957.
+[86]W.Pugh,“Skip lists:a probabilistic alternative to balanced trees,”Commun.ACM, vol.33,no.6,pp.668-676,1990.
+[87]H.Samet,The Design and Analysis of Spatial Data Structures.Reading,MA: Addison-Wesley,1990.
+[88]R.Schaffer and R.Sedgewick,"The analysis of heapsort,"Journal of Algorithms, vol.15,no.1,pp.76-100,1993.
+================================================================================
+
+Chunk 42:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_709
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+S.top() 9 [7,9]
+S.push(4) 一 [7,9,4]
+len(S) 3 [7,9,4]
+S.pop() 4 [7,9]
+S.push(6) 一 [7,9,6]
+S.push(8) 一 [7,9,6,8]
+S.pop() 8 [7,9,6]
+表6-1通过改编一个Pyt hon列表L实现一个栈S
+栈方法 用Python列表实现
+S.push(e)
+S.pop(O
+S.top()
+S.is_empty(
+len(S) L.append(e)
+L.pop()
+L[-1]
+len(L)==0
+len(L)
+class Empty(Exception): """Error attempting to
+pass access an element from an empty container."""
+#contents:
+# contents:
+#contents:
+#contents:
+#contents:
+#contents:
+#contents: [5];
+[5]; []; [];
+[7]
+[7,9 [7.9];
+6 self. data=[] #nonpublic list instance
+7
+8 def __len__(self):
+9 """Return the number of elements in the stack."""
+10 return len(self.data)
+11
+12 def is_empty(self):
+13 """Return True if the stack is empty."""
+14 return len(self.data)== 0
+15
+16 def push(self,e):
+17 """Add element e to the top of the stack."""
+18 self._data.append(e) #new item stored at end of list
+19
+20 def top(self):
+================================================================================
+
+Chunk 43:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_737
+Source: dense
+--------------------------------------------------------------------------------
+(d)
+(e)
+(f) (4,8,2,5,3)
+(8,2,5,3)
+(2,5,3)
+(5,3)
+(3)
+() (7)
+(4,7)
+(4,7,8)
+(2,4,7,8)
+(2,4,5,7,8)
+(2,3,4,5,7,8)
+阶段2 (a)
+(b)
+(f) (2) (2,3)
+(2,3,4,5,7,8) (3,4,5,7,8)
+(4,5,7,8)
+0
+1 class AdaptableHeapPriorityQueue(HeapPriorityQueue):
+2 """A locator-based priority queue implemented with a binary heap."""
+3
+4 #------------------------nested Locator class-------------
+5 class Locator(HeapPriorityQueue.Item):
+6 """Token for locating an entry of the priority queue."""
+7 slots ='_index' #add index as additional field
+8
+9 def init (self, k,v,j):
+10 super().-_init (k,v)
+11 self._index=j
+12
+13 ---------------------nonpublic behaviors-
+14 #override swap to record new indices
+15 def _swap(self,i,j):
+16 super().-swap(ij) #perform the swap
+17 self._data[i.index=i #reset locator index(post-swap)
+18 self.dataij.-index =j #reset locator index(post-swap)
+19
+20 def bubble(self,j):
+================================================================================
+
+Chunk 44:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_289
+Source: bm25
+--------------------------------------------------------------------------------
+36 while (curr) {
+37 if (curr->key == key) {
+38 pthread_mutex_unlock(&L->lock);
+39 return 0; // success
+40 }
+41 curr = curr->next;
+42 }
+43 pthread_mutex_unlock(&L->lock);
+44 return -1; // failure
+45 }
+图 29.6 并发链表
+从代码中可以看出，代码插入函数入口处获取锁，结束时释放锁。
+如果 malloc 失败（在极少的时候），会有一点小问题，在这种情况下，代码在插入失败之前，必须释放锁。
+事实表明，这种异常控制流容易产生错误。
+最近一个 Linux 内核补丁的研究表明，有40%都是这种很少发生的代码路径（实际上，这个发现启发了我们自己的一些研究，我们从Linux 文件系统中移除了所有内存失败的路径，得到了更健壮的系统[S+11]）。
+因此，挑战来了：我们能够重写插入和查找函数，保持并发插入正确，但避免在失败情况下也需要调用释放锁吗？
+在这个例子中，答案是可以。
+具体来说，我们调整代码，让获取锁和释放锁只环绕插入代码的真正临界区。
+前面的方法有效是因为部分工作实际上不需要锁， 假定 malloc()是线程安全的，每个线程都可以调用它，不需要担心竞争条件和其他并发缺陷。
+只有在更新共享列表时需要持有锁。
+图 29.7 展示了这些修改的细节。
+对于查找函数，进行了简单的代码调整，跳出主查找循环，到单一的返回路径。
+这样做减少了代码中需要获取锁、释放锁的地方， 降低了代码中不小心引入缺陷（诸如在返回前忘记释放锁）的可能性。
+1 void List_Init(list_t *L) {
+2 L->head = NULL;
+3 pthread_mutex_init(&L->lock, NULL);
+4 }
+5
+6 void List_Insert(list_t *L, int key) {
+7 // synchronization not needed
+================================================================================
+
+Chunk 45:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_293
+Source: bm25
+--------------------------------------------------------------------------------
+29.4 并发散列表
+我们讨论最后一个应用广泛的并发数据结构，散列表（见图 29.9）。
+我们只关注不需要调整大小的简单散列表。
+支持调整大小还需要一些工作，留给读者作为练习。
+1 #define BUCKETS (101) 2
+3 typedef struct hash_t {
+4 list_t lists[BUCKETS];
+5 } hash_t;
+6
+7 void Hash_Init(hash_t *H) {
+8 int i;
+9 for (i = 0; i < BUCKETS; i++) {
+10 List_Init(&H->lists[i]);
+11 }
+12 } 13
+14 int Hash_Insert(hash_t *H, int key) {
+15 int bucket = key % BUCKETS;
+16 return List_Insert(&H->lists[bucket], key);
+17 } 18
+19 int Hash_Lookup(hash_t *H, int key) {
+20 int bucket = key % BUCKETS;
+21 return List_Lookup(&H->lists[bucket], key);
+22 }
+图 29.9 并发散列表
+本例的散列表使用我们之前实现的并发链表，性能特别好。
+每个散列桶（每个桶都是一个链表）都有一个锁，而不是整个散列表只有一个锁，从而支持许多并发操作。
+图 29.10 展示了并发更新下的散列表的性能（同样在 4 CPU 的 iMac ，4 个线程，每个线程分别执行 1 万～5 万次并发更新）。
+同时， 作为比较，我们也展示了单锁链表的性能。
+可以看出，这个简单的并发散列表扩展性极好，而链表则相反。
+图 29.10 扩展散列表
+================================================================================
+
+Chunk 46:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_102
+Source: dense
+--------------------------------------------------------------------------------
+3.1.3 列表
+与向量一样，列表也是由具有线性逻辑次序的一组元素构成的集合：
+L ={ag,a1,…,an-1}
+列表是链表结构的一般化推广，其中的元素称作节点(node), 分别由特定的位置或链接 指代。
+与向量一样，在元素之间，也可定义前驱、直接前驱，以及后继、直接后继等关系：相对 于任意元素，也有定义对应的前缀、后缀等子集。
+§3.2 接 口
+如上所述，作为列表的基本组成单位，列表节点除需保存对应的数据项，还应记录其前驱和 后继的位置，故需将这些信息及相关操作组成列表节点对象，然后参与列表的构建。
+本节将给出列表节点类与列表类的接口模板类描述，稍后逐一讲解各接口的具体实现。
+================================================================================
+
+Chunk 47:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_104
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+3.2.2 列 表
+■ ADT接 口
+作为一种抽象数据类型，列表对象应支持以下操作接口。
+裹3.2列表ADT支持的操作接口
+①请注意，这里所“定义”的ListNodePosi(T)并非真正意义上“列表节点位置”类型。
+巧合的是，就在本书第1版即将付印之际，C++,0x标准终于被ISO接纳。
+新标准所拓展的特性之一，就是对模板别名(template alias)等语法形式的支持。
+因此可以期望在不久的将来， C++编译器将能够支持如下更为直接和简明的描述和实现：
+template <typename T>typedef ListNode<T>*ListNodePosi;
+请留意用以指示插入和删除操作位置的节点p。
+这里约定，它或者在此前经查找已经确定， 或者从此前的其它操作返回或沿用。
+这些也是列表类结构的典型操作方式。
+■ List 模 板 类
+按 照 表 3 . 2 定 义 的 A D T 接 口 ， 可 定 义 L i s t 模 板 类 如 下 。
+1 #include "listNode,h" //引入列表节点类
+2
+3 template <typename T>class List{ //列表模板类
+4
+5 private:
+6 int _size;ListNodePosi(T)header;ListNodePosi(T)trailer; // 规模、头哨兵、尾哨兵
+7
+8 protected:
+9 void init(); //列表创建时的初始化
+10 int clear(); //清除所有节点
+11 oid copyNodes(ListNodePosi(T),int ); // 复制列表中自位置p起的n项
+12 void merge(ListNodePosi(T)&, int, List<T>8,ListNodePosi(T),int );//归并
+13 void mergeSort(ListNodePosi(T)&, int );//对从p开始连续的n个节点归并排序
+================================================================================
+
+Chunk 48:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_105
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+13 void mergeSort(ListNodePosi(T)&, int );//对从p开始连续的n个节点归并排序
+14 void selectionSort(ListNodePosi(T), int ); //对从p开始连续的n个节点选择排序
+15 void insertionSort(ListNodePosi(T),int ); //对从p开始连续的n个节点插入排序
+16
+17 public:
+18 //构造函数
+19 List(){init();} //默认
+28 List(List<T> const& L); //整体复制列表L
+21 List(List<T> const& L,Rank r,int n); //复制列表L中自第r项起的n项
+22 List(ListNode Po si(T)p, int n );//复制列表中自位置p起的n项
+23 //析构函数
+24 ~List(); //释放(包含头、尾哨兵在内的)所有节点
+25 //只读访问接口
+26 Rank size()const(return _size;} //规模
+27 bol empty()const{return _size<=8;} //判空
+28 T&operator[](Rank r)const; // 重载，支持循秩访问(效率低)
+29 ListNodePosi(T)first()const {return header->succ;} //首节点位置
+38 ListNodePosi(T)last()const{return trailer->pred;} //末节点位置
+31 bol valid(ListNodePosi(T)p)//判断位置p是否对外合法
+32 {return p &&(trailer I=p)&(header I=p);}// 将头、尾节点等同于NULL
+33 int disordered()const;// 判断列表是否已排序
+34 ListNodePosi(T)find(T const&e)const //无序列表查找
+================================================================================
+
+Chunk 49:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_108
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+3.3.1 头、尾节点
+List对象的内部组成及逻辑结构如图3.1所示，其中私有的头节点 (header) 和尾节点 (trailer) 始终存在，但对外并不可见。
+对外部可见的数据节点如果存在，则其中的第一个和 最后一个节点分别称作首节点(first node)和末节点(l ast node)。
+图3. 1首(末)节点是头(尾)节点的直接后继(前驱)
+就内部结构而言，头节点紧邻于首节点之前，尾节点紧邻于末节点之后。
+这类经封装之后从 外部不可见的节点，称作哨兵节点(sentinel node)。
+由代码3.2中List::valid() 关于合法 节点位置的判别准则可见，此处的两个哨兵节点从外部被等效地视作NULL。
+设置哨兵节点之后，对于从外部可见的任 一 节点而言，其前驱和后继在列表内部都必然存在， 故可简化算法的描述与实现。
+比如，在代码3.2中为实现first() 和last() 操作，只需直接返回 header->succ 或trailer->pred 。
+此外更重要地，哨兵节点的引入，也使得相关算法不必再对 各种边界退化情况做专门的处理，从而避免出错的可能，我们稍后将对此有更实际的体会。
+尽管哨兵节点也需占用 一 定的空间，但只不过是常数规模，其成本远远低于由此带来的便利。
+================================================================================
+
+Chunk 50:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_116
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+根据3.3.3节的分析结论，需要花费o(r+1) 的时间才能将r 转换为起始节点的 位置，故该复制接口的总体复杂度应为0(r+n+1), 线性正比于被复制节点的最高秩。
+由此 也可再次看出，在诸如列表之类采用动态存储策略的结构中，循秩访问远非有效的方式。
+1 template <typename T> // 复制列表中自位置p起的n项 (assert:p 为合法位置，且至少有n-1 个后继节点)
+2 List<T>::List(ListNodePosi(T)p, int n)(copyNodes(p,n);} 3
+4 template <typename T> / / 整体复制列表L
+5 List<T>::List(List<T>const&L){copyNodes(L.first(),L._size);} 6
+7 template <typename T> //复制L中自第r 项起的n项 (assert;r+n<=L._size)
+8 List<T>::List(List<T>const&L.int r.int n){copyNodes(LFr1.n):
+代码3.10 基于复制的列表构造方法
+================================================================================
+
+Chunk 51:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_129
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+代码3.22有序列表的二路归并
+作为有序列表的内部接口，List::merge() 可以将另一有序列表L中起始于节点q、长度为m 的子列表，与当前有序列表中起始于节点p 、长度为n的子列表做二路归并。
+为便于递归地实现上层的归并排序，在二路归并的这一版本中，归并所得的有序列表依然起 始于节点p。
+在更为通用的场合，不见得需要采用这一约定。
+■ 归并时间
+代码3.22中二路归并算法merge() 的时间成本主要消耗于其中的迭代。
+该迭代反复地比较两 个子列表的首节点p和q, 并视其大小相应地令p指向其后继，或将节点q取出并作为p的前驱插入 前一子列表。
+当且仅当后一子列表中所有节点均处理完毕时，迭代才会终止。
+因此，在最好情况 下，共需迭代m次：而在最坏情况下，则需迭代n次。
+总体而言，共需o(n +m)时间，线性正比于两个子列表的长度之和。
+■ 特 例
+在List 模板类(70页代码3.2)中，作为以上二路归并通用接口的一个特例，还重载并开放 了另一个接口List::merge(L), 用以将有序列表L完整地归并到当前有序列表中。
+请注意，以上二路归并算法的通用接口，对列表L没有过多的限定，因此同样作为一个特例， 该算法也适用于L同为当前列表的情形。
+此时，待归并的列表实际上是来自同一列表的两个子列 表(当然，此时的两个子列表不得相互重叠。
+也就是说，在两个首节点中， p 应是q的前驱，且二 者的间距不得小于n)。
+对以下归并排序算法的简捷实现而言，这一特性至关重要。
+■ 分治策略
+仿照向量的归并排序算法mergesort()(62 页代码2.28),采用分治策略并基于以上有序
+列表的二路归并算法，可如代码3.23所示，递归地描述和实现列表的归并排序算法。
+1 template <typename T> //列表的归并排序算法：对起始于位置p的n个元素排序
+2 void List<T>::mergeSort(ListNodePosi(T)&p,int n){ //valid(p)8&rank(p)+n<=size
+================================================================================
+
+Chunk 52:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_156
+Source: dense
+--------------------------------------------------------------------------------
+4.5.1 概述
+■ 入队与出队
+与栈一样，队列 (queue) 也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑 次序排列。
+队列结构同样支持对象的插入和删除，但两种操作的范围分别被限制于队列的两端 ——若约定新对象只能从某一端插入其中，则只能从另一端删除已有的元素。
+允许取出元素的一 端称作队头(front), 而允许插入元素的另一端称作队尾(rear)。
+以如图4. 11所示顺序盛放羽毛球的球桶为例。
+通常，我们总是从球托所指的一端将球取出， 而从另一端把球纳入桶中。
+因此如果将球托所指的一端理解为队头，另一端理解为队尾，则桶中 的羽毛球即构成一个队列，其中每只球都属于该队列的一个元素。
+图4.11 在球桶中顺序排列的一组羽毛球可视作一个队列
+图4.12队列操作
+一般地如图4. 12所示，元素的插入与删除也是修改队列结构的两种主要方式，站在被操作 对象的角度，分别称作入队(enqueue) 和 出 队 (dequeue) 操作。
+■ 先进先出
+由以上的约定和限制不难看出，与栈结构恰好相反，队列中各对象的操作次序遵循所谓先进 先 出 (first-in-first-out,FIFO) 的规律：更早(晚)出队的元素应为更早(晚)入队者， 反之，更早(晚)入队者应更早(晚)出队。
+================================================================================
+
+Chunk 53:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_351
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+9.2.2 总体逻辑结构
+跳转表的宏观逻辑结构如图9.2所示。
+其内部由沿横向分层、沿纵向相互耦合的多个列表{ Se, S1,S₂,…,Sn} 组 成 ，h称作跳转表的高度。
+S₄ S₃ S₂ S₁ Se
+图9.2 跳转表的总体逻辑结构
+每一水平列表称作一层 (level), 其 中Se 和Sn分别称作底层 (bottom) 和 顶 层 (top)。
+与通常的列表一样，同层节点之间可定义前驱与后继关系。
+为便于查找，同层节点都按关键码排 序。
+需再次强调的是，这里的次序只是内部的一种约定：对外部而言，各词条之间仍然只需支持 判等操作即可。
+为简化算法实现，每层列表都设有头、尾哨兵节点。
+高层列表总是低层列表的子集，其中特别地， Sg 包含词典中的所有词条，而Sn除头、尾哨兵 外不含任何实质的词条。
+不难看出，跳转表的层高h必然决定于最大的塔高。
+================================================================================
+
+Chunk 54:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_352
+Source: dense
+--------------------------------------------------------------------------------
+9.2.3 四联表
+按上述约定，跳转表内各节点沿水平和垂直方向都可定义前驱和后继，支持这种联接方式的
+表称作四联表 (quadlist), 它也是代码9 .2中Skiplist 模板类的底层实现方式。
+■ Quadlist 模 板 类
+四联表结构可如代码9 . 3所示，以模板类的形式定义接口。
+14 Rank size()const{return size;} //规模
+15 bool empty()const{return _size <=0;}//判空
+16 QlistNodePosi(T)first()const{return header->succ;} // 首节点位置
+17 QlistNodePosi(T)last()const{return trailer->pred;} // 末节点位置
+18 bool valid(QlistNodePosi(T)p) // 判断位置p是否对外合法
+19 {return p &(trailer I=p)&(header I=p);}
+20 //可写访问接口
+21 T remove(QlistNodePosi(T)p);//珊除(合法)位置p处的节点，返回被删除节点的数值
+22 QlistNodePosi(T) //将*e作为p的后继、b的上邻插入
+23 insertAfterAbove(T const&e,QlistNodePosi(T)p,QlistNodePosi(T)b=NULL );
+24 //遍历
+25 void traverse(void(*)(T&)); // 遍历各节点，依次实施指定操作(函数指针，只读或局部修改)
+26 template <typename VST> //操作器
+27 void traverse(VST&); // 遍历各节点，依次实施指定操作(函数对象，可全局性修改节点)
+28 ;//Quadlist
+代码9.3 Quadlist 模板类
+此处定义的接口包括：定位首节点、末节点，在全表或某 一 区间查找具有特定关键码的节点， 删除特定节点，以及插入特定节点。
+================================================================================
+
+Chunk 55:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_355
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+9.2.4 查 找
+查找是跳转表至关重要和最实质的操作，词条的插入和删除等其它操作均以之为基础，其实 现效率也将直接影响到跳转表结构的整体性能。
+■ get()
+在 跳 转 表 中 查 找 关 键 码 k 的 具 体 过 程 ， 如 代 码 9 . 6 所 示 。
+1 template <typename K, typename V>V*Skiplist<K,V>::get(Kk)( // 跳转表词条查找算法
+2 f(empty()) return NULL;
+3 ListNode<Quadlist<Entry<K,V>>*>*qlist =first(); //从顶层Quadlist的
+4 QuadlistNode<Entry<K,V>>*p■qlist->data->first(); // 首节点开始
+5 return skipSearch(qlist,p,k)?
+&(p->entry.value):NULL; // 查找并报告
+6 } / / 有 多 个 命 中 时 靠 后 者 优 先
+代码9.6 Skiplist::get() 查找
+■ skipSearch()
+由上可见，实质的查找过程，只不过是从某层列表qlist 的首节点first() 出发，调用如代
+2 *Skiplist 调条查找算法(供内部调用)
+3 *入口：qlist为顶层列表，p为qlist的首节点
+4 *出口：若成功，p为命中关键码所属塔的顶部节点，qlist为p所属列表
+5 · 否则，p为所属塔的基座，该塔对应于不大于k的最大且最靠右关键码，qlist为空
+252 6 *定：多个词条命中时，沿四联表取最靠后者
+8 template <typename K,typename V>bool Skiplist<K,V>::skipSearch(
+9 ListNode<Quadlist<Entry<K,V>>**&qlist, //从指定层qlist的
+10 QuadlistNode<Entry<K,V>>*8p, //首节点p出发
+================================================================================
+
+Chunk 56:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_366
+Source: dense
+--------------------------------------------------------------------------------
+9.3.1 完美散列
+■ 散列表
+散列表(hashtable) 是散列方法的底层基础，逻辑上由一系列可存放词条(或其引用)的 单元组成，故这些单元也称作桶 (bucket) 或桶单元；与之对应地，各桶单元也应按其逻辑次 序在物理上连续排列。
+因此，这种线性的底层结构用向量来实现再自然不过。
+为简化实现并进一 步提高效率，往往直接使用数组，此时的散列表亦称作桶数组 (bucket array)。
+若桶数组的 容量为R, 则其中合法秩的区间(0, R)也称作地址空间 (address space)。
+■ 散列函数
+一组词条在散列表内部的具体分布，取决于所谓的散列(hashing) 方案 — 事先在词条与
+桶地址之间约定的某种映射关系，可描述为从关键码空间到桶数组地址空间的函数：
+hash():key →hash(key)
+这里的hash() 称作散列函数(hash function)。
+反过来， hash(key) 也称作key 的散列地
+址 (hashing address), 亦即与关键码key 相对应的桶在散列表中的秩。
+■ 实例
+以学籍库为例。
+若某高校2011级共计4800 名学生的学号为2011-e000 至2011-3999,则可 直接使用一个长度为4000的散列表A[0~3999], 并取
+hash(key)=key -20110000
+从而将学号为x的学生学籍词条存放于桶单元A[hash(x)]。
+如此散列之后，根据任一合法学号，都可在b(1) 时间内确定其散列地址，并完成一次查找、 插入或删除。
+空间性能方面，每个桶恰好存放一个学生的学籍词条，既无空余亦无重复。
+这种在 时间和空间性能方面均达到最优的散列，也称作完美散列(perfect hashing)。
+实 际 上 ，Bitmap 结构(习题[2- 34])也可理解为完美散列的 一个实例。
+其中，为每个可能 出现的非负整数，各分配了一个比特位，作为判定它是否属于当前集合的依据；散列函数也再简 单不过 — 各比特位在内部向量中的秩，就是其所对应整数的数值。
+================================================================================
+
+Chunk 57:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_165
+Source: dense
+--------------------------------------------------------------------------------
+(a) 表达式(a*b-c) 的二叉树 (b) 遍历的递归执行过程 图5.113种遍历过程示意图
+根据前面3.4.4小节的内容，可利用栈将递归算法改写成非递归算法，如算法5.2所示。
+例如， 从中序遍历递归算法执行过程中递归工作栈的状态可见：
+(1)工作记录中包含两项，其一是递归调用的语句编号，其二是指向根结点的指针，则当栈 顶记录中的指针非空时，应遍历左子树，即指向左子树根的指针进栈；
+(2)若栈顶记录中的指针值为空，则应退至上一层，若是从左子树返回，则应访问当前层(即
+栈顶记录)中指针所指的根结点；
+(3)若是从右子树返回，则表明当前层的遍历结束，应继续退栈。
+从另一个角度看，这意味 着遍历右子树时不再需要保存当前层的根指针，直接修改栈顶记录中的指针即可。
+算法5.2 中序遍历的非递归算法
+【 算 法 步 骤 】
+①初始化一个空栈S, 指针p 指向根结点。
+②申请一个结点空间q, 用来存放栈顶弹出的元素。
+③ 当p 非空或者栈S 非空时，循环执行以下操作：
+● 如 果p 非空，则将p进栈，p 指向该结点的左孩子；
+● 如 果p 为空，则弹出栈顶元素并访间，将p 指向该结点的右孩子。
+【 算 法 描 述 】
+void InOrderTraverse(BiTree T)
+{//中序遍历二叉树T 的非递归算法
+InitStack(S);p=T;
+q=new BiTNode;
+while(pll!
+StackEmpty(S))
+{
+if(p)
+{
+Push(S,p);
+p=p->1child; }
+else
+{
+Pop(S,q);
+cout<<q->data; p=q->rchild;
+//p 非空
+//根指针进栈
+//根指针进栈，遍历左子树
+//p 为 空
+//退栈
+//访问根结点 //遍历右子树
+//while
+按上述算法，图5.11(a) 所示的二叉树的中序非递归遍历的栈S 的变化过程如图5.12所示。
+p→“*”
+P→“a” a
+* *
+P→“c” P→“NUL”
+b
+c c 出栈
+图5. 12 非递归中序遍历时栈S 的变化情况
+124 三
+【算法分析】
+================================================================================
+
+Chunk 58:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_211
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+1. 邻接表表示法
+邻接表(Adjacency List)是图的一种链式存储结构。
+在邻接表中，对图中每个顶点v;建立 一
+个单链表，把与v; 相邻接的顶点放在这个链表中。
+邻接表中每个单链表的第一个结点存放有关顶
+155
+点的信息，把这 一 结点看成链表的表头，其余结点存放有关边的信息，这样邻接表便由两部分组 成：表头结点表和边表。
+(1)表头结点表：由所有表头结点以顺序结构的形式存储，以便可以随机访问任一顶点的边 链表。
+表头结点包括数据域(data) 和链域(firstarc) 两部分，如图6.11(a) 所示。
+其中，数据 域用于存储顶点v₂ 的名称或其他有关信息；链域用于指向链表中第一个结点(即与顶点v;邻接的 第 一 个邻接点)。
+( 2 ) 边 表：由表示图中顶点间关系的2n 个边链表组成。
+边链表中边结点包括邻接点域 (adjvex) 、 数据域(info) 和链域(nextarc) 三部分，如图6.11(b) 所示。
+其中，邻接点域指示 与顶点 v;邻接的点在图中的位置；数据域存储和边相关的信息，如权值等；链域指示与顶点 v; 邻接的下一条边的结点。
+(a) 表头结点 (b) 边结点
+图6.11 表头结点和边结点
+例如，图6.12(a) 和 (b) 所示分别为图6.1中G₁ 和 G₂ 的邻接表。
+在无向图的邻接表中，顶点v₁的度恰为第i 个链表中的结点数；而在有向图中，第i 个链表中 的结点个数只是顶点v;的出度，为求入度，必须遍历整个邻接表。
+在所有链表中，其邻接点域的值 为i的结点的个数是顶点v;的入度。
+有时，为了便于确定顶点的入度，可以建立一个有向图的逆邻 接表，即对每个顶点v;建立一个链接所有进入v;的边的表，例如，图6.12(c) 所示为有向图G₁ 的 逆邻接表。
+(a)G₁ 的邻接表 (b)G₂ 的邻接表 (c)G₁ 的逆邻接表
+图6.12 邻接表和逆邻接表
+根据上述讨论，要定义 一 个邻接表，需要先定义其存放顶点的头结点和表示边的边结点。
+图 的邻接表存储结构说明如下：
+================================================================================
+
+Chunk 59:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_333
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+8.4.3 堆 排 序
+堆排序 (Heap Sort)是一种树形选择排序，在排序过程中，将待排序的记录r[1..n]看成是一 棵完全二叉树的顺序存储结构，利用完全二叉树中双亲结点和孩子结点之间的内在关系，在当前 无序的序列中选择关键字最大(或最小)的记录。
+首先给出堆的定义。
+n 个元素的序列{k₁,k₂,…,kn}称之为堆，当且仅当满足以下条件时：
+(1)k₁≥k₂ 且 k;≥k₂+1 或 ( 2 ) k;≤k₂; 且 k;≤kz¹+1(1≤i≤[n/2)
+若将和此序列对应的一维数组(即以一维数组做此序列的存储结构)看成是一个完全二叉树， 则堆实质上是满足如下性质的完全二叉树：树中所有非终端结点的值均不大于(或不小于)其左、 右孩子结点的值。
+例如，关键字序列{96,83,27,38,11,09}和{12,36,24,85,47,30,53,91}分别满足条件(1)和条件(2), 故它们均为堆，对应的完全二叉树分别如图8.9(a) 和 (b) 所示。
+显然，在这两种堆中，堆顶元 素(或完全二叉树的根)必为序列中n 个元素的最大值(或最小值),分别称之为大根堆和小根堆。
+(a) 堆顶元素取最大值 (b) 堆顶元素取最小值
+图8.9 堆的示例
+堆排序利用了大根堆(或小根堆)堆顶记录的关键字最大(或最小)这一特征，使得当前无 序的序列中选择关键字最大(或最小)的记录变得简单。
+下面讨论用大根堆进行排序，堆排序的 步骤如下。
+①按堆的定义将待排序序列r[1..n] 调整为大根堆(这个过程称为建初堆),交换r[1] 和r[n], 则r[n]为关键字最大的记录。
+② 将r[1..n-1]重新调整为堆，交换r[1]和r[n-1],则 r[n-1]为关键字次大的记录。
+③ 循 环n-1 次，直到交换了r[1] 和r[2] 为止，得到了一个非递减的有序序列r[1..n]。
+同样，可以通过构造小根堆得到一个非递增的有序序列。
+由此，实现堆排序需要解决如下两个问题。
+(1)建初堆：如何将一个无序序列建成一个堆?
+================================================================================
+
+Chunk 60:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_70
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3.1.2 队列的定义和特点
+和栈相反，队列(queue) 是一种先进先出 (First In First Out,FIFO)的线性表。
+它只允许在表 的一端进行插入，而在另一端删除元素。
+这和日常生活中的排队是一致的，最早进入队列的元素最早 离开。
+在队列中，允许插入的一端称为队尾(rear), 允许删除的一端则称为队头(front) 。
+假设队列 为 q=(a1,a₂, … ,an), 那 么 ,a₁ 就是队头元素，an 则是队尾元素。
+队列中的元素是按照a1,a₂,…,an 的顺
+序进入的，退出队列也只能按照这个次序依次退出， 也就是说，只有在a1,a₂,…,an-1 都离开队列之后，an 才能退出队列。
+图3.2所示为队列的示意图。
+队列在程序设计中也经常出现。
+一个最典型的 例子就是操作系统中的作业排队。
+在允许多道程序
+图3.2 队列的示意图
+运行的计算机系统中，同时有几个作业运行。
+如果运行的结果都需要通过通道输出，那就要按请求 输入的先后次序排队。
+每当通道传输完毕可以接受新的输出任务时，队头的作业先从队列中退出 做输出操作。
+凡是申请输出的作业都从队尾进入队列。
+================================================================================
+
+Chunk 61:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_93
+Source: dense
+--------------------------------------------------------------------------------
+3.5.2 循环队列——队列的顺序表示和实现
+队列也有两种存储表示，顺序表示和链式表示。
+和顺序栈相类似，在队列的顺序存储结构中，除了用一组地址连续的存储单元依次存放从队 列头到队列尾的元素之外，尚需附设两个整型变量front和rear分别指示队列头元素及队列尾元素 的位置(后面分别称为头指针和尾指针)。
+队列的顺序存储结构表示如下：
+/ / - - - - - 队 列 的 顺 序 存 储 结 构-----
+#define MAXQSIZE 100
+typedef struct {
+QElemType *base;
+int front;
+int rear; }SqQueue;
+//队列可能达到的最大长度
+//存储空间的基地址 //头指针
+//尾指针
+为了在C 语言中描述方便起见，在此约定：初始化创建空队列时，令front=rear=0, 每当插入 新的队列尾元素时，尾指针rear增1;每当删除队列头元素时，头指针front增1。
+因此，在非空队列 中，头指针始终指向队列头元素，而尾指针始终指向队列尾元素的下一个位置，如图3.12所示。
+Q.rear
+J₆
+Q.front
+(a) 空队列 (b)J₁、J₂ 和J₃相继入队 (c)J₁ 和 J₂相继出队 (d)J4 、Js 和 J₆ 相继入队之后，J₃ 和 J₄ 再相继出队
+图3. 12 顺序分配的队列中头、尾指针和元素之间的关系
+假设当前队列分配的最大空间为6,则当队列处于图3. 12(d) 所示的状态时不可再继续 插入新的队尾元素，否则会出现溢出现象，即因数组越界而导致程序的非法操作错误。
+事实
+上，此时队列的实际可用空间并未占满，所以这种现象称 为“假溢出”。
+这是由“队尾入队，队头出队”这种受限制 的操作造成的。
+怎样解决这种“假溢出”问题呢?
+一个较巧妙的办法是 将顺序队列变为一个环状的空间，如图3.13所示，称之为循 环 队 列 。
+头、尾指针以及队列元素之间的关系不变，只是在循环 队列中，头、尾指针“依环状增1”的操作可用“模”运算
+图3 . 13 循 环 队 列 示 意 图
+来实现。
+================================================================================
+
+Chunk 62:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_903
+Source: bm25
+--------------------------------------------------------------------------------
+橘皮书没有指定当笔记本电脑被盗时将发生什么事情，然而在一个大型组织中每星期发生一起盗窃 是很常见的。
+于是，Windows 提供了一些工具，当笔记本被盗或者丢失时，谨慎的用户可以利用它们最 小化损失。
+当然，谨慎的用户正是那些不会丢失笔记本的人——这种麻烦是其他人引起的。
+下一章将描述在Windows中基本的安全概念，以及关于安全的系统调用。
+最后，我们将看看安全是 怎样实现的。
+11.10.1 基本概念
+每个Windows用户(和组)用一个SID(Security ID,安全ID) 来标识。
+SID 是二进制数字，由一个 短的头部后面接一个长的随机部分构成。
+每个SID 都是世界范围内唯一的。
+当用户启动进程时，进程和 它的线程带有该用户的SID 运行。
+安全系统中的大部分地方被设计为确保只有带有授权SID 的线程才可 以访问对象。
+每个进程拥有一个指定了SID 和其他属性的访问令牌。
+该令牌通常由winlogon 创建，就像后面说的 那样。
+图11-45展示了令牌的格式。
+进程可以调用GetTokenlnformation 来获取令牌信息。
+令牌的头部包 含了一些管理性的信息。
+过期时间字段表示令牌何时不再有效，但当前并没有使用该字段。
+组字段指定 了进程所隶属的组。
+POSIX 子系统需要该字段。
+默认的DACL(Discretionary Access Control List,自 主 访问控制列表)会赋给被进程创建的对象，如果没有指定其他ACL的话。
+用户的SID 表示进程的拥有者。
+受限SID 使得不可信的进程以较少的权限参与到可信进程的工作中，以免造成破坏。
+最后，权限字段，如果有的话，赋予进程除普通用户外特殊的权利，比如关机和访问本来无权访问 的文件的权利。
+实际上，权限域将超级用户的权限分成几种可独立赋予进程的权限。
+这样，用户可被赋 予一些超级用户的权限，但不是全部的权限。
+总之，访问令牌表示了谁拥有这个进程和与其关联的权限 及默认值。
+图11-45 访问令牌结构
+另一个基本的概念是安全描述符 (securit y descriptor)。
+每个对象都关联着一个安全描述符，该描 述符描述了谁可以对对象执行何种操作。
+安全描述符在对象被创建的时候指定。
+NTFS 文件系统和注册 表维护着安全描述符的持久化形式，用以为文件和键对象(对象管理器中表示已打开的文件和键的实例) 创建安全描述符。
+安全描述由一个头部和其后带有一个或多个访问控制入口(Access Control Entry,ACE)的DACL组 成 。
+================================================================================
+
+Chunk 63:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_14
+Source: bm25
+--------------------------------------------------------------------------------
+例如， IEEE 802 LAN/MAN标准化委员会 [IEEE 8022016] 制定了以太网和无线 WiFi的标准。
+我们已经给出了因特网的两种描述方法： 一种是根据它的硬件和软件组件来描述，另
+计算机网络和因特网 5
+1.1.3 什么是协议
+既然我们已经对因特网是什么有了一点印象，那么下面考虑计算机网络中另一个重要 的时髦术语：协议 (protocol) 。
+什么是协议?
+协议是用来干什么的?
+================================================================================
+
+Chunk 64:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_398
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+7.9 小结
+复习题
+7.1节
+R1. 一个无线网络运行在“基础设施模式”下是什么含义?
+如果某网络没有运行在基础设施模式下，那 么它运行在什么模式下?
+这种运行模式与基础设施模式之间有什么不同?
+R2. 在7.1节的分类法中，所确定的四种无线网络类型各是什么?
+你已经使用的是这些无线网络类型中 的哪一种?
+7.2节
+R3. 下列类型的无线信道损伤之间有什么区别：路径损耗、多径传播、来自其他源的干扰?
+无线网络和移动网络 381
+7.3~7.4节
+R5. 描述802.11中信标帧的作用。
+R6. 是非判断：802.11站在传输一个数据帧前，必须首先发送一个RTS 帧并收到一个对应的CTS帧。
+R7. 为什么802.11中使用了确认，而有线以太网中却未使用?
+R8. 是非判断：以太网和802.11使用相同的帧格式。
+R9. 描述RTS门限值的工作过程。
+R10. 假设IEEE 802.11 RTS和 CTS帧与标准的DATA 和 ACK 帧一样长，使用CTS 和 RTS 帧还会有好处 吗?
+为什么?
+R 11.7.3.4 节讨论了802.11移动性，其中无线站点从一个 BSS 到同一子网中的另一个BSS。
+当 AP 是通 过交换机互连时，为了让交换机能适当地转发帧， 一个AP 可能需要发送一个带有哄骗的MAC地址 的帧，为什么?
+R12. 在某蓝牙网络中的一个主设备和在802.11网络中的一个基站之间有什么不同?
+R13. 在802.15.4 ZigBee标准中超级帧的含义是什么?
+R14. 在 3G 蜂窝数据体系结构中，“核心网”的作用是什么?
+R15. 在 3G 蜂窝数据体系结构中，RNC 的作用是什么?
+在蜂窝语音网中RNC起什么作用?
+R16. 在 4G 体系结构中eNodeB 、MME 、P-GW和 S-GW 的作用是什么?
+R17.3G 和 4G 蜂窝体系结构之间的3个重要差别是什么?
+7.5~7.6节
+R18. 如果某节点与因特网具有无线连接，则该节点必定是移动的吗?
+试解释之。
+================================================================================
+

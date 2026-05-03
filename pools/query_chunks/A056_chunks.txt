@@ -1,0 +1,1574 @@
+Query: A056
+Total chunks: 68
+================================================================================
+
+Chunk 1:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_110
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2.2.3 本节习题精选
+单项选择题
+01. 双绞线是用两根绝缘导线绞合而成的，绞合的目的是()。
+A. 减少干扰 B. 提高传输速度 C. 增大传输距离 D. 增大抗拉强度
+02. 在电缆中采用屏蔽技术带来的好处主要是()。
+A. 减少信号衰减 B. 减少电磁干扰辐射
+C. 减少物理损坏 D. 减少电缆的阻抗
+03. 利用一根同轴电缆互连主机构成以太网，则主机间的通信方式为()。
+A. 全双工 B. 半双工 C. 单工 D. 不确定
+================================================================================
+
+Chunk 2:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_114
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+12. 【2018统考真题】下列选项中，不属于物理层接口规范定义范畴的是() .
+A. 接口形状 B. 引脚功能 C. 物理地址 D. 信号电平
+2.2.4 答案与解析
+单项选择题
+01.A
+绞合可以减少两根导线相互的电磁干扰。
+02.B
+屏蔽层的主要作用是提高电缆的抗干扰能力。
+03.B
+传统以太网采用广播的方式发送信息，同一时间只允许一台主机发送信息，否则各主机之间 就会形成冲突，因此主机间的通信方式是半双工。
+全双工是指通信双方可以同时发送和接收信息。
+单工是指只有一个方向的通信而没有反方向的交互。
+04.C
+同轴电缆以硬铜线为心，外面包一层绝缘材料，绝缘材料的外面再包围一层密织的网状导体， 导体的外面又覆盖一层保护性的塑料外壳。
+这种结构使得它具有更高的屏蔽性，从而既有很高的 带宽，又有很好的抗噪性。
+因此同轴电缆的带宽更高得益于它的高屏蔽性。
+05.C
+光纤抗雷电和电磁干扰性能好，无串音干扰，保密性好。
+06.C
+多模光纤传输光信号的原理是光的全反射特性。
+07.B
+光纤的直径减小到与光线的一个波长相同时，光纤就如同一个波导，光在其中没有反射，而 沿直线传播，这就是单模光纤。
+08.C
+卫星通信有成本高、传播时延长、受气候影响大、保密性差、误码率较高的特点。
+09.C
+物理层的电气特性规定了信号的电压高低、传输距离等。
+10.C
+物理层的功能特性指明某条线上出现的某一电平的电压表示何种意义。
+11.C
+概念题，过程特性定义各条物理线路的工作过程和时序关系。
+12.C
+物理层的接口规范主要分为4种：机械特性、电气特性、功能特性、规程特性。
+机械特性规 定连接所用设备的规格，即选项A 所说的接口形状。
+电气特性规定信号的电压高低、阻抗匹配等， 如选项D 所说的信号电平。
+功能特性规定线路上出现的电平代表什么意义、接口部件的信号线(数 据线、控制线、定时线等)的用途，如选项B 所说的引脚功能。
+选项C 中的物理地址是MAC 地 址，它属于数据链路层的范畴。
+================================================================================
+
+Chunk 3:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_117
+Source: dense
+--------------------------------------------------------------------------------
+2.3.3 本节习题精选
+单项选择题
+01. 下列关于物理层设备的叙述中，错误的是().
+A. 中继器仅作用于信号的电气部分
+B. 利用中继器来扩大网络传输距离的原理是它将衰减的信号进行了放大
+C. 集线器实质上相当于一个多端口的中继器
+D. 物理层设备连接的几个网段仍是一个局域网，且不能互连具有不同数据链路层协议的 网段
+02. 转发器的作用是()。
+A. 放大信号 B. 转发帧 C. 存储帧 D. 寻址
+================================================================================
+
+Chunk 4:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_121
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2.3.4 答案与解析
+单项选择题
+01.B
+中继器的原理是将衰减的信号再生，而不是放大，连接后的网段仍然属于同一个局域网。
+02.A
+转发器是物理层设备，不能识别数据链路层的帧，也无寻址功能，只具有放大信号的功能。
+03.C
+物理层是OSI 参考模型的第1层，它建立在物理通信介质的基础上，作为与通信介质的接口。
+在物理层互连时，各种网络的数据传输速率如果不同，那么可能出现以下两种情况：①发送方的 速率高于接收方，接收方来不及接收导致溢出(因为物理层没有流量控制),数据丢失。
+②接收 方的速率高于发送方，不会出现数据丢失的情况，但效率极低。
+综上所述，数据传输速率必须相同。
+另外，数据链路层协议可以不同，如果是在数据链路层 互连，那么要求数据链路层协议也要相同。
+注意，在物理层互连成功，只表明这两个网段之间可 以互相传送物理层信号，但并不能保证可以互相传送数据链路层的帧；要达到在数据链路层互连 互通的目的，则要求数据传输速率和数据链路层协议都相同。
+04.A
+放大器通常用于远距离地传输模拟信号，它同时也会放大噪声，引起失真。
+中继器用于数字 信号的传输，其工作原理是信号再生，因此会减少失真。
+网桥用来连接两个网段以扩展物理网络 的覆盖范围。
+路由器是网络层的互连设备，可以实现不同网络的互连。
+05.B
+================================================================================
+
+Chunk 5:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_249
+Source: dense
+--------------------------------------------------------------------------------
+07. 交换机比集线器提供更好的网络性能的原因是()。
+A. 交换机支持多对用户同时通信 B. 交换机使用差错控制减少出错率
+C. 交换机使网络的覆盖范围更大 D. 交换机无须设置，使用更方便
+08. 通过交换机连接的一组工作站()。
+A. 组成一个冲突域，但不是一个广播域
+B. 组成一个广播域，但不是一个冲突域
+C. 既是一个冲突域，又是一个广播域
+D. 既不是冲突域，也不是广播域
+09. 一个16端口的集线器的冲突域和广播域的个数分别是()。
+================================================================================
+
+Chunk 6:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_264
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+由上面的分析可知，局域网的参考模型只相当于OSI 参考模型的最低两层，且两者的物理层 和数据链路层之间也有很大差别。
+在IEEE 802系列标准中，各个子标准的物理层和媒体访问控制 (MAC) 子层是有区别的，而逻辑链路控制(LLC) 子层是相同的，也就是说，LLC 子层实际上 是高层协议与任何一种MAC 子层之间的标准接口。
+9. 在 IEEE 802.3标准以太网中，为什么说如果有冲突，那么冲突一定发生在冲突窗口内?
+或者说一个帧如果在冲突窗口内没有发生冲突，那么该帧就不会再发生冲突?
+结点发送数据时，先监听信道是否有载波，如果有，表示信道忙，那么继续监听，直至检 测到空闲为止； 一个数据帧在从结点A 向最远的结点传输的过程中，如果有其他结点也正在发 送数据，那么此时就会发生冲突，冲突后的信号需要经过冲突窗口时间后传回结点 A, 结 点A 会检测到冲突，所以说如果有冲突，那么一定发生在冲突窗口内，如果在冲突窗口内没有发生 冲突，之后如果其他结点再要发送数据，那么就会监听到信道忙，而不会发送数据，从而不会 再发生冲突。
+================================================================================
+
+Chunk 7:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_267
+Source: dense
+--------------------------------------------------------------------------------
+14. 关于物理层、数据链路层、网络层设备对于隔离冲突域和广播域的总结。
+16. 试分析中继器、集线器、网桥和交换机这四种网络互连设备的区别与联系。
+这四种设备都是用于互连、扩展局域网的连接设备，但它们工作的层次和实现的功能不同。
+中继器工作在物理层，用来连接两个速率相同且数据链路层协议也相同的网段，其功能是消 除数字信号在基带传输中由于经过一长段电缆而造成的失真和衰减，使信号的波形和强度达到所 需的要求；其原理是信号再生。
+集线器 (Hub) 也工作在物理层，相当于一个多接口的中继器，它可将多个结点连接成一个
+共享式的局域网，但任何时刻都只能有一个结点通过公共信道发送数据。
+网桥工作在数据链路层，可以互连不同的物理层、不同的MAC 子层及不同速率的以太网。
+网桥具有过滤帧及存储转发帧的功能，可以隔离冲突域，但不能隔离广播域。
+不必先缓存再处理)。
+另外，利用交换机可以实现虚拟局域网 (VLAN),VLAN 不仅可以隔离冲 突域，而且可以隔离广播域。
+================================================================================
+
+Chunk 8:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_373
+Source: dense
+--------------------------------------------------------------------------------
+10. 以下关于OSPF 协议的描述中，最准确的是()。
+A.OSPF 协议根据链路状态法计算最佳路由
+B.OSPF 协议是用于自治系统之间的外部网关协议
+C.OSPF 协议不能根据网络通信情况动态地改变路由
+D.OSPF 协议只适用于小型网络
+11. 以下关于OSPF 协议特征的描述中，错误的是()。
+A.OSPF 协议将一个自治域划分成若干域，有一种特殊的域称为主干区域
+B. 域之间通过区域边界路由器互连
+C. 在自治系统中有4类路由器：区域内部路由器、主干路由器、区域边界路由器和自 治域边界路由器
+D. 主干路由器不能兼作区域边界路由器
+12.BGP 交换的网络可达性信息是()。
+A. 到达某个网络所经过的路径 B. 到达某个网络的下一跳路由器
+C. 到达某个网络的链路状态摘要信息.D. 到达某个网络的最短距离及下一跳路由器
+13.RIP、OSPF 协议、BGP 的路由选择过程分别使用()。
+A. 路径向量协议、链路状态协议、距离向量协议
+B. 距离向量协议、路径向量协议、链路状态协议
+C. 路径向量协议、距离向量协议、链路状态协议
+D. 距离向量协议、链路状态协议、路径向量协议
+================================================================================
+
+Chunk 9:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_38
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+OSI 参考模型认识到 IP 的重要性后，只好在网络层中划分出一个子层来完成类似于TCP/IP 模型中的IP 的功能。
+第 四 ，OSI 参考模型在网络层支持无连接和面向连接的通信，但在传输层仅有面向连接的通 信 。
+而 TCP/IP 模型认为可靠性是端到端的问题，因此它在网际层仅有 一 种无连接的通信模式， 但传输层支持无连接和面向连接两种模式。
+这个不同点常常作为考查点。
+无论是OSI 参考模型还是TCP/IP 模型，都不是完美的，对二者的讨论和批评都很多。
+OSI 参考模型的设计者从工作的开始，就试图建立 一 个全世界的计算机网络都要遵循的统 一 标准。
+从 技术角度来看，他们希望追求 一种完美的理想状态，这也导致基于OSI 参考模型的软件效率极低。
+OSI 参考模型缺乏市场与商业动力，结构复杂，实现周期长，运行效率低，这是它未能达到预期 目标的重要原因。
+学习计算机网络时，我们往往采取折中的办法，即综合OSI 参 考 模 型 和 TCP/IP 模型的优点， 采用 一 种如图1 . 13所示的只有5层协议的体系结构，即我们所熟知的物理层、数据链路层、网络 层、传输层和应用层。
+本书也采用这种体系结构进行讨论。
+图1.13 网络的5层协议体系结构模型
+应用层
+传输层
+网络层
+数据链路层
+物理层
+应用层
+传输层
+网络层 数据链路层
+物理层
+因特网
+图1.14 通信协议栈的通信过程示例
+================================================================================
+
+Chunk 10:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_406
+Source: dense
+--------------------------------------------------------------------------------
+16. 【2012统考真题】下列关于IP 路由器功能的描述中，正确的是()。
+I. 运行路由协议，设备路由表
+II. 监测到拥塞时，合理丢弃IP 分 组
+II. 对收到的IP 分组头进行差错校验，确保传输的IP 分组不丢失
+IV. 根据收到的IP 分组的目的IP 地址，将其转发到合适的输出线路上
+A. 仅 II 、IV B. 仅1、IⅡ 、III C. 仅 I 、II 、IV D.1 、II 、III 、IV
+================================================================================
+
+Chunk 11:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_41
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+08. 下列能够最好地描述 OSI 参考模型的数据链路层功能的是()。
+A. 提供用户和网络的接口 B. 处理信号通过介质的传输
+C. 控制报文通过网络的路由选择 D. 保证数据正确的顺序和完整性
+09. 当数据由端系统A 传送至端系统 B 时，不参与数据封装工作的是().
+A. 物理层 B. 数据链路层 C. 网络层 D. 表示层
+10. 在 OSI 参考模型中，实现端到端的应答、分组排序和流量控制功能的协议层是().
+A. 会话层 B. 网络层 C. 传输层 D. 数据链路层
+A. 物理层 B. 数据链路层 C. 网络层 D. 传输层
+================================================================================
+
+Chunk 12:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_411
+Source: dense
+--------------------------------------------------------------------------------
+16.C
+I 和 IV 显然是IP 路由器的功能。
+对于II, 当路由器监测到拥塞时，可合理丢弃IP 分组，并 向发出该IP 分组的源主机发送一个源点抑制的ICMP 报文。
+对于Ⅲ,路由器对收到的IP 分组首 部进行差错检验，丢弃有差错首部的报文，但不保证IP 分组不丢失。
+17.C
+网络层设备路由器可以隔离广播域和冲突域；数据链路层设备普通交换机只能隔离冲突域； 物理层设备集线器、中继器既不能隔离冲突域，又不能隔离广播域。
+因此，题中共有2个广播域， 4个冲突域。
+================================================================================
+
+Chunk 13:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_42
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+12. 在 OSI 参考模型中，当两台计算机进行文件传输时，为防止中间出现网络故障而重传
+整个文件的情况，可通过在文件中插入同步点来解决，这个动作发生在()。
+A. 表示层 B. 会话层 C. 网络层 D. 应用层
+13. 数据的格式转换及压缩属于OSI 参考模型中()的功能。
+A. 应用层 B. 表示层 C. 会话层 D. 传输层
+14. 下列说法中，正确描述了OSI 参考模型中数据的封装过程的是()。
+================================================================================
+
+Chunk 14:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_428
+Source: dense
+--------------------------------------------------------------------------------
+5.1.5 答案与解析
+单项选择题
+01.D
+通信子网包括物理层、数据链路层和网络层，主要负责数据通信。
+资源子网是OSI 参考模型 的上三层，传输层的主要任务是向高层用户屏蔽下面通信子网的细节(如网络拓扑、路由协议等)。
+02.G
+03.B
+04.D
+05.D
+TCP/IP 模型中，网络层及其以下各层所构成的通信子网负责主机到主机或点到点的通信，而 传输层的主要作用是在源主机进程和目的主机进程之间提供端到端的数据传输。
+一般来说，端到 端通信是山一段段的点到点信道构成的，端到端协议建立在点到点协议之上(正如TCP 建立在IP 之上),提供应用进程之间的通信手段。
+所以答案为选项D。
+06.D
+如果一个协议使用确认机制对传输的数据进行确认，那么可以认为它是一个可靠的协议；如 果一个协议采用“尽力而为”的传输方式，那么是不可靠的。
+例如， TCP 对传输的报文段提供确 认，因此是可靠的传输协议；而UDP 不提供确认，因此是不可靠的传输协议。
+07.D
+要在互联网上唯一地确定一个进程，就要使用 IP 地址和端口号的组合，通常称为套接字 (Socket),IP 地址确定某主机，端口号确定该主机上的某进程。
+08.D
+================================================================================
+
+Chunk 15:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_73
+Source: dense
+--------------------------------------------------------------------------------
+2. 虚电路
+虚电路方式试图将数据报方式与电路交换方式结合起来，充分发挥两种方法的优点，以达到 最佳的数据交换效果。
+在分组发送之前，要求在发送方和接收方建立一条逻辑上相连的虚电路， 并且连接一旦建立，就固定了虚电路所对应的物理路径。
+与电路交换类似，整个通信过程分为三 个阶段：虚电路建立、数据传输与虚电路释放。
+在虚电路方式中，端系统每次建立虚电路时，选择一个未用过的虚电路号分配给该虚电路， 以区别于本系统中的其他虚电路。
+在传送数据时，每个数据分组不仅要有分组号、校验和等控制 信息，还要有它要通过的虚电路号，以区别于其他虚电路上的分组。
+在虚电路网络中的每个结点 上都维持一张虚电路表，表中的每项记录了一个打开的虚电路的信息，包括在接收链路和发送链 路上的虚电路号、前一结点和下一结点的标识。
+数据的传输是双向进行的，上述信息是在虚电路 的建立过程中确定的。
+虚电路方式的工作原理如图2.6所示。
+1)为进行数据传输，主机A 与主机B 之间先建立一条逻辑通路，主机A 发出一个特殊的 “呼叫请求”分组，该分组通过中间结点送往主机B, 若主机B 同意连接，则发送“呼 叫应答”分组予以确认。
+2)虚电路建立后，主机A 就可向主机 B 发送数据分组。
+当然，主机 B 也可在该虚电路上向 主机A 发送数据。
+1)虚电路通信链路的建立和拆除需要时间开销，对交互式应用和小量的短分组情况显得很 浪费，但对长时间、频繁的数据交换效率较高。
+2)虚电路的路由选择体现在连接建立阶段，连接建立后，就确定了传输路径。
+================================================================================
+
+Chunk 16:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1015
+Source: tfidf
+--------------------------------------------------------------------------------
+Generic Block Interface [block read/write] Generic Block Layer
+Specific Block Interface [protocol-specific read/write] Device Driver [SCSI, ATA, etc.]
+Figure 36.3: The File System Stack
+Note that such encapsulation can have its downside as well.
+For ex- ample, if there is a device that has many special capabilities, but has to present a generic interface to the rest of the kernel, those special capabili- ties will go unused.
+This situation arises, for example, in Linux with SCSI devices, which have very rich error reporting; because other block de- vices (e.g., ATA/IDE) have much simpler error handling, all that higher levels of software ever receive is a generic EIO (generic IO error) error code; any extra detail that SCSI may have provided is thus lost to the ﬁle system [G08].
+================================================================================
+
+Chunk 17:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1016
+Source: tfidf
+--------------------------------------------------------------------------------
+This situation arises, for example, in Linux with SCSI devices, which have very rich error reporting; because other block de- vices (e.g., ATA/IDE) have much simpler error handling, all that higher levels of software ever receive is a generic EIO (generic IO error) error code; any extra detail that SCSI may have provided is thus lost to the ﬁle system [G08].
+Interestingly, because device drivers are needed for any device you might plug into your system, over time they have come to represent a huge percentage of kernel code.
+Studies of the Linux kernel reveal that over 70% of OS code is found in device drivers [C01]; for Windows-based systems, it is likely quite high as well.
+Thus, when people tell you that the OS has millions of lines of code, what they are really saying is that the OS has millions of lines of device-driver code.
+================================================================================
+
+Chunk 18:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1027
+Source: tfidf
+--------------------------------------------------------------------------------
+Two techniques, the interrupt and DMA, have been introduced to help with device efﬁciency, and two approaches to access- ing device registers, explicit I/O instructions and memory-mapped I/O, have been described.
+Finally, the notion of a device driver has been pre- sented, showing how the OS itself can encapsulate low-level details and thus make it easier to build the rest of the OS in a device-neutral fashion. References
+[A+11] “vIC: Interrupt Coalescing for Virtual Machine Storage Device IO”
+Irfan Ahmad, Ajay Gulati, Ali Mashtizadeh USENIX ’11
+A terriﬁc survey of interrupt coalescing in traditional and virtualized environments.
+[C01] “An Empirical Study of Operating System Errors”
+Andy Chou, Junfeng Yang, Benjamin Chelf, Seth Hallem, Dawson Engler SOSP ’01
+One of the ﬁrst papers to systematically explore how many bugs are in modern operating systems.
+================================================================================
+
+Chunk 19:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1157
+Source: tfidf
+--------------------------------------------------------------------------------
+39.8 Getting Information About Files
+Beyond ﬁle access, we expect the ﬁle system to keep a fair amount of information about each ﬁle it is storing.
+We generally call such data about ﬁles metadata.
+To see the metadata for a certain ﬁle, we can use stat() or fstat() system call – read their man pages for details on how to call them.
+These calls take a pathname (or ﬁle descriptor) to a ﬁle and ﬁll in a stat structure as seen here: struct stat {
+You can see that there is a lot of information kept about each ﬁle, in- cluding its size (in bytes), its low-level name (i.e., inode number), some ownership information, and some information about when the ﬁle was accessed or modiﬁed, among other things.
+To see this information, you can use the command line tool stat:
+prompt> echo hello > file prompt> stat file File: ‘file’
+Size: 6 Blocks: 8 IO Block: 4096 regular file
+================================================================================
+
+Chunk 20:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1158
+Source: tfidf
+--------------------------------------------------------------------------------
+Size: 6 Blocks: 8 IO Block: 4096 regular file
+Device: 811h/2065d Inode: 67158084 Links: 1
+Access: (0640/-rw-r-----) Uid: (30686/ remzi) Gid: (30686/ remzi)
+Access: 2011-05-03 15:50:20 .157594748 -0500
+Modify: 2011-05-03 15:50:20 .157594748 -0500
+Change: 2011-05-03 15:50:20 .157594748 -0500
+As it turns out, each ﬁle system usually keeps this type of information
+in a structure called an inode1.
+We’ll be learning a lot more about inodes when we talk about ﬁle system implementation.
+For now, you should just think of an inode as a persistent data structure kept by the ﬁle system that has information like we see above inside of it. 39.9 Removing Files
+At this point, we know how to create ﬁles and access them, either se- quentially or not.
+But how do you delete ﬁles?
+If you’ve used UNIX, you probably think you know: just run the program rm.
+But what system call does rm use to remove a ﬁle?
+================================================================================
+
+Chunk 21:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_185
+Source: tfidf
+--------------------------------------------------------------------------------
+Figure 7.2: Why FIFO Is Not That Great
+As you can see in Figure 7.2, Job A runs ﬁrst for the full 100 seconds before B or C even get a chance to run.
+Thus, the average turnaround time for the system is high: a painful 110 seconds ( = 110).
+This problem is generally referred to as the convoy effect [B+79], where a number of relatively-short potential consumers of a resource get queued behind aheavyweight resource consumer.
+This scheduling scenario might remind you of a single line at a grocery store and what you feel like when
+you see the person in front of you with three carts full of provisions and a checkbook out; it’s going to be a while2 .
+So what should we do?
+How can we develop a better algorithm to deal with our new reality of jobs that run for different amounts of time?
+Think about it ﬁrst; then read on.
+================================================================================
+
+Chunk 22:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_269
+Source: tfidf
+--------------------------------------------------------------------------------
+The idea behind tem- poral locality is that when a piece of data is accessed, it is likely to be accessed again in the near future; imagine variables or even instructions themselves being accessed over and over again in a loop.
+The idea be- hind spatial locality is that if a program accesses a data item at address x, it is likely to access data items near x as well; here, think of a program streaming through an array, or instructions being executed one after the other.
+Because locality of these types exist in many programs, hardware systems can make good guesses about which data to put in a cache and thus work well.
+Now for the tricky part: what happens when you have multiple pro- cessors in a single system, with a single shared main memory, as we see in Figure 10.2?
+As it turns out, caching with multiple CPUs is much more compli- cated.
+================================================================================
+
+Chunk 23:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_467
+Source: tfidf
+--------------------------------------------------------------------------------
+We also might have protection bits, indicating whether the page could be read from, written to, or executed from.
+Again, accessing a page in a way not allowed by these bits will generate a trap to the OS.
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+Figure 18.5: An x86 Page Table Entry (PTE)
+There are a couple of other bits that are important but we won’t talk about much for now.
+A present bit indicates whether this page is in phys- ical memory or on disk (swapped out); we will understand this in more detail when we study how to move parts of the address space to disk and back in order to support address spaces that are larger than physical memory and allow for the pages of processes that aren’t actively being run to be swapped out.
+A dirty bit is also common, indicating whether the page has been modiﬁed since it was brought into memory.
+================================================================================
+
+Chunk 24:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_51
+Source: tfidf
+--------------------------------------------------------------------------------
+Then, when we run the program a second time, we not only again get the wrong value, but also a different value than the last time.
+In fact, if you run the program over and over with high values of loops, you may ﬁnd that sometimes you even get the right answer!
+So why is this happening?
+As it turns out, the reason for these odd and unusual outcomes relate to how instructions are executed, which is one at a time.
+Unfortunately, a key part of the program above, where the shared counter is incremented, takes three instructions: one to load the value of the counter from mem- ory into a register, one to increment it, and one to store it back into mem- ory.
+Because these three instructions do not execute atomically (all at once), strange things can happen.
+It is this problem of concurrency that we will address in great detail in the second part of this book.
+1 #include <stdio .h>
+================================================================================
+
+Chunk 25:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_515
+Source: tfidf
+--------------------------------------------------------------------------------
+One common approach is to evict the least-recently-used or LRU entry.
+The idea here is to take advantage of locality in the memory-reference stream; thus, it is likely that an entry that has not recently been used is a good candidate for eviction as (perhaps) it won’t soon be referenced again.
+Another typical approach is to use a random policy.
+Randomness sometimes makes abad decision but has the nice property that there are not any weird corner case behaviors that can cause pessimal behavior, e.g., think of a loop accessing n+ 1 pages, a TLB of size n, and an LRU replacement policy.
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+Figure 19.4: A MIPS TLB Entry
+================================================================================
+
+Chunk 26:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_539
+Source: tfidf
+--------------------------------------------------------------------------------
+In our hybrid, we still have those structures in the MMU; here, we use the base not to point to the segment itself but rather to hold the physical address of the page table of that segment.
+The bounds register is used to indicate the end of the page table (i.e., how many valid pages it has).
+Let’s do a simple example to clarify.
+Assume a 32-bit virtual address space with 4KB pages, and an address space split into four segments.
+We’ll only use three segments for this example: one for code, one for heap, and one for stack.
+To determine which segment an address refers to, we’ll use the top two bits of the address space.
+Let’s assume 00 is the unused segment, with 01 for code, 10 for the heap, and 11 for the stack.
+Thus, a virtual address looks like this:
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+================================================================================
+
+Chunk 27:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_540
+Source: tfidf
+--------------------------------------------------------------------------------
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+In the hardware, assume that there are thus three base/bounds pairs, one each for code, heap, and stack.
+When a process is running, the base register for each of these segments contains the physical address of a lin- ear page table for that segment; thus, each process in the system now has three page tables associated with it.
+On a context switch, these registers must be changed to reAect the location of the page tables of the newly- running process.
+On a TLB miss (assuming a hardware-managed TLB, i.e., where the hardware is responsible for handling TLB misses), the hardware uses the segment bits (SN) to determine which base and bounds pair to use.
+The hardware then takes the physical address therein and combines it with the VPN as follows to form the address of the page table entry (PTE):
+================================================================================
+
+Chunk 28:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_685
+Source: tfidf
+--------------------------------------------------------------------------------
+We have also seen how to create the illusion of a large, private virtual memory for each process; this abstrac- tion of the address space enables each program to behave as if it has its own memory when indeed the OSis secretly multiplexing address spaces across physical memory (and sometimes, disk).
+In this note, we introduce a new abstraction for a single running pro- cess: that of a thread.
+Instead of our classic view of a single point of execution within a program (i.e., a single PC where instructions are be- ing fetched from and executed), a multi-threaded program has more than one point of execution (i.e., multiple PCs, each of which is being fetched and executed from).
+Perhaps another way to think of this is that each thread is very much like a separate process, except for one difference: they share the same address space and thus can access the same data.
+================================================================================
+
+Chunk 29:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_170
+Source: dense
+--------------------------------------------------------------------------------
+在最坏的情况下，一个条目可能包含n-1 个其他条目。
+基于这种推理，我们可以得出这样的结论：有O(n) 个递归调用，并且每个调用运行 的时间为O(n), 从而导致总的运行时间为0(n²) 。
+虽然这个时间上限在技术上是正确的， 但它不是一个严格意义上的上限。
+值得注意的是，我们可以证明更强的约束：对于disk_ usage 函数的递归算法可以在O(n) 的时间内完成!
+较弱的约束是悲观的，因为它假设了每 个目录所有条目在最坏情况下的数量。
+虽然可能一些目录包含的条目数量与n 成正比，但它 们不可能每个都含有那么多的条目。
+为了证明这个更有力的声明，我们选择考虑在所有递归 调用中for 循环迭代的总数。
+我们断言刚好有n-1 个该循环的这种迭代。
+这一声明基于这 样一个事实，即该循环的每次迭代进行一次对disk_usage 函数的递归调用，并且已经得出结 论，即对 disk_usage 函数共进行了n 次调用(包括最初的调用)。
+因此，我们得出这样的结 论：有O(n) 次递归调用，每次递归调用在循环外部使用O(1) 的时间，并且循环操作的总数 是 O(n) 。
+总结所有这些限制条件，操作的总数是O(n)。
+================================================================================
+
+Chunk 30:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_31
+Source: bm25
+--------------------------------------------------------------------------------
+4.4 进程状态
+既然已经了解了进程是什么（但我们会继续改进这个概念）， 以及（大致）它是如何创建的，让我们来谈谈进程在给定时间可能处于的不同状态（ state）。
+在早期的计算机系统[DV66 ，V+65]中，出现了一个进程可能处于这些状态之一的概念。
+简而言之，进程可以处于以下 3 种状态之一。
+运行（running）：在运行状态下，进程正在处理器上运行。
+这意味着它正在执行指令。
+就绪（ready）：在就绪状态下，进程已准备好运行，但由于某种原因，操作系统选择不在此时运行。
+阻塞（blocked）：在阻塞状态下，一个进程执行了某种操作，直到发生其他事件时才会准备运行。
+一个常见的例子是，当进程向磁盘发起 I/O 请求时，它会被阻塞，因此其他进程可以使用处理器。
+如果将这些状态映射到一个图上，会得到图 4.2。
+如图 4.2 所示，可以根据操作系统的载量，让进程在就绪状态和运行状态之间转换。
+从就绪到运行意味着该进程已经被调度（scheduled）。
+从运行转移到就绪意味着该进程已经取消调度（descheduled）。
+一旦进程被阻塞（例如，通过发起 I/O 操作），OS 将保持进程的这种状态，直到发生某种事件（例如，I/O 完成）。
+此时， 进程再次转入就绪状态（也可能立即再次运行，如果操作系统这样决定）。
+图 4.2
+进程：状态转换
+我们来看一个例子，看两个进程如何通过这些状态转换。
+首先，想象两个正在运行的进程，每个进程只使用 CPU（它们没有 I/O）。
+在这种情况下， 每个进程的状态可能如表 4.1所示。
+表 4.1 跟踪进程状态：只看 CPU
+在下一个例子中，第一个进程在运行一段时间后发起 I/O 请求。
+此时，该进程被阻塞，让另一个进程有机会运行。
+表 4.2 展示了这种场景。
+表 4.2 跟踪进程状态：CPU 和 I/O
+更具体地说，Process0 发起 I/O 并被阻塞，等待 I/O 完成。
+例如，当从磁盘读取数据或等待网络数据包时，进程会被阻塞。
+OS 发现 Process0 不使用CPU 并开始运行 Process1。
+================================================================================
+
+Chunk 31:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_36
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+[V+65]“Structure of the Multics Supervisor ”
+V.A. Vyssotsky, F. J. Corbato, R. M. Graham Fall Joint Computer Conference, 1965
+一篇关于 Multics 的早期论文，描述了我们在现代系统中看到的许多基本概念和术语。
+计算作为实用工具，这背后的一些愿景终于在现代云系统中得以实现。
+作业
+问题
+1 ．用以下标志运行程序：./process-run.py -l 5:100,5:100 。
+CPU 利用率（CPU 使用时间的百分比）应该是多少？
+为什么你知道这一点？
+利用 -c 标记查看你的答案是否正确。
+2．现在用这些标志运行：./process-run.py -l 4:100,1:0。
+这些标志指定了一个包含 4 条指
+令的进程（都要使用 CPU），并且只是简单地发出 I/O 并等待它完成。
+完成这两个进程需要多长时间？
+利用-c 检查你的答案是否正确。
+3．现在交换进程的顺序：./process-run.py -l 1:0,4:100。
+现在发生了什么？
+交换顺序是否重要？
+为什么？
+同样，用-c 看看你的答案是否正确。
+4 ．现在探索另一些标志。
+一个重要的标志是-S，它决定了当进程发出 I/O 时系统如何反应。
+将标志设置为 SWITCH_ON_END，在进程进行 I/O 操作时，系统将不会切换到另一个进程，而是等待进程完成。
+当你运行以下两个进程时，会发生什么情况？
+一个执行 I/O，另一个执行 CPU 工作。
+（-l 1:0,4:100 -c -S SWITCH_ON_END）
+5．现在，运行相同的进程，但切换行为设置，在等待 I/O 时切换到另一个进程（-l 1:0,4:100 -c -S SWITCH_ON_IO）。
+现在会发生什么？
+利用-c 来确认你的答案是否正确。
+6．另一个重要的行为是 I/O 完成时要做什么。
+利用-I IO_RUN_LATER，当 I/O 完成时，发出它的进程不一定马上运行。
+相反，当时运行的进程一直运行。
+================================================================================
+
+Chunk 32:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_362
+Source: dense_bm25
+--------------------------------------------------------------------------------
+36.10 小结
+至此你应该对操作系统如何与设备交互有了非常基本的理解。
+本章介绍了两种技术，
+中断和 DMA，用于提高设备效率。
+我们还介绍了访问设备寄存器的两种方式，I/O 指令和内存映射 I/O。
+最后，我们介绍了设备驱动程序的概念，展示了操作系统本身如何封装底层细节，从而更容易以设备无关的方式构建操作系统的其余部分。
+参考资料
+[A+11]“vIC: Interrupt Coalescing for Virtual Machine Storage Device IO ”Irfan Ahmad, Ajay Gulati, Ali Mashtizadeh
+USENIX ’11
+对传统和虚拟化环境中的中断合并进行了极好的调查。
+[C01]“An Empirical Study of Operating System Errors ”
+Andy Chou, Junfeng Yang, Benjamin Chelf, Seth Hallem, Dawson Engler SOSP ’01
+首批系统地研究现代操作系统中有多少错误的文章之一。
+除了其他漂亮的研究结果之外，作者展示了设备驱动程序的 bug 数是主线内核代码中的 bug 数的7 倍。
+[CK+08]“The xv6 Operating System ”
+Russ Cox, Frans Kaashoek, Robert Morris, Nickolai Zeldovich.
+请参阅 ide.c 中的 IDE 设备驱动程序，其中有更多细节。
+[D07]“What Every Programmer Should Know About Memory ”Ulrich Drepper November, 2007
+关于现代内存系统的极好的阅读材料，从 DRAM 开始，一直到虚拟化和缓存优化算法。
+[G08]“EIO: Error-handling is Occasionally Correct ”
+我们自己的工作，构建一个工具来查找 Linux 文件系统中没有正确处理错误返回的代码。
+================================================================================
+
+Chunk 33:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_37
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+相反，当时运行的进程一直运行。
+当你运行这个进程组合时会发生什么？
+（./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH_ON_IO -I IO_RUN_ LATER -c -p）系统资源是否被有效利用？
+7 ．现在运行相同的进程，但使用-I IO_RUN_IMMEDIATE 设置，该设置立即运行发出I/O 的进程。
+这种行为有何不同？
+为什么运行一个刚刚完成 I/O 的进程会是一个好主意？
+8 ．现在运行一些随机生成的进程，例如-s 1 -l 3:50,3:50, -s 2 -l 3:50,3:50, -s 3 -l 3:50,3:50。
+看看你是否能预测追踪记录会如何变化？
+当你使用-I IO_RUN_IMMEDIATE 与-I IO_RUN_ LATER 时会发生什么？
+当你使用-S SWITCH_ON_IO 与-S SWITCH_ON_END 时会发生什么？
+================================================================================
+
+Chunk 34:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_542
+Source: tfidf
+--------------------------------------------------------------------------------
+3 运行 就绪
+4 运行 就绪 Process0 现在完成
+5 — 运行
+6 — 运行
+7 — 运行
+8 — 运行 Process1 现在完成
+时间 Process0 Process1 注
+1 运行 就绪
+2 运行 就绪
+3 运行 就绪 Process0 发起 I/O
+4 阻塞 运行 Process0 被阻塞
+5 阻塞 运行 所以 Process1 运行
+6 阻塞 运行
+7 就绪 运行 I/O 完成
+8 就绪 运行 Process1 现在完成
+9 运行 —
+10 运行 — Process0 现在完成
+struct inode *cwd; // Current directory
+struct context context; // Switch here to run process
+struct trapframe *tf; // Trap frame for the
+// current interrupt
+================================================================================
+
+Chunk 35:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_243
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+6.6.4 关 键 路 径
+1.AOE- 网
+与 AOV-网相对应的是AOE-网 (Activity On Edge),即以边表示活动的网。
+AOE-网是一个 带权的有向无环图，其中，顶点表示事件，弧表示活动，权表示活动持续的时间。
+通常，AOE-
+178三
+网可用来估算工程的完成时间。
+例如，图6.28所示为一个有11项活动的AOE-网。
+其中有9个事件vo,V1, … ,vg, 每个事件 表示在它之前的活动已经完成，在它之后的活动可以开始。
+例如， vo 表示整个工程开始，v₈ 表 示整个工程结束，v₄ 表示a₄ 和 as 已经完成，a₇ 和 a₈ 可以
+开始了。
+与每个活动相联系的数是执行该活动所需的时 间，比如，活动a₁ 需 要 6 天 ，a₂ 需要4天等。
+AOE-网在工程计划和经营管理中有广泛的应用，针对 实际的应用问题，通常需要解决以下两个问题：
+(1)估算完成整项工程至少需要多少时间；
+(2)判断哪些活动是影响工程进度的关键。
+由于整个工程只有一个开始点和一个完成点，故在正常的情况(无环)下，网中只有一个人度 为零的点，称作源点，也只有一个出度为零的点，称作汇点。
+在 AOE- 网中，一条路径各弧上的权 值之和称为该路径的带权路径长度(后面简称路径长度)。
+要估算整项工程完成的最短时间，就是 要找一条从源点到汇点的带权路径长度最长的路径，称为关键路径( Critical Path)。
+关键路径上的 活动叫做关键活动，这些活动是影响工程进度的关键，它们的提前或拖延将使整个工程提前或拖延。
+例如，在图6 . 28中，v₀ 是 源 点 ，v₈ 是汇点，关键路径有两条：(vo,V1,V4,V₆,V8) 或 (vo,V1,V₄,V7,V₈),
+如何确定关键路径，首先定义4个描述量。
+(1)事件v 的最早发生时间ve(i)
+进入事件v;的每一活动都结束，v;才可发生，所以ve(i)是从源点到v;的最长路径长度。
+求 ve(i)的值，可根据拓扑顺序从源点开始向汇点递推。
+通常将工程的开始顶点事件vo的最早 发生时间定义为0,即
+ve(0)=0
+================================================================================
+
+Chunk 36:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_108
+Source: bm25
+--------------------------------------------------------------------------------
+2.1.5 进程的状态
+尽管每个进程是一个独立的实体，有其自己的程序计数器和内部状态，但是，进程之间经常需要相 互作用。
+一个进程的输出结果可能作为另一个进程的输入。
+在shell 命令
+cat chapter1 chapter2 chapter3 |grep tree
+中，第一个进程运行cat,将三个文件连接并输出。
+第二个进程运行grep,它从输入中选择所有包含单词 “tree” 的那些行。
+根据这两个进程的相对速度(这取决于这两个程序的相对复杂度和各自所分配到的
+CPU时间),可能发生这种情况：grep 准备就绪可以运行，但输入还没有完成。
+于是必须阻塞grep, 直 到 输入到来。
+当一个进程在逻辑上不能继续运行时，它就会被阻塞，典型的例子是它在等待可以使用的输入。
+还 可能有这样的情况： 一个概念上能够运行的进程被迫停止，因为操作系统调度另一个进程占用了CPU 。
+这两种情况是完全不同的。
+在第一种情况下，进程挂起是程序自身固有的原因(在键入用户命令行之前， 无法执行命令)。
+第二种情况则是由系统技术上的原因引起的(由于没有足够的CPU, 所以不能使每个 进程都有一台私用的处理器)。
+在图2-2中可以看到显示进程的三种状态的状态图，这三种状态是：
+1)运行态(该时刻进程实际占用CPU)。
+2)就绪态(可运行，但因为其他进程 正在运行而暂时停止)。
+3)阻塞态(除非某种外部事件发生， 否则进程不能运行)。
+前两种状态在逻辑上是类似的。
+处于 这两种状态的进程都可以运行，只是对于 第二种状态暂时没有CPU 分配给它。
+第三 种状态与前两种状态不同，处于该状态的 进程不能运行，即使CPU空闲也不行。
+1.进程因为等待输入而被阻塞
+2.调度程序选择另一个进程
+3.调度程序选择这个进程
+4.出现有效输入
+图2-2 一个进程可处于运行态、阻塞态和就绪态，图中显 示出各状态之间的转换
+进程的三种状态之间有四种可能的转
+换关系，如图2-2所示。
+在操作系统发现进程不能继续运行下去时，发生转换1。
+在某些系统中，进程可 以执行一个诸如pause 的系统调用来进入阻塞状态。
+================================================================================
+
+Chunk 37:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_114
+Source: bm25
+--------------------------------------------------------------------------------
+许多其他的交互式程序中也存在类似的情形。
+例如，电子表格是允许用户维护矩阵的一种程序，矩 阵中的一些元素是用户提供的数据；另一些元素是通过所输入的数据运用可能比较复杂的公式而得出的 计算结果。
+当用户改变一个元素时，许多其他元素就必须重新计算。
+通过一个后台线程进行重新计算的 方式，交互式线程就能够在进行计算的时候，让用户从事更多的工作。
+类似地，第三个线程可以在磁盘
+上进行周期性的备份工作。
+网络连接
+在这里，一个称为分派程序 (dispatcher) 的线程从网络中读入工作请求。
+在检查请求之后，分派线程挑 选一个空转的(即被阻塞的)工作线程 (worker thread),提交该请求，通常是在每个线程所配有的某个 专门字中写入一个消息指针。
+接着分派线程唤醒睡眠的工作线程，将它从阻塞状态转为就绪状态。
+在工作线程被唤醒之后，它检查有关的请求是否在Web页面高速缓存之中，这个高速缓存是所有线 程都可以访问的。
+如果没有，该线程开始一个从磁盘调入页面的read 操作，并且阻塞直到该磁盘操作完 成。
+当上述线程阻塞在磁盘操作上时，为了完成更多的工作，分派线程可能挑选另一个线程运行，也可 能把另 一 个当前就绪的工作线程投入运行。
+图2-9给出了有关代码的大致框架。
+如同本书的其他部分一样，这里假设TRUE为常数1。
+另外，buf 和page 分别是保存工作请求和Web页面的相应结构。
+有关多线程作用的第三个例子是那些必须处理极大量数据的应用。
+通常的处理方式是，读进一块数 据，对其处理，然后再写出数据。
+这里的问题是，如果只能使用阻塞系统调用，那么在数据进入和数据 输出时，会阻塞进程。
+在有大量计算需要处理的时候，让CPU空转显然是浪费，应该尽可能避免。
+多线程提供了一种解决方案，有关的进程可以用一个输入线程、一个处理线程和一个输出线程构造。
+输入线程把数据读入到输入缓冲区中；处理线程从输入缓冲区中取出数据，处理数据，并把结果放到输 出缓冲区中；输出线程把这些结果写到磁盘上。
+按照这种工作方式，输入、处理和输出可以全部同时进 行。
+================================================================================
+
+Chunk 38:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_122
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+如果机器有一条保存所有 寄存器的指令和另一条装入全部寄存器的指令，那么整个线程的切换可以在几条指令内完成。
+进行类似 于这样的线程切换至少比陷入内核要快一个数量级(或许更多),这是使用用户级线程包的极大的优点。
+不过，线程与进程有一个关键的差别。
+在线程完成运行时，例如，在它调用thread_yield 时 ， pthread_yield 代码可以把该线程的信息保存在线程表中，进而，它可以调用线程调度程序来选择另一个 要运行的线程。
+保存该线程状态的过程和调度程序都只是本地过程，所以启动它们比进行内核调用效率 更高。
+另一方面，不需要陷入内核，不需要上下文切换，也不需要对内存高速缓存进行刷新，这就使得 线程调度非常快捷。
+用户级线程还有另一个优点。
+它允许每个进程有自己定制的调度算法。
+例如，在某些应用程序中， 那些有垃圾收集线程的应用程序就不用担心线程会在不合适的时刻停止，这是一个长处。
+用户级线程还 具有较好的可扩展性，这是因为在内核空间中内核线程需要一些固定表格空间和堆栈空间，如果内核线 程的数量非常大，就会出现问题。
+尽管用户级线程包有更好的性能，但它也存在一些明显的问题。
+其中第一个问题是如何实现阻塞系 统调用。
+假设在还没有任何击键之前，一个线程读取键盘。
+让该线程实际进行该系统调用是不可接受的， 因为这会停止所有的线程。
+使用线程的一个主要目标是，首先要允许每个线程使用阻塞调用，但是还要 避免被阻塞的线程影响其他的线程。
+有了阻塞系统调用，这个目标不是轻易地能够实现的。
+系统调用可以全部改成非阻塞的(例如，如果没有被缓冲的字符，对键盘的read 操作可以只返回0 字节),但是这需要修改操作系统，所以这个办法也不吸引人。
+而且，用户级线程的一个长处就是它可 以在现有的操作系统上运行。
+另外，改变read 操作的语义需要修改许多用户程序。
+在这个过程中，还有一种可能的替代方案，就是如果某个调用会阻塞，就提前通知。
+在某些UNIX 版本中，有一个系统调用select可以允许调用者通知预期的read是否会阻塞。
+================================================================================
+
+Chunk 39:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_123
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+在某些UNIX 版本中，有一个系统调用select可以允许调用者通知预期的read是否会阻塞。
+若有这个调用，那么库过 程read 就可以被新的操作替代，首先进行select 调用，然后只有在安全的情形下(即不会阻塞)才进行 read调用。
+如果read 调用会被阻塞，有关的调用就不进行，代之以运行另一个线程。
+到了下次有关的运 行系统取得控制权之后，就可以再次检查看看现在进行read 调用是否安全。
+这个处理方法需要重写部分 系统调用库，所以效率不高也不优雅，不过没有其他的可选方案了。
+在系统调用周围从事检查的这类代 码称为包装器 (jacket或wrapper)。
+与阻塞系统调用问题有些类似的是缺页中断问题，我们将在第3章讨论这些问题。
+此刻可以认为， 把计算机设置成这样一种工作方式，即并不是所有的程序都一次性放在内存中。
+如果某个程序调用或者 跳转到了一条不在内存的指令上，就会发生页面故障，而操作系统将到磁盘上取回这个丢失的指令(和 该指令的“邻居们”),这就称为页面故障。
+在对所需的指令进行定位和读入时，相关的进程就被阻塞。
+如果有一个线程引起页面故障，内核由于甚至不知道有线程存在，通常会把整个进程阻塞直到磁盘I/O 完成为止，尽管其他的线程是可以运行的。
+用户级线程包的另一个问题是，如果一个线程开始运行，那么在该进程中的其他线程就不能运行， 除非第一个线程自动放弃CPU。
+在一个单独的进程内部，没有时钟中断，所以不可能用轮转调度(轮流) 的方式调度线程。
+除非某个线程能够按照自己的意志进入运行时系统，否则调度程序就没有任何机会。
+对线程永久运行问题的一个可能的解决方案是让运行时系统请求每秒一次的时钟信号(中断),但 是这样对程序也是生硬和无序的。
+不可能总是高频率地发生周期性的时钟中断，即使可能，总的开销也 是可观的。
+而且，线程可能也需要时钟中断，这就会扰乱运行时系统使用的时钟。
+就要持续进行select系统调用，以便检查read 系统调用是否安全。
+对于那些基本上是CPU 密集型而且极 少有阻塞的应用程序而言，使用多线程的目的又何在呢?
+================================================================================
+
+Chunk 40:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_126
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+2.2.6 混合实现
+人们已经研究了各种试图将用户级线程的优点和内核级线程的优点结合起来的方法。
+一种方法是使 用内核级线程，然后将用户级线程与某些或者全部内核线程多路复用起来，如图2-17所示。
+如果采用这 种方法，编程人员可以决定有多少个内核级线程和
+集合。
+图2-17 用户级线程与内核线程多路复用
+2.2.7 调度程序激活机制
+尽管内核级线程在一些关键点上优于用户级线程，但无可争议的是内核级线程的速度慢。
+因此，研 究人员一直在寻找在保持其优良特性的前提下改进其速度的方法。
+下面将介绍Anderson 等人(1992)设 计的一种方法，称为调度程序激活 (sche duler activation) 机 制 。
+Edler 等人(1988)以及Scott 等人 (1990)就相关的工作进行了深入讨论。
+调度程序激活工作的目标是模拟内核线程的功能，但是为线程包提供通常在用户空间中才能实现的 更好的性能和更大的灵活性。
+特别地，如果用户线程从事某种系统调用时是安全的，那就不应该进行专 门的非阻塞调用或者进行提前检查。
+无论如何，如果线程阻塞在某个系统调用或页面故障上，只要在同 一个进程中有任何就绪的线程，就应该有可能运行其他的线程。
+由于避免了在用户空间和内核空间之间的不必要转换，从而提高了效率。
+例如，如果某个线程由于 等待另一个线程的工作而阻塞，此时没有理由请求内核，这样就减少了内核-用户转换的开销。
+用户空 间的运行时系统可以阻塞同步的线程而另外调度一个新线程。
+当使用调度程序激活机制时，内核给每个进程安排一定数量的虚拟处理器，并且让(用户空间)运 行时系统将线程分配到处理器上。
+这一机制也可以用在多处理器中，此时虚拟处理器可能成为真实的 CPU。
+分配给一个进程的虚拟处理器的初始数量是一个，但是该进程可以申请更多的处理器并且在不用 时退回。
+内核也可以取回已经分配出去的虚拟处理器，以便把它们分给需要更多处理器的进程。
+使该机制工作的基本思路是，当内核了解到一个线程被阻塞之后(例如，由于执行了一个阻塞系统 调用或者产生了一个页面故障),内核通知该进程的运行时系统，并且在堆栈中以参数形式传递有问题 的线程编号和所发生事件的一个描述。
+内核通过在一个已知的起始地址启动运行时系统，从而发出了通 知，这是对UNIX中信号的一种粗略模拟。
+这个机制称为上行调用 (upcall)。
+================================================================================
+
+Chunk 41:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_146
+Source: bm25
+--------------------------------------------------------------------------------
+如果生产者发现缓冲区中没有空槽可以使用了，它不得不阻塞起来直到有一个空
+图2-30 一些与互斥量相关的pthread调用
+图2-31 一些与条件变量相关的pthread调用
+槽可以使用。
+生产者使用互斥量可以进行原子性检查，而不受其他线程干扰。
+但是当发现缓冲区已经满 了以后，生产者需要一种方法来阻塞自己并在以后被唤醒。
+这便是条件变量做的事了。
+图2-31给出了与条件变量相关的最重要的pthread 调用。
+就像你可能期待的那样，这里有专门的调用 用来创建和撤销条件变量。
+它们可以有属性，并且有不同的调用来管理它们(图中没有给出)。
+条件变 量上的主要操作是pthread_cond_wait 和pthread_cond_signal, 前者阻塞调用线程直到另一其他线程向它 发信号(使用后一个调用)。
+当然，阻塞与等待的原因不是等待与发信号协议的一部分。
+被阻塞的线程 经常是在等待发信号的线程去做某些工作、释放某些资源或是进行其他的一些活动。
+只有完成后被阻塞 的线程才可以继续运行。
+条件变量允许这种等待与阻塞原子性地进行。
+当有多个线程被阻塞并等待同一 个信号时，可以使用pthread_cond_broadcast 调用。
+条件变量与互斥量经常一起使用。
+这种模式用于让一个线程锁住一个互斥量，然后当它不能获得它 期待的结果时等待一个条件变量。
+最后另一个线程会向它发信号，使它可以继续执行。
+pthread_cond_wait 原子性地调用并解锁它持有的互斥量。
+由于这个原因，互斥量是参数之一。
+值得指出的是，条件变量(不像信号量)不会存在内存中。
+如果将一个信号量传递给一个没有线程 在等待的条件变量，那么这个信号就会丢失。
+程序员必须小心使用避免丢失信号。
+作为如何使用一个互斥量与条件变量的例子，图2-32展示了一个非常简单只有一个缓冲区的生产
+图2-32 利用线程解决生产者-消费者问题
+者一消费者问题。
+当生产者填满缓冲区时，它在生产下一个数据项之前必须等待，直到消费者清空了它。
+类似地，当消费者移走一个数据项时，它必须等待，直到生产者生产了另外一个数据项。
+================================================================================
+
+Chunk 42:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_148
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+如果没有活跃进程在使用管程，则该调用进程可以进入。
+进入管程时的互斥由编译器负责，但通常的做法是用一个互斥量或二元信号量。
+因为是由编译器而 非程序员来安排互斥，所以出错的可能性要小得多。
+在任一时刻，写管程的人无须关心编译器是如何实现 互斥的。
+他只需知道将所有的临界区转换成管程过程即可，决不会有两个进程同时执行临界区中的代码。
+尽管管程提供了一种实现互斥的简便途径，但这还不够，还需要一种办法使得进程在无法继续运行 时被阻塞。
+在生产者一消费者问题中，很容易将针对缓冲区满和缓冲区空的测试放到管程过程中，但是 生产者在发现缓冲区满的时候如何阻塞呢?
+解决的方法是引入条件变量 (condition variables) 以及相关的两个操作：wait 和signal 。
+当一个管 程过程发现它无法继续运行时(例如，生产者发现缓冲区满),它会在某个条件变量上(如full) 执 行 wait操作。
+该操作导致调用进程自身阻塞，并且还将另一个以前等在管程之外的进程调入管程。
+在前面 介绍pthread 时我们已经看到条件变量及其操作了。
+另一个进程，比如消费者，可以唤醒正在睡眠的伙伴进程，这可以通过对其伙伴正在等待的一个条 件变量执行signal 完成。
+为了避免管程中同时有两个活跃进程，我们需要一条规则来通知在signal 之后 该怎么办。
+Hoare 建议让新唤醒的进程运行，而挂起另一个进程。
+Brinch Hansen则建议执行signal 的 进 程必须立即退出管程，即signal 语句只可能作为一个管程过程的最后一条语句。
+这里将采纳Brinch Hansen 的建议，因为它在概念上更简单，并且更容易实现。
+如果在一个条件变量上有若干进程正在等 待，则在对该条件变量执行signal 操作后，系统调度程序只能在其中选择一个使其恢复运行。
+顺便提一下，还有一个Hoare和Brinch Hansen都没有提及的第三种方法，该方法让发信号者继续运
+行，并且只有在发信号者退出管程之后，才允许等待的 进程开始运行。
+================================================================================
+
+Chunk 43:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_159
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+这里的 基本思想是，如果需要运行I/O 密集型进程，那么就应该让它尽快得到机会，以便发出磁盘请求并保持 磁盘始终忙碌。
+从图2-6中可以看到，如果进程是I/O 密集型的，则需要多运行一些这类进程以保持CPU 的充分利用。
+2.何时调度
+有关调度处理的一个关键问题是何时进行调度决策。
+存在着需要调度处理的各种情形。
+第一，在创建 一个新进程之后，需要决定是运行父进程还是运行子进程。
+由于这两种进程都处于就绪状态，所以这是一 种正常的调度决策，可以任意决定，也就是说，调度程序可以合法选择先运行父进程还是先运行子进程。
+第二，在一个进程退出时必须做出调度决策。
+一个进程不再运行(因为它不再存在),所以必须从 就绪进程集中选择另外某个进程。
+如果没有就绪的进程，通常会运行一个系统提供的空闲进程。
+第三，当一个进程阻塞在I/O 和信号量上或由于其他原因阻塞时，必须选择另一个进程运行。
+有时， 阻塞的原因会成为选择的因素。
+例如，如果A是一个重要的进程，并正在等待B退出临界区，让B随后运 行将会使得B 退出临界区，从而可以让A 运行。
+不过问题是，通常调度程序并不拥有做出这种相关考虑 的必要信息。
+第四，在一个I/O中断发生时，必须做出调度决策。
+如果中断来自I/O 设备，而该设备现在完成了工 作，某些被阻塞的等待该I/O的进程就成为可运行的就绪进程了。
+是否让新就绪的进程运行，这取决于 调度程序的决定，或者让中断发生时运行的进程继续运行，或者应该让某个其他进程运行。
+如果硬件时钟提供50Hz 、60Hz 或其他频率的周期性中断，可以在每个时钟中断或者在每k个时钟中 断时做出调度决策。
+根据如何处理时钟中断，可以把调度算法分为两类。
+非抢占式调度算法挑选一个进 程，然后让该进程运行直至被阻塞(阻塞在I/O上或等待另一个进程),或者直到该进程自动释放CPU。
+即使该进程运行了若干个小时，它也不会被强迫挂起。
+这样做的结果是，在时钟中断发生时不会进行调 度。
+在处理完时钟中断后，如果没有更高优先级的进程等待到时，则被中断的进程会继续执行。
+================================================================================
+
+Chunk 44:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_345
+Source: dense
+--------------------------------------------------------------------------------
+5.1 I/O硬件原理
+不同的人对于I/O 硬件的理解是不同的。
+对于电子工程师而言，I/O 硬件就是芯片、导线、电源、电 机和其他组成硬件的物理部件。
+对程序员而言，则只注意I/O硬件提供给软件的接口，如硬件能够接收 的命令、它能够实现的功能以及它能够报告的错误。
+本书主要介绍怎样对I/O设备编程，而不是如何设 计、制造和维护硬件，因此，我们的讨论限于如何对硬件编程，而不是其内部的工作原理。
+然而，很多 I/O设备的编程常常与其内部操作密切相关。
+在下面三节中，我们将介绍与I/O 硬件编程有关的一般性背 景知识。
+这些内容可以看成是对1.4节介绍性材料的复习和扩充。
+================================================================================
+
+Chunk 45:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_362
+Source: dense_bm25
+--------------------------------------------------------------------------------
+5.3 I/O软 件 层 次
+I/O 软件通常组织成四个层次，如图5-11所示。
+每一层具有一个要执行的定义明确的功能和一个的
+定义明确的与邻近层次的接口。
+功能与接 口随系统的不同而不同，所以下面的讨论 并不针对一种特定的机器。
+我们将从底层 开始讨论每 一 层。
+5.3.1 中断处理程序
+虽然程序控制I/O偶尔是有益的，但是 对于大多数I/O而言，中断是令人不愉快的 事情并且无法避免。
+应当将其深深地隐藏
+图5-11 I/O软件系统的层次
+在操作系统内部，以便系统的其他部分尽量不与它发生联系。
+隐藏它们的最好办法是将启动一个I/O操 作的驱动程序阻塞起来，直到I/O 操作完成并且产生一个中断。
+驱动程序可以阻塞自己，例如，在一个 信号量上执行down 操作、在一个条件变量上执行wait操作、在一个消息上执行receive操作或者某些类 似的操作。
+当中断发生时，中断处理程序将做它必须要做的全部工作以便对中断进行处理。
+然后，它可以将启 动中断的驱动程序解除阻塞。
+在一些情形中，它只是在一个信号量上执行up 操作；其他情形中，是对管 程中的条件变量执行signal 操作；还有一些情形中，是向被阻塞的驱动程序发一个消息。
+在所有这些情 形中，中断最终的结果是使先前被阻塞的驱动程序现在能够继续运行。
+如果驱动程序构造为内核进程，
+具有它们自己的状态、堆栈和程序计数器，那么这一模型运转得最好。
+当然，现实没有如此简单。
+对一个中断进行处理并不只是简单地捕获中断，在某个信号量上执行 up 操作，然后执行一条IRET 指令从中断返回到先前的进程。
+对操作系统而言，还涉及更多的工作。
+我 们将按一系列步骤给出这一工作的轮廓，这些步骤是硬件中断完成之后必须在软件中执行的。
+应该注意 的是，细节是非常依赖于系统的，所以下面列出的某些步骤在一个特定的机器上可能是不必要的，而没 有列出的步骤可能是必需的。
+此外，确实发生的步骤在某些机器上也可能有不同的顺序。
+1)保存没有被中断硬件保存的所有寄存器(包括PSW)。
+4)应答中断控制器，如果不存在集中的中断控制器，则再次开放中断。
+5)将寄存器从它们被保存的地方(可能是某个堆栈)复制到进程表中。
+7)选择下一次运行哪个进程，如果中断导致某个被阻塞的高优先级进程变为就绪，则可能选择它现 在就运行。
+8)为下一次要运行的进程设置MMU上下文，也许还需要设置某个TLB。
+================================================================================
+
+Chunk 46:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_469
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+6.9 小结
+死锁是任何操作系统中都存在的潜在问题。
+当一组进程中的每个进程都因等待由该组进程中的另一 进程所占有的资源而导致阻塞，死锁就发生了。
+这种情况会使所有的进程都处于无限等待的状态。
+一般 来讲，这是进程一直等待被其他进程占用的某些资源释放的事件。
+死锁的另外一种可能情况是一组通信 进程都在等待一个消息，而通信信道却是空的，并且也没有采用超时机制。
+通过跟踪哪一个状态是安全状态，哪一个状态是不安全状态，可以避免资源死锁。
+安全状态就是这 样一个状态：存在一个事件序列，保证所有的进程都能完成。
+不安全状态就没有这样的保证。
+银行家算 法可以通过拒绝可能引起不安全状态的请求来避免死锁。
+也可以在设计系统时从系统结构上预防资源死锁的发生，这样可以永久性地解决资源死锁问题。
+例 如，只允许进程在任何时刻最多占有一个资源，这就破坏了循环等待环路。
+也可以将所有的资源编号， 规定进程按严格的升序请求资源，这样也能预防死锁。
+资源死锁并不是唯一的一种死锁。
+尽管我们可以通过设置适当的超时机制来解决通信死锁，但它依 然是某些系统中潜在的问题。
+习题
+1.给出一个由策略产生的死锁的例子。
+3.在前一题中，哪些资源是可抢占的，哪些资源 是不可抢占的?
+4.在图6-1中，资源释放的顺序与获得的顺序相反， 以其他的顺序释放资源能否得到同样的结果?
+5.一个资源死锁的发生有四个必要条件(互斥使 用资源、占有和等待资源、不可抢占资源和环 路等待资源)。
+举一个例子说明它们对于一个资 源死锁的发生不是充分条件。
+何时这些条件对 一个资源死锁的发生是充分条件?
+6.城市街道很容易遇到循环阻塞的情况，我们称 之为“僵局”。
+其中交叉路口被汽车堵塞，这些
+汽车阻塞了它们后面的汽车，进而又阻塞了试 图进入前面路口的车辆。
+城市街区的所有路口 都以一种循环的方式遍布被阻塞的汽车。
+“僵局” 是一个资源死锁和同步竞争的问题。
+纽约市的 预防算法称为“非阻塞盒子”,除非一个交叉路 口的后续空间是非阻塞的，否则禁止汽车进入 这个交叉路口。
+这是哪种预防算法?
+================================================================================
+
+Chunk 47:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_476
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+34.解释死锁、活锁和饥饿的区别。
+35.假设两个进程发出查找命令来改变访问磁盘的 机制并启用读命令。
+每个进程在执行读命令之 前被中断，并且发现另外一个进程已经移动了 磁盘。
+它们都重新发出查找命令，但是又同时 被对方中断。
+这个序列不断地重复。
+这是一个 资源死锁还是活锁?
+你推荐用什么方法来解决 这个异常?
+36. 局域网使用一种叫作CSMA/CD 的媒体访问方 法。
+在这个方法中，站点之间共享一条总线， 并且能够感知传输媒介以及检测传输和冲突。
+在以太网协议中，站点请求共享通道时如果感 知到传输通道是忙碌的，那么它们不会传输帧。
+当传输结束的时候，等待的站点会继续传输帧。
+同时传输两个帧会产生冲突。
+如果站点在检测 到冲突之后立即重复传输这些帧，则又会连续 地产生冲突。
+(a) 这是一个资源死锁还是活锁?
+(b) 你能否为这种异常提出一个解决方法?
+(c) 这种情况下会产生饥饿么?
+37.一个程序在合作和竞争机制的顺序上存在着错 误，导致消费者进程在阻塞空缓冲区之前就锁 定了互斥量(互斥信号量)。
+生产者进程在能 够将数据放在空缓冲区上以及唤醒消费者进程 之前被阻塞在互斥量上。
+因此，生产者进程和 消费者进程都被一直阻塞，生产者进程等待互 斥量被解锁，消费者进程等待生产者进程发出 的信号。
+这是一个资源死锁还是通信死锁?
+请 提出一种方法来解决进程之间的控制问题。
+38.Cinderella 和Prince 要离婚，为分割财产，他 们商定了以下算法。
+每天早晨每个人发函给 对方律师要求财产中的一项。
+由于邮递信件 需要一天的时间，他们商定如果发现在同一 天两人请求了同一项财产，第二天他们会发 信取消这一要求。
+他们的财产包括狗Woofer、 Woofer 的狗屋、金丝雀Tweeter 和Tweeter 的 鸟笼。
+由于这些动物喜爱它们的房屋，所以 又商定任何将动物和它们房屋分开的方案都 无效，且整个分配从头开始。
+Cinderella 和 Prince 都非常想要Woofer 。
+于是他们分别去度 假，并且每人都编写程序用一台个人计算机 处理这一谈判工作。
+当他们度假回来时，发 现计算机仍在谈判，为什么?
+产生死锁了 吗?
+产生饥饿了吗?
+请讨论。
+40.重复上一个习题，但此次要避免饥饿。
+当一只 想向东去的狒狒来到绳索跟前，但它发现有别 的狒狒正在向西越过峡谷时，它会一直等到绳 索可用为止。
+但在至少有一只狒狒向东越过峡 谷之前，不允许再有狒狒开始从东向西越过峡 谷。
+================================================================================
+
+Chunk 48:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_544
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+2. 阻塞调用和非阻塞调用
+上面所叙述的调用是阻 塞 调 用( 有时 称为同步调用)。
+当一个进程调用send 时，它指定一个目标以 及用以发送消息到该目标的一个缓冲区。
+当消息发送时，发送进程被阻塞(挂起)。
+在消息已经完全发 送出去之前，不会执行跟随在调用send 后面的指令，如图8-19a 所示。
+类似地，在消息真正接收并且放入 由参数指定的消息缓冲区之前，对receive 的调用也不会把控制返回。
+在receive 中进程保持挂起状态，直 到消息到达为止，这甚至有可能等待若干小时。
+在有些系统中，接收者可以指定希望从谁处接收消息， 在这种情况下接收者就保持阻塞状态，直到来自那个发送者的消息到达为止。
+312 第 8 章
+发送者运行 发送者被阻塞 —
+陷入内核
+发送者被阻塞
+消息正在被发送 a)
+发送者运行
+从内核返回， 发送者被释放
+图8-19 a) 一 个阻塞的send 调 用 ；b) 一 个非阻塞的send 调 用
+相对于阻塞调用的另一种方式是非阻塞调用 ( 有时称为异步调用)。
+如果send 是非阻塞的，在消息 发出之前，它立即将控制返回给调用者。
+这种机制的优点是发送进程可以继续运算，与消息传送并行， 而不是让CPU空闲(假设没有其他可运行的进程)。
+通常是由系统设计者做出在阻塞原语和非阻塞原语 之间的选择(或者使用这种原语或者另一种原语),当然也有少数系统中两种原语同时可用，而让用户 决定其喜好。
+但是，非阻塞原语所提供的性能优点被其严重的缺点所抵消了：直到消息被送出发送者才能修改消 息缓冲区。
+进程在传输过程中重写消息的后果是如此可怕以致不得不慎重考虑。
+更糟的是，发送进程不 知道传输何时会结束，所以根本不知道什么时候重用缓冲区是安全的。
+不可能永远避免再碰缓冲区。
+有三种可能的解决方案。
+第一种方案是，让内核复制这个消息到内部的内核缓冲区，然后让进程继 续，如图8-19b所示。
+从发送者的视角来看，这个机制与阻塞调用相同：只要进程获得控制，就可以随 意重用缓冲区了。
+当然，消息还没有发送出去，但是发送者是不会被这种情况所妨碍的。
+================================================================================
+
+Chunk 49:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_545
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+当然，消息还没有发送出去，但是发送者是不会被这种情况所妨碍的。
+这个方案的缺 点是对每个送出的消息都必须将其从用户空间复制进内核空间。
+面对大量的网络接口，消息最终要复制 进硬件的传输缓冲区中，所以第一次的复制实质上是浪费。
+额外的复制会明显地降低系统的性能。
+第二种方案是，当消息发送之后中断发送者，告知缓冲区又可以使用了。
+这里不需要复制。
+从而节 省了时间，但是用户级中断使编写程序变得棘手，并可能会要处理竞争条件，这些都使得该方案难以设 计并且几乎无法调试。
+第三种方案是，让缓冲区写时复制 (copy on write),也就是说，在消息发送出去之前将其标记为只 读。
+在消息发送出去之前，如果缓冲区被重用，则进行复制。
+这个方案的问题是，除非缓冲区被孤立在 自己的页面上，否则对临近变量的写操作也会导致复制。
+此外，需要有额外的管理，因为这样的发送消 息行为隐含着对页面读/写状态的影响。
+最后，该页面迟早会再次被写入，它会触发一次不再必要的复制。
+这样，在发送端的选择是
+1)阻塞发送 (CPU 在消息传输期间空闲)。
+2)带有复制操作的非阻塞发送 (CPU 时间浪费在额外的复制上)。
+3)带有中断操作的非阻塞发送(造成编程困难)。
+4)写时复制(最终可能也会需要额外的复制)。
+在正常条件下，第一种选择是最好的，特别是在有多线程的情况下，此时当一个线程由于试图发送被阻 塞后，其他线程还可以继续工作。
+它也不需要管理任何内核缓冲区。
+而且，正如将图8-19a和图8-19b进 行比较所见到的，如果不需要复制，通常消息会被更快地发出。
+正如send可以是阻塞的和非阻塞的一样，receive 也同样可以是阻塞的和非阻塞的。
+阻塞调用就是挂 起调用者直到消息到达为止。
+如果有多线程可用，这是一种简单的方法。
+另外，非阻塞receive只是通知内 核缓冲区所在的位置，并几乎立即返回控制。
+可以使用中断来告知消息已经到达。
+然而，中断方式编程 困难，并且速度很慢，所以也许对于接收者来说，更好的方法是使用一个过程poll轮询进来的消息。
+该过 程报告是否有消息正在等待。
+================================================================================
+
+Chunk 50:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_568
+Source: bm25
+--------------------------------------------------------------------------------
+in采用的匹配算法是很直接的。
+in 原语的域，称为模板 (template), (在概念上)它与元组空间中 的每个元组的同一个域相比较，如果下面的三个条件都符合，那么产生出一个匹配：
+1)模板和元组有相同数量的域。
+2)对应域的类型一样。
+3)模板中的每个常数或者变量均与该元组域相匹配。
+形式参数，由问号标识后面跟随一个变量名或类型所给定，并不参与匹配(除了类型检查例外),尽管 在成功匹配之后，那些含有一个变量名称的形式参数会被赋值。
+如果没有匹配的元组存在，调用进程便被挂起，直到另一个进程插入了所需要的元组为止，此时该 调用进程自动复活并获得新的元组。
+进程阻塞和自动解除阻塞意味着，如果一个进程与输出一个元组有 关而另一个进程与输入一个元组有关，那么谁在先是无关紧要的。
+唯一的差别是，如果in在out 之前被调 用了，那么会有少许的延时存在，直到得到元组为止。
+在某个进程需要一个不存在的元组时，阻塞该进程的方式可以有许多用途。
+例如，该方式可以用于 信号量的实现。
+为了要建立信号量S或在信号量S 上执行一个up 操作，进程可以执行如下操作
+out("semaphore S");
+要执行一个down 操作，可以进行
+in("semaphore S");
+在元组空间中("semaphore S")元组的数量决定了信号量S的状态。
+如果信号量不存在，任何要获得信 号量的企图都会被阻塞，直到某些其他的进程提供一个为止。
+除 了out 和in操 作 ，Linda 还提供了原语read, 它 和in是一样的，不过它不把元组移出元组空间。
+还有 一个原语eval, 它的作用是同时对元组的参数进行计算，计算后的元组会被放进元组空间中去。
+可以利 用这个机制完成一个任意的运算。
+以上内容说明了怎样在Linda 中创建并行的进程。
+================================================================================
+
+Chunk 51:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_720
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+CFS 采用ns级的粒度来说明任务的运 行时间。
+如图10-10b所示，树中的每个内部节点对应于一个任务。
+左侧的子节点对应于在CPU上运行时 间更少的任务，因此左侧的任务会更早地被调度，右侧的子节点是那些迄今消耗CPU时间较多的任务， 叶子节点在调度器中不起任何作用。
+CFS 调度算法可以总结如下，该算法总是优先调度那些使用CPU时间最少的任务，通常是在树中最 左边节点上的任务。
+CFS 会周期性地根据任务已经运行的时间，递增它的虚拟运行时间值，并将这个值 与树中当前最左节点的值进行比较，如果正在运行的任务仍具有较小虚拟运行时间值，那么它将继续运 行，否则，它将被插入红黑树的适当位置，并且CPU将执行新的最左边节点上的任务。
+调度器只考虑可以运行的任务，这些任务被放在适当的调度队列当中。
+不可运行的任务和正在等 待各种I/O操作或内核事件的任务被放入另一个数据结构当中，即等待队列。
+每一种任务可能需要等待 的事件对应了一个等待队列。
+等待队列的头包含一个指向任务链表的指针及一枚自旋锁。
+为了保证等 待队列可以在主内核代码、中断处理函数或其他异步处理请求代码中进行并发操作，自旋锁是非常必 要的。
+Linux系统中的同步
+上一节中提到Linux 系统使用自旋锁来防止对数据结构的并发修改，比如等待队列。
+事实上，内核 代码在很多地方都含有同步变量。
+后面会简要总结一下Linux系统所实现的同步机制。
+实例研究1: UNIX、Linux和Android 425
+具有较高级别的同步构造更为常用。
+不想被阻止(考虑到性能或正确性)的线程使用自旋锁并旋转 读/写锁。
+当前的Linux版本实现了所谓的“基于门票”自旋锁，它在SMP 和多核系统上具有优秀的表现。
+被允许或需要阻塞的线程可使用像互斥量和信号量这样的机制。
+Linux 支持像mutex_trylock 和 sem_trywait这样的非阻塞调用，用于在无需阻塞下判断同步变量的状态。
+Linux也支持其他的同步变量， 如futexes 、completions 、read-copy-update(RCU) 锁等。
+================================================================================
+
+Chunk 52:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_834
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+如果一次仅有一个线程可以保留锁， 其他所有可运行的线程可能立刻被阻塞，从而产生许多不必要的现场交换。
+使用同步机制和使用通知机 制的分派对象 (dispatcher object) 之间的差别是dispatcher_hea der 结构中的一个标记。
+另外，在Windows 代码中互斥体称为“变体”(mutant) 。
+因为当一个线程保留一个出口时，它们需 要执行OS/2语义中的非自动解锁，看来这是Cutler 奇特的考虑。
+6.执行体
+如图11-11所示，在NTOS的内核层以下是执行体。
+执行体是用C语言编写的，在结构上最为独立 (内存管理是一个明显的例外),并且经过少量的修改已经移植到新的处理器上(MIPS 、x86 、PowerPC 、 Alpha 、IA64和x64) 。
+执行体包括许多不同的组件，所有的组件都通过内核层提供的抽象控制器来运行。
+每个组件分为内部和外部的数据结构和接口。
+每个组件的内部方法是隐藏的，只有组件自己可以调 用，而外部方法可以由执行体的所有其他组件调用。
+外部接口的一个子集由一个ntoskrnl.exe提供，而且 设备驱动可以链接到它们，就好像执行体是一个库。
+微软称许多执行体组件为“管理器”,因为每一个 组件管理操作系统的一部分，例如I/O 、内存、进程、对象等。
+对于大多数操作系统而言，许多功能在Windows上执行就像库的代码。
+除非在内核方式下运行，它 的数据结构可以被共享和保护，以避免用户态下的代码访问，因此它具有硬件状态的访问权限，例如 MMU控制寄存器。
+但是另一方面，执行体只是代表它的调用者简单执行操作系统的函数，因此它运行 在它的调用者的线程中。
+当任何执行体函数阻塞等待与其他线程同步时，用户态线程也会阻塞。
+这在为一个特殊的用户态线 程工作时是有意义的，但是在做一些相关的内务处理任务时是不公平的。
+当执行体认为一些内务处理线 程是必需的时候，为了避免劫持当前的线程，一些内核态线程就会具体于特定的任务而产生，例如确保 更改了的页会被回写到硬盘上。
+================================================================================
+
+Chunk 53:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_847
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+进程 (process) 和线程 (thread) 是明显的。
+每个进程和每个线程都有一个对象来表示，这个对象 包含了管理进程或线程所需的主要属性。
+接下来的三个对象：信号量、互斥体和事件，都可以处理进程 间的同步。
+信号量和互斥体按预期方式工作，但都需要额外的响铃和警哨(例如，最大值和超时设定)。
+事件处于两种状态之一：已标记信号或未标记信号。
+如果一个线程等待事件处于已标记信号状态，线程 被立即释放。
+如果该事件是未标记信号状态，它会一直阻塞直到一些其他线程通知该事件，这将释放所 有被阻塞的线程(通知事件)或只是释放掉第一个被阻塞的线程(同步事件)。
+也可以设置一个事件， 这样一种信号成功等待后，它会自动恢复到该未标记信号的状态而不是处在已标记信号状态。
+端口、定时器和队列对象也与通信和同步相关。
+端口是进程之间交换LPC消息的通道。
+定时器提供 一种在特定的时间区间内阻塞的方法。
+队列(在内部被称为KQUEUES) 用于通知线程已完成以前启动 的异步I/O 操作，或一个端口有消息等待。
+(它们被设计来管理应用程序中的并发的水平，以及在高性 能多处理器应用中使用，如SQL)。
+当一个文件被打开时，Open file对象将会被创建。
+没打开的文件，并没有对象由对象管理器管理。
+访问令牌是安全的对象。
+它们识别用户，并指出用户具有什么样的特权，如果有的话。
+配置文件是线程 的用于存储程序计数器的正在运行的周期样本的数据结构，用以确定程序线程的时间是花在哪些地方了。
+对象目录和符号链接完全是本地对象管理器的 NT 名字空间的一部分。
+它们类似于和它们对应的文 件系统部分：目录允许相关的对象被收集起来。
+符号链接允许对象名字空间来引用一个对象名字空间的 不同部分中的对象的一部分的名称。
+其他没有介绍的对象有更多特别的目的，如同内核事务的交互或Win32线程池的工作线程工厂交互。
+Windows 用户态设计的第二个重要方面是在动态链接库 (DLL), 即代码是在程序运行的时候完成 的链接，而非编译时。
+共享的库不是一个新的概念，最现代化的操作系统使用它们。
+================================================================================
+
+Chunk 54:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_884
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+11.7.2 I/O的API调 用
+由I/O管理器提供的API与大多数操作系统提供的API并没有很大的不同。
+基本操作有open 、read、
+write 、ioctl和close, 以及即插即用和电源操作、参数设置、刷新系统缓冲区等。
+在Win32层，这些API被包 装成接口，向特定的设备提供了更高一级的操作。
+在底层，这些API打开设备，并执行这些基本类型的操作。
+即使是对一些元数据的操作，如重命名文件，也没有用专门的系统调用来实现。
+它们只是特殊的ioct| 操作。
+在我们解释了I/O设备栈和I/O管理器使用的I/O请求包 (IRP) 之后，读者将对上面的陈述更有体会。
+保持了Windows 一贯的通用哲学，原生NT I/O系统调用带有很多参数并包括很多变种。
+图11-35列 出 了I/O 管理器中主要的系统调用接口。
+NtCreateFile 用于打开已经存在的或者新的文件。
+它为新创建
+图11-35 执行I/O的原生NT API调用
+的文件提供了安全描述符和一个对被请求的访问权限的详细描述，并使得新文件的创建者拥有了一些如 何分配磁盘块的控制权。
+Nt ReadFile 和NtWriteFile 需要文件句柄、缓冲区和长度等参数。
+它们也需要一 个明确的文件偏移量的参数，并且允许指定一个用于访问文件锁定区域字节的钥匙。
+正如上面提到的， 大部分的参数都和指定哪一个函数来报告(很可能是异步) I/O 操作的完成有关。
+NtQuerydirectoryFile 是一个在执行过程中访问或修改指定类型对象信息的标准模式的一个例子， 在这种模式中存在多种不同的查询API。
+在本例中，指定类型的对象是指与某些目录相关的一些文件对 象。
+一个参数用于指定请求什么类型的信息，比如目录中的文件名列表，或者是经过扩展的目录列表所 需要的每个文件的详细信息。
+由于它实际上是一个I/O操作，因此它支持所有的报告I/O 操作已完成的标 准方法。
+================================================================================
+
+Chunk 55:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_190
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+这时，节点B 对于节点A 来说就是暴露节点。
+一些文献中将隐藏节点、暴露节点 称为隐藏站(hidden station)、暴 露 站(exposed station)。
+需要注意的是，无线自组网与 BSS 都存在隐藏节点、暴露节点的问题，而它们的存在就 会造成以下两种错误判断：检测到信道忙，实际上信道并不忙；检测到信道闲，实际上信道 并不闲。
+MAC 层协议必须解决隐藏节点与暴露节点的问题，以提高无线信道的利用率。
+3)SSID 与 BSSID
+TP-NK-NETLAB
+2.4GHz&5GHz(11n/a+11n/b/g)
+图3-45 为 AP 分配 SSID 与通信信道
+按 照IEEE 802.11 的规定，AP 的名字最长为32个字符，并且区分字母的大小写。
+SSID 表示以 AP 作为基站的 BSS 的逻辑名，它与 Windows 工作组名类似。
+例如，南开大学
+网 络 实 验 室 教 师 办 公 室 AP1 的 SSID 为 TP-NK-NETLAB, 那 么 , 由 这 个 AP1 组 成 的 BSS
+的 SSID 就是 TP-NK-NETLAB
+如果说SSID 是一个AP 的一层标识，那么BSSID 就是这个 AP 的二层标识。
+AP 与无 线节点之间的通信是通过内部的无线网卡实现的。
+在大部分情况下，BSSID 就是无线网卡 的 MAC 地址。
+但是，有的网络设备生产商也允许使用虚拟 BSSID。
+无线网卡 BSSID 与以太网网卡的MAC 地址相似，长度都是6B(48b) 。
+它们的不同点 在于：IEEE 802.11规定无线网卡 BSSID 第一字节最低位为0,倒数第2位为1,其余46位 按照一定的算法随机产生，以很高的概率保证了产生的 MAC 地址是唯一的。
+因此，SSID 是用户为 AP 配置的 BSS 的逻辑名，BSSID 是设备生产商为AP 配置的精确的二层标识符。
+例如，南开大学网络实验室教师办公室 AP1 的 SSID 为 TP-NK-NETLAB, 对应的 MAC 地
+址为00:0C:25:60:A2:1D 。
+================================================================================
+
+Chunk 56:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_202
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3. 无线节点与AP 之间的关联过程
+IEEE 802.11 支持两种级别的链路认证：开放系统认证和共享密钥认证。
+1)开放系统认证
+开放系统认证是默认的认证方式。
+无线节点与 AP 之间交换一次链路认证请求帧与链 路认证应答帧。
+无线节点将自己的MAC 地址通知 AP 。
+AP 与无线节点之间不进行身份信 息识别，所有请求链路认证的节点无线网卡都可通过认证。
+因此，只有在 WiFi Free的 公 开、免费使用状态，才能够使用开放系统认证。
+2)共享密钥认证
+共享密钥认证采用的是有线等效保密(Wired Equivalent Privacy,WEP)协议或无线保 护访问(WiFi Protected Access,WPA)协议。
+通过实践证明，WEP 协议的安全性较差， IEEE 802.1li工作组以安全性高的WAP 取代了WEP。
+无线节点要接入无线局域网，必须与特定的 AP 建立关联。
+当无线节点通过指定的 SSID(例如 SSID=TP-LINK WU) 选择无线局域网并通过链路认证之后，就要向AP 发送 关联请求帧，其中包含无线节点的传输速率、帧间间隔、SSID 等。
+AP 根据关联请求的信息 来决定是否接受关联。
+如果 AP 接受关联，则发送关联应答帧。
+在讨论管理帧的功能时，需要注意以下几个问题：
+(1)关联只能由无线节点发起，并且一个无线节点一个时刻只能与一个 AP 关联。
+关 联属于一种记录保持的过程，帮助 DS 记录每个无线节点的位置，保证将帧传送到目的节
+图3-54 无线节点与 AP 之间的关联过程
+数据链路层
+点。
+当无线节点从原AP 移动到新 AP 的覆盖范围时，需要进行重关联。
+AP 与无线节点都 可以发送解除关联帧断开当前的关联。
+无线节点离开无线网络时，应该主动执行解除关联 的操作。
+如果AP 发现关联的无线节点信号消失，就采取超时机制解除与该无线节点的关 联。
+在IEEE 802.11中，解除关联和解除认证是通告，而不是请求。
+================================================================================
+
+Chunk 57:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_203
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+在IEEE 802.11中，解除关联和解除认证是通告，而不是请求。
+如果相互关联的无线节 点与 AP 中的一方发送解除关联帧或解除认证帧，另一方不能拒绝，除非启用了管理帧的保 护 功 能 。
+(2)IEEE 802.11协议没有对节点选择AP 的关联条件进行规范，而是由AP 设备的生 产商决定。
+常用的方法是考虑两个主要因素。
+一是从关联请求帧了解无线节点是否具有以 传输速率与AP 通信的能力，例如，AP 要求无线节点以1Mb/s 、2Mb/s 的低速率来通信，或 者以4.5Mb/s 、11Mb/s 的高速率来通信。
+二是AP 能否为申请关联的无线节点提供所需的 缓冲空间。
+当一个节点关联了一个 AP 时，节点向 AP 通告它选择了可以接收和发送数据 的主动模式还是节能模式。
+当选择节能模式的节点处于休眠状态时，所有向该节点发送的 数据帧都要先缓存在 AP 上。
+聆听间隔(listen interval)是 AP 为关联的节点缓冲数据的最 短时间。
+AP 根据关联请求帧中聆听间隔的时间长短预测无线节点需要的缓冲空间大小。
+如果AP 能够提供足够的缓存空间，则接受关联；否则，拒绝关联。
+满足以上基本条件，AP 就会同意与该节点建立关联，并回送一个关联应答帧。
+================================================================================
+
+Chunk 58:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_41
+Source: dense
+--------------------------------------------------------------------------------
+2. 虚电路方式
+虚电路方式试图将数据报与线路交换相结合，发挥这两种方法各自的优点，以达到最佳 的数据交换效果。
+图1-25给出了虚电路方式的工作原理。
+1)虚电路方式的工作过程
+数据报方式在发送分组之前，发送方与接收方之间不需要预先建立连接。
+虚电路方式 在发送分组之前，发送方和接收方需要预先建立一条逻辑连接的虚电路。
+在这一点上，虚电 路方式与线路交换方式相同。
+虚电路方式的工作过程分为3个阶段：虚电路建立阶段、数 据传输阶段与虚电路释放阶段。
+(1)在虚电路建立阶段，路由器A 使用路由选择算法确定下一跳为路由器 B, 然后向路 由器B 发送呼叫请求分组；同样，路由器B 使用路选算法确定下一跳为路由器C; 以此类推， 呼叫请求分组经过A、B、C的路径到达路由器 D 。
+路由器 D 向路由器 A 发送呼叫应答分 组，至此虚电路建立。
+(2)在数据传输阶段，利用已建立的虚电路以存储转发方式顺序传送分组。
+(3)在所有的数据传输结束后，进入虚电路释放阶段，将按照 D、C、B、A 的顺序依次释 放虚电路。
+2)虚电路方式的特点
+虚电路方式主要有以下几个特点：
+计算机网络概论
+· 在每次分组传输之前，需要在源主机与目的主机之间建立一条虚电路。
+· 所有分组都通过虚电路按顺序传送，分组不必携带目的地址、源地址等信息。
+分组 到达目的主机时不会出现丢失、重复与乱序的现象。
+· 分组通过虚电路上的每个路由器时，路由器仅进行差错检测，而不进行路由选择。
+· 路由器可以为多个主机之间的通信建立多条虚电路。
+虚电路方式与线路交换方式的主要区别是：虚电路是在传输分组时建立的逻辑连接， 它被称为虚电路是因为这种电路不是专用的。
+每个主机可以同时与多个主机建立虚电路， 每条虚电路支持两个主机之间的数据传输。
+由于虚电路方式具有分组交换与线路交换的优 点，因此在计算机网络中得到了广泛的应用。
+路由器E 路由器F
+路由器A 路由器C 路由器D
+主机1
+图1-25 虚电路方式的工作原理
+================================================================================
+
+Chunk 59:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_426
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2. 堡垒主机的概念
+从理论上说，用一台双归属主机作为应用级网关可起到防火墙的作用，这种结构如 图7-29所示。
+在这种结构中，应用级网关暴露给整个外部网络，其自身安全会影响到整个 系统，因此运行应用级网关软件的计算机必须很可靠。
+人们将位于防火墙关键部位、运行应
+离开内部 网络的包
+进入内部 网络的包
+互联网
+应用级网关
+(堡垒主机)
+图7-29 以堡垒主机作为应用级网关的结构
+3. 防火墙系统结构配置表示
+由于网络的安全策略与防护要求不同，防火墙系统配置与结构有很大区别，可采用多级 结构。
+但是，任何一种结构的防火墙系统都由包过滤路由器与应用级网关组合而成。
+为了讨论方便，这里引入一些符号，使防火墙系统结构配置表示更简洁。
+表7-3给出了 这些符号及其描述，在其中用堡垒主机表示应用级网关。
+表7-3 防火墙系统结构配置表示
+================================================================================
+
+Chunk 60:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_50
+Source: dense
+--------------------------------------------------------------------------------
+· 不同主机通过协议来实现同等层之间的通信。
+4.OSI 参考模型各层的主要功能
+OSI 参考模型结构包括以下7层：物理层、数据链路层、网络层、传输层、会话层、表示 层和应用层。
+1)物理层
+理解物理层(physical layer)的基本概念，需要注意以下几个问题：
+· 物理层是参考模型的最低层。
+·物理层利用传输介质为通信的主机之间建立、管理和释放物理连接，实现比特流的
+计算机网络概论
+图1 - 31 广域网结构与OSI 参考模型
+· 物理层的数据传输单元是比特。
+2)数据链路层
+理解数据链路层(data link layer)的基本概念，需要注意以下几个问题：
+· 数据链路层的低层是物理层，相邻高层是网络层。
+· 数据链路层的数据传输单元是帧。
+3)网络层
+理解网络层(network layer)的基本概念，需要注意以下几个问题。
+· 网络层的相邻低层是数据链路层，相邻高层是传输层。
+· 网络层通过路由选择算法为分组通过通信子网选择适当的传输路径，实现流量控 制、拥塞控制与网络互联等功能。
+· 网络层的数据传输单元是分组。
+4)传输层
+理解传输层(transport layer)的基本概念，需要注意以下几个问题：
+·传输层的相邻低层是网络层，相邻高层是会话层。
+· 传输层向高层屏蔽了低层数据通信的细节。
+计算机网络(第5版)
+· 传输层的数据传输单元是报文。
+5)会话层
+理解会话层(session layer)的基本概念，需要注意以下几个问题：
+·会话层的相邻低层是传输层，相邻高层是表示层。
+· 会话层负责维护两个主机之间会话的建立、管理和终止以及数据的交换。
+6)表示层
+理解表示层(presentation layer)的基本概念，需要注意以下几个问题：
+·表示层的相邻低层是会话层，相邻高层是应用层。
+7)应用层
+理解应用层(application layer)的基本概念，需要注意以下几个问题。
+· 应用层是参考模型的最高层。
+· 应用层实现协同工作的应用程序之间的通信过程控制。
+5.OSI 环境中的数据传输过程
+1)什么是 OSI 环境
+================================================================================
+
+Chunk 61:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_52
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+通过上述关于OSI 环境的讨论，可以得出以下几个结论：
+· 源主机进程产生的数据从应用层向下逐层传送，物理层通过传输介质横向将表示数 据的比特流传送到下一个主机，直至目的主机。
+到达目的主机的数据从物理层向上 逐层传送，最终传送给目的主机进程。
+· 尽管源主机进程的数据在 OSI 环境中，经过多层处理才能够传送到目的主机进程， 但是整个处理过程对用户是透明的。
+OSI 环境中各层执行网络协议的硬件或软件 自动完成处理，整个过程不需要用户介入。
+对于应用进程来说，数据好像是直接传 送过来的。
+================================================================================
+
+Chunk 62:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_197
+Source: bm25
+--------------------------------------------------------------------------------
+实践中也经常使用三态内容 可寻址存储器 (Tenary Content Address Memory,TCAM) 来 查 找 [Yu 2004]。
+使 用TCAM, 一 个 3 2 比 特IP 地址被放入内存，TCAM 在基本常数时间内返回对该地址的转发表项的内 容 。
+Cisco Catalyst 6500 和7500系列路由器及交换机能够保存100多万TCAM 转 发 表 项
+网络层：数据平面 207
+[Cisco TCAM 2014]。
+一旦通过查找确定了某分组的输出端口，则该分组就能够发送进入交换结构。
+在某些 设计中，如果来自其他输入端口的分组当前正在使用该交换结构， 一个分组可能会在进入 交换结构时被暂时阻塞。
+因此，一个被阻塞的分组必须要在输入端口处排队，并等待稍后 被及时调度以通过交换结构。
+我们稍后将仔细观察分组(位于输入端口与输出端口中)的 阻塞、排队与调度。
+尽管“查找”在输入端口处理中可认为是最为重要的动作，但必须采 取许多其他动作：①必须出现物理层和链路层处理，如前面所讨论的那样；②必须检查分 组的版本号、检验和以及寿命字段(这些我们将在4.3节中学习),并且重写后两个字段；
+③必须更新用于网络管理的计数器(如接收到的IP 数据报的数目)。
+================================================================================
+
+Chunk 63:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_201
+Source: tfidf
+--------------------------------------------------------------------------------
+1. 输入排队
+210 第4章
+端口；③分组按FCFS方式，从一指定输入队列移动到其要求的输出队列中。
+只要其输出 端口不同，多个分组可以被并行传送。
+然而，如果位于两个输入队列前端的两个分组是发 往同一输出队列的，则其中的一个分组将被阻塞，且必须在输入队列中等待，因为交换结 构一次只能传送一个分组到某指定端口。
+图4-8显示了一个例子，其中在输入队列前端的两个分组(带深色阴影)要发往同一 个 右 上 角 输 出 端 口 。
+假 定 该 交 换 结 构 决
+定 发 送 左 上 角 队 列 前 端 的 分 组 。
+在 这 种 情况下，左下角队列中的深色阴影分组 必须等待。
+但不仅该分组要等待，左下 角队列中排在该分组后面的浅色阴影分 组也要等待，即使右中侧输出端口(浅 色阴影分组的目的地)中无竞争。
+这种 现象叫作输人排队交换机中的线路前部 (Head-Of-the-Line,HOL) 阻塞，即在一 个输入队列中排队的分组必须等待通过 交换结构发送(即使输出端口是空闲 的),因为它被位于线路前部的另一个分 组所阻塞。
+[Karol 1987] 指出，由于 HOL 阻塞，只要输入链路上的分组到达 速率达到其容量的58%,在某些假设前 提下，输入队列长度就将无限制地增大
+浅色阴影分组经受了HOL阻塞
+一
+交换结构
+图 例 ：
+发向上面的 发向中间的 发向下面的
+输出端口 输出端口 输出端口
+图4 - 8 在 一个输人排队交换机中的HOL 阻 塞
+(不严格地讲，这等同于说将出现大量的丢包)。
+[McKeown 1997b] 讨论了多种解决HOL 阻塞的方法。
+================================================================================
+
+Chunk 64:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_255
+Source: dense
+--------------------------------------------------------------------------------
+5.3 因特网中自治系统内部的路由选择： OSPF
+在我们至今为止的算法研究中，我们将网络只看作一个互联路由器的集合。
+从所有路 由器执行相同的路由选择算法以计算穿越整个网络的路由选择路径的意义上来说， 一台路 由器很难同另一台路由器区别开来。
+在实践中，该模型和这种一组执行同样路由选择算法 的同质路由器集合的观点有一点简单化，有以下两个重要原因：
+●规模。
+随着路由器数目变得很大，涉及路由选择信息的通信、计算和存储的开销将 高得不可实现。
+当今的因特网由数亿台主机组成。
+在这些主机中存储的路由选择信 息显然需要巨大容量的内存。
+在所有路由器之间广播连通性和链路开销更新所要求 的负担将是巨大的!
+在如此大量的路由器中迭代的距离向量算法将肯定永远无法收 敛!
+显然，必须采取一些措施以减少像因特网这种大型网络中的路由计算的复 杂性。
+●管理自治。
+如在1 .3节描述的那样，因特网是ISP 的网络，其中每个ISP 都有它自 己的路由器网络。
+ISP 通常希望按自己的意愿运行路由器(如在自己的网络中运行 它所选择的某种路由选择算法),或对外部隐藏其网络的内部组织面貌。
+在理想情 况下，一个组织应当能够按自己的愿望运行和管理其网络，还要能将其网络与其他 外部网络连接起来。
+这两个问题都可以通过将路由器组织进自治系统 (Autonomous System,AS) 来解决， 其中每个AS由一组通常处在相同管理控制下的路由器组成。
+通常在一个ISP 中的路由器 以及互联它们的链路构成一个AS 。
+然而，某些ISP 将它们的网络划分为多个AS。
+特别是， 某些一级ISP 在其整个网络中使用一个庞大的AS, 而其他ISP 则将它们的ISP 拆分为数十 个互联的AS 。
+一个自治系统由其全局唯一的AS 号 (ASN) 所标识 [RFC 1930]。
+就像IP 地址那样，AS 号由ICANN 区域注册机构所分配 [ICANN 2016]。
+在相同AS中的路由器都运行相同的路由选择算法并且有彼此的信息。
+================================================================================
+
+Chunk 65:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_490
+Source: tfidf
+--------------------------------------------------------------------------------
+4. 然后时间前进到下 一 个时隙，并且重复这些步骤。
+回答下列问题 ：
+a. 对 每 个 时 隙 ， 在 到 达 分 组 处 理 后 ( 上 述 步 骤 1 ) 但 在 任 何 分 组 通 过 队 列 传 输 并 去 除 一 个 令 牌 之 前 的 那 个 时 刻 ， 指 出 位 于 队 列 中 的 分 组 和 位 于 桶 中 的 令 牌 数 量 。
+因 此 ， 对 于 在 上 述 例 子 中 的t=0
+时 刻 的 时 隙 ， 分 组 1 、 2 和 3 位 于 队 列 中 ， 桶 中 有 两 个 令 牌 。
+b. 对 每 个 时 隙 ， 指 出 在 令 牌 从 队 列 中 去 除 后 哪 个 分 组 出 现 在 输 出 链 路 。
+这 样 ， 对 于 上 述 例 子 中 的 t=0 时 隙 ， 在 时 隙 0 期 间 ， 分 组 1 和 2 从 漏 桶 出 现 在 输 出 链 路 上 。
+P18. 重 复 习 题P17, 但 假 设r=2 。
+再 次 假 设 初 始 时 桶 是 满 的 。
+P19. 考 虑 习 题P18 并 假 设 现 在r=3 且 b=2 与以前 一 样。
+你对上述问题的回答有变化吗?
+P20. 考虑 一 下监管分组流的平均速率和突发长度的漏桶监管器。
+我们现在也要监管峰值速率p 。
+说 明 这 个漏桶监管器的输出如何能够提供给第二个漏桶监管器 ， 使得这两个串行的漏桶能够监管平均速 率、峰值速率和突发长度。
+要给出第二个监管器的桶长度和令牌产生速率。
+P21. 如 果 对 于 任 何t 来 说 ， 在 每 个 时 间 间 隔 长 度t 内 到 达 漏 桶 的 分 组 数 小 于rt+b 个 ， 那 么 就 说 分 组 流 符 合 一 个 突 发 长 度b 和 平 均 速 率r 的 漏 桶 规 范 (r,b) 。
+一 个 符 合 漏 桶 规 范 (r,b) 的 分 组 流 必 须 在 参 数 r 和 b 的 漏 桶 监 管 器 那 里 等 待 吗 ?
+评 估 你 的 答 案 。
+================================================================================
+
+Chunk 66:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_15
+Source: tfidf
+--------------------------------------------------------------------------------
+2. 分 组 交 换 的 主 要 特 点
+分 组 交 换 则 采 用存 储 转 发技 术 ① 。
+图 1 - 9 表 示 把 一 个 报 文 划 分 为 几 个 分 组 后 再 进 行 传 送 。
+通 常 我 们 把 要 发 送 的 整 块 数 据 称 为 一 个报 文(message)。
+在 发 送 报 文 之 前 ， 先 把 较 长 的 报 文 划 分 为 一 个 个 更 小 的 等 长 数 据 段 ， 例 如 ， 视频讲解
+报文
+101001110101100…………001010011101000
+发送在前
+首 部
+数 据 分组
+首部
+数 据 分组
+首 部
+数 据 分组
+图 1 - 9 以分组为基本单位在网络中传送
+图 1 - 1 0(a) 强 调 互 联 网 的 核 心 部 分 是 由 许 多 网 络 和 把 它 们 互 连 起 来 的 路 由 器 组 成 的 ， 而 主机处在互联网的边缘部分 。
+在互联网核心部分的路由器之间一般都用高速链路相连接 ， 而 在网络边缘部分的主机接入到核心部分则通常以相对较低速率的链路相连接 。
+位 于 网 络 边 缘 部 分 的 主 机 和 位 于 网 络 核 心 部 分 的 路 由 器 都 是 计 算 机 ， 但 它 们 的 作 用 却 很 不 一 样 。
+主 机 是 为 用 户 进 行 信 息 处 理 的， 并 且 可 以 和 其 他 主 机 通 过 网 络 交 换 信 息 。
+路 由 器 则 用 来 转 发 分 组 ， 即 进 行 分 组 交 换。
+路 由 器 收 到 一 个 分 组 ， 先 暂 时 存 储 一 下 ， 检 查 其 首 部 ， 查 找 转 发 表 ， 按 照 首 部 中 的 目 的 地 址 ， 找 到 合 适 的 接 口 转 发 出 去 ， 把 分 组 交 给 下 一 个 路 由 器 。
+这 样 一 步 一 步 地 ( 有 时 会 经 过 几 十 个 不 同 的 路 由 器 ) 以 存 储 转 发 的 方 式 ， 把 分 组 交 付 最 终 的 目 的 主 机 。
+================================================================================
+
+Chunk 67:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_37
+Source: dense
+--------------------------------------------------------------------------------
+(1)OSI 的专家们缺乏实际经验，他们在完成OSI 标准时缺乏商业驱动力；
+(2)OSI 的协议实现起来过分复杂，而且运行效率很低；
+(3)OSI 标准的制定周期太长，因而使得按OSI 标准生产的设备无法及时进入市场；
+(4)OSI 的层次划分不太合理，有些功能在多个层次中重复出现。
+顺便说一下，虽然 OSI 标准在一开始由 ISO 来制定，但后来的许多标准都是ISO 与原
+的 ISO 7498基本上是相同的。
+================================================================================
+
+Chunk 68:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_41
+Source: dense
+--------------------------------------------------------------------------------
+运输层主要使用以下两种协议：
+顺便指出，有人愿意把运输层称为传输层，理由是这一层使用的 TCP 协议就叫作传输 控制协议。
+从意思上看，传输和运输差别也不大。
+但 OSI 定义的第4层使用的是 Transport, 而不是 Transmission。
+这两个词的含义还是有些差别的。
+因此，使用运输层这个译名较为准确。
+(3) 网络层(network layer)
+请注意：不要将运输层的“用户数据报协议 UDP” 和网络层的 “IP 数据报”弄混。
+此 外 ，无论在哪一层传送的数据单元，都可笼统地用“分组”来表示。
+网络层的具体任务有两个。
+第一个任务是通过一定的算法，在互联网中的每一个路由 器上生成一个用来转发分组的转发表。
+第二个任务较为简单，就是每一个路由器在接收到一 个分组时，依据转发表中指明的路径把分组转发到下一个路由器。
+这样就可以使源主机运输 层所传下来的分组，能够通过合适的路由最终到达目的主机。
+这里要强调指出，网络层中的“网 络”二字，已不是我们通常谈到的具体网络，而是 在计算机网络体系结构模型中的第3层的名称。
+互联网是由大量的异构(heterogeneous)网络通过路由器(router)相互连接起来的。
+互联网 使用的网络层协议是无连接的网际协议IP (Internet Protocol)和许多种路由选择协议，因此互 联网的网络层也叫作网际层或IP 层。
+在本书中，网络层、网际层和IP 层都是同义语。
+(4) 数据链路层(data link layer)
+数据链路层常简称为链路层。
+我们知道，两台主机之间的数据传输，总是在一段一段 的链路上传送的，这就需要使用专门的链路层的协议。
+在两个相邻节点之间传送数据时，数 据链路层将网络层交下来的 IP 数据报组装成帧(framing), 在两个相邻节点间的链路上传 送帧 (frame) 。
+每一帧包括数据和必要的控制信息(如同步信息、地址信息、差错控制等)。
+在接收数据时，控制信息使接收端能够知道一个帧从哪个比特开始和到哪个比特结束。
+================================================================================
+

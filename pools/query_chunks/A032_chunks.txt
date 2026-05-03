@@ -1,0 +1,1744 @@
+Query: A032
+Total chunks: 69
+================================================================================
+
+Chunk 1:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1559
+Source: tfidf
+--------------------------------------------------------------------------------
+out-of-memory killer,240
+overlap,67, 68, 221, 377, 392 owner,292 page,169 page cache,493 page daemon,223
+page directory,205, 209
+page directory entries,206
+page fault,219, 220, 224 page frame,170
+page frame number,206 page in,221 page miss,220 page out,221
+page replacement,174 page selection,240 page table,170, 176
+page table base register,219
+page table entry (PTE),172, 219
+page-directory index,208
+page-fault handler,220, 224
+page-replacement policy,221
+page-table base register,175, 187
+page-table index,209
+paging, 28, 153, 169, 179, 381 paging out,227 parallel,93
+parameterization,487 parameterize,78 parent,31, 36 parity,430 partitioned,561 pass,88 Patterson’s Law,577 PC, 16, 26 PCB,32 PCI,389 PDE,206 perfect scaling,313
+performance,13, 60, 293, 299, 423, 544 peripheral bus,389 persist,387, 491
+persistence,iii, 1, 11, 12, 29, 387
+persistent storage,441 persistently,11, 13
+================================================================================
+
+Chunk 2:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_456
+Source: tfidf
+--------------------------------------------------------------------------------
+Instead of splitting up our address space into three logical segments (each of variable size), we split up our address space into ﬁxed-sized units we call a page.
+Here in Figure 18.1 an example of a tiny address space, only 64 bytes total in size, with 16 byte pages (real address spaces are much bigger, of course, commonly 32 bits and thus 4-GB of address space, or even 64 bits).
+We’ll use tiny examples to make them easier to digest (at ﬁrst).
+( of the address space)
+Figure 18.1: A Simple 64-byte Address Space
+170 PAGING: INTRODUCTION
+page frame 0 of physical memory page frame 1 page frame 2 page frame 3 page frame 4 page frame 5 page frame 6 page frame 7
+Figure 18.2: 64-Byte Address Space Placed In Physical Memory
+Thus, we have an address space that is split into four pages (0 through 3).
+================================================================================
+
+Chunk 3:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_464
+Source: tfidf
+--------------------------------------------------------------------------------
+Now imagine there are 100 pro- cesses running: this means the OS would need 400MB of memory just for all those address translations!
+Even in the modern era, where machines have gigabytes of memory, it seems a little crazy to use a large chunk of if just for translations, no?
+Because page tables are sobig, we don’t keep any special on-chip hard- ware in the MMU to store the page table of the currently-running process.
+Instead, we store the page table for each process in memory somewhere.
+page frame 0 of physical memory page frame 1 page frame 2 page frame 3 page frame 4 page frame 5 page frame 6 page frame 7
+Figure 18.4: Example: Page Table in Kernel Physical Memory
+Let’s assume for now that the page tables live in physical memory that the OS manages.
+In Figure 18.4is a picture of what that might look like.
+================================================================================
+
+Chunk 4:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_465
+Source: dense
+--------------------------------------------------------------------------------
+18.2 What’s Actually In The Page Table?
+Let’s talk a little about page table organization.
+The page table is just a data structure that is used to map virtual addresses (or really, virtual page numbers) to physical addresses (physical page numbers).
+Thus, any data structure could work.
+The simplest form is called a linear page table, which is just an array.
+The OS indexes the array by the VPN, and looks up the page-table entry (PTE) at that index in order to ﬁnd the desired PFN.
+For now, we will assume this simple linear structure; in later chapters, we will make use of more advanced data structures to help solve some problems with paging.
+As for the contents of each PTE, we have a number of different bits in there worth understanding at some level.
+================================================================================
+
+Chunk 5:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_544
+Source: tfidf
+--------------------------------------------------------------------------------
+20.3 Multi-level Page Tables
+A different approach doesn’trely on segmentation but attacks the same problem: how to get rid of all those invalid regions in the page table in- stead of keeping them all in memory?
+We call this approach a multi-level page table, as it turns the linear page table into something like a tree.
+This approach is so effective that many modern systems employ it (e.g., x86 [BOH10]).
+We now describe this approach in detail.
+The basic idea behind a multi-level page table is simple.
+First, chop up the page table into page-sized units; then, if an entire page of page-table entries (PTEs) is invalid, don’t allocate that page of the page table at all.
+To track whether a page of the page table is valid (and if valid, where it is in memory), use a new structure, called the page directory.
+================================================================================
+
+Chunk 6:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_545
+Source: tfidf
+--------------------------------------------------------------------------------
+To track whether a page of the page table is valid (and if valid, where it is in memory), use a new structure, called the page directory.
+The page directory thus either can be used to tell you where a page of the page table is, or that the entire page of the page table contains no valid pages.
+Figure 20.2 shows an example.
+On the left of the ﬁgure is the classic linear page table; even though most of the middle regions of the address space are not valid, we still have to have page-table space allocated for those regions (i.e., the middle two pages of the page table).
+On the right is a multi-level page table.
+The page directory marks just two pages of Linear Page Table PTBR 201
+Multi-level Page Table PDBR 200 PFN PFN
+[ of PT: Not Allocated]
+[ of PT: Not Allocated] 1 rw 86 1 rw 15
+Figure 20.2: Linear (Left) And Multi-Level (Right) Page Tables
+================================================================================
+
+Chunk 7:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_546
+Source: dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+Figure 20.2: Linear (Left) And Multi-Level (Right) Page Tables
+the page table as valid (the ﬁrst and last); thus, just those two pages of the page table reside in memory.
+And thus you can see one way to visualize what a multi-level table is doing: it just makes parts of the linear page table disappear (freeing those frames for other uses), and tracks which pages of the page table are allocated with the page directory.
+The page directory, in a simple two-level table, contains one entry per page of the page table.
+It consists of a number of page directory entries (PDE).
+A PDE (minimally) has a valid bit and a page frame number (PFN), similar to a PTE.
+================================================================================
+
+Chunk 8:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_555
+Source: tfidf
+--------------------------------------------------------------------------------
+Page Directory Index Page Table Index
+This page-table index (PTIndex for short) can then be used to index into the page table itself, giving us the address of our PTE:
+PTEAddr = (PDE .PFN << SHIFT) + (PTIndex * sizeof(PTE))
+Note that the page-frame number (PFN) obtained from the page-directory entry must be left-shifted into place before combining it with the page-
+table index to form the address of the PTE.
+To see if this all makes sense, we’ll now ﬁll in a multi-level page ta- ble with some actual values, and translate a single virtual address.
+Let’s begin with the page directory for this example (left side of Table20.2).
+In the ﬁgure, you can see that each page directory entry (PDE) de- scribes something about a page of the page table for the address space.
+================================================================================
+
+Chunk 9:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_561
+Source: tfidf
+--------------------------------------------------------------------------------
+To determine how many levels are needed in a multi-level table to make all pieces of the page table ﬁtwithin a page, we start by determining how many page-table entries ﬁt within a page.
+Given our page size of 512 bytes, and assuming a PTE size of 4 bytes, you should see that you can ﬁt 128 PTEs on a single page.
+When we index into a page of the page table, we can thus conclude we’ll need the least signiﬁcant 7 bits (log2128) of the VPN as an index: VPN offset
+Page Directory Index Page Table Index
+What you also might notice from the diagram above is how many bits are left into the (large) page directory: 14.
+If our page directory has 214 entries, it spans not one page but 128, and thus our goal of making every piece of the multi-level page table ﬁt into a page vanishes.
+================================================================================
+
+Chunk 10:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_585
+Source: dense
+--------------------------------------------------------------------------------
+In many systems, the page table is a natural place to store such information.
+Thus, the OS could use the bits in the PTE normally used for data such as the PFN of the page for a disk address.
+When the OS receives a page fault for a page, it looks in the PTE to ﬁnd the address, and issues the request to disk to fetch the page into memory.
+When the disk I/O completes, the OS will then update the page table to mark the page as present, update the PFN ﬁeld of the page-table entry (PTE) to record the in-memory location of the newly-fetched page, and retry the instruction.
+This next attempt may generate a TLB miss, which would then be serviced and update the TLB with the translation (one could alternately update the TLB upon when servicing the page fault, to avoid this step).
+================================================================================
+
+Chunk 11:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_592
+Source: dense
+--------------------------------------------------------------------------------
+From the software control Aow in Figure 21.3, we can see what the OS roughly must do in order to service the page fault.
+First, the OS must ﬁnd a physical frame for the soon-to-be-faulted-in page to reside within; if there is no such page, we’ll have to wait for the replacement algorithm to run and kick some pages out of memory, thus freeing them for use here.
+1 PFN = FindFreePhysicalPage()
+2 if (PFN == -1) // no free page found
+3 PFN = EvictPage() // run replacement algorithm
+4 DiskRead(PTE.DiskAddr, pfn) // sleep (waiting for I/O)
+5 PTE .present = True // update page table with present
+6 PTE .PFN = PFN // bit and translation (PFN)
+7 RetryInstruction() // retry instruction
+Figure 21.3: Page-Fault Control Flow Algorithm (Software)
+With a physical frame in hand, the handler then issues the I/O request to read in the page from swap space.
+================================================================================
+
+Chunk 12:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_111
+Source: dense
+--------------------------------------------------------------------------------
+20. 除了本章所举的例子，HTML 中也存在括号匹配问题。
+标签有开始和结束两种形式，并 且需要互相匹配才能正确描述网页内容。
+下面是简单的 HTML 文档，用于展示标签的 匹配和嵌套。
+写一个程序来检查HTML 文档中的标签是否正确匹配。
+html>
+<head
+<title>
+Exanple
+title
+head
+body
+h1-He1lo,world</h1
+body>
+ntm1>
+21. 扩展代码清单3-15中的回文检测器，使其可以处理包含空格的回文。
+如果忽略其中的 空格，那么I PREFER PI就是回文。
+================================================================================
+
+Chunk 13:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_239
+Source: dense
+--------------------------------------------------------------------------------
+7.7 强连通分量
+接下来将注意力转向规模庞大的图。
+我们将以互联网主机与各个网页构成的图为例，学习其 他几种算法。
+首先讨论网页。
+在互联网上，各种网页形成一个大型的有向图，谷歌和必应等搜索引擎正是利用了这一事实。
+要将互联网转换成 一 个图，我们将网页当作顶点，将超链接当作连接顶点的边。
+图7 - 21展示了 以路德学院计算机系的主页作为起点的网页连接图的 一 小部分。
+由于这个图的规模庞大，因此我 们限制网页与起点页之间的链接数不超过10个。
+HeGaatienal sport Luthier
+C olluge
+Luthur CallegeResldesce Lna Student Activities DBce.
+towa staite University
+inquire wnthin
+Tinothy Zies#393 Luther colfege Physics
+open emLthomatles)Home PAa Departuant
+Inlona University.
+o omington
+Lndiana iJniversity Purde
+upiward Bound Progrzm University Indanagofia
+Luther coliege Hlstery LCUB web site-HomSUS Dapartmnt al suate tnvSu nath wome
+Department Loyola coiegye ome Pag
+maca College
+ocio o ut l lallnl
+Luthe Caliege HistorY 故 Lw n
+Lather Collegur History
+DspartmentL PhiAlpha Theta
+LeAJum Lather Callag
+Loyola University Chicago Loras CollegLe itiecnigprtclaoe istary Comunuity
+TE
+43.32N and
+Englisn tomonmie M,Soro in
+================================================================================
+
+Chunk 14:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_154
+Source: tfidf
+--------------------------------------------------------------------------------
+18.1 一个简单例子
+为了让该方法看起来更清晰，我们用一个简单例子来说明。
+图 18.1 展示了一个只有 64字节的小地址空间，有 4 个 16 字节的页（虚拟页 0 、1 、2 、3）。
+真实的地址空间肯定大得多，通常 32 位有 4GB 的地址空间，甚至有 64 位①。
+在本书中， 我们常常用小例子，让大家更容易理解。
+物理内存，如图 18.2 所示，也由一组固定大小的槽块组成。
+在这个例子中，有 8 个页帧（由 128 字节物理内存构成，也是极小的）。
+从图中可以看出， 虚拟地址空间的页放在物理内存的不同位置。
+图中还显示，操作系统自己用了一些物理内存。
+可以看到，与我们以前的方法相比，分页有许多优点。
+可能最大的改进就是灵活性：通过完善的分页方法，操作系统能够高效地提供地址空间的抽象，不管进程如何使用地址空间。
+例如，我们不会假定堆和栈的增长方向，以及它们如何使用。
+另一个优点是分页提供的空闲空间管理的简单性。
+例如， 如果操作系统希望将 64 字节的小地址空间放到 8 页的物理地址空间中，它只要找到 4 个空闲页。
+也许操作系统保存了一个所有空闲页的空闲列表（free list），只需要从这个列表中拿出 4 个空闲页。
+在这个例子
+① 64 位地址空间很难想象，它大得惊人。
+类比可能有助于理解：如果说 32 位地址空间有网球场那么大，则 64 位地址空间大约与欧洲的面积大小相当！
+里，操作系统将地址空间的虚拟页 0 放在物理页帧 3，虚拟页 1 放在物理页帧 7，虚拟页 2放在物理页帧 5，虚拟页 3 放在物理页帧 2。
+页帧 1 、4 、6 目前是空闲的。
+图 18.1 一个简单的 64 字节地址空间
+64 字节的地址空间在 128 字节的物理内存中
+为了记录地址空间的每个虚拟页放在物理内存中的位置，操作系统通常为每个进程保存一个数据结构，称为页表（page table）。
+页表的主要作用是为地址空间的每个虚拟页面保存地址转换（address translation），从而让我们知道每个页在物理内存中的位置。
+================================================================================
+
+Chunk 15:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_155
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+页表的主要作用是为地址空间的每个虚拟页面保存地址转换（address translation），从而让我们知道每个页在物理内存中的位置。
+对于我们的简单示例（见图 18.2），页表因此具有以下 4 个条目：（虚拟页 0 →物理帧 3）、（VP 1 →PF 7）、 （VP 2 →PF 5）和（VP 3 →PF 2）。
+重要的是要记住，这个页表是一个每进程的数据结构（我们讨论的大多数页表结构都是每进程的数据结构，我们将接触的一个例外是倒排页表，inverted page table）。
+如果在上面的示例中运行另一个进程，操作系统将不得不为它管理不同的页表，因为它的虚拟页显然映射到不同的物理页面（除了共享之外）。
+现在，我们了解了足够的信息，可以完成一个地址转换的例子。
+设想拥有这个小地址空间（64 字节）的进程正在访问内存：
+movl <virtual address>, %eax
+为了转换（translate）该过程生成的虚拟地址，我们必须首先将它分成两个组件：虚拟页面号（virtual page number，VPN）和页内的偏移量（offset）。
+对于这个例子， 因为进程的虚拟地址空间是 64 字节，我们的虚拟地址总共需要 6 位（26 = 64）。
+因此， 虚拟地址可以表示如下：
+在该图中，Va5 是虚拟地址的最高位，Va0 是最低位。
+因为我们知道页的大小（16 字节），所以可以进一步划分虚拟地址，如下所示：
+页面大小为 16 字节，位于 64 字节的地址空间。
+因此我们需要能够选择 4 个页，地址的前 2 位就是做这件事的。
+因此， 我们有一个 2 位的虚拟页号（VPN）。
+其余的位告诉我们，感兴趣该页的哪个字节，在这个例子中是 4 位，我们称之为偏移量。
+movl 21, %eax
+将“21”变成二进制形式，是“010101 ”，因此我们可以检查这个虚拟地址，看看它是如何分解成虚拟页号（VPN）和偏移量的：
+因此，虚拟地址“21”在虚拟页“01 ”（或 1）的第 5 个（“0101 ”）字节处。
+================================================================================
+
+Chunk 16:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_158
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+18.3 列表中究竟有什么
+图 18.4 例子：内核物理内存中的页表
+让我们来谈谈页表的组织。
+页表就是一种数据结构，用于将虚拟地址（或者实际上，是虚拟页号）映射到物理地址（物理帧号）。
+因此， 任何数据结构都可以采用。
+最简单的形式称为线性页表（linear page table），就是一个数组。
+操作系统通过虚拟页号（VPN）检索该数组，并在该索引处查找页表项（PTE），以便找到期望的物理帧号（PFN）。
+现在， 我们将假设采用这个简单的线性结构。
+在后面的章节中，我们将利用更高级的数据结构来帮助解决一些分页问题。
+至于每个 PTE 的内容，我们在其中有许多不同的位，值得有所了解。
+有效位（valid bit）通常用于指示特定地址转换是否有效。
+例如， 当一个程序开始运行时，它的代码和堆在其地址空间的一端，栈在另一端。
+所有未使用的中间空间都将被标记为无效（invalid），如果进程尝试访问这种内存，就会陷入操作系统， 可能会导致该进程终止。
+因此，有效位对于支持稀疏地址空间至关重要。
+通过简单地将地址空间中所有未使用的页面标记为无效，我们不再需要为这些页面分配物理帧，从而节省大量内存。
+我们还可能有保护位（protection bit），表明页是否可以读取、写入或执行。
+同样， 以这些位不允许的方式访问页，会陷入操作系统。
+还有其他一些重要的部分，但现在我们不会过多讨论。
+存在位（present bit）表示该页是在物理存储器还是在磁盘上（即它已被换出，swapped out）。
+当我们研究如何将部分地址空间交换（swap）到磁盘，从而支持大于物理内存的地址空间时，我们将进一步理解这一机制。
+交换允许操作系统将很少使用的页面移到磁盘， 从而释放物理内存。
+脏位（dirty bit）也很常见，表明页面被带入内存后是否被修改过。
+参考位（reference bit ，也被称为访问位，accessed bit）有时用于追踪页是否被访问，也用于确定哪些页很受欢迎，因此应该保留在内存中。
+================================================================================
+
+Chunk 17:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_175
+Source: tfidf
+--------------------------------------------------------------------------------
+因此，有了地址空间标识符，TLB 可以同时缓存不同进程的地址空间映射，没有任何冲突。
+当然，硬件也需要知道当前是哪个进程正在运行，以便进行地址转换，因此操作系统在上下文切换时，必须将某个特权寄存器设置为当前进程的 ASID。
+补充一下，你可能想到了另一种情况，TLB 中某两项非常相似。
+在表 19.3 中，属于两个不同进程的两项，将两个不同的 VPN 指向了相同的物理页。
+表 19.3 包含相似两项的 TLB
+如果两个进程共享同一物理页（例如代码段的页），就可能出现这种情况。
+在上面的例子中，进程 P1 和进程 P2 共享 101 号物理页，但是 P1 将自己的 10 号虚拟页映射到该物理页，而 P2 将自己的50 号虚拟页映射到该物理页。
+共享代码页（以二进制或共享库的方式）是有用的，因为它减少了物理页的使用，从而减少了内存开销。
+================================================================================
+
+Chunk 18:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_186
+Source: bm25
+--------------------------------------------------------------------------------
+正如我们讨论的那样，分段并不像我们需要的那样灵活，因为它假定地址空间有一定的使用模式。
+例如，如果有一个大而稀疏的堆，仍然可能导致大量的页表浪费。
+其次，这种杂合导致外部碎片再次出现。
+尽管大部分内存是以页面大小单位管理的，但页表现在可以是任意大小（是 PTE 的倍数）。
+因此， 在内存中为它们寻找自由空间更为复杂。
+出于这些原因， 人们继续寻找更好的方式来实现更小的页表。
+20.3 多级页表
+另一种方法并不依赖于分段，但也试图解决相同的问题：如何去掉页表中的所有无效区域，而不是将它们全部保留在内存中？
+我们将这种方法称为多级页表（multi-level page table），因为它将线性页表变成了类似树的东西。
+这种方法非常有效，许多现代系统都用它（例如 x86 [BOH10]）。
+我们现在详细描述这种方法。
+多级页表的基本思想很简单。
+首先，将页表分成页大小的单元。
+然后，如果整页的页表项（PTE）无效，就完全不分配该页的页表。
+为了追踪页表的页是否有效（以及如果有效，它在内存中的位置），使用了名为页目录（page directory）的新结构。
+页目录因此可以告诉你页表的页在哪里，或者页表的整个页不包含有效页。
+图 20.2 展示了一个例子。
+图的左边是经典的线性页表。
+即使地址空间的大部分中间区域无效，我们仍然需要为这些区域分配页表空间（即页表的中间两页）。
+右侧是一个多级页表。
+页目录仅将页表的两页标记为有效（第一个和最后一个）；因此，页表的这两页就驻留在内存中。
+因此，你可以形象地看到多级页表的工作方式：它只是让线性页表的一部分消失（释放这些帧用于其他用途），并用页目录来记录页表的哪些页被分配。
+在一个简单的两级页表中，页目录为每页页表包含了一项。
+它由多个页目录项（Page Directory Entries，PDE）组成。
+PDE（至少）拥有有效位（valid bit）和页帧号（page frame number， PFN），类似于 PTE。
+但是， 正如上面所暗示的，这个有效位的含义稍有不同：如果 PDE 项是有效的，则意味着该项指向的页表（通过 PFN）中至少有一页是有效的，即在该 PDE 所指向的页中，至少一个 PTE，其有效位被设置为 1。
+如果 PDE 项无效（即等于零），则 PDE的其余部分没有定义。
+与我们至今为止看到的方法相比，多级页表有一些明显的优势。
+首先，也许最明显的是，多级页表分配的页表空间，与你正在使用的地址空间内存量成比例。
+因此它通常很紧凑，并且支持稀疏的地址空间。
+================================================================================
+
+Chunk 19:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_187
+Source: tfidf
+--------------------------------------------------------------------------------
+因此它通常很紧凑，并且支持稀疏的地址空间。
+图 20.2 线性（左）和多级（右）页表
+详细的多级示例
+为了更好地理解多级页表背后的想法，我们来看一个例子。
+设想一个大小为 16KB 的小地址空间，其中包含 64 个字节的页。
+因此，我们有一个 14 位的虚拟地址空间，VPN 有 8
+① 我们在这里做了一些假设，所有的页表全部驻留在物理内存中（即它们没有交换到磁盘）。
+我们很快就会放松这个假设。
+位，偏移量有 6 位。
+即使只有一小部分地址空间正在使用，线性页表也会有 28（256）个项。
+图 20.3 展示了这种地址空间的一个例子。
+在这个例子中，虚拟页 0 和 1 用于代码，虚拟页 4 和 5 用于堆，虚拟页254 和 255 用于栈。
+地址空间的其余页未被使用。
+要为这个地址空间构建一个两级页表，我们从完整的线性页表开始，将它分解成页大小的单元。
+回想一下我们的完整页表（在这个例子中）有 256 个项；假设每个 PTE 的大小是 4个字节。
+因此， 我们的页大小为 1KB（256×4 字节）。
+鉴于我们有 64 字节的页，1KB 页表可以分为 16 个 64 字节的页，每个页可以容纳 16 个 PTE。
+我们现在需要了解：如何获取 VPN，并用它来首先索引
+到页目录中，然后再索引到页表的页中。
+请记住， 每个都是一组项。
+因此，我们需要弄清楚，如何为每个 VPN 构建索引。
+我们首先索引到页目录。
+这个例子中的页表很小：256 个项，分布在 16 个页上。
+页目录需要为页表的每页提供一个项。
+因此，它有 16 个项。
+结果，我们需要 4 位 VPN 来索引目录。
+我们使用 VPN 的前 4 位，如下所示：
+一旦从 VPN 中提取了页目录索引（简称 PDIndex），我们就可以通过简单的计算来找到页目录项（PDE）的地址：PDEAddr = PageDirBase +（PDIndex×sizeof（PDE））。
+这就得到了页目录，现在我们来看它，在地址转换上取得进一步进展。
+如果页目录项标记为无效，则我们知道访问无效，从而引发异常。
+================================================================================
+
+Chunk 20:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_188
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+如果页目录项标记为无效，则我们知道访问无效，从而引发异常。
+但是，如果 PDE 有效，我们还有更多工作要做。
+具体来说，我们现在必须从页目录项指向的页表的页中获取页表项（PTE）。
+要找到这个 PTE，我们必须使用 VPN 的剩余位索引到页表的部分：
+这个页表索引（Page-Table Index，PTIndex）可以用来索引页表本身，给出 PTE 的地址：
+PTEAddr = (PDE.PFN << SHIFT) + (PTIndex * sizeof(PTE))
+请注意，从页目录项获得的页帧号（PFN）必须左移到位，然后再与页表索引组合，才能形成 PTE 的地址。
+为了确定这一切是否合理，我们现在代入一个包含一些实际值的多级页表，并转换一个虚拟地址。
+让我们从这个例子的页目录开始（见表 20.2 的左侧）。
+在该表中，可以看到每个页目录项（PDE）都描述了有关地址空间页表的一些内容。
+在这个例子中，地址空间里有两个有效区域（在开始和结束处），以及一些无效的映射。
+在物理页 100（页表的第 0 页的物理帧号）中，我们有 1 页，包含 16 个页表项，记录了地址空间中的前 16 个 VPN。
+请参见表 20.2（中间部分）了解这部分页表的内容。
+表 20.2 页目录和页表
+页表的这一页包含前 16 个 VPN 的映射。
+在我们的例子中，VPN 0 和 1 是有效的（代码段），4 和 5（堆）也是。
+因此，该表有每个页的映射信息。
+其余项标记为无效。
+页表的另一个有效页在 PFN 101 中。
+该页包含地址空间的最后 16 个 VPN 的映射。
+具体见表 20.2（右侧）。
+在这个例子中，VPN 254 和 255（栈）包含有效的映射。
+希望从这个例子中可以看出，多级索引结构可以节省多少空间。
+在这个例子中，我们不是为一个线性页表分配完整的 16页，而是分配 3 页：一个用于页目录，两个用于页表的具有有效映射的块。
+大型（32 位或64 位）地址空间的节省显然要大得多。
+最后，让我们用这些信息来进行地址转换。
+这里是一个地址，指向 VPN 254 的第 0 个
+================================================================================
+
+Chunk 21:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_192
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+20.4 反向页表
+在反向页表（inverted page table）中，可以看到页表世界中更极端的空间节省。
+在这里，我们保留了一个页表，其中的项代表系统的每个物理页，而不是有许多页表（系统的每个进
+程一个）。
+页表项告诉我们哪个进程正在使用此页，以及该进程的哪个虚拟页映射到此物理页。
+现在，要找到正确的项，就是要搜索这个数据结构。
+线性扫描是昂贵的，因此通常在
+更一般地说，反向页表说明了我们从一开始就说过的内容：页表只是数据结构。
+你可以对数据结构做很多疯狂的事情，让它们更小或更大，使它们变得更慢或更快。
+多层和反向页表只是人们可以做的很多事情的两个例子。
+================================================================================
+
+Chunk 22:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_194
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+20.6 小结
+我们现在已经看到了如何构建真正的页表。
+不一定只是线性数组，而是更复杂的数据结构。
+这样的页表体现了时间和空间上的折中（表格越大，TLB 未命中可以处理得更快，反之亦然），因此结构的正确选择强烈依赖于给定环境的约束。
+参考资料
+[BOH10]“Computer Systems: A Programmer’s Perspective ”Randal E. Bryant and David R. O’Hallaron Addison-Wesley, 2010
+我们还没有找到很好的多级页表首选参考。
+然而，Bryant 和O’Hallaron 编写的这本了不起的教科书深入探讨了 x86 的细节，至少这是一个使用这种结构的早期系统。
+这也是一本很棒的书。
+[JM98]“Virtual Memory: Issues of Implementation ”Bruce Jacob and Trevor Mudge IEEE Computer, June 1998
+对许多不同系统及其虚拟内存方法的优秀调查。
+其中有关于 x86 、PowerPC 、MIPS 和其他体系结构的大量细节内容。
+[LL82]“Virtual Memory Management in the VAX/VMS Operating System ”Hank Levy and P. Lipman IEEE Computer, Vol. 15, No. 3, March 1982
+一篇关于经典操作系统 VMS 中真实虚拟内存管理程序的精彩论文。
+它非常棒，实际上，从现在开始的几章，我们将利用它来复习目前为止我们学过的有关虚拟内存的所有内容。
+[M28]“Reese’s Peanut Butter Cups ”Mars Candy Corporation.
+显然，这些精美的“甜点”是由 Harry Burnett Reese 在 1928 年发明的，他以前曾是奶牛场的农夫和 Milton S. Hershey 的运输工长。
+至少，维基百科上是这么说的。
+================================================================================
+
+Chunk 23:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_198
+Source: tfidf
+--------------------------------------------------------------------------------
+21.3 页错误
+回想一下，在 TLB 未命中的情况下，我们有两种类型的系统：硬件管理的 TLB（硬件在页表中找到需要的转换映射） 和软件管理的 TLB（操作系统执行查找过程）。
+不论在哪种系统中，如果页不存在，都由操作系统负责处理页错误。
+操作系统的页错误处理程序（page-fault handler）确定要做什么。
+几乎所有的系统都在软件中处理页错误。
+即使是硬件管理的 TLB，硬件也信任操作系统来管理这个重要的任务。
+如果一个页不存在，它已被交换到硬盘，在处理页错误的时候，操作系统需要将该页交换到内存中。
+那么，问题来了：操作系统如何知道所需的页在哪儿？
+在许多系统中，页表是存储这些信息最自然的地方。
+因此， 操作系统可以用 PTE 中的某些位来存储硬盘地址，这些位通常用来存储像页的 PFN 这样的数据。
+当操作系统接收到页错误时， 它会在 PTE 中查找地址，并将请求发送到硬盘，将页读取到内存中。
+当硬盘 I/O 完成时，操作系统会更新页表，将此页标记为存在，更新页表项（PTE）的PFN 字段以记录新获取页的内存位置，并重试指令。
+下一次重新访问TLB 还是未命中，然而这次因为页在内存中，因此会将页表中的地址更新到 TLB 中（也可以在处理页错误时更新 TLB 以避免此步骤）。
+最后的重试操作会在 TLB 中找到转换映射，从已转换的内存物理地址，获取所需的数据或指令。
+请注意，当 I/O 在运行时，进程将处于阻塞（blocked）状态。
+因此，当页错误正常处理时，操作系统可以自由地运行其他可执行的进程。
+因为 I/O 操作是昂贵的，一个进程进行I/O（页错误）时会执行另一个进程，这种交叠（overlap）是多道程序系统充分利用硬件的一种方式。
+================================================================================
+
+Chunk 24:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_205
+Source: tfidf
+--------------------------------------------------------------------------------
+第 22 章 超越物理内存：策略
+在虚拟内存管理程序中，如果拥有大量空闲内存，操作就会变得很容易。
+页错误发生了，你在空闲页列表中找到空闲页，将它分配给不在内存中的页。
+嘿， 操作系统，恭喜！
+你又成功了。
+遗憾的是，当内存不够时事情会变得更有趣。
+在这种情况下，由于内存压力（memory pressure）迫使操作系统换出（paging out）一些页，为常用的页腾出空间。
+确定要踢出（evict）哪个页（或哪些页）封装在操作系统的替换策略（replacement policy）中。
+历史上， 这是早期的虚拟内存系统要做的最重要的决定之一，因为旧系统的物理内存非常小。
+至少，有一些策略是非常值得了解的。
+因此我们的问题如下所示。
+================================================================================
+
+Chunk 25:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_210
+Source: tfidf
+--------------------------------------------------------------------------------
+22.3 简单策略： FIFO
+许多早期的系统避免了尝试达到最优的复杂性，采用了非常简单的替换策略。
+例如，一些系统使用 FIFO（先入先出）替换策略。
+页在进入系统时，简单地放入一个队列。
+当发生替换时，队列尾部的页（“先入”页）被踢出。
+FIFO 有一个很大的优势：实现相当简单。
+让我们来看看 FIFO 策略如何执行这过程（见表 22.2）。
+我们再次开始追踪 3 个页面 0、1和 2。
+首先是强制性未命中，然后命中页 0 和 1。
+接下来，引用页 3，缓存未命中。
+使用 FIFO策略决定替换哪个页面是很容易的：选择第一个进入的页，这里是页 0（表中的缓存状态列是按照先进先出顺序，最左侧是第一个进来的页），遗憾的是，我们的下一个访问还是页 0，导致另一次未命中和替换（替换页 1）。
+然后我们命中页 3，但是未命中页 1 和 2，最后命中页 3。
+表 22.2 追踪 FIFO 策略
+对比 FIFO 和最优策略，FIFO 明显不如最优策略，FIFO 命中率只有 36.4%（不包括强制性未命中为 57.1%）。
+先进先出（FIFO）根本无法确定页的重要性：即使页 0 已被多次访问，FIFO 仍然会将其踢出，因为它是第一个进入内存的。
+① 如果你可以，请告诉我们，我们可以一起发财，或者，像 “发现” 冷聚变的科学家一样，被众人所讽刺和嘲笑[FP89]。
+================================================================================
+
+Chunk 26:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_216
+Source: tfidf
+--------------------------------------------------------------------------------
+22.7 实现基于历史信息的算法
+正如你所看到的，像 LRU 这样的算法通常优于简单的策略（如 FIFO 或随机），它们可能会踢出重要的页。
+遗憾的是，基于历史信息的策略带来了一个新的挑战：应该如何实现呢？
+遗憾的是，随着系统中页数量的增长，扫描所有页的时间字段只是为了找到最精确最少使用的页，这个代价太昂贵。
+想象一下一台拥有 4GB 内存的机器，内存切成 4KB 的页。
+这台机器有一百万页，即使以现代 CPU 速度找到 LRU 页也将需要很长时间。
+这就引出了一个问题：我们是否真的需要找到绝对最旧的页来替换？
+找到差不多最旧的页可以吗?
+================================================================================
+
+Chunk 27:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_217
+Source: tfidf
+--------------------------------------------------------------------------------
+22.8 近似 LRU
+操作系统如何利用使用位来实现近似 LRU？
+可以有很多方法，有一个简单的方法称作时钟算法（clock algorithm）[C69]。
+想象一下，系统中的所有页都放在一个循环列表中。
+时钟指针（clock hand）开始时指向某个特定的页（哪个页不重要）。
+当必须进行页替换时， 操作系统检查当前指向的页 P 的使用位是 1 还是 0。
+如果是 1，则意味着页面 P 最近被使用，因此不适合被替换。
+然后，P 的使用位设置为 0，时钟指针递增到下一页（P + 1）。
+该算法一直持续到找到一个使用位为 0 的页，使用位为 0 意味着这个页最近没有被使用过（在最坏的情况下，所有的页都已经被使用了，那么就将所有页的使用位都设置为 0）。
+请注意，这种方法不是通过使用位来实现近似 LRU 的唯一方法。
+实际上， 任何周期性地清除使用位，然后通过区分使用位是 1 和 0 来判定该替换哪个页的方法都是可以的。
+Corbato 的时钟算法只是一个早期成熟的算法，并且具有不重复扫描内存来寻找未使用页的特点，也就是它在最差情况下，只会遍历一次所有内存。
+图 22.5 展示了时钟算法的一个变种的行为。
+该变种在需要进行页替换时随机扫描各页，如果遇到一个页的引用位为 1，就清除该位（即将它设置为 0）。
+直到找到一个使用位为 0的页，将这个页进行替换。
+如你所见， 虽然时钟算法不如完美的 LRU 做得好，但它比不考虑历史访问的方法要好。
+图 22.5 80—20 工作负载和时钟算法
+================================================================================
+
+Chunk 28:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_558
+Source: dense_bm25
+--------------------------------------------------------------------------------
+第 20章 分页：较小的表
+我们现在来解决分页引入的第二个问题：页表太大，因此消耗的内存太多。
+让我们从线性页表开始。
+你可能会记得① , 线性页表变得相当大。
+假设一个 32 位地址空间（232 字节）， 4KB（212 字节）的页和一个 4 字节的页表项。
+一个地址空间中大约有一百万个虚拟页面（232/212）。
+乘以页表项的大小， 你会发现页表大小为 4MB。
+回想一下：通常系统中的每个进程都有一个页表！
+有一百个活动进程（在现代系统中并不罕见），就要为页表分配数百兆的内存！
+因此，要寻找一些技术来减轻这种沉重的负担。
+有很多方法，所以我们开始吧。
+但先看我们的关键问题：
+关键问题：如何让页表更小？
+简单的基于数组的页表（通常称为线性页表）太大，在典型系统上占用太多内存。
+如何让页表更小？
+关键的思路是什么？
+由于这些新的数据结构，会出现什么效率影响？
+================================================================================
+
+Chunk 29:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_559
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+20.1 简单的解决方案：更大的页
+补充：多种页大小
+另外请注意，许多体系结构（例如 MIPS 、SPARC 、x86-64）现在都支持多种页大小。
+通常使用 一个小的（4KB 或 8KB）页大小。
+但是，如果一个“聪明的”应用程序请求它，则可以为地址空间的特定部分使用一个大型页（例如，大小为 4MB ），从而让这些应用程序可以将常用的（大型的）数据结构放入这样的空间，同时只占用一个 TLB 项。
+这种类型的大页在数据库管理系统和其他高端商业应用程序中很常见。
+然而，多种页面大小的主要原因并不是为了节省页表空间。
+这是为了减少 TLB 的压力，让程序能够访问更多的地址空间而不会遭受太多的 TLB 未命中之苦。
+然而，正如研究人员已经说明[N+02]一样，采用多种页大小，使操作系统虚拟内存管理程序显得更复杂，因此，有时只需向应用程序暴露一个新接口，让它们直接请求大内存页，这样最容易。
+PFN valid prot present dirty
+10 1 r-x 1 0
+— 0 — — —
+— 0 — — —
+— 0 — — —
+23 1 rw- 1 1
+— 0 — — —
+— 0 — — —
+— 0 — —
+— 0 —
+— 0 —
+PFN valid prot present dirty
+— 0 — —
+— 0 — — —
+— 0 — — —
+— 0 — — —
+28 1 rw- 1 1
+4 1 rw- 1 1
+Page Directory Page Directory Page of PT (@PFN:100) Page of PT (@PFN:100) Page of PT (@PFN:100) Page of PT (@PFN:101) Page of PT (@PFN:101) Page of PT (@PFN:101)
+PFN valid PFN valid prot PFN valid prot
+100 1 10 1 r-x — 0 —
+— 0 23 1 r-x — 0 —
+— 0 — 0 — — 0 —
+— 0 — 0 — — 0 —
+================================================================================
+
+Chunk 30:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_1091
+Source: dense
+--------------------------------------------------------------------------------
+虚拟页号 页框号 虚拟页号 页框号
+0 2 0 在磁盘
+1 在磁盘 1 14
+2 11 2 9
+3 5 3 6
+4 在磁盘 4 在磁盘
+5 在磁盘 5 13
+6 4 6 8
+7 3 7 12
+扩展名 含 义
+bak 备份文件
+C C源程序文件
+gif 符合图形交换格式的图像文件
+hlp 帮助文件
+html wWW超文本标记语言文档
+jpg 符合JPEG编码标准的静态图片
+mp3 符合MP3音频编码格式的音乐文件
+mpg 符合MPEG编码标准的电影
+0 目标文件(编译器输出格式，尚未链接)
+pdf pdf格式的文件
+ps PostScript文件
+tex 为TEX格式化程序准备的输入文件
+txt 一般正文文件
+zip 压缩文件
+模块头
+目标模块
+模块头
+目标模块
+模块头
+目标模块
+模块名称
+日期
+所有者
+保护
+大小
+属 性 含 义
+保护 谁可以访问文件，以什么方式存取文件
+口令 访问文件需要的口令
+创建者 创建文件者的ID
+所有者 当前所有者
+只读标志 0表示读/写；1表示只读
+隐藏标志 0表示正常；1表示不在列表中显示
+系统标志 0表示普通文件；1表示系统文件
+存档标志 0表示已经备份；1表示需要备份
+ASCII/二进制标志 0表示ASCI码文件；1表示二进制文件
+随机访问标志 0表示只允许顺序访问；1表示随机访问
+临时标志 0表示正常；1表示进程退出时删除该文件
+记录长度 一个记录中的字节数
+键的位置 每个记录中键的偏移量
+键的长度 键字段的字节数
+创建时间 创建文件的日期和时间
+最后一次存取时间 上一次访问文件的日期和时间
+最后一次修改时间 上一次修改文件的日期和时间
+当前大小 文件的字节数
+最大长度 文件可能增长到的字节数
+1 * 复 制 文 件 程 序 ， 有 基 本 的 错 误 检 查 和 错 误 报 告 * / 1 * 复 制 文 件 程 序 ， 有 基 本 的 错 误 检 查 和 错 误 报 告 * /
+#include <sys/types.h> #include <fcntl.h>
+================================================================================
+
+Chunk 31:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_113
+Source: dense_bm25
+--------------------------------------------------------------------------------
+现在考虑，如果有一个用户突然在一个有800页的文件的第一页上删掉了一个语句之后，会发生什 么情形。
+在检查了所修改的页面并确认正确后，这个用户现在打算接着在第600页上进行另一个修改， 并键入一条命令通知字处理软件转到该页面(可能要查阅只在那里出现的一个短语)。
+于是字处理软件 被强制对整本书的前600页重新进行格式处理，这是因为在排列该页前面的所有页面之前，字处理软件 并不知道第600页的第一行应该在哪里。
+而在第600页的页面可以真正在屏幕上显示出来之前，计算机可 能要拖延相当一段时间，从而令用户不甚满意。
+多线程在这里可以发挥作用。
+假设字处理软件被编写成含有两个线程的程序。
+一个线程与用户交互， 而另一个在后台重新进行格式处理。
+一旦在第1页中的语句被删除掉，交互线程就立即通知格式化线程 对整本书重新进行处理。
+同时，交互线程继续监控键盘和鼠标，并响应诸如滚动第1页之类的简单命令， 此刻，另一个线程正在后台疯狂地运算。
+如果有点运气的话，重新格式化会在用户请求查看第600页之 前完成，这样，第600页页面就立即可以在屏幕上显示出来。
+图2-7 有三个线程的字处理软件
+56 第 2 章
+如果程序是单线程的，那么在进行磁盘备份时，来自键盘和鼠标的命令就会被忽略，直到备份工作 完成为止。
+用户当然会认为性能很差。
+另一个方法是，为了获得好的性能，可以让键盘和鼠标事件中断 磁盘备份，但这样却引入了复杂的中断驱动程序设计模型。
+如果使用三个线程，程序设计模型就很简单 了。
+第一个线程只是和用户交互；第二个线程在得到通知时进行文档的重新格式化；第三个线程周期性 地将RAM中的内容写到磁盘上。
+很显然，在这里用三个不同的进程是不能工作的，这是因为三个线程都需要对同 一 个文件进行操作。
+由于多个线程可以共享公共内存，所以通过用三个线程替换三个进程，使得它们可以访问同一个正在编 辑的文件，而三个进程是做不到的。
+许多其他的交互式程序中也存在类似的情形。
+================================================================================
+
+Chunk 32:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_200
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+下面会介绍虚拟内存是如何实现的。
+虚拟内存很适合在多道程序设计系统中使用，许多程序的片段同时保存在内存中。
+当一个程序等待 它的一部分读入内存时，可以把CPU交给另一个进程使用。
+3.3.1 分 页
+大部分虚拟内存系统中都使用一种称为分页 (paging) 的技术，我们现在就介绍这一技术。
+在任何 一台计算机上，程序引用了一组内存地址。
+当程序执行指令
+MOV REG,1000
+时，它把地址为1000的内存单元的内容复制到REG中(或者相反，这取决于计算机的型号)。
+地址可以 通过索引、基址寄存器、段寄存器或其他方式产生。
+由程序产生的这些地址称为虚拟地址 (virtual address),它们构成了一个虚拟地址空间 (virtual address space) 。
+在没有虚拟内存的计算机上，系统直接将虚拟地址送到内存总线上，读写操作使用具有同样地址的 物理内存字；而在使用虚拟内存的情况下，虚拟地址不是被直接送到内存总线上，而是被送到内存管理单 元 (Memory Management Unit,MMU),MMU把虚拟地址映射为物理内存地址，如图3-8所示。
+图3-9所示的简单例子说明了这种映射是如何工作的。
+在这个例子中，有一台可以产生16位地址的 计算机，地址范围从0到64K-1, 且这些地址是虚拟地址。
+然而，这台计算机只有32KB的物理内存，因 此，虽然可以编写64KB的程序，但它们却不能被完全调人内存运行。
+在磁盘上必须有一个最多64KB的 程序核心映像的完整副本，以保证程序片段在需要时能被调入内存。
+MMU发送物理地址给存储器
+页框
+图3-8 MMU的位置和功能。
+这里MMU作为CPU芯片的 一部分，因为通常就是这样做的。
+不过从逻辑上 看，它可以是一片单独的芯片，并且早就已经这 样了
+虚拟地址空间按照固定大小划分成被称为页面 (page) 的若干单元。
+在物理内存中对应的单元称为 页框 (page frame)。
+页面和页框的大小通常是一样的，在本例中是4KB, 但实际系统中的页面大小从 512字节到1GB 。
+对应于64KB的虚拟地址空间和32KB的物理内存，可得到16个虚拟页面和8个页框。
+RAM 和磁盘之间的交换总是以整个页面为单元进行的。
+很多处理器根据操作系统认为适合的方式，支 持对不同大小页面的混合使用和匹配。
+================================================================================
+
+Chunk 33:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_201
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+很多处理器根据操作系统认为适合的方式，支 持对不同大小页面的混合使用和匹配。
+例如，x86-64 架构的处理器支持4KB 、2MB 和1GB 大小的页面， 因此，可以将一组4KB大小的页面用于用户程序，将一个1GB 大小的页面用于内核程序。
+稍后将介绍为 什么有时候用一个较大的页面好于用一堆较小的页面。
+图3-9中的标记符号如下：标记0K~4K的范围表示该页的虚拟地址或物理地址是0~4095,4K~8K的范围表 示地址4096~8191,等等。
+每一页包含了4096个地址，起始于4096的整数倍位置，结束于4096倍数缺1的位置。
+当程序试图访问地址0时，例如执行下面这条指令
+MOV REG,0
+将虚拟地址0送到MMU 。
+MMU看到虚拟地址落在页面0(0~4095),根据其映射结果，这一页面对应的 是页框2(8192~12287),因此MMU把地址变换为8192,并把地址8192送到总线上。
+内存对MMU一无 所知，它只看到一个读或写地址8192的请求并执行它。
+MMU 从而有效地把所有从0~4095的虚拟地址映 射到了8192~12287的物理地址。
+同样地，指令
+MOV REG,8192 被有效地转换为：
+MOV REG,24576
+因为虚拟地址8192(在虚拟页面2中)被映射到物理地址24576(在物理页框6中)上。
+第三个例子，虚 拟地址20500在距虚拟页面5(虚拟地址20480~24575)起始地址20字节处，并且被映射到物理地址 12288+20=12308。
+通过恰当地设置MMU, 可以把16个虚拟页面映射到8个页框中的任何一个。
+但是这并没有解决虚拟 地址空间比物理内存大的问题。
+在图3-9中只有8个物理页框，于是只有8个虚拟页面被映射到了物理内 存中，在图3-9中用叉号表示的其他页面并没有被映射。
+在实际的硬件中，用一个“在/不在”位 (present/absent bit) 记录页面在内存中的实际存在情况。
+当程序访问了一个未映射的页面，例如执行指令
+MOV REG,32780
+将会发生什么情况呢?
+================================================================================
+
+Chunk 34:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_202
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+将会发生什么情况呢?
+虚拟页面8(从32768开始)的第12个字节所对应的物理地址是什么呢?
+MMU注 意到该页面没有被映射(在图中用叉号表示),于是使CPU陷入到操作系统，这个陷阱称为缺页中断或 缺页错误 (page fault)。
+操作系统找到一个很少使用的页框且把它的内容写入磁盘(如果它不在磁盘上)。
+随后把需要访问的页面读到刚才回收的页框中，修改映射关系，然后重新启动引起陷阱的指令。
+例如，如果操作系统决定放弃页框1,那么 它将把虚拟页面8装入物理地址4096,并对MMU 映射做两处修改。
+首先，它要将虚拟页面1的表 项标记为未映射，使以后任何对虚拟地址 4096~8191的访问都导致陷阱。
+随后把虚拟页面8 的表项的叉号改为1,因此在引起陷阱的指令重 新启动时，它将把虚拟地址32780映射为物理地 址4108(4096+12)。
+下面查看一下MMU的内部结构以便了解它 是怎么工作的，以及了解为什么我们选用的页面 大小都是2的整数次幂。
+在图3-10中可以看到一个 虚拟地址的例子，虚拟地址8196(二进制是 0010000000000100)用图3-9所示的MMU映射机 制进行映射，输入的16位虚拟地址被分为4位的 页号和12位的偏移量。
+4位的页号可以表示16个 页面，12位的偏移可以为一页内的全部4096个字 节编址。
+可用页号作为页表 (page table) 的索引，以 得出对应于该虚拟页面的页框号。
+如果“在/不在” 位是0,则将引起一个操作系统陷阱。
+如果该位
+图3-10 在16个4KB页面情况下MMU的内部操作
+================================================================================
+
+Chunk 35:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_203
+Source: bm25
+--------------------------------------------------------------------------------
+3.3.2 页 表
+作为一种最简单的实现，虚拟地址到物理地址的映射可以概括如下：虚拟地址被分成虚拟页号(高 位部分)和偏移量(低位部分)两部分。
+例如，对于16位地址和4KB 的页面大小，高4位可以指定16个 虚拟页面中的一页，而低12位接着确定了所选页面中的字节偏移量(0~4095)。
+但是使用3或者5或者其 他位数拆分虚拟地址也是可行的。
+不同的划分对应不同的页面大小。
+虚拟页号可用作页表的索引，以找到该虚拟页面对应的页表项。
+由页表项可以找到页框号(如果有 的话)。
+然后把页框号拼接到偏移量的高位端，以替换掉虚拟页号，形成送往内存的物理地址。
+页表的目的是把虚拟页面映射为页框。
+从数学角度说，页表是一个函数，它的参数是虚拟页号，结 果是物理页框号。
+通过这个函数可以把虚拟地址中的虚拟页面域替换成页框域，从而形成物理地址。
+在本章中，我们只关心虚拟内存和不完全 虚拟化，换言之，不涉及虚拟机。
+我们在第7章 中将会看到，每个虚拟机都需要自己的虚拟内 存，因此页表组织变得很复杂，包括影子页表 和嵌套页表。
+我们会看到，即使没有这些复杂 的配置，页面调度和虚拟内存也相当复杂。
+页表项的结构
+下面将讨论单个页表项的细节。
+页表项的
+访问位 保护位
+图3-11 一个典型的页表项
+结构是与机器密切相关的，但不同机器的页表项存储的信息都大致相同。
+图3-11中给出了页表项的一个 例子。
+不同计算机的页表项大小可能不一样，但32位是一个常用的大小。
+最重要的域是页框号。
+毕竟页 映射的目的是找到这个值，其次是“在/不在”位。
+这一位是1时表示该表项是有效的，可以使用；如果 是0,则表示该表项对应的虚拟页面现在不在内存中，访问该页面会引起一个缺页中断。
+保 护 (protection) 位指出一个页允许什么类型的访问。
+最简单的形式是这个域只有一位，0表示读/ 写，1表示只读。
+一个更先进的方法是使用三位，各位分别对应是否启用读、写、执行该页面。
+为了记录页面的使用状况，引入了修改 (modified) 位和访问(ref erenced) 位。
+在写入一页时由硬 件自动设置修改位。
+================================================================================
+
+Chunk 36:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_204
+Source: dense_bm25
+--------------------------------------------------------------------------------
+在写入一页时由硬 件自动设置修改位。
+该位在操作系统重新分配页框时是非常有用的。
+如果一个页面已经被修改过(即它 是“脏”的),则必须把它写回磁盘。
+如果一个页面没有被修改过(即它是“干净”的),则只简单地把 它丢弃就可以了，因为它在磁盘上的副本仍然是有效的。
+这一位有时也被称为脏位 (dirty bit),因 为 它 反映了该页面的状态。
+不论是读还是写，系统都会在该页面被访问时设置访问位。
+它的值被用来帮助操作系统在发生缺页 中断时选择要被淘汰的页面。
+不再使用的页面要比正在使用的页面更适合淘汰。
+这一位在即将讨论的很 多页面置换算法中都会起到重要的作用。
+最后一位用于禁止该页面被高速缓存。
+对那些映射到设备寄存器而不是常规内存的页面而言，这个 特性是非常重要的。
+假如操作系统正在紧张地循环等待某个I/O设备对它刚发出的命令作出响应，保证 硬件是不断地从设备中读取数据而不是访问一个旧的被高速缓存的副本是非常重要的。
+通过这一位可以 禁止高速缓存。
+具有独立的I/O空间而不使用内存映射I/O的机器不需要这一位。
+应该注意的是，若某个页面不在内存中，用于保存该页面的磁盘地址不是页表的组成部分。
+原因很 简单，页表只保存把虚拟地址转换为物理地址时硬件所需要的信息。
+操作系统在处理缺页中断时需要把 该页面的磁盘地址等信息保存在操作系统内部的软件表格中。
+硬件不需要它。
+在深入到更多应用实现问题之前，值得再次强调的是：虚拟内存本质上是用来创造一个新的抽象概 念——地址空间，这个概念是对物理内存的抽象，类似于进程是对物理处理器 (CPU) 的抽象。
+虚拟内 存的实现，是将虚拟地址空间分解成页，并将每一页映射到物理内存的某个页框或者(暂时)解除映射。
+因此，本节的基本内容是操作系统创建的抽象，以及如何管理这个抽象。
+我们已经了解了虚拟内存和分页的基础。
+现在可以更具体地讨论可能的实现了。
+在任何分页系统中， 都需要考虑两个主要问题：
+1)虚拟地址到物理地址的映射必须非常快。
+2)如果虚拟地址空间很大，页表也会很大。
+================================================================================
+
+Chunk 37:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_209
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+一次缺页中断。
+如果该页面在内存中，从二级页表中得到的页框号将与偏移量(4)结合形成物理地址。
+该 地址被放到总线上并送到内存中。
+值得注意的是，虽然在图3-13中虚拟地址空间超过100万个页面，实际上只需要四个页表：顶级页表
+以及0~4M (正文段)、4M~8M(数据段)和顶端4M (堆栈段)的二级页表。
+顶级页表中1021个表项的 “在/不在”位都被设为0,当访问它们时强制产生一个缺页中断。
+如果发生了这种情况，操作系统将注 意到进程正在试图访问一个不希望被访问的地址，并采取适当的行动，比如向进程发出一个信号或杀死 进程等。
+在这个例子中的各种长度选择的都是整数，并且选择PT1与PT2等长，但在实际中也可能是其 他的值。
+图3-13所示的二级页表可扩充为三级、四级或更多级。
+级数越多，灵活性就越大。
+举例来说，Intel 在1985年推出的32位处理器80386的寻址空间就多达4GB。
+它采用包含页目录的二级页表机制，页目录 中的项指向页表，页表项再指向真实大小为4KB的页框。
+页目录和页表都包含1024个表项，这样就可以 像预期的一样， 一共可以提供2¹⁰ ×2¹⁰×2¹ ²=2³²个可寻址字节。
+2.倒排页表
+针对页式调度层级不断增长的另一种解决方案是倒排页表 (inverted page table), 首先采用这种解 决方案的处理器有PowerPC 、UltraSPARC 和Itanium (有时也被称作Itanic, 这款处理器并没有达到Intel 所期望的目标)。
+在这种设计中，实际内存中的每个页框对应一个表项，而不是每个虚拟页面对应一个 表项。
+例如，对于64位虚拟地址，4KB的页，4GB的RAM,一个倒排页表仅需要1048576个表项。
+表项 记录了哪一个(进程，虚拟页面)对定位于该页框。
+虽然倒排页表节省了大量的空间(至少当虚拟地址空间比物理内存大得多的时候是这样的),但它 也有严重的不足：从虚拟地址到物理地址的转换会变得很困难。
+当进程n访问虚拟页面p时，硬件不再能 通过把p 当作指向页表的一个索引来查找物理页框。
+================================================================================
+
+Chunk 38:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_212
+Source: dense
+--------------------------------------------------------------------------------
+3.4.1 最优页面置换算法
+很容易就可以描述出最好的页面置换算法，虽然此算法不可能实现。
+该算法是这样工作的：在缺页 中断发生时，有些页面在内存中，其中有一个页面(包含紧接着的下一条指令的那个页面)将很快被访 问，其他页面则可能要到10、100或1000条指令后才会被访问，每个页面都可以用在该页面首次被访问 前所要执行的指令数作为标记。
+最优页面置换算法规定应该置换标记最大的页面。
+如果一个页面在800万条指令内不会被使用，另 外一个页面在600万条指令内不会被使用，则置换前一个页面，从而把因需要调入这个页面而发生的缺 页中断推迟到将来，越久越好。
+计算机也像人一样，希望把不愉快的事情尽可能地往后拖延。
+这个算法唯一的问题就是它是无法实现的。
+当缺页中断发生时，操作系统无法知道各个页面下一次 将在什么时候被访问。
+(在最短作业优先调度算法中，我们曾遇到同样的情况，即系统如何知道哪个作 业是最短的呢?
+)当然，通过首先在仿真程序上运行程序，跟踪所有页面的访问情况，然后在第二次运 行时利用第一次运行时收集的信息是可以实现最优页面置换算法的。
+用这种方式，可以通过最优页面置换算法对其他可实现算法的性能进行比较。
+如果操作系统达到的 页面置换性能只比最优算法差1%,那么即使花费大量的精力来寻找更好的算法最多也只能换来1%的性 能提高。
+为了避免混淆，读者必须清楚以上页面访问情况的记录只针对刚刚被测试过的程序和它的一个特定的 输入，因此从中导出的性能最好的页面置换算法也只是针对这个特定的程序和输入数据的。
+虽然这个方法 对评价页面置换算法很有用，但它在实际系统中却不能使用。
+下面将研究可以在实际系统中使用的算法。
+================================================================================
+
+Chunk 39:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_215
+Source: dense
+--------------------------------------------------------------------------------
+3.4.5 时钟页面置换算法
+尽管第二次机会算法是一个比较合理的算法，但它经常要在链表中移动页面，既降低了效率又不是
+很有必要。
+一个更好的办法是把所有的页面都 保存在一个类似钟面的环形链表中， 一个表针 指向最老的页面，如图3-16所示。
+当发生缺页中断时，算法首先检查表针指 向的页面，如果它的R位是0就淘汰该页面，并 把新的页面插入这个位置，然后把表针前移一 个位置；如果R位是1就清除R位并把表针前移 一个位置。
+重复这个过程直到找到了一个R位 为0的页面为止。
+了解了这个算法的工作方式， 就明白为什么它被称为时钟 (clock) 算法了。
+================================================================================
+
+Chunk 40:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_216
+Source: dense
+--------------------------------------------------------------------------------
+3.4.6 最近最少使用页面置换算法
+对最优算法的一个很好的近似是基于这样
+图3-16 时钟页面置换算法
+的观察：在前面几条指令中频繁使用的页面很可能在后面的几条指令中被使用。
+反过来说，已经很久没
+有使用的页面很有可能在未来较长的一段时间内仍然不会被使用。
+这个思想提示了一个可实现的算法： 在缺页中断发生时，置换未使用时间最长的页面。
+这个策略称为LRU(Least Recently Used,最近最少 使用)页面置换算法。
+虽然LRU在理论上是可以实现的，但代价很高。
+为了完全实现LRU, 需要在内存中维护一个所有页 面的链表，最近最多使用的页面在表头，最近最少使用的页面在表尾。
+困难的是在每次访问内存时都必 须要更新整个链表。
+在链表中找到一个页面，删除它，然后把它移动到表头是一个非常费时的操作，即 使使用硬件实现也一样费时(假设有这样的硬件)。
+================================================================================
+
+Chunk 41:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_225
+Source: bm25
+--------------------------------------------------------------------------------
+3.5 分页系统中的设计问题
+在前几节里我们讨论了分页系统是如何工作的，并给出了一些基本的页面置换算法和如何实现它们。
+然而只了解基本机制是不够的。
+要设计一个系统，必须了解得更多才能使系统工作得更好。
+这两者之间 的差别就像知道了怎样移动象棋的各种棋子与成为一个好棋手之间的差别。
+下面将讨论为了使分页系统 达到较好的性能，操作系统设计者必须仔细考虑的一些其他问题。
+3.5.1 局部分配策略与全局分配策略
+在前几节中，我们讨论了在发生缺页中断时用来选择一个被置换页面的几个算法。
+与这个选择相关
+的一个主要问题(到目前为止我们一直在小心地回避这个问题)是，怎样在相互竞争的可运行进程之间 分配内存。
+如图3-22a所示，三个进程A 、B 、C 构成了可运行进程的集合。
+假如A发生了缺页中断，页面置换 算法在寻找最近最少使用的页面时是只考虑分配给A的6个页面呢?
+还是考虑所有在内存中的页面?
+如果 只考虑分配给A的页面，生存时间值最小的页面是A5, 于是将得到图3-22b所示的状态。
+生存时间
+b)
+图3-22 局部页面置换与全局页面置换：a) 最初配置；b) 局部页面置换；c) 全局页面置换
+另一方面，如果淘汰内存中生存时间值最小的页面，而不管它属于哪个进程，则将选中页面B3, 于是将得到图3-22c所示的情况。
+图3-22b的算法被称为局部 (loca l) 页面置换算法，而图3-22c被称为全 局 (global) 页面置换算法。
+局部算法可以有效地为每个进程分配固定的内存片段。
+全局算法在可运行 进程之间动态地分配页框，因此分配给各个进程的页框数是随时间变化的。
+另一种途径是使用一个为进程分配页框的算法。
+其中一种方法是定期确定进程运行的数目并为它们 分配相等的份额。
+例如，在有12416个有效(即未被操作系统使用的)页框和10个进程时，每个进程将 获得1241个页框，剩下的6个被放入一个公用池中，当发生缺页中断时可以使用这些页面。
+这个算法看起来好像很公平，但是给一个10KB的进程和一个300KB的进程分配同样大小的内存块 是很不合理的。
+可以采用按照进程大小的比例来为它们分配相应数目的页面的方法来取代上一种方法， 这样300KB的进程将得到10KB进程30倍的份额。
+比较明智的一个可行的做法是对每个进程都规定一个 最小的页框数，这样不论多么小的进程都可以运行。
+================================================================================
+
+Chunk 42:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_227
+Source: bm25
+--------------------------------------------------------------------------------
+3.5.2 负载控制
+即使是使用最优页面置换算法并对进程采用理想的全局页框分配，系统也可能会发生颠簸。
+事实上， 一旦所有进程的组合工作集超出了内存容量，就可能发生颠簸。
+该现象的症状之一就是如PFF算法所指出的， 一些进程需要更多的内存，但是没有进程需要更少的内存。
+在这种情况下，没有方法能够在不影响其他进 程的情况下满足那些需要更多内存的进程的需要。
+唯一现实的解决方案就是暂时从内存中去掉一些进程。
+减少竞争内存的进程数的一个好方法是将一部分进程交换到磁盘，并释放他们所占有的所有页面。
+例如，一个进程可以被交换到磁盘，而它的页框可以被其他处于颠簸状态的进程分享。
+如果颠簸停止，系 统就能够这样运行一段时间。
+如果颠簸没有结束，需要继续将其他进程交换出去，直到颠簸结束。
+因此， 即使是使用分页，交换也是需要的，只是现在交换是用来减少对内存潜在的需求，而不是收回它的页面。
+将进程交换出去以减轻内存需求的压力是借用了两级调度的思想，在此过程中一些进程被放到磁盘，此 时用一个短期的调度程序来调度剩余的进程。
+很明显，这两种思路可以被组合起来，将恰好足够的进程交换 出去以获取可接受的缺页中断率。
+一些进程被周期性地从磁盘调入，而其他一些则被周期性地交换到磁盘。
+不过，另一个需要考虑的因素是多道程序设计的道数。
+当内存中的进程数过低的时候，CPU 可能在 很长的时间内处于空闲状态。
+考虑到该因素，在决定交换出哪个进程时不光要考虑进程大小和分页率， 还要考虑它的特性(如它究竟是CPU 密集型还是I/O 密集型)以及其他进程的特性。
+================================================================================
+
+Chunk 43:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_228
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3.5.3 页面大小
+页面大小是操作系统可以选择的一个参数。
+例如，即使硬件设计只支持4096字节的页面，操作系统 也可以很容易通过总是为页面对0和1、2和3、4和5等分配两个连续的8192字节的页框，而将其作为8KB 的页面。
+要确定最佳的页面大小需要在几个互相矛盾的因素之间进行权衡。
+从结果看，不存在全局最优。
+首 先，有两个因素可以作为选择小页面的理由。
+随便选择一个正文段、数据段或堆栈段很可能不会恰好装 满整数个页面，平均的情况下，最后一个页面中有一半是空的。
+多余的空间就被浪费掉了，这种浪费称 为内部碎片 (internal fragmentation)。
+在内存中有n个段、页面大小为p字节时，会有np/2 字节被内部碎 片浪费。
+从这方面考虑，使用小页面更好。
+选择小页面还有一个明显的好处，考虑一个程序，它分成8个阶段顺序执行，每阶段需要4KB内存。
+如果页面大小是32KB, 那就必须始终给程序分配32KB内存。
+如果页面大小是16KB, 它就只需要16KB 。
+如果页面大小是4KB或更小，那么在任何时刻它只需要4KB内存。
+总的来说，大尺寸页面比小尺寸页面 浪费了更多内存。
+另一方面，页面小意味着程序需要更多的页面，这又意味着需要更大的页表。
+一个32KB的程序只 需要4个8KB的页面，却需要64个512字节的页面。
+内存与磁盘之间的传输一般是一次一页，传输中的大 部分时间都花在了寻道和旋转延迟上，所以传输一个小页面所用的时间和传输一个大页面基本上是相同
+的。
+装入64个512字节的页面可能需要64×10ms, 而装入4个8KB的页面可能只需要4×12ms。
+此外，小页面能够更充分地利用TLB 空间。
+假设程序使用的内存为1MB, 工作单元为64KB。
+若 使 用4KB的页，则程序将至少占用TLB中的16个表项；而使用2MB的页时，1个TLB 表项就足够了(理论 上，你还可以将数据和指令分离开来)。
+由于TLB 表项相对稀缺，且对于性能而言至关重要，因此在条 件允许的情况下使用大页面是值得的。
+================================================================================
+
+Chunk 44:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_235
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.5.8 清除策略
+如果发生缺页中断时系统中有大量的空闲页框，此时分页系统工作在最佳状态。
+如果每个页框都被 占用，而且被修改过的话，再换入一个新页面时，旧页面应首先被写回磁盘。
+为保证有足够的空闲页框， 很多分页系统有一个称为分页守护进程 (pa ging daemon)的后台进程，它在大多数时候睡眠，但定期 被唤醒以检查内存的状态。
+如果空闲页框过少，分页守护进程通过预定的页面置换算法选择页面换出内 存。
+如果这些页面装入内存后被修改过，则将它们写回磁盘。
+在任何情况下，页面中原先的内容都被记录下来。
+当需要使用一个已被淘汰的页面时，如果该页框 还没有被覆盖，将其从空闲页框缓冲池中移出即可恢复该页面。
+保存一定数目的页框供给比使用所有内 存并在需要时搜索一个页框有更好的性能。
+分页守护进程至少保证了所有的空闲页框是“干净”的，所 以空闲页框在被分配时不必再急着写回磁盘。
+================================================================================
+
+Chunk 45:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_238
+Source: bm25
+--------------------------------------------------------------------------------
+3.6.2 缺页中断处理
+现在终于可以讨论缺页中断发生的细节了。
+缺页中断发生时的事件顺序如下：
+1)硬件陷入内核，在堆栈中保存程序计数器。
+大多数机器将当前指令的各种状态信息保存在特殊的 CPU寄存器中。
+2)启动一个汇编代码例程保存通用寄存器和其他易失的信息，以免被操作系统破坏。
+这个例程将操 作系统作为一个函数来调用。
+3)当操作系统发现一个缺页中断时，尝试发现需要哪个虚拟页面。
+通常一个硬件寄存器包含了这一 信息，如果没有的话，操作系统必须检索程序计数器，取出这条指令，用软件分析这条指令，看看它在 缺页中断时正在做什么。
+4)一旦知道了发生缺页中断的虚拟地址，操作系统检查这个地址是否有效，并检查存取与保护是否 一致。
+如果不一致，向进程发出一个信号或杀掉该进程。
+如果地址有效且没有保护错误发生，系统则检 查是否有空闲页框。
+如果没有空闲页框，执行页面置换算法寻找一个页面来淘汰。
+5)如果选择的页框“脏”了，安排该页写回磁盘，并发生一次上下文切换，挂起产生缺页中断的进 程，让其他进程运行直至磁盘传输结束。
+无论如何，该页框被标记为忙，以免因为其他原因而被其他进 程占用。
+6)一旦页框“干净”后(无论是立刻还是在写回磁盘后),操作系统查找所需页面在磁盘上的地址，
+通过磁盘操作将其装入。
+该页面正在被装入时，产生缺页中断的进程仍然被挂起，并且如果有其他可运 行的用户进程，则选择另一个用户进程运行。
+7)当磁盘中断发生时，表明该页已经被装入，页表已经更新可以反映它的位置，页框也被标记为正 常状态。
+8)恢复发生缺页中断指令以前的状态，程序计数器重新指向这条指令。
+9)调度引发缺页中断的进程，操作系统返回调用它的汇编语言例程。
+10)该例程恢复寄存器和其他状态信息，返回到用户空间继续执行，就好像缺页中断没有发生过一样。
+================================================================================
+
+Chunk 46:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_244
+Source: dense
+--------------------------------------------------------------------------------
+这样就需要有某种机制把该信息传递给外部页面调度程序，或者把页面置 换算法放到内核中。
+在后一种情况下，缺页中断处理程序会告诉外部页面调度程序它所选择的要淘汰的 页面并提供数据，方法是把数据映射到外部页面调度程序的地址空间中或者把它包含到一条消息中。
+两 种方法中，外部页面调度程序都把数据写到磁盘上。
+这种实现的主要优势是有更多的模块化代码和更好的适应性。
+主要缺点是由于多次交叉“用户-内 核”边界引起的额外开销，以及系统模块间消息传递所造成的额外开销。
+现在看来，这一主题有很多争 议，但是随着计算机越来越快，软件越来越复杂，从长远来看，对于大多数实现，为了获得更高的可靠 性而牺牲一些性能也是可以接受的。
+================================================================================
+
+Chunk 47:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_247
+Source: dense
+--------------------------------------------------------------------------------
+3.7.1 纯分段的实现
+分段和分页的实现本质上是不同的：页面是定长的而段不是。
+图3-33a所示的物理内存在初始时包 含了5个段。
+现在让我们考虑当段1被淘汰后，比它小的段7放进它的位置时会发生什么样的情况。
+这时 的内存配置如图3-33b所示，在段7与段2之间是一个未用区域，即一个空闲区。
+随后段4被段5代替，如 图3-33c所示；段3被段6代替，如图3-33d所示。
+在系统运行一段时间后内存被划分为许多块， 一些块包 含着段， 一些则成了空闲区，这种现象称为棋盘形碎片或外部碎片 (external fragmentation)。
+空闲区的 存在使内存被浪费了，而这可以通过内存紧缩来解决，如图3-33e所示。
+================================================================================
+
+Chunk 48:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_251
+Source: bm25
+--------------------------------------------------------------------------------
+描述符0是禁止 使用的，它可以被安全地装入一个段寄存器中用来表示这个段寄存器目前不可用，如果使用会引起一次 陷 阱 。
+在选择子被装入段寄存器时，对应的描述符被从LDT 或GDT 中取出装入微程序寄存器中，以便快速 地访问。
+一个描述符由8个字节构成，包括段的基址、大小和其他信息，如图3-39所示。
+图3-39 x86处理器代码段描述符(数据段略有不同)
+现在跟踪一下一个描述地址的(选择子，偏移量)二元组被转换为物理地址的过程。
+微程序知道具 体要使用哪个段寄存器后，它就能从内部寄存器中找到对应于这个选择子的完整的描述符。
+如果段不存 在(选择子为0)或已被换出，则会发生一次陷阱。
+硬件随后根据Limit (段长度)域检查偏移量是否超出了段的结尾，如果是，也发生一次陷阱。
+从逻
+示。
+为了和只有24位基址的286兼容，基址被分为3片分布在描述符的各个位置。
+实际上，基址允许每个 段的起始地址位于32位线性地址空间内的任何位置。
+如果禁止分页(通过全局控制寄存器中的一位),线性地址就被解释为物理地址并被送往存储器用 于读写操作。
+因此在禁止分页时，我们就得到了一个纯的分段方案。
+各个段的基址在它的描述符中。
+另 外，段之间允许互相覆盖，这可能是因为验证所有的段都互不重叠太麻烦太费时间的缘故。
+另一方面，如果允许分页，线性地址就被解释为虚拟地址并通过页表映射到物理地址，很像前面讲 过的例子。
+这里唯一真正复杂的是在32位虚拟地址和4KB 页的情况下， 一个段可能包含多达100万个页 面，因此使用了两级映射，以便在段较小时减小页表大小。
+每个运行程序都有一个由1024个32位表项组成的页目录 (page directory)。
+它通过一个全局寄存器 来定位。
+这个目录中的每个目录项都指向一个也包含1024个32位表项的页表，页表项指向页框，这个方 案如图3-41所示。
+线性地址
+位
+10 10 12
+a)
+页目录 页表 页框 所选
+的字
+1024
+项
+目录
+偏移量
+页面
+目录项指向页表 页表表项指
+向字
+b)
+图3-41 线性地址到物理地址的映射
+================================================================================
+
+Chunk 49:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_252
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+图3-41 线性地址到物理地址的映射
+每个页表项是32位，其中20位是页框号。
+其余的位包含了由硬件设置供操作系统使用的访问位和脏 位、保护位和一些其他有用的位。
+每个页表有描述1024个4KB 页框的表项，因此一个页表可以处理4MB的内存。
+一个小于4MB的段的 页目录中将只有一个表项，这个表项指向一个唯一的页表。
+通过这种方法，长度短的段的开销只是两个 页面，而不是一级页表时的100万个页面。
+为了避免重复的内存访问，x86 处理器和MULTICS一样，也有一个小的TLB把最近使用过的“目 录-页面”二元组映射为页框的物理地址。
+只有在当前组合不在TLB中时，图3-41所示的机制才被真正 执行并更新TLB。
+只要TLB的缺失率很低，则性能就不错。
+还有一点值得注意，如果某些应用程序不需要分段，而是需要一个单独的、分页的32位地址空间， 这样的模式是可以做到的。
+这时，所有的段寄存器可以用同一个选择子设置，其描述符中基址设为0, 段长度被设置为最大。
+指令偏移量会是线性地址，只使用了一个地址空间——效果上就是正常的分页。
+事实上，所有当前的x86 操作系统都是这样工作的。
+OS/2 是唯一一个使用Intel MMU体系结构所有功能 的操作系统。
+那么,英特尔为什么要剔除它支持了近30年，且源自表现良好的MULTICS 存储模型的变形体呢?
+也许最主要的原因是UNIX 和Windows 都不曾使用过该模型，即使它通过在受保护的操作系统段内进行
+内 存 管 理 14]
+针对相关地址的过程调用而消除了系统调用，并具有很高的效率。
+没有哪个UNIX 或Windows 系统的开 发人员愿意将已有的存储模型转变为针对x86 使用的模型，因为这会破坏系统的可移植性。
+由于软件层 并没有使用相关的功能，导致英特尔不愿再以牺牲芯片面积为代价来支持它，并最终从64位CPU 中剔除 了它 。
+不管怎么说，我们不得不称赞x86处理器的设计者，因为他们面对的是互相冲突的目标，实现纯的 分页、纯的分段和段页式管理，同时还要与286兼容，而他们高效地实现了所有的目标，最终的设计非 常简洁 。
+================================================================================
+
+Chunk 50:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_258
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+18. 在3.3.4节的陈述中，奔腾Pro 将多级页表中的 每个页表项扩展到64位，但仍只能对4 GB 的 内存进行寻址。
+请解释页表项为64位时，为何 这个陈述正确。
+19.一个32位地址的计算机使用两级页表。
+虚拟地 址被分成9位的第一级页表域、11位的二级页 表域和一个偏移量，页面大小是多少?
+在地址 空间中一共有多少个页面?
+20.一个计算机使用32位的虚拟地址，4KB 大小的 页面。
+程序和数据都位于最低的页面(0~4095), 栈位于最高的页面。
+如果使用传统(一级)分 页，页表中需要多少个表项?
+如果使用两级分 页，每部分有10位，需要多少个页表项?
+21.如下是在页大小为512字节的计算机上， 一个 程序片段的执行轨迹。
+这个程序在1020地址， 其栈指针在8192(栈向0生长)。
+请给出该程序 产生的页面访问串。
+每个指令(包括立即常数 数)占4个字节(1个字)。
+指令和数据的访问 都要在访问串中计数。
+将字6144载入寄存器0
+寄存器0压栈
+调用5120处的程序，将返回地址压栈 栈指针减去立即数16
+比较实参和立即数4
+如果相等，跳转到5152处
+22.一台计算机的进程在其地址空间有1024个页 面，页表保存在内存中。
+从页表中读取一个字 的开销是5ns 。
+为了减小开销，该计算机使用
+了TLB, 它有32个(虚拟页面，物理页框)对， 能在1ns 内完成查找。
+请问把平均开销降到2ns 需要的命中率是多少?
+23.TLB 需要的相联内存设备如何用硬件实现?
+这 种设计对扩展性意味着什么?
+24.一台机器有48位虚拟地址和32位物理地址，页 面大小是8KB, 如果采用一级线性页表，页表 中需要多少个表项?
+25.一个计算机的页面大小为8KB, 主存大小为 256KB,64GB 虚拟地址空间使用倒排页表实现 虚拟内存。
+为了保证平均散列链的长度小于1, 散列表应该多大?
+假设散列表的大小为2的幂。
+27.假设虚拟页码索引流中有一些重复的页索引序 列，该序列之后有时会是一个随机的页码索引。
+例如，序列0,1, … ,511,431,0,1, … ,
+================================================================================
+
+Chunk 51:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_260
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+28. 如果将FIFO 页面置换算法用到4个页框和8个 页面上，若初始时页框为空，访问序列串为 0172327103,请问会发生多少次缺页中断?
+如 果使用LRU 算法呢?
+29.考虑图3-15 b中的页面序列。
+假设从页面B到 页面A的 R位分别是11011011。
+使用第二次机 会算法，被移走的是哪个页面?
+30.一台小计算机有4个页框。
+在第一个时钟周期 时R位是0111(页面0是0,其他页面是1),在 随后的时钟周期中这个值是1011、1010、1101、 0010、1010、1100、0001。
+如果使用带有8位 计数器的老化算法，给出最后一个时钟周期后 4个计数器的值。
+31.请给出一个页面访问序列，使得对于这个访问 序列，使用Clock 算法和LRU算法得到的第一个 被置换的页面不同。
+假设一个进程分配了3个 页框，访问串中的页号属于集合0,1,2,3。
+================================================================================
+
+Chunk 52:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_263
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+37. 假设有两个进程A和B, 共享一个不在内存的 页。
+如果进程A在共享页发生缺页，当该页读 入内存时，A 的页表项必须更新。
+(a) 在什么条件下，即使进程A的缺页中断处理 会将共享页装入内存，B 的页表更新也会延 迟?
+(b) 延迟页表更新会有什么潜在开销?
+38.有二维数组：
+int X[64][64];
+假设系统中有4个页框，每个页框大小为128 个字(一个整数占用一个字)。
+处理数组X 的 程序正好可以放在一页中，而且总是占用0号 页。
+数据会在其他3个页框中被换入或换出。
+数组X为按行存储(即，在内存中， X[0][0] 之 后是X[0][1]) 。
+下面两段代码中，哪一个会有
+最少的缺页中断?
+请解释原因，并计算缺页中 断的总数。
+A段
+for(int j=0;j<64;j++)
+for(int i=0;i<64;i++)X[i][j]=0; B段
+for(int i=0;i<64;i++)
+for (int j=0;j<64;j++)X[i][j]=0;
+(a) 这种方法如何实现?
+(b)在什么条件下该方法是有价值的、有效的?
+40.DEC PDP-1是最早的分时计算机之一，有4K 个18位字的内存。
+在每个时刻它在内存中保持 一个进程。
+当调度程序决定运行另一个进程时， 将内存中的进程写到一个换页磁鼓上，磁鼓的 表面有4K个18位字。
+磁鼓可以从任何字开始 读写，而不是仅仅在字0。
+请解释为什么要选 这样的磁鼓?
+41.一台计算机为每个进程提供65536字节的地址 空间，这个地址空间被划分为多个4KB的页面。
+一个特定的程序有32768字节的正文、16386字 节的数据和15870字节的堆栈。
+这个程序能装 入这个机器的地址空间吗?
+如果页面大小是 512字节，能放得下吗?
+记住， 一个页面不能 同时包含两个或者更多的不同种类段，例如， 一页里不能同时有代码段和数据段。
+43.Frugal 计算机公司有一组操作系统设计人员， 他们正在考虑一种方法，以在新操作系统中减 少对后备存储数量的需求。
+================================================================================
+
+Chunk 53:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_265
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+46. 在MULTICS 中，当同时使用分段和分页时， 首先必须查找段描述符，然后是页描述符。
+TLB也是这样按两级查找的方式工作吗?
+47.一个程序中有两个段，段0中为指令，段1中为 读/写数据。
+段0有读/执行保护，段1有读/写保 护。
+内存是按需分页式虚拟内存系统，它的虚 拟地址为4位页号，10位偏移量。
+页表和保护 如下所示(表中的数字均为十进制):
+对于下面的每种情形，给出动态地址所对应的 实(实际)内存地址，或者指出发生了哪种失 效(缺页中断或保护错误)。
+(a) 读取页：段1,页1,偏移3;
+(b) 存储页：段0,页0,偏移16;
+(c) 读取页：段1,页4,偏移28;
+(d) 跳转到：段1,页3,偏移32。
+48.你能想象在哪些情况下支持虚拟内存是个坏想 法吗?
+不支持虚拟内存能得到什么好处呢?
+请 解释。
+49.虚拟内存提供了进程隔离机制。
+如果允许两个 操作系统同时运行，在内存管理上会有什么麻 烦?
+如何解决这些困难?
+50.构造一个直方图，计算你的计算机中可执行二 进制文件大小的平均值和中间值。
+在Windows 系统中，观察所有的.exe和 .dll文件；在Unix系 统中，观察/bin 、/usr/bin 、/local/bin 目录下的 所有非脚本文件的可执行文件(或者使用file 工具来查找所有的可执行文件)。
+确定这台机 器的最优页面大小，只考虑代码(不包括数据)。
+考虑内部碎片和页表大小，对页表项的大小做
+出合理的假设。
+假设所有的程序被执行的可能 性相同，所以可以同等对待。
+51.编写一个程序，它使用老化算法模拟一个分页 系统。
+页框的数量是一个参数。
+页面访问序列 从文件中读取。
+对于一个给定的输入文件，列 出每1000个内存访问中发生缺页中断的数目， 它是可用页框数的函数。
+52.编写一个程序，模拟一个使用工作集时间算法 的“玩具”分页系统。
+我们称之为“玩具”, 是因为我们假设没有写访问(而这与真实系统 大相径庭),进程的终至和创建也被忽略(生 命周期为永恒)。
+输入为：
+●回收寿命阈值
+●时钟周期间隔，用内存访问次数表述
+================================================================================
+
+Chunk 54:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_407
+Source: dense
+--------------------------------------------------------------------------------
+5.6.2 输出软件
+下面我们考虑输出软件。
+首先我们将讨论到文本窗口的简单输出，这是程序员通常喜欢使用的方式。
+然后，我们将考虑图形用户界面，这是其他用户经常喜欢使用的。
+1.文本窗口
+当输出是连续的单一字体、大小和颜色的形式时，输出比输入简单。
+大体上，程序将字符发送到当 前窗口，而字符在那里显示出来。
+通常，一个字符块或者一行是在一个系统调用中被写到窗口上的。
+一种解决方案是称为termcap 的终端数据库，它是在伯克利UNIX中引入的。
+该软件包定义了许多 基本动作，例如将光标移动到(行，列)。
+为了将光标移动到一个特殊的位置，软件(如一个编辑器) 使用一个一般的转义序列，然后该转义序列被转换成将要被执行写操作的终端的实际转义序列。
+以这种 方式，该编辑器就可以工作在任何具有termcap 数据库入口的终端上。
+许多UNIX软件仍然以这种方式工 作，即使在个人计算机上。
+逐渐地，业界看到了转义序列标准化的需要，所以就开发了一个ANSI标准。
+图5-32所示为一些该 标准的取值。
+下面考虑文本编辑器怎样使用这些转义序列。
+假设用户键入了一条命令指示编辑器完全删除第3行， 然后封闭第2行和第4行之间的间隙。
+编辑器可以通过串行线向终端发送如下的转义序列：
+ESC [3;1 H ESC [0 KESC[1M
+(其中在上面使用的空格只是为了分开符号，它们并不传送)。
+这一序列将光标移动到第3行的开头，擦 除整个一行，然后删除现在的空行，使从第4行开始的所有行向上移动一行。
+现在，第4行变成了第3行，
+图5-32 终端驱动程序在输出时接受的ANSI转义序列。
+ESC 表示ASCII转义字符
+(0x1B),n 、m 和s是可选的数值参数
+2.X 窗口系统
+X只是一个窗口系统，它不是一个完全的GUI 。
+为了获得完全的GUI, 要在其上运行其他软件层。
+一层是Xlib, 它是一组库过程，用于访问X的功能。
+这些过程形成了X窗口系统的基础，我们将在下面 对其进行分析，但是这些过程过于原始了，以至于大多数用户程序不能直接访问它们。
+例如，每次鼠标
+================================================================================
+
+Chunk 55:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_726
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+映射896MB以上的内存地址，那么ZONE_HIGHMEM 就应该高于该标记的任何地址。
+ZONE_NORMAL 是介于其中的任何地址。
+因此在32位x86 平台上，Linux 地址空间的起始896MB是直接映射的，而内核地 址空间的剩余128MB 是用来访问高地址内存区域的。
+20NE_HIGHMEN 在x86_64 没有定义内核为每个内 存区域维护一个zone 数据结构，并且可以分别在三个区域上执行内存分配。
+Linux 的内存由三部分组成。
+前两部分是内核和内存映射，被固定在内存中(页面从来不换出)。
+内 存的其他部分被划分成页框，每一个页框都可以包含一个代码、数据或者栈页面， 一个页表页面，或者 在空闲列表中。
+内核维护内存的一个映射，该映射包含了所有系统物理内存使用情况的信息，比如区域、空闲页框 等。
+如图10-15,这些信息是如下组织的。
+· 首先，Linux 维护一个页描述符数组，称为mem_map, 其中页描述符是page 类型的，而且系统当中 的每个物理页框都有一个页描述符。
+每个页描述符都有个指针，在页面非空闲时指向它所属的地址空间， 另有一对指针可以使得它跟其他描述符形成双向链表，来记录所有的空闲页框和一些其他的域。
+在图 10-15中，页面150的页描述符包含一个到其所属地址空间的映射。
+页面70、页面80、页面200是空闲的， 它们是被链接在一起的。
+页描述符的大小是32字节，因此整个mem_map 消耗了不到1%的物理内存(对 于4KB的页框)。
+因为物理内存被分成区域，所以Linux 为每个区域维护一个区域描述符。
+区域描述符包含了每个区 域中内存利用情况的信息，例如活动和非活动页的数目，页面置换算法(本章后面介绍)所使用的高低 水印位，还有许多其他相关信息等。
+此外，区域描述符包含一个空闲区数组。
+该数组中的第i个元素标记了2个空闲页的第一个块的第一个 页描述符。
+既然可能有多块2个空闲页，Linux 使用页描述符的指针对把这些页面链接起来。
+这个信息在 Linux的内存分配操作中使用。
+================================================================================
+
+Chunk 56:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_727
+Source: bm25
+--------------------------------------------------------------------------------
+这个信息在 Linux的内存分配操作中使用。
+在图10-15中，free_area[0]标记所有仅由一个页框组成的物理内存空闲区， 现在指向页面70,三个空闲区当中的第一个。
+其他大小为一个页面的空闲块也可通过页描述符中的链接来 获取其地址。
+节点描述符
+物理内存
+图10-15 Linux内存表示
+最后，由于Linux 可以移植到NUMA 体系结构(不同的内存地址有不同的访问时间),Linux 使用节
+实例研究1: UNIX、Linux和Android 431
+点描述符来区分不同节点上的物理内存(同时避免跨节点分配数据结构)。
+每个节点描述符包含内存使 用的信息和这个特定节点的区域信息。
+在UMA 平台上，Linux 用一个节点描述符记录所有的内存的使用 情况。
+每个页描述符的最初一些位是用来指定该页框所属的节点和区域的。
+页面
+全局页目录 上级页目录 中间页目录 页表
+全局目录 上级目录 中间目录 页面 偏移 虚拟地址
+图10-16 Linux 使用四级页表
+物理内存可以用于多种目的。
+内核自身是完全“硬连线”的，它的任何一部分都不会换出。
+内存的 其余部分可以作为用户页面、分页缓存和其他目的。
+页面缓存保存最近已读的或者由于未来有可能使用 而预读的文件块，或者需要写回磁盘的文件块页面，例如那些被换出到磁盘的用户进程创建的页面。
+用 户进行操作时随时变化的页面共同竞争页面缓存这个有限的空间。
+分页缓存并不是一个独立的缓存，而 是那些不再需要的或者等待换出的用户页面集合。
+如果分页缓存当中的一个页面在被换出内存之前复用， 它可以被快速收回。
+================================================================================
+
+Chunk 57:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_731
+Source: dense_bm25
+--------------------------------------------------------------------------------
+可交换页必须在回收之前写回到交换区或者分页磁盘分区。
+可同步的页面如果被标记为dirty 就必 须要写回到磁盘。
+最后，可丢弃的页面可以被立即回收。
+在启动的时候，init 开启一个页面守护进程kswapd (每个内存节点都有一个),并且配置它们能周期 性运行。
+每次kswapd被唤醒，它通过比较每个内存区域的高低水位和当前内存的使用来检查是否有足够
+的空闲页面可用。
+如果有足够的空闲页面，它就继续睡眠。
+当然它也可以在需要更多页面时被提前唤醒。
+如果任何内存区域的可用空间低于一个阈值，kswapd 初始化页框回收算法。
+在每次运行过程中，仅有一 个确定数目的页面被回收，典型值是最大值32。
+这个值是受限的，以控制I/O压力(由PFRA 操作导致的 磁盘写的次数)。
+回收页面的数量和扫描页面的总数量都是可配置的参数。
+PFRA 用一个类似时钟的算法来选择旧页面换出。
+这个算法的核心是一个循环，它扫描每个区域的 活动和非活动列表，试图按照不同的紧迫程度回收不同类型的页面。
+紧迫性数值作为一个参数传递给该 过程，说明花费多大的代价来回收一些页面。
+通常，这意味着在放弃之前检查多少个页面。
+在PFRA期间，页面按照图10-18描述的方式在活动和非活动列表之间移来移去。
+为了维护一些启发 式方法并且尽量找出没有被引用的和近期不可能被使用的页面，PFRA 为每个页面维护两个标记：活动/
+非活动和是否被引用。
+这两个标记构成四种状态，如 图10-18所示。
+在对一个页面集合的第一遍扫描中， PFRA 首先清除它们的引用位。
+如果在第二次运行期 间确定它已经被引用，则把它提升到另一个状态，这 样就不太可能回收它了。
+否则，将该页面移动到一个 更可能被回收的状态。
+处在非活动列表上的页面，自从上次检查未被 引用过，故而是移出的最佳候选。
+有些页面的 PG_active 和PG_referenced 都被置为0,如图10-18所 示。
+然而，如果需要，处于其他状态的页面也可能 会被回收。
+图10-18中的重装箭头就说明这个事实。
+================================================================================
+
+Chunk 58:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_732
+Source: dense_bm25
+--------------------------------------------------------------------------------
+图10-18中的重装箭头就说明这个事实。
+PFRA 维护一些页面，尽管这些页面可能已经被 引用但在非活动列表中，其原因是为了避免如下的情
+非活动 活 动
+图10-18 页框置换算法中考虑的页面状态
+形。
+考虑一个进程周期性访问不同的页面，比如周期为1个小时。
+从最后一次循环开始被访问的页面会设 置其引用标志位。
+然而，接下来的一个小时里不再使用它，没有理由不考虑把它作为一个回收的候选。
+我们还没有提及的内存管理系统的一个方面是另一个守护进程pdflush, 实际上就是一组后台守护线 程 。
+pdflush 线程要么(1)周期性醒来(通常是每500ms), 把非常旧的“脏”(dirty) 页面写回到磁盘， 要么(2)当可用的内存水平下降到一个阈值时由内核显式唤醒，把页面缓存的“脏”页面写回到磁盘。
+在便携模式 (laptop mode) 下，为了保留电池寿命，每次pdflush 线程醒来，“脏”页面就被写到磁盘。
+“脏”页面也可以通过显式的同步请求写出到磁盘，比如通过系统调用sync 、fsync 或者fdatasync 。
+更 早 的Linux版本使用两个单独的守护进程：kupdate, 用于写回旧页面；bdflush, 用于在低内存的情况下写 回页面。
+在2 .4版本内核中这个功能被整合到pdflush 线程当中了。
+选择多线程是为了隐藏长的磁盘延迟。
+================================================================================
+
+Chunk 59:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_870
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2. 页面文件
+关于后备存储器的分配有一个有趣的权衡，已提交页面没有被映射于特定文件。
+这些页使用了页面 文件 (pagefile) 。
+问题是该如何以及何时把虚拟页映射到页面文件的特定位置。
+一个简单的策略是：当 一个页被提交时，为虚拟页分配一个硬盘上页面文件中的页。
+这会确保对于每一个有必要换出内存的已 提交页，都有一个确定的位置写回去。
+Windows 使用一个适时 (just-in-time) 策略。
+直到需要被换出内存之前，在页面文件中的具体空间 不会分配给已提交的页面。
+硬盘空间当然不需要分配给永远不换出的页面。
+如果总的虚拟内存比可用的 物理内存少，则根本不需要页面文件。
+这对基于Windows的嵌入式系统是很方便的。
+这也是系统启动时 的方式，因为页面文件是在第一个用户态进程smss.exe 启动之后才初始化的。
+在预分配策略下，用于私有数据(如栈、写时复制代码页)的全部虚拟内存受到页面文件大小的限 制。
+通过适时分配的策略，总的虚拟内存大小是物理内存和页面文件大小的总和。
+既然相对物理内存来 说硬盘足够大与便宜，提升性能的需求自然比空间的节省更重要。
+有关请求调页，需要马上进行初始化从硬盘读取页的请求——因为在页入(page-in) 操作完成之前， 遇到页面失效的线程无法继续运行下去。
+对于失效页面的一个可能的优化是：在进行一次I/O操作时预 调入一些额外的页面。
+然而，对于修改过的页写回磁盘和线程的执行一般并不是同步的。
+用于分配页面 文件空间的适时策略便是利用这一点，在将修改过的页面写入页面文件时提升性能：修改过的页面被集 中到一起，统一进行写入操作。
+由于只有当页面被写回时页面文件的空间才真正被分配，可以通过排列 使页面文件中的页面较为接近甚至连续，来对大批写回页面时的寻找次数进行优化。
+Windows 支持多达16个页面文件，通常分布到不同的磁盘来达到较高的I/O带宽。
+每一个页面文件 都有初始的大小和随后依需要可以增长到的最大空间，但是在系统安装时就创建这些文件达到它的最大 值是最好的。
+================================================================================
+
+Chunk 60:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_875
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+如果发生页面失效的页 面位于一个已提交的区域内，存储管理器将在VAD列表中查找页面地址并找到(或创建)进程页表项。
+对于共享页面的情况，存储管理器使用与内存区对象关联的原始页表项来填写进程页表中的新页表项。
+不同处理器体系结构下的页表项的格式可能会不同。
+对于x86和×64,一个被映射页面的页表项如 图11-31所示。
+如果一个页表项被标记为有效，它的内容会被硬件读取并解释，从而虚拟地址能够转换 成正确的物理地址。
+未被映射的页面也有对应的页表项，但是这些页表项被标记成无效，硬件将忽略这 些页表项除该标记之外的部分。
+页表项的软件格式与硬件格式有所不同，软件格式由存储管理器决定。
+例如，对于一个未映射的页面，它必须在使用前分配和清零，这一点可以通过页表项来表明。
+页表项中有两个重要的位是硬件直接更新的，它们是访问位 (access bit) 和脏位 (dirty bit)。
+这两 个位跟踪了什么时候一个特定的页面映射用来访问该页面以及这个访问是否以写的方式修改了页面的内 容。
+这确实很有助于提高系统性能。
+因为存储管理器可以使用访问位来实现LRU(Least-Recently Used, 最近最少使用)类型的页面替换策略。
+LRU 原理是，那些最长时间没有被使用过的页面有最小的可能性 在不久的将来被再次使用。
+访问位使存储管理器知道一个页面被访问过了，脏位使存储管理器知道一个 页面被修改了，或者更重要的是，一个页面没有被修改。
+如果一个页面自从从磁盘上读到内存后没有被 修改过，存储管理器就没有必要在将该页面用到其他地方之前将页面内容写回磁盘了。
+正如图11-33所示，x86 和x64体系结构都使用64位大小的页表项。
+31 1211987654321 0
+6362 5251 121198 7 6 5 4 3 2 1 0
+NX-No eXecute
+AVL-AVaiLable to the OS G-Global page
+PAT-Page Attribute Table D-Dirty(modified)
+A-Accessed (referenced)
+a)
+================================================================================
+
+Chunk 61:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_877
+Source: dense_bm25
+--------------------------------------------------------------------------------
+如果该页的副本已经在内存中，即在另一个进程的页面链表已经存在该页面的副本， 或者在后备、已修改页链表中，则只需要共享该页即可。
+否则，内存管理器分配一个空闲的物理页面， 并安排从磁盘复制文件页，除非另外一个页面正在从磁盘中转变，这种情况的话只能等到转变结束之后 再去执行。
+当一个物理页面不再映射到任何进程的页表，将进入以下三种状态之一：空闲、已修改或后备。
+内 存管理器会立刻释放那些类似已结束进程的栈页面这样不再会使用的页面。
+根据判断映射页面的页表项 中的上次从磁盘读出后的脏位是否设置，页面可能会再次发生异常，从而进入已修改链表或者后备链表 (standby list)。
+已修改链表中的页面最终会写回磁盘，然后移到后备链表中。
+内存管理器可以根据需要从空闲链表或者后备链表中分配页面。
+它在分配页面并从磁盘复制之前， 总是在已修改链表和后备链表中检查该页面是否已经在内存中。
+Windows Vista中的预约式调页机制通过 读入那些未来可能会用到的页面并把它们插入后备链表的方式将硬异常转化为软异常。
+内存管理器通过 读入成组的连续页面而不是仅仅一个页面来进行一定数量的普通预约式调页。
+多余调入的页面立刻插入 后备链表。
+而由于内存管理器的开销主要是进行I/O操作引起的，因而预约式调页并不会带来很大的浪 费。
+与读入一簇页面相比，仅读入一个页面的额外开销是可以忽略的。
+图11-31中的页表项指的是物理页号，而不是虚拟页号。
+为了更新页表(以及页目录)项，内核需
+要使用虚拟地址。
+Windows 使用如图11-32所示的页目录表项中的自映射 (self-map) 表项将当前进程的
+页表和页目录映射到内核虚拟地址空间。
+通过映射页目录项到页目录(自映射),就具有了能用来指向 页目录项(图11-32a) 和页表项(图11-32b) 的虚拟地址。
+每个进程的自映射占用同样的8MB内核地址 空间 (x86 上)。
+为了简化，图11-32中只显示了x86上的32位页表项自映射。
+Windows 实际上使用的是64 位的页表项，这样系统能够利用超过4GB大小的物理内存。
+================================================================================
+
+Chunk 62:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_879
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+将一个页面写为全零是需要时间的，因此在后台使用 低优先级的线程创建全零页是一个较好的方式。
+另外还有第五种链表存放有硬件错误的页面(即通过硬 件错误检测)。
+系统中的所有页面要么由一个有效的页表项索引，要么属于以上五种链表中的一种，它们的全体称 为页框号数据库 ( PFN 数据库)。
+图11-33表明PFN 数据库的结构。
+该表格由物理页框号索引。
+表项都是 固定长度的，但是不同类型的表项使用不同的格式(例如共享页面相对于私有页面)。
+有效的表项维护 页面的状态以及指向该页面数量的计数。
+工作集中的页面指出哪个表项索引它们。
+还有一个指向该页的 进程页表的指针(非共享页),或者指向原型页表的指针(共享页)。
+页帧数据库
+图11-33 一个有效的页面在页框数据库上的一些主要域
+工作集管理器和其他的系统线程控制页面在工作集和不同的链表间移动。
+下面对这些转变进行研究。
+当工作集管理器将一个页面从某个工作集中去掉，则该页面按照自身是否修改的状态进入后备或已修改 链表的底部。
+这一转变在图11-34的(1)中进行了说明。
+这两个链表中的页面仍然是有效的页面，当页面失效发生的时候需要它们中的一个页，则将该页移 回工作集而不需要进行磁盘I/O操作(2)。
+当一个进程退出，该进程的非共享页面不能通过异常机制回 到以前的工作集，因此该进程页表中的有效页面以及挂起和已修改链表中的页面都移入空闲链表(3)。
+任何该进程的页面文件也得到释放。
+其他的系统调用会引起别的转变。
+平衡集管理器线程每4秒运行一次来查找那些所有的线程都进入 空闲状态超过一定秒数的进程。
+如果发现这样的进程，就从物理内存去掉它们的内核栈，这样的进程的 页面也如(1)一样移动到后备链表或已修改链表。
+实例研究2: Windows 8 533
+顶部取出页面，写回到磁盘，然后将这些页面插入后备链表(4)。
+前者处理对于映射文件的写，而后者 处理页面文件的写。
+这些写的结果就是将已修改(脏)页面移到后备(干净)链表中。
+================================================================================
+
+Chunk 63:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_880
+Source: dense_bm25
+--------------------------------------------------------------------------------
+这些写的结果就是将已修改(脏)页面移到后备(干净)链表中。
+之所以使用两个线程是因为映射文件可能会因为写的结果增长，而增长的结果就需要对磁盘上的数 据结构具有相应的权限来分配空闲磁盘块。
+当一个页面被写入时如果没有足够的内存，就会导致死锁。
+另一个线程则是解决向页面文件写入页时的问题。
+下面说明图11-34中另一个转换。
+如果进程解除页映射，该页不再和进程相关从而进入空闲链表(5), 当该页是共享的时候例外。
+当页面失效会请求一个页框给将要读入的页，此时该页框会尽可能从空闲链 表中取下(6)。
+由于该页会被全部重写，因此即使有机密的信息也没有关系。
+所有这些链表的存在导致了一些微妙的策略抉择。
+例如，假设要从磁盘载入一个页面，但是空闲链 表是空的，那么,要么从后备链表中取出一个干净页(虽然这样做稍后有可能导致缺页),要么从全零 页面链表中取出一个空页(忽略把该页清零的代价),系统必须在上述两种策略之间做出选择。
+哪一个 更好呢?
+内存管理器必须决定系统线程把页面从已修改链表移动到后备链表的积极程度。
+有干净的页面后备 总比有脏页后备好得多(因为如有需要，干净的页可以立即重用),但是一个积极的净化策略意味着更 多的磁盘I/O, 同时一个刚刚净化的页面可能由于缺页中断重新回到工作集中，然后又成为脏页。
+通常 来 讲 ，Windows 通过算法、启发、猜测、历史、经验以及管理员可控参数的配置来做权衡。
+总而言之，内存管理需要一个拥有多种数据结构、算法和启发性的十分复杂、重要的组件。
+它尽可 能地自我调整，但是仍然留有很多选项使系统管理员可以通过配置这些选项来影响系统性能。
+大部分的 选项和计数器可以通过工具浏览，相关的各种工具包在前面都有提到。
+也许在这里最值得记住的就是， 在真实的系统里，内存管理不仅仅是一个简单的时钟或老化的页面算法。
+================================================================================
+
+Chunk 64:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_103
+Source: dense
+--------------------------------------------------------------------------------
+需要注意的是，在时分多路复用的讨论中使用术语“帧”。
+这里所说的帧实际上是物理 层的比特流传输单元，与数据链路层的帧的概念与作用不同。
+2.5.3 频分多路复用
+频分多路复用是在一条通信线路上设置多个信道，各个信道的中心频率不同，而且各个 信道的频率范围互不重叠，这样， 一条通信线路可划分为不同通信频率的多个信道，用于同 时传输多路信号。
+图2-25给出了频分多路复用的工作原理。
+信道1的载波频率为60～64kHz, 中心频率 为62kHz, 带 宽 为 4kHz; 信道2的载波频率为64～68kHz, 中心频率为66kHz, 带宽为 4kHz; 信道3的载波频率为68～72kHz, 中心频率为70kHz, 带宽为4kHz 。
+信道1、2、3的 载波频率不会重叠。
+================================================================================
+
+Chunk 65:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_371
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3. 基于 Web 的电子邮件
+6.6 Web 与基于 Web 的网络应用
+1.Web 核心技术
+万维网(World Wide Web,WWW)通常简称为Web, 它是互联网应用技术发展的一个
+2. 主页的概念
+主页(home page)是一种特殊的网页。
+主页通常是个人或机构的基本信息页面，它是 访问个人或机构网站的入口。
+主页一般包含以下基本元素：
+· 文 本(text): 文字信息。
+· 图 像(image): 主要是GIF 、PNG 与JPEG 格式的图像。
+· 表 格(table): 类似于Word 的字符型表格。
+· 超链接：提供到其他网页的链接。
+3.URL 的概念
+RFC1378 与 RFC 1808 文档定义了URL 的概念。
+URL 是对互联网资源位置和访问方
+法的标识。
+互联网资源是指能够访问的任何对象，包括目录、文件、文本、表格、图像、音频、 视频、动画以及邮件地址、Usenet 新闻组或其中的文档。
+协议类型 主机名 路径及文件名
+名 ，index.html 指出要访问的主页路径与文件名。
+除了HTTP 之外，URL 还支持其他类型 的协议。
+例如：
+·file://linux001.nankai.edu.cn/pub/gif/wu.gif 表示从网络主机 linux001.nankai. edu.cn 读取一个路径为/pub/gif/wu.gif 的图形文件。
+·telnet://cs.nankai.edu.cn 表示通过虚拟终端登录远程主机 cs.nankai.edu.cn。
+================================================================================
+
+Chunk 66:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_285
+Source: dense
+--------------------------------------------------------------------------------
+6.1 链路层概述
+286 第6章
+链路层和局域网 287
+● 成帧 (framing)。
+在每个网络层数据报经链路传送之前，几乎所有的链路层协议都 要将其用链路层帧封装起来。
+一个帧由一个数据字段和若干首部字段组成，其中 网络层数据报就插在数据字段中。
+帧的结构由链路层协议规定。
+当我们在本章的 后半部分研究具体的链路层协议时，将看到几种不同的帧格式。
+●链路接入。
+媒体访问控制 (Medium Access Control,MAC) 协议规定了帧在链路上 传输的规则。
+对于在链路的一端仅有一个发送方、链路的另一端仅有一个接收方 的点对点链路，MAC协议比较简单(或者不存在),即无论何时链路空闲，发送 方都能够发送帧。
+更有趣的情况是当多个节点共享单个广播链路时，即所谓多路 访问问题。
+这里，MAC协议用于协调多个节点的帧传输。
+●差错检测和纠正。
+当帧中的一个比特作为1传输时，接收方节点中的链路层硬件 可能不正确地将其判断为0,反之亦然。
+这种比特差错是由信号衰减和电磁噪声导 致的。
+因为没有必要转发一个有差错的数据报，所以许多链路层协议提供一种机 制来检测这样的比特差错。
+通过让发送节点在帧中包括差错检测比特，让接收节 点进行差错检查，以此来完成这项工作。
+================================================================================
+
+Chunk 67:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_100
+Source: dense
+--------------------------------------------------------------------------------
+3.2.2 PPP协议的帧格式
+1. 各字段的意义
+PPP 的帧格式如图3-10所示。
+PPP 帧的首部和尾部分别为四个字段和两个字段。
+首部的第一个字段和尾部的第二个字段都是标志字段F(Flag), 规定为0x7E (符号“0x”
+表示它后面的字符是用十六进制表示的。
+十六进制的7E 的二进制表示是01111110)。
+标志
+① 注 ：MTU的默认值是1500字节。
+在RFC 1661中 ，MTU叫作最大接收单元MRU(Maximum Receive Unit)。
+② 注 ：TCP 的早期版本也叫作NCP, 但它和这里所讨论的NCP 没有关系。
+字段表示一个帧的开始或结束。
+因此标志字段就是 PPP 帧的定界符。
+连续两帧之间只需要 用一个标志字段。
+如果出现连续两个标志字段，就表示这是一个空帧，应当丢弃。
+首部中的地址字段 A 规 定 为 0xFF (即11111111),控制字段 C 规 定 为 0x03 ( 即 00000011)。
+最初曾考虑以后再对这两个字段的值进行其他定义，但至今也没有给出。
+可见 这两个字段实际上并没有携带PPP 帧的信息。
+图3-10 PPP 帧的格式
+PPP 首部的第四个字段是2字节的协议字段。
+当协议字段为0x0021 时 ，PPP 帧的信息 字段就是 IP 数据报。
+若为0xC021, 则信息字段是 PPP 链路控制协议 LCP 的数据，而 0x8021 表示这是网络层的控制数据。
+信息字段的长度是可变的，不超过1500字节。
+尾部中的第 一 个字段(2字节)是使用CRC 的帧检验序列FCS。
+================================================================================
+
+Chunk 68:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_341
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+6.4.4 万维网的文档
+1. 超文本标记语言HTML
+HTML 定义了许多用于排版的命令，即“标签”(tag) 。
+例 如 ，<I> 表示后面开始用斜体 字排版，而</I>则表示斜体字排版到此结束。
+HTML 把各种标签嵌入到万维网的页面中，这 样就构成了所谓的HTML 文档。
+HTML 文档是一种可以用任何文本编辑器(例如，Windows 的记事本Notepad) 创建的ASCII 码文件。
+但应注意，仅当HTML 文档是以.html 或.htm 为后 缀时，浏览器才对这样的HTML 文档的各种标签进行解释。
+如果HTML 文档改为以.txt 为其 后缀，则HTML 解释程序就不对标签进行解释，而浏览器只能看见原来的文本文件。
+并非所有的浏览器都支持所有的HTML 标签。
+若某一个浏览器不支持某一个HTML 标 签，则浏览器将忽略此标签，但在一对不能识别的标签之间的文本仍然会被显示出来。
+下面是一个简单例子，用来说明 HTML 文档中标签的用法。
+在每一个语句后面的花括 号中的字是给读者看的注释，在实际的HTML 文档中并没有这种注释。
+把上面的HTML 文档存入D 盘的文件夹 HTML 中，文件名是 HTML-example.html ( 注 意：实际的文档中没有注释部分)。
+当浏览器读取了该文档后，就按照 HTML 文档中的各种 标签，根据浏览器所使用的显示器的尺寸和分辨率大小，重新进行排版并显示出来。
+图6-12 表示 IE 浏览器在计算机屏幕上显示出的与该文档有关部分的画面。
+文档的标题(title)“ 一个 HTML 的例子”显示在浏览器最上面的标题栏中。
+文件的路径显示在地址栏中。
+再下面就 是文档的主体部分。
+主体部分的题头(heading), 即文档主体部分的标题 “HTML 很容易掌 握”,用较大的字号显示出来，因为在标签中指明了使用的是1级题头<Hl>。
+目前已开发出了很好的制作万维网页面的软件工具，使我们能够像使用 Word 文字处理 器那样很方便地制作各种页面。
+================================================================================
+
+Chunk 69:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_342
+Source: dense
+--------------------------------------------------------------------------------
+目前已开发出了很好的制作万维网页面的软件工具，使我们能够像使用 Word 文字处理 器那样很方便地制作各种页面。
+即使我们用 Word 文字处理器编辑了一个文件，但只要在 “另存为(Save As)” 时选取文件后缀为.htm 或 .html, 就可以很方便地把Word 的.doc 格式文 件转换为浏览器可以显示的HTML 格式的文档。
+图6-12 在屏幕上显示的HTML文档主体部分的例子
+HTML 允许在万维网页面中插入图像。
+一个页面本身带有的图像称为内含图像(inline image)。
+HTML 标准并没有规定该图像的格式。
+实际上，大多数浏览器都支持 GIF 和 JPEG 文件。
+很多格式的图像占据的存储空间太大，因而这种图像在互联网传送时就很浪费时间。
+例如，一幅位图文件(.bm p)可能要占用500～700 KB 的存储空间。
+但若将此图像改存为经压 缩的 .gif格式，则可能只有十几个千字节，大大减少了存储空间。
+HTML 还规定了链接的设置方法。
+我们知道每个链接都有一个起点和终点。
+链接的起 点说明在万维网页面中的什么地方可引出一个链接。
+在一个页面中，链接的起点可以是一个 字或几个字，或是一幅图，或是一段文字。
+在浏览器所显示的页面上，链接的起点是很容易
+链接的终点可以是其他网站上的页面。
+这种链接方式叫作远程链接。
+这时必须在 HTML 文档中指明链接到的网站的 URL。
+有时链接可以指向本计算机中的某一个文件或本 文件中的某处，这叫作本地链接。
+这时必须在HTML 文档中指明链接的路径。
+实际上，现在这种链接方式已经不局限于用在万维网文档中。
+在最常用的 Word 文字处 理器的工具栏中，也设有“插入超链接”的按钮。
+只要点击这个按钮，就可以看到设置超链 接的窗口。
+用户可以很方便地在自己写的Word文档中设置各种链接的起点和终点。
+在这一小节的最后，我们还要简单介绍一下和浏览器有关的几种其他语言。
+XML(Extensible Markup Language)是可扩展标记语言，它和 HTML 很相似。
+但 XML
+================================================================================
+

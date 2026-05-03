@@ -1,0 +1,1281 @@
+Query: A051
+Total chunks: 56
+================================================================================
+
+Chunk 1:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_616
+Source: dense
+--------------------------------------------------------------------------------
+22.5 Using History: LRU
+Unfortunately, any policy as simple as FIFO or Random is likely to have a common problem: it might kick out an important page, one that is about to be referenced again.
+FIFO kicks out the page that was ﬁrst brought in; if this happens to be a page with important code or data structures upon it, it gets thrown out anyhow, even though it will soon be paged back in.
+Thus, FIFO, Random, and similar policies are not likely to approach optimal; something smarter is needed.
+As we did with scheduling policy, to improve our guess at the future, we once again lean on the past and use history as our guide.
+For example, if a program has accessed a page in the near past, it is likely to access it again in the near future.
+================================================================================
+
+Chunk 2:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_619
+Source: dense
+--------------------------------------------------------------------------------
+Similarly, the Least-Recently- Used (LRU) policy replaces the least-recently-used page.
+These algo- rithms are easy to remember: once you know the name, you know exactly what it does, which is an excellent property for a name.
+To better understand LRU, let’s examine how LRU does on our exam-
+ple reference stream.
+Table 22.4 shows the results.
+From the table, you can see how LRU can use history to do better than stateless policies such as Random or FIFO.
+In the example, LRU evicts when it ﬁrst has to replace a page, because 0 and 1 have been accessed more recently.
+It then replaces because 1 and 3 have been accessed more recently.
+In both cases, LRU’s decision, based on history, turns out to be correct, and the next references are thus hits.
+Thus, in our simple example, LRU does as well as possible, matching optimal in its performance.
+================================================================================
+
+Chunk 3:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_620
+Source: dense
+--------------------------------------------------------------------------------
+Thus, in our simple example, LRU does as well as possible, matching optimal in its performance.
+We should also note that the opposites of these algorithms exist: Most- Frequently-Used (MFU) and Most-Recently-Used (MRU).
+In most cases (not all!),
+these policies do not work well, as they ignore the locality most programs exhibit instead of embracing it.
+================================================================================
+
+Chunk 4:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_624
+Source: dense
+--------------------------------------------------------------------------------
+Figure 22.3 shows how the policies perform with this workload.
+As you can see from the ﬁgure, while both random and FIFO do rea- sonably well, LRU does better, as it is more likely to hold onto the hot pages; as those pages have been referred to frequently in the past, they are likely to be referred to again in the near future.
+Optimal once again does better, showing that LRU’s historical information is not perfect. The 80-20 Workload 0 20 40 60 80 100 Cache Size (Blocks)
+Figure 22.3: The 80-20 Workload
+You might now be wondering: is LRU’s improvement over Random and FIFO really that big of a deal?
+The answer, as usual, is “it depends.”
+If each miss is very costly (not uncommon), then even a small increase in hit rate (reduction in miss rate) can make a huge difference on performance.
+If misses are not so costly, then of course the beneﬁts possible with LRU are not nearly as important.
+================================================================================
+
+Chunk 5:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_625
+Source: dense
+--------------------------------------------------------------------------------
+If misses are not so costly, then of course the beneﬁts possible with LRU are not nearly as important.
+Let’s look at one ﬁnal workload.
+We call this one the “looping sequen- tial” workload, as in it, we refer to 50 pages in sequence, starting at 0, then 1, ..., up to , and then we loop, repeating those accesses, for a total of 10,000 accesses to 50 unique pages.
+The last graph in Figure 22.4 shows the behavior of the policies under this workload.
+This workload, common in many applications (including important commercial applications such as databases [CD85]), represents a worst- case for both LRU and FIFO.
+These algorithms, under a looping-sequential workload, kick out older pages; unfortunately, due to the looping nature of the workload, these older pages are going to be accessed sooner than the pages that the policies prefer to keep in cache.
+================================================================================
+
+Chunk 6:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_627
+Source: dense
+--------------------------------------------------------------------------------
+22.7 Implementing Historical Algorithms
+As you can see, an algorithm such as LRU can generally do a better job than simpler policies like FIFO or Random, which may throw out important pages.
+Unfortunately, historical policies present us with a new challenge: how do we implement them?
+Let’s take, for example, LRU.
+To implement it perfectly, we need to do a lot of work.
+Speciﬁcally, upon each page access (i.e., each memory access, whether an instruction fetch or a load or store), we must update some data structure to move this page to the front of the list (i.e., the MRU side).
+Contrast this to FIFO, where the FIFO list of pages is only accessed when a page is evicted (by removing the ﬁrst-in page) or when a new page is added to the list (to the last-in side).
+================================================================================
+
+Chunk 7:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_630
+Source: dense
+--------------------------------------------------------------------------------
+22.8 Approximating LRU
+As it turns out, the answer is yes: approximating LRU is more fea- sible from a computational-overhead standpoint, and indeed it is what many modern systems do.
+The idea requires some hardware support, in the form of a use bit (sometimes called the reference bit), the ﬁrst of which was implemented in the ﬁrst system with paging, the Atlas one- level store [KE+62].
+There is one use bit per page of the system, and the use bits live in memory somewhere (they could be in the per-process page tables, for example, or just in an array somewhere).
+Whenever a page is referenced (i.e., read or written), the use bit is set by hardware to 1.
+The hardware never clears the bit, though (i.e., sets it to 0); that is the respon- sibility of the OS.
+How does the OS employ the use bit to approximate LRU?
+================================================================================
+
+Chunk 8:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_632
+Source: dense
+--------------------------------------------------------------------------------
+The algorithm continues until it ﬁnds a use bit that is set to 0, implying this page has not been recently used (or, in the worst case, that all pages have been and that we have now searched through the entire set of pages, clearing all the bits).
+Note that this approach is not the only way to employ a use bit to approximate LRU.
+Indeed, any approach which periodically clears the use bits and then differentiates between which pages have use bits of 1 versus 0 to decide which to replace would be ﬁne.
+The clock algorithm of Corbato’s was just one early approach which met with some success, and had the nice property of not repeatedly scanning through all of memory looking for an unused page. The 80-20 Workload RAND Clock 0 20 40 60 80 100 Cache Size (Blocks)
+Figure 22.5: The 80-20 Workload With Clock
+The behavior of a clock algorithm variant is shown in Figure22.5.
+================================================================================
+
+Chunk 9:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_636
+Source: dense
+--------------------------------------------------------------------------------
+22.10 Other VM Policies
+Page replacement is not the only policy the VM subsystem employs (though it may be the most important).
+For example, the OS also has to decide when to bring a page into memory.
+This policy, sometimes called the page selection policy (as it was called by Denning [D70]), presents the OS with some different options.
+For most pages, the OS simply uses demand paging, which means the OS brings the page into memory when it is accessed, “on demand” as it were.
+Of course, the OS could guess that a page is about to be used, and thus bring it in ahead of time; this behavior is known as prefetching and should only be done when there is reasonable chance of success.
+For example, some systems will assume that if a code page P is brought into memory, that code page P+1 will likely soon be accessed and thus should be brought into memory too.
+================================================================================
+
+Chunk 10:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_641
+Source: dense
+--------------------------------------------------------------------------------
+Scan-resistant al- gorithms are usually LRU-like but also try to avoid the worst-case behav- ior of LRU, which we saw with the looping-sequential workload.
+Thus, the evolution of page-replacement algorithms continues.
+However, in many cases the importance of said algorithms has de- creased, as the discrepancy between memory-access and disk-access times has increased.
+Because paging to disk is so expensive, the cost of frequent paging is prohibitive.
+Thus, the best solution to excessive paging is often a simple (if intellectually dissatisfying) one: buy more memory. References
+[AD03] “Run-Time Adaptation in River”
+ACM TOCS, 21:1, February 2003
+A summary of one of the authors’ dissertation work on a system named River.
+Certainly one place where he learned that comparison against the ideal is an important technique for system designers.
+================================================================================
+
+Chunk 11:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_679
+Source: dense
+--------------------------------------------------------------------------------
+Professor: That’s a nice perspective.
+What about all of the stuff we learned about swapping to disk?
+Student: Well, it’s certainly fun to study, and good to know how page replace- ment works.
+Some of the basic policies are kind of obvious (like LRU, for ex- ample), but building a real virtual memory system seems more interesting, like we saw in the VMS case study.
+But somehow, I found the mechanisms more interesting, and the policies less so.
+SUMMARY DIALOGUE ON MEMORY VIRTUALIZATION 257
+Professor: Oh, why is that?
+Student: Well, as you said, in the end the best solution to policy problems is
+simple: buy more memory.
+But the mechanisms you need to understand to know how stuff really works.
+Speaking of which... Professor: Yes?
+Student: Well, my machine is running a little slowly these days... and memory certainly doesn’t cost that much...
+Professor: Oh ﬁne, ﬁne! Here’s afew bucks.
+================================================================================
+
+Chunk 12:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_651
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+特别是，假设有一个 m 个“插槽”的缓冲存储器，可以包含Web 页面，假设一个网页可放置在高速缓存中的任 何一个插槽中。
+这称为全相联高速缓冲存储器。
+浏览器会运行不同的网页。
+每次浏览器请求这样一个网页p, 浏览器确定(使用快速测 试 ) 网 页p 是否改变且当前是否在高速缓存中。
+如果网页p 在高速缓存中，则该浏览器使用 缓存副本就能满足请求。
+如果网页p 不在高速缓存中，对于网页p 的页面请求将要搜索整个 因特网，并传输到缓存中。
+如果高速缓存中的m 个插槽中的一个是可用的，则浏览器将网 页 p 分配到任一个空槽中。
+但是，如果高速缓冲存储器的m 个单元都被占用时，计算机必 须确定取出哪些先前浏览过的网页然后驱逐，并由网页p 代替。
+当然，有很多不同的策略用 来确定网页的取出。
+页面置换策略
+一些较知名的页面替换策略(见图15-3)如下：
+●先进先出策略(FIFO)。
+置换在主存中停留时间最长的页面，也就是在最远的过去传 输到缓存中的页面。
+●最近最久未使用策略(LRU)。
+置换在过去最远一次请求的页面。
+此外，我们可以考虑一个简单的、纯随机的策略。
+●随机策略。
+在缓存中随机置换一个页面。
+随机策略是最容易实施的策略之一，因为它仅需要一个随机或伪随机数生成器。
+参与实 施这一策略的开销是每一个页面置换所需的额外空间O(1) 。
+此外，对于每个页面请求都没 有额外的开销，除了确定该页是否是在缓存中。
+不过，这一策略并没有试图采取根据用户的 浏览表现出任何时间局部性的优势。
+图15-3 随机策略、FIFO 策略和LRU 页面置换策略
+先进先出策略的实现相当简单，因为它仅需要一个队列Q 来存储缓存中引用的页面。
+当被浏览器引用时，页面会进入队列Q, 并且会存入到高速缓存。
+当页面需要被取出时，计 算机简单地执行队列Q 的出队操作来确定置换哪个页面。
+因此，这一策略还需提供每个页 面替换所需的O(1) 空间。
+同时，FIFO 策略对页面请求没有额外的开销，而且它试图展示 一 些时间局部性的优势。
+================================================================================
+
+Chunk 13:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_652
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+同时，FIFO 策略对页面请求没有额外的开销，而且它试图展示 一 些时间局部性的优势。
+LRU 策略比FIFO 策略更深一步，总是通过取出最近最少使用的页面来尽可能多地展示 时间局部性的优势。
+从策略的角度来看，这是一个很好的方法，但从实现成本的角度看花费 大。
+也就是说，它优化时间和空间局部性的方式是相当昂贵的。
+实施LRU 策略需要使用支 持更新现有网页的优先级的可适应优先级队列Q 。
+如 果Q 是基于链表来实现排序序列，则 每个页面请求和页面置换的开销需要 O(1) 空间。
+当Q 中插入一个页面或更新其优先级时， 该页面在Q 中被赋予最高级，并且放置在链表的末尾，这需要在O(1) 时间内完成。
+虽然 LRU 策略具有固定的时间开销，但使用上述的实施方式所涉及的常量条件包含额外时间的 开销和用于优先队列 Q 上的额外的空间，从实用角度来看这个策略缺少吸引力。
+由于这些不同的页面替换策略有不同的实施难度和展示局部性优势的程度，自然，应对 比分析这些方法，来看看哪 一 种方法是最好的。
+从最坏情况的角度看，FIFO 和 LRU 策略是相当没有吸引的行为。
+例如，假设在高速缓 存有 m 个页面，对于一个循环请求m+1 个页面的程序考虑用FIFO 和 LRU 策略进行页面 置换。
+无论是FIFO 还是LRU 策略，对这样序列的页面请求实现效果都很差，因为它们对 于每一个页面请求都要进行页面替换。
+因此，从最坏的情况来看，我们可以想象这些策略几 乎是最糟糕的——对于每一个页面请求，它们都需要页面替换。
+这种最坏情况的分析是有点过于悲观，但是它集中于每个协议的页面请求的一个坏序列 的行为。
+理想的分析是在所有可能的页面请求序列比较这些方法。
+当然，不可能做到详尽， 但已经有大量的实验模拟来自真实程序的页面请求序列。
+基于这些实验的比较，LRU 策略 已被证明是优于FIFO 策略，当然通常比随机策略更好。
+================================================================================
+
+Chunk 14:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_661
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+为脱机算法描述最佳策略，并显示它一共能导致最多m+n/m 的缺页， 从一个空的缓存开始。
+C-15.19 描述一个有效的外部存储算法，该算法可以确定是否一个大小为 n 的整型数组包含一个出现 次数大于n/2的值。
+C-15.20 考虑到页面缓存策略，基于最不经常使用(LFU) 规则，当请求新的页面时淘汰最不经常进 入缓存中的页面。
+如果有相同使用频率的页面，LFU 淘汰最不常使用的且缓存时间最长的页 面。
+现有一个n 个请求的序列P, 证明对于m 页的缓存LFU 可引起Ω(n) 次缺页，然而最优 算法将只引起O(m) 次缺页。
+C-15.21 假设在d 阶 B 树 T 中有节点搜索函数f(d)=1,f(d)=logd 。
+在 T 中执行搜索的渐近运行时
+间现在变成了多少?
+项目
+P-15.22 写一个Python 类，该类模拟内存管理的最佳适应、最坏适应、首次适应和循环首次适应算 法。
+用实验的方法确定在请求各种内存序列的情况下哪种方法是最好的。
+P-15.23 写一个Python 类，借助(a,b) 树实现所有有序映射ADT 方法，其中a 和b 是作为参数传递 给构造函数的整型常量。
+P-15.24 实现B 树数据结构，假设一个块的大小为1024个整型键。
+测试“磁盘传输”所需的数量来处 理一个映射操作序列。
+拓展阅读
+对层次存储器体系结构系统研究感兴趣的读者可以参考 Burger121等人的书或者Hennessy 和 Patterson⁵01的书。
+我们描述的标记-清除算法这种垃圾收集方法是执行垃圾收集的许多不同算法 之一。
+我们鼓励对进一步研究垃圾收集感兴趣的读者研究Jones 和 Lins⁶2) 的 书 。
+Knuth⁶21 对于外 部存储器分类和搜索有非常好的论述。
+Ullman⁹7 讨论了数据库系统的外存结构。
+Gonnet 和 Baeza Yates⁴4 的手册比较了多个不同的排序算法的性能，其中有许多是外部存储器算法。
+B 树是由Bayer 和 McCreight¹1 和 Comerl²8 发明的，并对该数据结构提供了非常好的概述。
+================================================================================
+
+Chunk 15:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_159
+Source: dense
+--------------------------------------------------------------------------------
+参考位（reference bit ，也被称为访问位，accessed bit）有时用于追踪页是否被访问，也用于确定哪些页很受欢迎，因此应该保留在内存中。
+这些知识在页面替换（page replacement）时非常重要，我们将在随后的章节中详细研究这一主题。
+图 18.5 显示了来自 x86 架构的示例页表项[I09]。
+它包含一个存在位（P），确定是否允许写入该页面的读/写位（R/W） 确定用户模式进程是否可以访问该页面的用户/超级用户位（U/S），有几位（PWT 、PCD 、PAT 和G）确定硬件缓存如何为这些页面工作，一个访问位（A）和一个脏位（D），最后是页帧号（PFN）本身。
+图 18.5 一个 x86 页表项（PTE）
+阅读英特尔架构手册[I09]，以获取有关 x86 分页支持的更多详细信息。
+然而，要事先警告，阅读这些手册时，尽管非常有用（对于在操作系统中编写代码以使用这些页表的用户而言，这些手册当然是必需的），但起初可能很具挑战性。
+需要一点耐心和强烈的愿望。
+================================================================================
+
+Chunk 16:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_167
+Source: dense
+--------------------------------------------------------------------------------
+19.1 TLB 的基本算法
+图 19.1 展示了一个大体框架，说明硬件如何处理虚拟地址转换，假定使用简单的线性页表（linear page table，即页表是一个数组）和硬件管理的 TLB（hardware-managed TLB，即硬件承担许多页表访问的责任，下面会有更多解释）。
+1 VPN = (VirtualAddress & VPN_MASK) >> SHIFT
+2 (Success, TlbEntry) = TLB_Lookup(VPN)
+3 if (Success == True) // TLB Hit
+4 if (CanAccess(TlbEntry.ProtectBits) == True)
+5 Offset = VirtualAddress & OFFSET_MASK
+6 PhysAddr = (TlbEntry.PFN << SHIFT) | Offset
+7 AccessMemory(PhysAddr)
+8 else
+9 RaiseException(PROTECTION_FAULT)
+10 else // TLB Miss
+11 PTEAddr = PTBR + (VPN * sizeof(PTE))
+12 PTE = AccessMemory(PTEAddr)
+13 if (PTE.Valid == False)
+14 RaiseException(SEGMENTATION_FAULT)
+15 else if (CanAccess(PTE.ProtectBits) == False)
+16 RaiseException(PROTECTION_FAULT)
+17 else
+18 TLB_Insert(VPN, PTE.PFN, PTE.ProtectBits)
+19 RetryInstruction()
+图 19.1 TLB 控制流算法
+硬件算法的大体流程如下：首先从虚拟地址中提取页号（VPN）（见图 19.1 第 1 行），然后检查 TLB 是否有该 VPN 的转换映射（第 2 行）。
+================================================================================
+
+Chunk 17:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_176
+Source: dense_bm25
+--------------------------------------------------------------------------------
+19.6 TLB 替换策略
+TLB 和其他缓存一样，还有一个问题要考虑，即缓存替换（cache replacement）。
+具体来说，向 TLB 中插入新项时，会替换（replace）一个旧项，这样问题就来了：应该替换那一个？
+在讨论页换出到磁盘的问题时，我们将详细研究这样的策略。
+这里我们先简单指出几个典型的策略。
+一种常见的策略是替换最近最少使用（least-recently-used，LRU）的项。
+LRU尝试利用内存引用流中的局部性，假定最近没有用过的项，可能是好的换出候选项。
+另一种典型策略就是随机（random）策略，即随机选择一项换出去。
+这种策略很简单，并且可以避免一种极端情况。
+例如，一个程序循环访问 n+1 个页，但 TLB 大小只能存放 n 个页。
+这时之前看似“合理”的 LRU 策略就会表现得不可理喻，因为每次访问内存都会触发 TLB未命中，而随机策略在这种情况下就好很多。
+================================================================================
+
+Chunk 18:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_212
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+22.5 利用历史数据： LRU
+遗憾的是，任何像 FIFO 或随机这样简单的策略都可能会有一个共同的问题：它可能会踢出一个重要的页，而这个页马上要被引用。
+先进先出（FIFO）将先进入的页踢出。
+如果这恰好是一个包含重要代码或数据结构的页，它还是会被踢出，尽管它很快会被重新载入。
+因此，FIFO 、Random 和类似的策略不太可能达到最优，需要更智能的策略。
+正如在调度策略所做的那样，为了提高后续的命中率，我们再次通过历史的访问情况作为参考。
+例如，如果某个程序在过去访问过某个页，则很有可能在不久的将来会再次访问该页。
+页替换策略可以使用的一个历史信息是频率（frequency）。
+如果一个页被访问了很多次，也许它不应该被替换，因为它显然更有价值。
+页更常用的属性是访问的近期性（recency），越近被访问过的页，也许再次访问的可能性也就越大。
+这一系列的策略是基于人们所说的局部性原则（principle of locality）[D70]，基本上只是对程序及其行为的观察。
+这个原理简单地说就是程序倾向于频繁地访问某些代码（例如循环）和数据结构（例如循环访问的数组）。
+因此， 我们应该尝试用历史数据来确定哪些页面更重要，并在需要踢出页时将这些页保存在内存中。
+因此，一系列简单的基于历史的算法诞生了。
+“最不经常使用”（Least-Frequently-Used， LFU）策略会替换最不经常使用的页。
+同样， “最少最近使用”（Least-Recently-Used，LRU）策略替换最近最少使用的页面。
+这些算法很容易记住：一旦知道这个名字，就能确切知道它是什么，这种名字就非常好。
+为了更好地理解 LRU，我们来看看 LRU 如何在示例引用序列上执行。
+表 22.4 展示了结果。
+从表中， 可以看到 LRU 如何利用历史记录，比无状态策略（如随机或 FIFO）做得更好。
+在这个例子中，当第一次需要替换页时，LRU 会踢出页 2，因为 0 和 1 的访问时间更近。
+然后它替换页 0，因为 1 和 3 最近被访问过。
+在这两种情况下，基于历史的 LRU 的决
+================================================================================
+
+Chunk 19:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_213
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+在这两种情况下，基于历史的 LRU 的决
+定证明是更准确的，并且下一个引用也是命中。
+因此，在我们的简单例子中，LRU 的表现几乎快要赶上最优策略了①。
+表 22.4 追踪 LUR 策略
+我们也应该注意到，与这些算法完全相反的算法也是存在：最经常使用策略（Most- Frequently-Used ，MFU）和最近使用策略（Most-Recently-Used ，MRU）。
+在大多数情况下（不是全部！
+），这些策略效果都不好，因为它们忽视了大多数程序都具有的局部性特点。
+================================================================================
+
+Chunk 20:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_216
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+22.7 实现基于历史信息的算法
+正如你所看到的，像 LRU 这样的算法通常优于简单的策略（如 FIFO 或随机），它们可能会踢出重要的页。
+遗憾的是，基于历史信息的策略带来了一个新的挑战：应该如何实现呢？
+遗憾的是，随着系统中页数量的增长，扫描所有页的时间字段只是为了找到最精确最少使用的页，这个代价太昂贵。
+想象一下一台拥有 4GB 内存的机器，内存切成 4KB 的页。
+这台机器有一百万页，即使以现代 CPU 速度找到 LRU 页也将需要很长时间。
+这就引出了一个问题：我们是否真的需要找到绝对最旧的页来替换？
+找到差不多最旧的页可以吗?
+================================================================================
+
+Chunk 21:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_217
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+22.8 近似 LRU
+操作系统如何利用使用位来实现近似 LRU？
+可以有很多方法，有一个简单的方法称作时钟算法（clock algorithm）[C69]。
+想象一下，系统中的所有页都放在一个循环列表中。
+时钟指针（clock hand）开始时指向某个特定的页（哪个页不重要）。
+当必须进行页替换时， 操作系统检查当前指向的页 P 的使用位是 1 还是 0。
+如果是 1，则意味着页面 P 最近被使用，因此不适合被替换。
+然后，P 的使用位设置为 0，时钟指针递增到下一页（P + 1）。
+该算法一直持续到找到一个使用位为 0 的页，使用位为 0 意味着这个页最近没有被使用过（在最坏的情况下，所有的页都已经被使用了，那么就将所有页的使用位都设置为 0）。
+请注意，这种方法不是通过使用位来实现近似 LRU 的唯一方法。
+实际上， 任何周期性地清除使用位，然后通过区分使用位是 1 和 0 来判定该替换哪个页的方法都是可以的。
+Corbato 的时钟算法只是一个早期成熟的算法，并且具有不重复扫描内存来寻找未使用页的特点，也就是它在最差情况下，只会遍历一次所有内存。
+图 22.5 展示了时钟算法的一个变种的行为。
+该变种在需要进行页替换时随机扫描各页，如果遇到一个页的引用位为 1，就清除该位（即将它设置为 0）。
+直到找到一个使用位为 0的页，将这个页进行替换。
+如你所见， 虽然时钟算法不如完美的 LRU 做得好，但它比不考虑历史访问的方法要好。
+图 22.5 80—20 工作负载和时钟算法
+================================================================================
+
+Chunk 22:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_227
+Source: dense_bm25
+--------------------------------------------------------------------------------
+23.4 页替换
+VAX 中的页表项（PTE）包含以下位：一个有效位，一个保护字段（4 位），一个修改（或脏位）位，为 OS 使用保留的字段（5 位），最后是一个物理帧号码（PFN）将页面的位置存储在物理内存中。
+敏锐的读者可能会注意到：没有引用位（no reference bit）！
+因此， VMS 替换算法必须在没有硬件支持的情况下，确定哪些页是活跃的。
+开发人员也担心会有“自私贪婪的内存”（memory hog）—— 一些程序占用大量内存，使其他程序难以运行。
+到目前为止， 我们所看到的大部分策略都容易受到这种内存的影响。
+例如，LRU 是一种全局策略，不会在进程之间公平分享内存。
+分段的 FIFO
+为了解决这两个问题，开发人员提出了分段的 FIFO（segmented FIFO）替换策略[RL81]。
+想法很简单：每个进程都有一个可以保存在内存中的最大页数，称为驻留集大小（Resident Set Size ，RSS）。
+每个页都保存在 FIFO 列表中。
+当一个进程超过其 RSS 时，“先入”的页被驱逐。
+FIFO 显然不需要硬件的任何支持，因此很容易实现。
+正如我们前面看到的，纯粹的 FIFO 并不是特别好。
+为了提高 FIFO 的性能，VMS 引入了两个二次机会列表（second-chance list），页在从内存中被踢出之前被放在其中。
+具体来说，是全局的干净页空闲列表和脏页列表。
+当进程 P 超过其 RSS 时，将从其每个进程的 FIFO 中移除一个页。
+如果干净（未修改），则将其放在干净页列表的末尾。
+如果脏（已修改），则将其放在脏页列表的末尾。
+如果另一个进程 Q 需要一个空闲页，它会从全局干净列表中取出第一个空闲页。
+但是，如果原来的进程 P 在回收之前在该页上出现页错误，则 P 会从空闲（或脏）列表中回收，从而避免昂贵的磁盘访问。
+这些全局二次机会列表越大，分段的 FIFO 算法越接近 LRU [RL81]。
+页聚集
+================================================================================
+
+Chunk 23:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_1090
+Source: dense_bm25
+--------------------------------------------------------------------------------
+时钟算法 现实的
+LRU(最近最少使用)算法 很优秀，但很难实现
+NFU(最不经常使用)算法 LRU的相对粗略的近似
+老化算法 非常近似LRU的有效算法
+工作集算法 实现起来开销很大
+工作集时钟算法 好的有效算法
+A0
+A1
+A2
+A3
+A4
+A6
+B0
+B1
+B2
+B3
+B4
+B5
+B6
+C1
+C2
+C3
+需要程序员了解正在使用这种技 术吗?
+否 是
+存在多少线性地址空间?
+1 许多
+整个地址空间可以超出物理存储器 的大小吗?
+是 是
+过程和数据可以被区分并分别被保 护吗?
+否 是
+其大小浮动的表可以很容易提供吗?
+否 是
+用户间过程的共享方便吗?
+否 是
+段4
+(7K)
+段3
+(8K)
+段2
+(5K)
+段1
+(8K)
+段0
+(4K)
+段4
+(7K)
+段3
+(8K)
+段2
+(5K)
+(3K)
+段7
+(5K)
+段0
+(4K)
+段6描述符
+段5描述符
+段4描述符
+段3描述符
+段2描述符
+段1描述符
+段0描述符
+页表的主存储器地址 段长度(以页 面为单位)
+页面大小：
+0=1024字
+1=64字
+0=段是分页的
+1=段是不分页的 其他位 页面大小：
+0=1024字
+1=64字
+0=段是分页的
+1=段是不分页的 其他位 页面大小：
+0=1024字
+1=64字
+0=段是分页的
+1=段是不分页的 其他位 页面大小：
+0=1024字
+1=64字
+0=段是分页的
+1=段是不分页的 其他位
+页号 页内偏移量
+4 1 7 读/写 13 1
+6 0 2 只 读 10 1
+12 3 1 读/写 2 1
+0
+2 1 0 只执行 7 只执行 7 1
+2 2 12 只执行 9 只执行 9 1
+目录 页面 偏移量
+页 时间戳 V R M
+0 6 1 0 1
+1 9 1 1 0
+2 9 1 工 1
+3 7 1 0 0
+4 4 0 0 0
+页面 载入时间 最近一次访问时间 R M
+0 126 280 1 0
+1 230 265 0 1
+2 140 270 0 0
+3 110 285 1 工
+段0 段0 段1 段1
+读/执行 读/执行 读/写 读/写
+虚拟页号 页框号 虚拟页号 页框号
+================================================================================
+
+Chunk 24:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_202
+Source: dense_bm25
+--------------------------------------------------------------------------------
+将会发生什么情况呢?
+虚拟页面8(从32768开始)的第12个字节所对应的物理地址是什么呢?
+MMU注 意到该页面没有被映射(在图中用叉号表示),于是使CPU陷入到操作系统，这个陷阱称为缺页中断或 缺页错误 (page fault)。
+操作系统找到一个很少使用的页框且把它的内容写入磁盘(如果它不在磁盘上)。
+随后把需要访问的页面读到刚才回收的页框中，修改映射关系，然后重新启动引起陷阱的指令。
+例如，如果操作系统决定放弃页框1,那么 它将把虚拟页面8装入物理地址4096,并对MMU 映射做两处修改。
+首先，它要将虚拟页面1的表 项标记为未映射，使以后任何对虚拟地址 4096~8191的访问都导致陷阱。
+随后把虚拟页面8 的表项的叉号改为1,因此在引起陷阱的指令重 新启动时，它将把虚拟地址32780映射为物理地 址4108(4096+12)。
+下面查看一下MMU的内部结构以便了解它 是怎么工作的，以及了解为什么我们选用的页面 大小都是2的整数次幂。
+在图3-10中可以看到一个 虚拟地址的例子，虚拟地址8196(二进制是 0010000000000100)用图3-9所示的MMU映射机 制进行映射，输入的16位虚拟地址被分为4位的 页号和12位的偏移量。
+4位的页号可以表示16个 页面，12位的偏移可以为一页内的全部4096个字 节编址。
+可用页号作为页表 (page table) 的索引，以 得出对应于该虚拟页面的页框号。
+如果“在/不在” 位是0,则将引起一个操作系统陷阱。
+如果该位
+图3-10 在16个4KB页面情况下MMU的内部操作
+================================================================================
+
+Chunk 25:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_204
+Source: dense_bm25
+--------------------------------------------------------------------------------
+在写入一页时由硬 件自动设置修改位。
+该位在操作系统重新分配页框时是非常有用的。
+如果一个页面已经被修改过(即它 是“脏”的),则必须把它写回磁盘。
+如果一个页面没有被修改过(即它是“干净”的),则只简单地把 它丢弃就可以了，因为它在磁盘上的副本仍然是有效的。
+这一位有时也被称为脏位 (dirty bit),因 为 它 反映了该页面的状态。
+不论是读还是写，系统都会在该页面被访问时设置访问位。
+它的值被用来帮助操作系统在发生缺页 中断时选择要被淘汰的页面。
+不再使用的页面要比正在使用的页面更适合淘汰。
+这一位在即将讨论的很 多页面置换算法中都会起到重要的作用。
+最后一位用于禁止该页面被高速缓存。
+对那些映射到设备寄存器而不是常规内存的页面而言，这个 特性是非常重要的。
+假如操作系统正在紧张地循环等待某个I/O设备对它刚发出的命令作出响应，保证 硬件是不断地从设备中读取数据而不是访问一个旧的被高速缓存的副本是非常重要的。
+通过这一位可以 禁止高速缓存。
+具有独立的I/O空间而不使用内存映射I/O的机器不需要这一位。
+应该注意的是，若某个页面不在内存中，用于保存该页面的磁盘地址不是页表的组成部分。
+原因很 简单，页表只保存把虚拟地址转换为物理地址时硬件所需要的信息。
+操作系统在处理缺页中断时需要把 该页面的磁盘地址等信息保存在操作系统内部的软件表格中。
+硬件不需要它。
+在深入到更多应用实现问题之前，值得再次强调的是：虚拟内存本质上是用来创造一个新的抽象概 念——地址空间，这个概念是对物理内存的抽象，类似于进程是对物理处理器 (CPU) 的抽象。
+虚拟内 存的实现，是将虚拟地址空间分解成页，并将每一页映射到物理内存的某个页框或者(暂时)解除映射。
+因此，本节的基本内容是操作系统创建的抽象，以及如何管理这个抽象。
+我们已经了解了虚拟内存和分页的基础。
+现在可以更具体地讨论可能的实现了。
+在任何分页系统中， 都需要考虑两个主要问题：
+1)虚拟地址到物理地址的映射必须非常快。
+2)如果虚拟地址空间很大，页表也会很大。
+================================================================================
+
+Chunk 26:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_211
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.4 页面置换算法
+当发生缺页中断时，操作系统必须在内存中选择一个页面将其换出内存，以便为即将调入的页面腾 出空间。
+如果要换出的页面在内存驻留期间已经被修改过，就必须把它写回磁盘以更新该页面在磁盘上 的副本；如果该页面没有被修改过(如一个包含程序正文的页面),那么它在磁盘上的副本已经是最新 的，不需要回写。
+直接用调入的页面覆盖被淘汰的页面就可以了。
+当发生缺页中断时，虽然可以随机地选择一个页面来置换，但是如果每次都选择不常使用的页面会 提升系统的性能。
+如果一个被频繁使用的页面被置换出内存，很可能它在很短时间内又要被调入内存， 这会带来不必要的开销。
+人们已经从理论和实践两个方面对页面置换算法进行了深入的研究。
+下面我们 将介绍几个最重要的算法。
+在接下来讨论的所有页面置换算法中都存在一个问题：当需要从内存中换出某个页面时，它是否只 能是缺页进程自己的页面?
+这个要换出的页面是否可以属于另外一个进程?
+在前一种情况下，可以有效 地将每一个进程限定在固定的页面数目内；后一种情况则不能。
+这两种情况都是可能的。
+在3.5.1节我们 会继续讨论这一点。
+================================================================================
+
+Chunk 27:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_212
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.4.1 最优页面置换算法
+很容易就可以描述出最好的页面置换算法，虽然此算法不可能实现。
+该算法是这样工作的：在缺页 中断发生时，有些页面在内存中，其中有一个页面(包含紧接着的下一条指令的那个页面)将很快被访 问，其他页面则可能要到10、100或1000条指令后才会被访问，每个页面都可以用在该页面首次被访问 前所要执行的指令数作为标记。
+最优页面置换算法规定应该置换标记最大的页面。
+如果一个页面在800万条指令内不会被使用，另 外一个页面在600万条指令内不会被使用，则置换前一个页面，从而把因需要调入这个页面而发生的缺 页中断推迟到将来，越久越好。
+计算机也像人一样，希望把不愉快的事情尽可能地往后拖延。
+这个算法唯一的问题就是它是无法实现的。
+当缺页中断发生时，操作系统无法知道各个页面下一次 将在什么时候被访问。
+(在最短作业优先调度算法中，我们曾遇到同样的情况，即系统如何知道哪个作 业是最短的呢?
+)当然，通过首先在仿真程序上运行程序，跟踪所有页面的访问情况，然后在第二次运 行时利用第一次运行时收集的信息是可以实现最优页面置换算法的。
+用这种方式，可以通过最优页面置换算法对其他可实现算法的性能进行比较。
+如果操作系统达到的 页面置换性能只比最优算法差1%,那么即使花费大量的精力来寻找更好的算法最多也只能换来1%的性 能提高。
+为了避免混淆，读者必须清楚以上页面访问情况的记录只针对刚刚被测试过的程序和它的一个特定的 输入，因此从中导出的性能最好的页面置换算法也只是针对这个特定的程序和输入数据的。
+虽然这个方法 对评价页面置换算法很有用，但它在实际系统中却不能使用。
+下面将研究可以在实际系统中使用的算法。
+================================================================================
+
+Chunk 28:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_213
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3.4.2 最近未使用页面置换算法
+为使操作系统能够收集有用的统计信息，在大部分具有虚拟内存的计算机中，系统为每一页面设置 了两个状态位。
+当页面被访问(读或写)时设置R位；当页面被写入(即修改)时设置M位。
+这些位包 含在每个页表项中，如图3-11所示。
+每次访问内存时更新这些位，因此由硬件来设置它们是必要的。
+一 旦设置某位为1,它就一直保持1直到操作系统将它复位。
+如果硬件没有这些位，则可以使用操作系统的缺页中断和时钟中断机制进行以下的模拟：当启动一 个进程时，将其所有的页面都标记为不在内存；一旦访问任何一个页面就会引发一次缺页中断，此时操 作系统就可以设置R位(在它的内部表中),修改页表项使其指向正确的页面，并设为READ ONLY模式， 然后重新启动引起缺页中断的指令；如果随后对该页面的修改又引发一次缺页中断，则操作系统设置这 个页面的M位并将其改为READ/WRITE模式。
+可以用R位和M位来构造一个简单的页面置换算法：当启动一个进程时，它的所有页面的两个位都 由操作系统设置成0,R 位被定期地(比如在每次时钟中断时)清零，以区别最近没有被访问的页面和被 访问的页面。
+当发生缺页中断时，操作系统检查所有的页面并根据它们当前的R位和M位的值，把它们分为4类：
+·第0类：没有被访问，没有被修改。
+·第1类：没有被访问，已被修改。
+·第2类：已被访问，没有被修改。
+·第3类：已被访问，已被修改。
+尽管第1类初看起来似乎是不可能的，但是一个第3类的页面在它的R位被时钟中断清零后就成了第1类。
+时钟中断不清除M位是因为在决定一个页面是否需要写回磁盘时将用到这个信息。
+清除R位而不清除M 位产生了第1类页面。
+NRU (Not Recently Used,最近未使用)算法随机地从类编号最小的非空类中挑选一个页面淘汰。
+这个算法隐含的意思是，在最近一个时钟滴答中(典型的时间是大约20ms) 淘汰一个没有被访问的已修 改页面要比淘汰一个被频繁使用的“干净”页面好。
+NRU的主要优点是易于理解和能够有效地被实现， 虽然它的性能不是最好的，但是已经够用了。
+================================================================================
+
+Chunk 29:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_214
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.4.3 先进先出页面置换算法
+3.4.4 第二次机会页面置换算法
+FIFO 算法可能会把经常使用的页面置换出去，为了避免这一问题，对该算法做一个简单的修改： 检查最老页面的R位。
+如果R位是0,那么这个页面既老又没有被使用，可以立刻置换掉；如果是1,就 将R位清0,并把该页面放到链表的尾端，修改它的装入时间使它就像刚装入的一样，然后继续搜索。
+这一算法称为第二次机会 (second chance) 算法，如图3-15所示。
+在图3-15a中可以看到页面A到页 面H按照进入内存的时间顺序保存在链表中。
+假设在时刻20处发生了一次缺页中断。
+这时最老的页面是A, 它是在时刻0到达的。
+如果A的R位是 0,则将它淘汰出内存，或者把它写回磁盘(如果它已被修改过),或者只是简单地放弃(如果它是“干
+内存管理 119
+净”的);另一方面，如果其R位已经设置了，则将A放到链表的尾部并且重新设置“装入时间”为当 前时刻(20),然后清除R位。
+然后从B页面开始继续搜索合适的页面。
+a)
+b)
+图3-15 第二次机会算法的操作(页面上面的数字是装入时间):a) 按先进先出的方法排列的页面；b)在时 刻20处发生缺页中断并且A的R位已经设置时的页面链表
+第二次机会算法就是寻找一个在最近的时钟间隔内没有被访问过的页面。
+如果所有的页面都被访问 过了，该算法就简化为纯粹的FIFO算法。
+特别地，想象一下，假设图3-15a中所有页面的R位都被设置了， 操作系统将会一个接一个地把每个页面都移动到链表的尾部并清除被移动的页面的R位。
+最后算法又将 回到页面A, 此时它的R位已经被清除了，因此A页面将被淘汰，所以这个算法总是可以结束的。
+================================================================================
+
+Chunk 30:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_215
+Source: dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.4.5 时钟页面置换算法
+尽管第二次机会算法是一个比较合理的算法，但它经常要在链表中移动页面，既降低了效率又不是
+很有必要。
+一个更好的办法是把所有的页面都 保存在一个类似钟面的环形链表中， 一个表针 指向最老的页面，如图3-16所示。
+当发生缺页中断时，算法首先检查表针指 向的页面，如果它的R位是0就淘汰该页面，并 把新的页面插入这个位置，然后把表针前移一 个位置；如果R位是1就清除R位并把表针前移 一个位置。
+重复这个过程直到找到了一个R位 为0的页面为止。
+了解了这个算法的工作方式， 就明白为什么它被称为时钟 (clock) 算法了。
+================================================================================
+
+Chunk 31:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_216
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.4.6 最近最少使用页面置换算法
+对最优算法的一个很好的近似是基于这样
+图3-16 时钟页面置换算法
+的观察：在前面几条指令中频繁使用的页面很可能在后面的几条指令中被使用。
+反过来说，已经很久没
+有使用的页面很有可能在未来较长的一段时间内仍然不会被使用。
+这个思想提示了一个可实现的算法： 在缺页中断发生时，置换未使用时间最长的页面。
+这个策略称为LRU(Least Recently Used,最近最少 使用)页面置换算法。
+虽然LRU在理论上是可以实现的，但代价很高。
+为了完全实现LRU, 需要在内存中维护一个所有页 面的链表，最近最多使用的页面在表头，最近最少使用的页面在表尾。
+困难的是在每次访问内存时都必 须要更新整个链表。
+在链表中找到一个页面，删除它，然后把它移动到表头是一个非常费时的操作，即 使使用硬件实现也一样费时(假设有这样的硬件)。
+================================================================================
+
+Chunk 32:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_217
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.4.7 用软件模拟LRU
+NFU的主要问题是它从来不忘记任何事情。
+比如，在一个多次(扫描)编译器中，在第一次扫描中 被频繁使用的页面在程序进入第二次扫描时，其计数器的值可能仍然很高。
+实际上，如果第一次扫描的 执行时间恰好是各次扫描中最长的，含有以后各次扫描代码的页面的计数器可能总是比含有第一次扫描 代码的页面的计数器小，结果是操作系统将置换有用的页面而不是不再使用的页面。
+修改以后的算法称为老化 (aging) 算法，图3-17解释了它是如何工作的。
+假设在第一个时钟滴答 后，页面0～5的R位值分别是1、0、1、0、1、1(页面0为1,页面1为0,页面2为1,以此类推)。
+换句 话说，在时钟滴答0到时钟滴答1期间，访问了页0、2、4、5,它们的R位设置为1,而其他页面的R位仍 然是0。
+对应的6个计数器在经过移位并把R位插入其左端后的值如图3-17a所示。
+图中后面的4列是在下4 个时钟滴答后的6个计数器的值。
+a) b) c) d) e)
+图3-17 用软件模拟LRU的老化算法。
+图中所示是6个页面在5个时钟滴答的情况，5个时钟滴答分别由a~e 表示
+发生缺页中断时，将置换计数器值最小的页面。
+如果一个页面在前面4个时钟滴答中都没有访问过， 那么它的计数器最前面应该有4个连续的0,因此它的值肯定要比在前面三个时钟滴答中都没有被访问过 的页面的计数器值小 。
+该算法与LRU有两个区别。
+如图3-17e中的页面3和页面5,它们都连续两个时钟滴答没有被访问过 了，而在两个时钟滴答之前的时钟滴答中它们都被访问过。
+根据LRU, 如果必须置换一个页面，则应该 在这两个页面中选择一个。
+然而现在的问题是，我们不知道在时钟滴答1到时钟滴答2期间它们中的哪一 个页面是后被访问到的。
+因为在每个时钟滴答中只记录了一位，所以无法区分在一个时钟滴答中哪个页 面在较早的时间被访问以及哪个页面在较晚的时间被访问，因此，我们所能做的就是置换页面3,原因 是页面5在更往前的两个时钟滴答中也被访问过而页面3没有。
+================================================================================
+
+Chunk 33:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_218
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+因为在每个时钟滴答中只记录了一位，所以无法区分在一个时钟滴答中哪个页 面在较早的时间被访问以及哪个页面在较晚的时间被访问，因此，我们所能做的就是置换页面3,原因 是页面5在更往前的两个时钟滴答中也被访问过而页面3没有。
+LRU 和老化算法的第二个区别是老化算法的计数器只有有限位数(本例中是8位),这就限制了其对 以往页面的记录。
+如果两个页面的计数器都是0,我们只能在两个页面中随机选一个进行置换。
+实际上， 有可能其中一个页面上次被访问是在9个时钟滴答以前，另一个页面是在1000个时钟滴答以前，而我们
+却无法看到这些。
+在实践中，如果时钟滴答是20ms,8 位一般是够用的。
+假如一个页面已经有160ms没 有被访问过，那么它很可能并不重要。
+================================================================================
+
+Chunk 34:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_219
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3.4.8 工作集页面置换算法
+在单纯的分页系统里，刚启动进程时，在内存中并没有页面。
+在CPU试图取第一条指令时就会产生一 次缺页中断，使操作系统装入含有第一条指令的页面。
+其他由访问全局数据和堆栈引起的缺页中断通常会 紧接着发生。
+一段时间以后，进程需要的大部分页面都已经在内存了，进程开始在较少缺页中断的情况下 运行。
+这个策略称为请求调页(demand paging),因为页面是在需要时被调入的，而不是预先装入。
+编写一个测试程序很容易，在一个大的地址空间中系统地读所有的页面，将出现大量的缺页中断， 因此会导致没有足够的内存来容纳这些页面。
+不过幸运的是，大部分进程不是这样工作的，它们都表现 出了一种局部性访问行为，即在进程运行的任何阶段，它都只访问较少的一部分页面。
+例如，在一个多 次扫描编译器中，各次扫描时只访问所有页面中的一小部分，并且是不同的部分。
+一个进程当前正在使用的页面的集合称为它的工作集 (Denning,1968a;Denning,1 980)。
+如 果 整 个工作集都被装入到了内存中，那么进程在运行到下一运行阶段(例如，编译器的下一遍扫描)之前， 不会产生很多缺页中断。
+若内存太小而无法容纳下整个工作集，那么进程的运行过程中会产生大量的缺 页中断，导致运行速度也会变得很缓慢，因为通常只需要几个纳秒就能执行完一条指令，而通常需要十 毫秒才能从磁盘上读入一个页面。
+如果一个程序每10ms 只能执行一到两条指令，那么它将会需要很长时 间才能运行完。
+若每执行几条指令程序就发生一次缺页中断，那么就称这个程序发生了颠 簸 (Denning, 1968b)。
+在多道程序设计系统中，经常会把进程转移到磁盘上(即从内存中移走所有的页面),这样可以让 其他的进程有机会占有CPU。
+有一个问题是，当该进程再次调回来以后应该怎样办?
+从技术的角度上讲， 并不需要做什么。
+该进程会一直产生缺页中断直到它的工作集全部被装入内存。
+================================================================================
+
+Chunk 35:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_221
+Source: dense_bm25
+--------------------------------------------------------------------------------
+换句话说，k的值有一个很大的范围，它处在这个范围中时工作集 不会变。
+因为工作集随时间变化很慢，那么当程序重新开始时，就有可能根据它上次结束时的工作集对 要用到的页面做一个合理的推测，预先调页就是在程序继续运行之前预先装入推测出的工作集的页面。
+为了实现工作集模型，操作系统必须跟踪哪些页面在工作集中。
+通过这些信息可以直接推导出一个
+合理的页面置换算法：当发生缺页中断时，淘汰一个不在工作集中的页面。
+为了实现该算法，就需要一 种精确的方法来确定哪些页面在工作集中。
+根据定义，工作集就是最近k次内存访问所使用过的页面的集 合(有些设计者使用最近k次页面访问，但是选择是任意的)。
+为了实现工作集算法，必须预先选定k的值。
+一旦选定某个值，每次内存访问之后，最近k次内存访问所使用过的页面的集合就是唯一确定的了。
+当然，有了工作集的定义并不意味着存在一种有效的方法能够在程序运行期间及时地计算出工作集。
+设想有一个长度为k的移位寄存器，每进行一次内存访问就把寄存器左移一位，然后在最右端插入刚才 所访问过的页面号。
+移位寄存器中的k个页面号的集合就是工作集。
+理论上，当缺页中断发生时，只要 读出移位寄存器中的内容并排序；然后删除重复的页面。
+结果就是工作集。
+然而，维护移位寄存器并在 缺页中断时处理它所需的开销很大，因此该技术从来没有被使用过。
+作为替代，可以使用几种近似的方法。
+一种常见的近似方法就是，不是向后找最近k次的内存访问， 而是考虑其执行时间。
+例如，按照以前的方法，定义工作集为前1000万次内存访问所使用过的页面的集 合，那么现在就可以这样定义：工作集即是过去10ms中的内存访问所用到的页面的集合。
+实际上，这样 的模型很合适且更容易实现。
+要注意到，每个进程只计算它自己的执行时间。
+因此，如果一个进程在T 时刻开始，在 (T+100)ms 的时刻使用了40ms CPU时间，对工作集而言，它的时间就是40ms。
+一个进 程从它开始执行到当前所实际使用的CPU时间总数通常称作当前实际运行时间。
+================================================================================
+
+Chunk 36:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_222
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+一个进 程从它开始执行到当前所实际使用的CPU时间总数通常称作当前实际运行时间。
+通过这个近似的方法， 进程的工作集可以被称为在过去的t 秒实际运行时间中它所访问过的页面的集合。
+现在让我们来看一下基于工作集的页面置换算法。
+基本思路就是找出一个不在工作集中的页面并淘 汰它。
+在图3-19中读者可以看到某台机器的部分页表。
+因为只有那些在内存中的页面才可以作为候选者 被淘汰，所以该算法忽略了那些不在内存中的页面。
+每个表项至少包含两条信息：上次使用该页面的近 似时间和R (访问)位。
+空白的矩形表示该算法不需要的其他域，如页框号、保护位、M (修改)位。
+页表
+图3-19 工作集算法
+该算法工作方式如下。
+如前所述，假定使用硬件来置R位和M位。
+同样，假定在每个时钟滴答中， 有一个定期的时钟中断会用软件方法来清除R位。
+每当缺页中断发生时，扫描页表以找出一个合适的页 面淘汰之 。
+在处理每个表项时，都需要检查R位。
+如果它是1,就把当前实际时间写进页表项的“上次使用时 间”域，以表示缺页中断发生时该页面正在被使用。
+既然该页面在当前时钟滴答中已经被访问过，那么 很明显它应该出现在工作集中，并且不应该被删除(假定t 横跨多个时钟滴答)。
+如果R是0,那么表示在当前时钟滴答中，该页面还没有被访问过，则它就可以作为候选者被置换。
+为了知道它是否应该被置换，需要计算它的生存时间(即当前实际运行时间减去上次使用时间),然后 与z 做比较。
+如果它的生存时间大于t, 那么这个页面就不再在工作集中，而用新的页面置换它。
+扫描会 继续进行以更新剩余的表项。
+然而，如果R是0同时生存时间小于或等于t, 则该页面仍然在工作集中。
+这样就要把该页面临时保 留下来，但是要记录生存时间最长(“上次使用时间”的最小值)的页面。
+如果扫描完整个页表却没有 找到适合被淘汰的页面，也就意味着所有的页面都在工作集中。
+在这种情况下，如果找到了一个或者多 个R=0 的页面，就淘汰生存时间最长的页面。
+================================================================================
+
+Chunk 37:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_223
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+在这种情况下，如果找到了一个或者多 个R=0 的页面，就淘汰生存时间最长的页面。
+在最坏情况下，在当前时间滴答中，所有的页面都被访问 过了(也就是都有R=1), 因此就随机选择一个页面淘汰，如果有的话最好选一个干净页面。
+3.4.9 工作集时钟页面置换算法
+当缺页中断发生后，需要扫描整个页表才能确定被淘汰的页面，因此基本工作集算法是比较费时的。
+有一种改进的算法，它基于时钟算法，并且使用了工作集信息，称为WSClock (工作集时钟)算法 (Carr 和Hennessey,1981) 。
+由于它实现简单，性能较好，所以在实际工作中得到了广泛应用。
+c) d)
+图3-20 工作集时钟页面置换算法的操作：a) 和b) 给出在R=1时所发生的情形；c) 和d) 给出R=0的例子
+与时钟算法一样，每次缺页中断时，首先检查指针指向的页面。
+如果R位被置为1,该页面在当前 时钟滴答中就被使用过，那么该页面就不适合被淘汰。
+然后把该页面的R位置为0,指针指向下一个页面， 并重复该算法。
+该事件序列之后的状态参见图3-20b。
+现在来考虑指针指向的页面在R=0时会发生什么,参见图3-20c。
+如果页面的生存时间大于t 饼且该 页面是干净的，它就不在工作集中，并且在磁盘上有一个有效的副本。
+申请此页框，并把新页面放在其 中，如图3-20d所示。
+另一方面，如果此页面被修改过，就不能立即申请页框，因为这个页面在磁盘上 没有有效的副本。
+为了避免由于调度写磁盘操作引起的进程切换，指针继续向前走，算法继续对下一个 页面进行操作。
+毕竟，有可能存在一个旧的且干净的页面可以立即使用。
+原则上，所有的页面都有可能因为磁盘I/O 在某个时钟周期被调度。
+为了降低磁盘阻塞，需要设置 一个限制，即最大只允许写回n个页面。
+一旦达到该限制，就不允许调度新的写操作。
+如 果 指 针 经 过 一 圈 返 回 它 的 起 始 点 会 发 生 什 么 呢 ?
+这 里 有 两 种 情 况 ：
+1)至少调度了一次写操作。
+2)没有调度过写操作。
+对于第一种情况，指针仅仅是不停地移动，寻找一个干净页面。
+既然已经调度了一个或者多个写操 作，最终会有某个写操作完成，它的页面会被标记为干净。
+置换遇到的第一个干净页面，这个页面不一 定是第一个被调度写操作的页面，因为硬盘驱动程序为了优化性能可能已经把写操作重排序了。
+================================================================================
+
+Chunk 38:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_224
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+置换遇到的第一个干净页面，这个页面不一 定是第一个被调度写操作的页面，因为硬盘驱动程序为了优化性能可能已经把写操作重排序了。
+对于第二种情况，所有的页面都在工作集中，否则将至少调度了一个写操作。
+由于缺乏额外的信息， 一个简单的方法就是随便置换一个干净的页面来使用，扫描中需要记录干净页面的位置。
+如果不存在干 净页面，就选定当前页面并把它写回磁盘。
+3.4.10 页面置换算法小结
+我们已经考察了多种页面置换算法，本节将对这些算法进行总结。
+已经讨论过的算法在图3-21中列出。
+最优算法在当前页面中置换最后要访问到的页面。
+不幸的是，没有办法来判定哪个页面是最后一个 要访问的，因此实际上该算法不能使用。
+然而，它可以作为衡量其他算法的基准。
+NRU算法根据R位和M位的状态把页面分为四类。
+从编号最小的类中随机选择一个页面置换。
+该算 法易于实现，但是性能不是很好，还存在更好的算法。
+图3-21 本书中讨论过的页面置换算法
+FIFO 算法通过维护一个页面的链表来记录它们装入内存的顺序。
+淘汰的是最老的页面，但是该页 面可能仍在使用，因此FIFO算法不是一个好的选择。
+第二次机会算法是对FIFO 算法的改进，它在移出页面前先检查该页面是否正在被使用。
+如果该页 面正在被使用，就保留该页面。
+这个改进大大提高了性能。
+时钟算法是第二次机会算法的另一种实现。
+它具有相同的性能特征，而且只需要更少的执行时间。
+LRU算法是一种非常优秀的算法，但是只能通过特定的硬件来实现。
+如果机器中没有该硬件，那么 也无法使用该算法。
+NFU 是一种近似于LRU的算法，它的性能不是非常好，然而，老化算法更近似于 LRU并且可以更有效地实现，是一个很好的选择。
+最后两种算法都使用了工作集。
+工作集算法有合理的性能，但它的实现开销较大。
+工作集时钟算法 是它的一种变体，不仅具有良好的性能，并且还能高效地实现。
+总之，最好的两种算法是老化算法和工作集时钟算法，它们分别基于LRU和工作集。
+它们都具有良好 的页面调度性能，可以有效地实现。
+也存在其他一些算法，但在实际应用中，这两种算法可能是最重要的。
+================================================================================
+
+Chunk 39:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_225
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+3.5 分页系统中的设计问题
+在前几节里我们讨论了分页系统是如何工作的，并给出了一些基本的页面置换算法和如何实现它们。
+然而只了解基本机制是不够的。
+要设计一个系统，必须了解得更多才能使系统工作得更好。
+这两者之间 的差别就像知道了怎样移动象棋的各种棋子与成为一个好棋手之间的差别。
+下面将讨论为了使分页系统 达到较好的性能，操作系统设计者必须仔细考虑的一些其他问题。
+3.5.1 局部分配策略与全局分配策略
+在前几节中，我们讨论了在发生缺页中断时用来选择一个被置换页面的几个算法。
+与这个选择相关
+的一个主要问题(到目前为止我们一直在小心地回避这个问题)是，怎样在相互竞争的可运行进程之间 分配内存。
+如图3-22a所示，三个进程A 、B 、C 构成了可运行进程的集合。
+假如A发生了缺页中断，页面置换 算法在寻找最近最少使用的页面时是只考虑分配给A的6个页面呢?
+还是考虑所有在内存中的页面?
+如果 只考虑分配给A的页面，生存时间值最小的页面是A5, 于是将得到图3-22b所示的状态。
+生存时间
+b)
+图3-22 局部页面置换与全局页面置换：a) 最初配置；b) 局部页面置换；c) 全局页面置换
+另一方面，如果淘汰内存中生存时间值最小的页面，而不管它属于哪个进程，则将选中页面B3, 于是将得到图3-22c所示的情况。
+图3-22b的算法被称为局部 (loca l) 页面置换算法，而图3-22c被称为全 局 (global) 页面置换算法。
+局部算法可以有效地为每个进程分配固定的内存片段。
+全局算法在可运行 进程之间动态地分配页框，因此分配给各个进程的页框数是随时间变化的。
+另一种途径是使用一个为进程分配页框的算法。
+其中一种方法是定期确定进程运行的数目并为它们 分配相等的份额。
+例如，在有12416个有效(即未被操作系统使用的)页框和10个进程时，每个进程将 获得1241个页框，剩下的6个被放入一个公用池中，当发生缺页中断时可以使用这些页面。
+这个算法看起来好像很公平，但是给一个10KB的进程和一个300KB的进程分配同样大小的内存块 是很不合理的。
+可以采用按照进程大小的比例来为它们分配相应数目的页面的方法来取代上一种方法， 这样300KB的进程将得到10KB进程30倍的份额。
+比较明智的一个可行的做法是对每个进程都规定一个 最小的页框数，这样不论多么小的进程都可以运行。
+================================================================================
+
+Chunk 40:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_226
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+比较明智的一个可行的做法是对每个进程都规定一个 最小的页框数，这样不论多么小的进程都可以运行。
+例如，在某些机器上， 一条两个操作数的指令会需 要多达6个页面，因为指令自身、源操作数和目的操作数可能会跨越页面边界，若只给一条这样的指令 分配了5个页面，则包含这样的指令的程序根本无法运行。
+况下，可能会从该进程的资源中剥夺部分页框。
+这样，PFF 的范围内。
+值得注意的是，一些页面置换算法既适用于局部 置换算法，又适用于全局置换算法。
+例如，FIFO 能 够将所有内存中最老的页面置换掉(全局算法),也 能将当前进程的页面中最老的替换掉(局部算法)。
+相似地，LRU或是一些类似算法能够将所有内存中最 近最少访问的页面替换掉(全局算法),或是将当前 进程中最近最少使用的页面替换掉(局部算法)。
+在 某些情况下，选择局部策略还是全局策略是与页面置 换算法无关的。
+另一方面，对于其他的页面置换算法，只有采用局部策略才有意义。
+特别是工作集和WSClock 算法 是针对某些特定进程的而且必须应用在这些进程的上下文中。
+实际上没有针对整个机器的工作集，并且 试图使用所有工作集的并集作为机器的工作集可能会丢失一些局部特性，这样算法就不能达到好的性能。
+================================================================================
+
+Chunk 41:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_228
+Source: tfidf
+--------------------------------------------------------------------------------
+3.5.3 页面大小
+页面大小是操作系统可以选择的一个参数。
+例如，即使硬件设计只支持4096字节的页面，操作系统 也可以很容易通过总是为页面对0和1、2和3、4和5等分配两个连续的8192字节的页框，而将其作为8KB 的页面。
+要确定最佳的页面大小需要在几个互相矛盾的因素之间进行权衡。
+从结果看，不存在全局最优。
+首 先，有两个因素可以作为选择小页面的理由。
+随便选择一个正文段、数据段或堆栈段很可能不会恰好装 满整数个页面，平均的情况下，最后一个页面中有一半是空的。
+多余的空间就被浪费掉了，这种浪费称 为内部碎片 (internal fragmentation)。
+在内存中有n个段、页面大小为p字节时，会有np/2 字节被内部碎 片浪费。
+从这方面考虑，使用小页面更好。
+选择小页面还有一个明显的好处，考虑一个程序，它分成8个阶段顺序执行，每阶段需要4KB内存。
+如果页面大小是32KB, 那就必须始终给程序分配32KB内存。
+如果页面大小是16KB, 它就只需要16KB 。
+如果页面大小是4KB或更小，那么在任何时刻它只需要4KB内存。
+总的来说，大尺寸页面比小尺寸页面 浪费了更多内存。
+另一方面，页面小意味着程序需要更多的页面，这又意味着需要更大的页表。
+一个32KB的程序只 需要4个8KB的页面，却需要64个512字节的页面。
+内存与磁盘之间的传输一般是一次一页，传输中的大 部分时间都花在了寻道和旋转延迟上，所以传输一个小页面所用的时间和传输一个大页面基本上是相同
+的。
+装入64个512字节的页面可能需要64×10ms, 而装入4个8KB的页面可能只需要4×12ms。
+此外，小页面能够更充分地利用TLB 空间。
+假设程序使用的内存为1MB, 工作单元为64KB。
+若 使 用4KB的页，则程序将至少占用TLB中的16个表项；而使用2MB的页时，1个TLB 表项就足够了(理论 上，你还可以将数据和指令分离开来)。
+由于TLB 表项相对稀缺，且对于性能而言至关重要，因此在条 件允许的情况下使用大页面是值得的。
+================================================================================
+
+Chunk 42:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_237
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3.6 有关实现的问题
+实现虚拟内存系统要在主要的理论算法(如第二次机会算法与老化算法，局部页面分配与全局页面 分配，请求调页与预先调页)之间进行选择。
+但同时也要注意一系列实际的实现问题。
+在这一节中将涉 及一些通常情况下会遇到的问题以及一些解决方案。
+3.6.1 与分页有关的工作
+操作系统要在下面的四段时间里做与分页相关的工作：进程创建时，进程执行时，缺页中断时和进 程终止时。
+下面将分别对这四个时期进行简短的分析。
+当在分页系统中创建一个新进程时，操作系统要确定程序和数据在初始时有多大，并为它们创建一 个页表。
+操作系统还要在内存中为页表分配空间并对其进行初始化。
+当进程被换出时，页表不需要驻留在 内存中，但当进程运行时，它必须在内存中。
+另外，操作系统要在磁盘交换区中分配空间，以便在一个进 程换出时在磁盘上有放置此进程的空间。
+操作系统还要用程序正文和数据对交换区进行初始化，这样当新 进程发生缺页中断时，可以调入需要的页面。
+某些系统直接从磁盘上的可执行文件对程序正文进行分页， 以节省磁盘空间和初始化时间。
+最后，操作系统必须把有关页表和磁盘交换区的信息存储在进程表中。
+当调度一个进程执行时，必须为新进程重置MMU, 刷新TLB, 以清除以前的进程遗留的痕迹。
+新 进程的页表必须成为当前页表，通常可以通过复制该页表或者把一个指向它的指针放进某个硬件寄存器 来完成。
+有时，在进程初始化时可以把进程的部分或者全部页面装入内存中以减少缺页中断的发生，例 如 ，PC (程序计数器)所指的页面肯定是需要的。
+当缺页中断发生时，操作系统必须通过读硬件寄存器来确定是哪个虚拟地址造成了缺页中断。
+通过 该信息，它要计算需要哪个页面，并在磁盘上对该页面进行定位。
+它必须找到合适的页框来存放新页面， 必要时还要置换老的页面，然后把所需的页面读入页框。
+最后，还要回退程序计数器，使程序计数器指 向引起缺页中断的指令，并重新执行该指令。
+当进程退出的时候，操作系统必须释放进程的页表、页面和页面在硬盘上所占用的空间。
+如果某些 页面是与其他进程共享的，当最后一个使用它们的进程终止的时候，才可以释放内存和磁盘上的页面。
+================================================================================
+
+Chunk 43:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_241
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3.6.5 后备存储
+在前面讨论过的页面置换算法中，我们已经知道了如何选择换出内存的页面。
+但是却没有讨论当页 面被换出时会存放在磁盘上的哪个位置，现在我们讨论一下磁盘管理相关的问题。
+在磁盘上分配页面空间的最简单的算法是在磁盘上设置特殊的交换分区，甚至从文件系统划分一块 独立的磁盘(以平衡I/O 负载)。
+大多数UNIX 是这样处理的。
+在这个分区里没有普通的文件系统，这样 就消除了将文件偏移转换成块地址的开销。
+取而代之的是，始终使用相应分区的起始块号。
+当系统启动时，该交换分区为空，并在内存中以单独的项给出它的起始和大小。
+在最简单的情况下， 当第一个进程启动时，留出与这个进程一样大的交换区块，剩余的为总空间减去这个交换分区。
+当新进 程启动后，它们同样被分配与其核心映像同等大小的交换分区。
+进程结束后，会释放其磁盘上的交换区。
+交换分区以空闲块列表的形式组织。
+更好的算法在第10章里讨论。
+地址。
+但在进程启动前必须初始化交换区， 一种方法是将整个进程映像复制到交换区，以便随时可将所
+需内容装入，另一种方法是将整个进程装入内存，并在需要时换出。
+但这种简单模式有一个问题：进程在启动后可能增大，尽管程序正文通常是固定的，但数据有时会 增长，堆栈也总是在随时增长。
+这样，最好为正文、数据和堆栈分别保留交换区，并且允许这些交换区 在磁盘上多于一个块。
+另一个极端的情况是事先什么也不分配，在页面换出时为其分配磁盘空间，并在换入时回收磁盘空 间，这样内存中的进程不必固定于任何交换空间。
+其缺点是内存中每个页面都要记录相应的磁盘地址。
+换言之，每个进程都必须有一张表，记录每一个页面在磁盘上的位置。
+这两个方案如图3-28所示。
+内存 磁盘
+a)
+b)
+图3-28 a) 对静态交换区分页；b) 动态备份页面
+在图3-28a中，有一个带有8个页面的页表。
+页面0、3、4和6在内存中。
+页面1、2、5和7在磁盘上。
+磁盘上的交换区与进程虚拟地址空间(8页面)一样大，每个页面有固定的位置，当它从内存中被淘汰 时，便写到相应位置。
+================================================================================
+
+Chunk 44:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_243
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+3.6.6 策略和机制的分离
+控制系统复杂度的一种重要方法就是把策略从机制中分离出来。
+通过使大多数存储管理器作为用户 级进程运行，就可以把该原则应用到存储管理中。
+在Mach(Young 等人，1987)中首先应用了这种分 离。
+下面的讨论是基于Mach 的 。
+一个如何分离策略和机制的简单例子可以参见图3-29。
+其中存储管理系统被分为三个部分：
+1)一个底层MMU处理程序。
+2)一个作为内核一部分的缺页中 断处理程序。
+3)一个运行在用户空间中的外部
+页面调度程序。
+所有关于MMU工作的细节都被封 装在MMU处理程序中，该程序的代码 是与机器相关的，而且操作系统每应 用到一个新平台就要被重写一次。
+缺 页中断处理程序是与机器无关的代码， 包含大多数分页机制。
+策略主要由作 为用户进程运行的外部页面调度程序 所决定。
+图3-29 用一个外部页面调度程序来处理缺页中断
+当一个进程启动时，需要通知外部页面调度程序以便建立进程页面映射，如果需要的话还要在磁盘 上分配后备存储。
+当进程正在运行时，它可能要把新对象映射到它的地址空间，所以还要再一次通知外 部页面调度程序。
+一旦进程开始运行，就有可能出现缺页中断。
+缺页中断处理程序找出需要哪个虚拟页面，并发送一 条消息给外部页面调度程序告诉它发生了什么问题。
+外部页面调度程序从磁盘中读入所需的页面，把它 复制到自己的地址空间的某一位置。
+然后告诉缺页中断处理程序该页面的位置。
+缺页中断处理程序从外 部页面调度程序的地址空间中清除该页面的映射，然后请求MMU 处理程序把它放到用户地址空间的正 确位置，随后就可以重新启动用户进程了。
+这个实现方案没有给出放置页面置换算法的位置。
+把它放在外部页面调度程序中比较简单，但会有 一些问题。
+这里有一条原则就是外部页面调度程序无权访问所有页面的R位 和M 位。
+这些二进制位在许 多页面置换算法起重要作用。
+这样就需要有某种机制把该信息传递给外部页面调度程序，或者把页面置 换算法放到内核中。
+================================================================================
+
+Chunk 45:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_244
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+这样就需要有某种机制把该信息传递给外部页面调度程序，或者把页面置 换算法放到内核中。
+在后一种情况下，缺页中断处理程序会告诉外部页面调度程序它所选择的要淘汰的 页面并提供数据，方法是把数据映射到外部页面调度程序的地址空间中或者把它包含到一条消息中。
+两 种方法中，外部页面调度程序都把数据写到磁盘上。
+这种实现的主要优势是有更多的模块化代码和更好的适应性。
+主要缺点是由于多次交叉“用户-内 核”边界引起的额外开销，以及系统模块间消息传递所造成的额外开销。
+现在看来，这一主题有很多争 议，但是随着计算机越来越快，软件越来越复杂，从长远来看，对于大多数实现，为了获得更高的可靠 性而牺牲一些性能也是可以接受的。
+================================================================================
+
+Chunk 46:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_259
+Source: bm25
+--------------------------------------------------------------------------------
+例如，序列0,1, … ,511,431,0,1, … ,
+5 1 1 , 3 3 2 , 0 , 1 , … 中 就 包 含 了 0 , 1 , … , 511的重复，以及跟随在它们之后的随机页码 索引431和332。
+(a) 在工作负载比该序列短的情况下，标准的 页面置换算法 (LRU,FIFO,Clock) 在处 理换页时为什么效果不好?
+(b) 如果一个程序分配了500个页框，请描述一 个效果优于LRU 、FIFO 或Clock 算法的页面 置换方法。
+================================================================================
+
+Chunk 47:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_260
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+28. 如果将FIFO 页面置换算法用到4个页框和8个 页面上，若初始时页框为空，访问序列串为 0172327103,请问会发生多少次缺页中断?
+如 果使用LRU 算法呢?
+29.考虑图3-15 b中的页面序列。
+假设从页面B到 页面A的 R位分别是11011011。
+使用第二次机 会算法，被移走的是哪个页面?
+30.一台小计算机有4个页框。
+在第一个时钟周期 时R位是0111(页面0是0,其他页面是1),在 随后的时钟周期中这个值是1011、1010、1101、 0010、1010、1100、0001。
+如果使用带有8位 计数器的老化算法，给出最后一个时钟周期后 4个计数器的值。
+31.请给出一个页面访问序列，使得对于这个访问 序列，使用Clock 算法和LRU算法得到的第一个 被置换的页面不同。
+假设一个进程分配了3个 页框，访问串中的页号属于集合0,1,2,3。
+================================================================================
+
+Chunk 48:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_261
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+32. 在图3-20 c的工作集时钟算法中，表针指向那 个R=0 的页面。
+如果t=400, 这个页面将被移 出吗?
+如果t=1000 呢?
+33.假如工作集时钟页面置换算法使用的τ为两个 时钟周期，系统状态如下：
+其中，标志位V 代表有效位，R 代表访问位， M 代表修改位。
+(a) 如果时钟中断发生在时钟周期10,请给出 新的表项内容并给出解释(可以忽略没有 改变的表项)。
+(b) 假如没有时钟中断，在时钟周期10,因为 向页4发出了一个读请求而发生了缺页中 断。
+请给出新的表项内容并解释(可以忽 略没有改变的表项)。
+34.一个学生声称：“抽象来看，除了选取替代页 面使用的属性不同外，基本页面置换算法 (FIFO,LRU, 最优算法)都相同。
+”
+(a)FIFO 、LRU 、 最优算法使用的属性是什 么?
+(b) 请给出这些页面置换算法的通用算法。
+================================================================================
+
+Chunk 49:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_262
+Source: bm25/tfidf
+--------------------------------------------------------------------------------
+35. 从平均寻道时间10ms 、旋转延迟时间10ms、 每磁道32KB的磁盘上载入一个64KB的程序， 对于下列页面大小分别需要多少时间?
+(a) 页面大小为2KB。
+(b) 页面大小为4KB。
+假设页面随机地分布在磁盘上，柱面的数目非 常大，以致于两个页面在同一个柱面的概率可 以忽略不计。
+36.一个计算机有4个页框，载入时间、最近一次 访问时间和每个页的R位和M位如下所示(时 间以一个时钟周期为单位):
+(a)NRU 算法将置换哪个页面?
+(b)FIFO 算法将置换哪个页面?
+(c)LRU 算法将置换哪个页面?
+(d)第二次机会算法将置换哪个页面?
+================================================================================
+
+Chunk 50:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_729
+Source: dense_bm25
+--------------------------------------------------------------------------------
+然而，由于vmalloc 的使用导致一些性能的损失， 因此它主要被用于分配大量连续虚拟地址空间，例如动态插入内核模块。
+所有这些内存分配器都是继承 自System V中的那些分配器。
+3.虚拟地址空间表示
+vm_area_struct 也记录该区是私有的还是跟一个或多个其他进程共享的。
+fork 之 后 ，Linux 为子进程 复制一份区链表，但是让父子进程指向相同的页表。
+区被标记为可读/可写，但是页面自己却被标记为 只读。
+如果任何一个进程试图写页面，就会产生一个保护故障，此时内核发现该内存区逻辑上是可写的， 但是页面却不是可写入的，因此它把该页面的一个副本给当前进程同时标记为可读可写。
+这个机制就说
+实例研究1: UNIX、Linux和Android 433
+明了写时复制是如何实现的。
+vm_area_struct 也记录该区是否在磁盘上有备份存储，如果有，在什么地方。
+代码段把可执行二进 制文件作为备份存储，内存映射文件把磁盘文件作为备份存储。
+其他区，如栈，直到它们不得不被换出， 否则没有备份存储被分配。
+================================================================================
+
+Chunk 51:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_732
+Source: dense_bm25
+--------------------------------------------------------------------------------
+图10-18中的重装箭头就说明这个事实。
+PFRA 维护一些页面，尽管这些页面可能已经被 引用但在非活动列表中，其原因是为了避免如下的情
+非活动 活 动
+图10-18 页框置换算法中考虑的页面状态
+形。
+考虑一个进程周期性访问不同的页面，比如周期为1个小时。
+从最后一次循环开始被访问的页面会设 置其引用标志位。
+然而，接下来的一个小时里不再使用它，没有理由不考虑把它作为一个回收的候选。
+我们还没有提及的内存管理系统的一个方面是另一个守护进程pdflush, 实际上就是一组后台守护线 程 。
+pdflush 线程要么(1)周期性醒来(通常是每500ms), 把非常旧的“脏”(dirty) 页面写回到磁盘， 要么(2)当可用的内存水平下降到一个阈值时由内核显式唤醒，把页面缓存的“脏”页面写回到磁盘。
+在便携模式 (laptop mode) 下，为了保留电池寿命，每次pdflush 线程醒来，“脏”页面就被写到磁盘。
+“脏”页面也可以通过显式的同步请求写出到磁盘，比如通过系统调用sync 、fsync 或者fdatasync 。
+更 早 的Linux版本使用两个单独的守护进程：kupdate, 用于写回旧页面；bdflush, 用于在低内存的情况下写 回页面。
+在2 .4版本内核中这个功能被整合到pdflush 线程当中了。
+选择多线程是为了隐藏长的磁盘延迟。
+================================================================================
+
+Chunk 52:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_870
+Source: tfidf
+--------------------------------------------------------------------------------
+2. 页面文件
+关于后备存储器的分配有一个有趣的权衡，已提交页面没有被映射于特定文件。
+这些页使用了页面 文件 (pagefile) 。
+问题是该如何以及何时把虚拟页映射到页面文件的特定位置。
+一个简单的策略是：当 一个页被提交时，为虚拟页分配一个硬盘上页面文件中的页。
+这会确保对于每一个有必要换出内存的已 提交页，都有一个确定的位置写回去。
+Windows 使用一个适时 (just-in-time) 策略。
+直到需要被换出内存之前，在页面文件中的具体空间 不会分配给已提交的页面。
+硬盘空间当然不需要分配给永远不换出的页面。
+如果总的虚拟内存比可用的 物理内存少，则根本不需要页面文件。
+这对基于Windows的嵌入式系统是很方便的。
+这也是系统启动时 的方式，因为页面文件是在第一个用户态进程smss.exe 启动之后才初始化的。
+在预分配策略下，用于私有数据(如栈、写时复制代码页)的全部虚拟内存受到页面文件大小的限 制。
+通过适时分配的策略，总的虚拟内存大小是物理内存和页面文件大小的总和。
+既然相对物理内存来 说硬盘足够大与便宜，提升性能的需求自然比空间的节省更重要。
+有关请求调页，需要马上进行初始化从硬盘读取页的请求——因为在页入(page-in) 操作完成之前， 遇到页面失效的线程无法继续运行下去。
+对于失效页面的一个可能的优化是：在进行一次I/O操作时预 调入一些额外的页面。
+然而，对于修改过的页写回磁盘和线程的执行一般并不是同步的。
+用于分配页面 文件空间的适时策略便是利用这一点，在将修改过的页面写入页面文件时提升性能：修改过的页面被集 中到一起，统一进行写入操作。
+由于只有当页面被写回时页面文件的空间才真正被分配，可以通过排列 使页面文件中的页面较为接近甚至连续，来对大批写回页面时的寻找次数进行优化。
+Windows 支持多达16个页面文件，通常分布到不同的磁盘来达到较高的I/O带宽。
+每一个页面文件 都有初始的大小和随后依需要可以增长到的最大空间，但是在系统安装时就创建这些文件达到它的最大 值是最好的。
+================================================================================
+
+Chunk 53:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_875
+Source: dense_bm25
+--------------------------------------------------------------------------------
+如果发生页面失效的页 面位于一个已提交的区域内，存储管理器将在VAD列表中查找页面地址并找到(或创建)进程页表项。
+对于共享页面的情况，存储管理器使用与内存区对象关联的原始页表项来填写进程页表中的新页表项。
+不同处理器体系结构下的页表项的格式可能会不同。
+对于x86和×64,一个被映射页面的页表项如 图11-31所示。
+如果一个页表项被标记为有效，它的内容会被硬件读取并解释，从而虚拟地址能够转换 成正确的物理地址。
+未被映射的页面也有对应的页表项，但是这些页表项被标记成无效，硬件将忽略这 些页表项除该标记之外的部分。
+页表项的软件格式与硬件格式有所不同，软件格式由存储管理器决定。
+例如，对于一个未映射的页面，它必须在使用前分配和清零，这一点可以通过页表项来表明。
+页表项中有两个重要的位是硬件直接更新的，它们是访问位 (access bit) 和脏位 (dirty bit)。
+这两 个位跟踪了什么时候一个特定的页面映射用来访问该页面以及这个访问是否以写的方式修改了页面的内 容。
+这确实很有助于提高系统性能。
+因为存储管理器可以使用访问位来实现LRU(Least-Recently Used, 最近最少使用)类型的页面替换策略。
+LRU 原理是，那些最长时间没有被使用过的页面有最小的可能性 在不久的将来被再次使用。
+访问位使存储管理器知道一个页面被访问过了，脏位使存储管理器知道一个 页面被修改了，或者更重要的是，一个页面没有被修改。
+如果一个页面自从从磁盘上读到内存后没有被 修改过，存储管理器就没有必要在将该页面用到其他地方之前将页面内容写回磁盘了。
+正如图11-33所示，x86 和x64体系结构都使用64位大小的页表项。
+31 1211987654321 0
+6362 5251 121198 7 6 5 4 3 2 1 0
+NX-No eXecute
+AVL-AVaiLable to the OS G-Global page
+PAT-Page Attribute Table D-Dirty(modified)
+A-Accessed (referenced)
+a)
+================================================================================
+
+Chunk 54:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_930
+Source: bm25
+--------------------------------------------------------------------------------
+5. 内核线程
+此处，另一个相关的问题是系统线程。
+无论选择哪种结构模型，允许存在与任何用户进程相隔离的 内核线程是很方便的。
+这些线程可以在后台运行，将脏页面写入磁盘，在内存和磁盘之间交换进程，如 此等等。
+实际上，内核本身可以完全由这样的线程构成，所以当一个用户发出系统调用时，用户的线程 并不是在内核模式中运行，而是阻塞并且将控制传给一个内核线程，该内核线程接管控制以完成工作。
+12.3.2 机制与策略
+另一个有助于体系结构一致性的原理是机制与策略的分离，该原理同时还有助于使系统保持小型和 良好的结构。
+通过将机制放入操作系统而将策略留给用户进程，即使存在改变策略的需要，系统本身也 可以保持不变。
+即使策略模块必须保留在内核中，它也应该尽可能地与机制相隔离，这样策略模块中的 变化就不会影响机制模块。
+第二个例子是分页。
+机制涉及MMU管理，维护占用页面与空闲页面的列表，以及用来将页面移入磁 盘或者移出磁盘的代码。
+策略是当页面故障发生时决定做什么,它可能是局部的或全局的，基于LRU的 或基于FIFO的，或者是别的东西，但是这一算法可以(并且应该)完全独立于管理页面的机制。
+第三个例子是允许将模块装载到内核之中。
+机制关心的是它们如何被插入、如何被链接、它们可以 发出什么调用，以及可以对它们发出什么调用。
+策略确定谁能够将模块装载到内核之中以及装载哪些模 块等。
+也许只有超级用户可以装载模块，也许任何用户都可以装载被适当权威机构数字签名的模块。
+================================================================================
+
+Chunk 55:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_285
+Source: dense
+--------------------------------------------------------------------------------
+由 LSR 构成、实现 MPLS 功能的区域称为 MPLS 域 。
+MPLS 域中的LSR 使用标记分配协议交换报文，找出与特定标记对应的路径， 即标记交换路径，例如对应主机 A 到主机 B 的路径(依次为 E-LSR1 、LSR2 、LSR3 、E- LSR4), 形成MPLS 标记转发表。
+图4-44 MPLS 的工作原理
+网络层
+MPLS 工作机制的核心是：路由仍采用第三层的路由协议，而交换则采用第二层的硬 件完成，这样可以将第三层成熟的路由技术与第二层快速的硬件交换相结合，达到提高主机 性能和 QoS 的目的。
+例如，Cisco 公司的LS1010 、BPX交换机就是典型的LSR 。
+交换机的 硬件交换矩阵使用MPLS 标记转发表来实现 MPLS 功能。
+================================================================================
+
+Chunk 56:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_520
+Source: dense
+--------------------------------------------------------------------------------
+LCP (Link Control Protocol) 链路控制协议
+LDP (Label Distribution Protocol) 标记分配协议
+LED (Light Emitting Diode) 发光二极管
+LMDS (Local Multipoint Distribution System) 本地多点分配系统 LLC (Logical Link Control) 逻辑链路控制
+LoS (Line of Sight) 视距
+LPC (Linear Prediction Coding) 线性预测编码 LSP (Label Switched Path) 标记交换路径
+LSR (Label Switching Router) 标记交换路由器 LTE (Long-Term Evolution) 长期演进
+LTE-A (LTE-Advanced) 一般都不翻译，意思是长期演进的后续演进。
+MAC (Medium Access Control) 媒体接入控制
+MAC (Message Authentication Code) 报文鉴别码
+MACA (Multiple Access with Collision Avoidance) 具有碰撞避免的多点接入
+MAN (Metropolitan Area Network) 城域网
+MANET (Mobile Ad-hoc NETworks) 移动自组网络的工作组 MBONE (Multicast Backbone On the InterNEt) 多播主干网 MCU (Multipoint Control Unit) 多点控制单元
+MD (Message Digest) 报文摘要 MF (More Fragment) 还有分片
+MFTP (Multisource File Transfer Protocol) 多源文件传输协议 MIB (Management Information Base) 管理信息库
+================================================================================
+

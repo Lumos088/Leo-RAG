@@ -1,0 +1,1490 @@
+Query: A027
+Total chunks: 63
+================================================================================
+
+Chunk 1:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_244
+Source: dense
+--------------------------------------------------------------------------------
+3.8.2 局域网交换机
+1. 交换机的原理和特点
+局域网交换机，又称以太网交换机，以太网交换机实质上就是一个多端口的网桥，它工作在 数据链路层。
+以太网交换机的每个端口都直接与单台主机或另一个交换机相连，通常都工作在全 双工方式。
+交换机能经济地将网络分成小的冲突域，为每个工作站提供更高的带宽。
+以太网交换 机的原理是，它检测从以太端口来的数据帧的源和目的地的 MAC (介质访问层)地址，然后与
+③最新大纲中已删除这部分内容，但是历年真题中有所涉及，因此本书中仍然保留。
+================================================================================
+
+Chunk 2:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_254
+Source: dense
+--------------------------------------------------------------------------------
+18. 【2015统考真题】下列关于交换机的叙述中，正确的是()。
+A. 以太网交换机本质上是一种多端口网桥
+B. 通过交换机互连的一组工作站构成一个冲突域
+C. 交换机每个端口所连网络构成一个独立的广播域
+D. 以太网交换机可实现采用不同网络层协议的网络互连
+19. 【2016统考真题】若主机H2 向主机H4 发送一个数据帧，主机H4 向主机H2 立即发送 一个确认帧，则除H4 外，从物理层上能够收到该确认帧的主机还有()。
+================================================================================
+
+Chunk 3:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_520
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+第 6 章 应 用 层 2 7 5
+比特0 8 16 24 31
+图 4 IP 分组头结构
+192.168.1.2/25
+00-11-22-33-44-cc
+请回答下列问题 。
+1)从to到 t₁ 期间，H1 除了HTTP, 还运行了哪个应用层协议?
+从应用层到数据链路层， 该应用层协议报文是通过哪些协议进行逐层封装的?
+2 ) 若S 的交换表结构为<MAC 地址，端口>,则t₁ 时刻S 交换表的内容是什么?
+3)从to到t₁ 期间，H2 至少接收到几个与此次Web访问相关的帧?
+接收的是什么帧?
+帧 的目的MAC 地址是什么?
+================================================================================
+
+Chunk 4:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_69
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2. 报文交换
+数据交换的单位是报文，报文携带有目标地址、源地址等信息。
+报文交换在交换结点采用的 是存储转发的传输方式。
+报文交换技术的优点如下：
+1)无须建立连接。
+报文交换不需要为通信双方预先建立一条专用的通信线路，不存在建立 连接时延，用户可以随时发送报文。
+2)动态分配线路。
+当发送方把报文交给交换设备时，交换设备先存储整个报文，然后选择 一条合适的空闲线路，将报文发送出去。
+3)提高线路可靠性。
+如果某条传输路径发生故障，那么可重新选择另一条路径传输数据， 因此提高了传输的可靠性。
+4)提高线路利用率。
+通信双方不是固定占有一条通信线路，而是在不同的时间一段一段地 部分占有这条物理通道，因而大大提高了通信线路的利用率。
+1)由于数据进入交换结点后要经历存储、转发这一过程，因此会引起转发时延(包括接收 报文、检验正确性、排队、发送时间等)。
+2)报文交换对报文的大小没有限制，这就要求网络结点需要有较大的缓存空间。
+注意：报文交换主要使用在早期的电报通信网中，现在较少使用，通常被较先进的分组交换 方式所取代。
+================================================================================
+
+Chunk 5:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_82
+Source: tfidf
+--------------------------------------------------------------------------------
+19. 用 PCM 对语音进行数字量化，如果将声音分为128个量化级，采样频率为8000次/秒，
+那么一路话音需要的数据传输速率为().
+A.56kb/s B.64kb/s C.128kb/s D.1024kb/s
+20. 在下列数据交换方式中，数据经过网络的传输延迟长而且是不固定的，不能用于语音数 据传输的是() .
+A. 电路交换 B. 报文交换 C. 数据报交换 D. 虚电路交换
+21. 就交换技术而言，以太网采用的是()。
+A. 分组交换技术 B. 电路交换技术
+C. 报文交换技术 D. 混合交换技术
+================================================================================
+
+Chunk 6:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_83
+Source: tfidf
+--------------------------------------------------------------------------------
+22. 为了使数据在网络中传输时延最小，首选的交换方式是()。
+A. 电路交换 B. 报文交换 C. 分组交换 D. 信元交换
+23. 分组交换对报文交换的主要改进是()。
+C. 传输单位更小且有固定的最大长度
+D. 传输单位更大且有固定的最大长度
+24. 下列关于三种数据交换方式的叙述，错误的是()。
+A. 电路交换不提供差错控制功能
+B. 分组交换的分组有最大长度的限制
+D. 在出错率很高的传输系统中，选择虚电路方式更合适
+================================================================================
+
+Chunk 7:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_84
+Source: tfidf
+--------------------------------------------------------------------------------
+25. 不同的数据交换方式有不同的性能。
+为了使数据在网络中的传输时延最小，首选的交换 方式是(①);为保证数据无差错地传送，不应选用的交换方式是(②);分组交换对报 文交换的主要改进是(③),这种改进产生的直接结果是(④);在出错率很高的传输系 统中，选用(⑤)更合适。
+①A. 电路交换 B. 报文交换 C. 分组交换 D. 信元交换
+②A. 电路交换 B. 报文交换 C. 分组交换 D. 信元交换
+③A. 传输单位更小且有固定的最大长度
+B. 传输单位更大且有固定的最大长度
+C. 差错控制更完善
+D. 路由算法更简单
+④A. 降低了误码率 B. 提高了数据传输速率
+⑤A. 虚电路方式 B. 数据报方式
+C. 报文交换 D. 电路交换
+C. 虚电路在建立连接后，分组中需携带虚电路标识
+D. 虚电路中的分组到达顺序可能与发出顺序不同
+================================================================================
+
+Chunk 8:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_99
+Source: dense
+--------------------------------------------------------------------------------
+报文交换和分组交换都采用存储转发，传送的数据都要经过中间结点的若干存储、转发才能 到达目的地，因此传输时延较大。
+报文交换传送数据长度不固定且较长，分组交换中，要将传送 的长报文分割为多个固定有限长度的分组，因此传输时延较报文交换要小。
+有分组都按同一路由进行转发， 一旦虚电路中的某个结点出现故障，它就必须重新建立一条虚电 路。
+因此，对于出错率高的传输系统，易出现结点故障，这项任务就显得相当艰巨。
+所以，采用 数据报方式更合适。
+注 意：此题中的“出错率很高”意思是指出错率要比在早期的广域网中采用的电话网的出错 率高很多。
+电话网的出错率虽然和数字光纤网的出错率相比很高，但实际上还是算较低的，所以 早期的广域网大多采用虚电路交换的方案。
+26.C
+27.D 坤
+28.D
+关于虚电路和数据报的比较请参考表2.1。
+29.D
+30.C
+虚电路属于分组交换的一种，它和电路交换有着本质的差别，选项A 错误。
+虚电路之所以是 “虚”的，是因为这条电路不是专用的，每个结点到其他结点之间可能同时有若干虚电路通过， 它也可能同时与多个结点之间建立虚电路，选项B 错误。
+一个特定会话的虚电路是事先建立好的， 因此它的数据分组所走的路径也是固定的，选项D 错误。
+31.C
+32.B
+采用4个相位，每个相位有4种幅度的QAM 调制方法，每个信号可以有16种变化，传输4
+比特的数据。
+根据奈奎斯特定理，信息的最大传输速率为2Wlog₂V=2×3k×4=24kb/s。
+注意本题与第16题的区别：第16题已知波特率，而本题仅给出了带宽，因此需要先用奈奎 斯特定理计算出最大的波特率。
+33.C
+分组大小为1000B,分组头大小为20B,则分组携带的数据大小为980B,文件长度为980000B,
+================================================================================
+
+Chunk 9:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1210
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+40.5 Free Space Management
+A ﬁle system must track which inodes and data blocks are free, and which are not, so that when a new ﬁle or directory is allocated, it can ﬁnd space for it.
+Thus free space management is important for all ﬁle systems.
+In vsfs, we have two simple bitmaps for this task.
+For example, when we create a ﬁle, we will have to allocate an inode for that ﬁle.
+The ﬁle system will thus search through the bitmap for an in- ode that is free, and allocate it to the ﬁle; the ﬁle system will have to mark the inode as used (with a 1) and eventually update the on-disk bitmap with the correct information.
+A similar set of activities take place when a data block is allocated.
+Some other considerations might also come into play when allocating data blocks for a new ﬁle.
+================================================================================
+
+Chunk 10:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_311
+Source: dense
+--------------------------------------------------------------------------------
+13.3 The Address Space
+However, we have to keep those pesky users in mind, and doing so requires the OS to create an easy to use abstraction of physical memory.
+We call this abstraction the address space, and it is the running program’s view of memory in the system.
+Understanding this fundamental OS ab- straction of memory is key to understanding how memory is virtualized.
+The address space of a process contains all of the memory state of the running program.
+For example, the code of the program (the instruc- tions) have to live in memory somewhere, and thus they are in the ad- dress space.
+The program, while it is running, uses a stack to keep track of where it is in the function call chain as well as to allocate local variables and pass parameters and return values to and from routines.
+================================================================================
+
+Chunk 11:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_355
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+Speciﬁcally, we will assume for now that the user’s address space must be placed contiguously in physical memory.
+We will also assume, for sim- plicity, that the size of the address space is not too big; speciﬁcally, that it is less than the size of physical memory.
+Finally, we will also assume that each address space is exactly the same size.
+Don’t worry if these assump- tions sound unrealistic; we will relax them as we go, thus achieving a realistic virtualization of memory. 15.2 An Example
+To understand better what we need to do to implement address trans- lation, and why we need such a mechanism, let’s look at a simple exam- ple.
+Imagine there is a process whose address space as indicated in Figure 15.1.
+What we are going to examine here is a short code sequence that
+MECHANISM: ADDRESS TRANSLATION 131
+================================================================================
+
+Chunk 12:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_359
+Source: dense
+--------------------------------------------------------------------------------
+How can provide the illusion of a virtual address space starting at 0, when in reality the address space is located at some other physical address?
+Figure 15.2: Physical Memory with a Single Relocated Process
+An example of what physical memory might look like once this pro- cess’s address space has been placed in memory is found in Figure15.2.
+In the ﬁgure, you can see the OS using the ﬁrst slot of physical memory for itself, and that it has relocated the process from the example above into the slot starting at physical memory address 32 KB.
+The other two slots are free (16 KB-32 KB and 48 KB-64 KB).
+================================================================================
+
+Chunk 13:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_381
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+With the base and bounds registers, the OS can easily relocate processes to different parts of physical memory.
+However, you might have noticed something interesting about these address spaces of ours: there is a big chunk of “free” space right in the middle, between the stack and the heap.
+As you can imagine from Figure 16.1, although the space between the stack and heap is not being used by the process, it is still taking up phys- ical memory when we relocate the entire address space somewhere in physical memory; thus, the simple approach of using a base and bounds register pair to virtualize memory is wasteful.
+It also makes it quite hard to run a program when the entire address space doesn’t ﬁt into memory; thus, base and bounds is not as Aexible as we would like. And thus:
+================================================================================
+
+Chunk 14:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_401
+Source: dense
+--------------------------------------------------------------------------------
+Clearly, each process has its own virtual address space, and the OS must make sure to set up these registers correctly before letting the process run again.
+The second, and more important, issue is managing free space in phys- ical memory.
+When a new address space is created, the OS has to be able to ﬁnd space in physical memory for its segments.
+Previously, we assumed that each address space was the same size, and thus physical memory could be thought of as a bunch of slots where processes would ﬁt in.
+Now, we have a number of segments per process, and each segment might be a different size. Not Compacted Compacted
+Figure 16.3: Non-compacted and Compacted Memory
+The general problem that arises is that physical memory quickly be- comes full of little holes of free space, making it difﬁcult to allocate new segments, or to grow existing ones.
+================================================================================
+
+Chunk 15:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_414
+Source: dense
+--------------------------------------------------------------------------------
+Managing free space can cer- tainly be easy, as we will see when we discuss the concept of paging.
+It is easy when the space you are managing is divided into ﬁxed-sized units; in such a case, you just keep a list of these ﬁxed-sized units; when a client requests one of them, return the ﬁrst entry.
+Where free-space management becomes more difﬁcult (and interest- ing) is when the free space you are managing consists of variable-sized units; this arises in a user-level memory-allocation library (as in malloc() and free()) and in an OS managing physical memory when using seg- mentation to implement virtual memory.
+================================================================================
+
+Chunk 16:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_415
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+Where free-space management becomes more difﬁcult (and interest- ing) is when the free space you are managing consists of variable-sized units; this arises in a user-level memory-allocation library (as in malloc() and free()) and in an OS managing physical memory when using seg- mentation to implement virtual memory.
+In either case, the problem that exists is known as external fragmentation: the free space gets chopped into little pieces of different sizes and is thus fragmented; subsequent re- quests may fail because there is no single contiguous space that can sat- isfy the request, even though the total amount of free space exceeds the size of the request. 0 10 20 30
+The ﬁgure shows an example of this problem.
+In this case, the total free space available is 20 bytes; unfortunately, it is fragmented into two chunks of size 10 each.
+================================================================================
+
+Chunk 17:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_456
+Source: tfidf
+--------------------------------------------------------------------------------
+Instead of splitting up our address space into three logical segments (each of variable size), we split up our address space into ﬁxed-sized units we call a page.
+Here in Figure 18.1 an example of a tiny address space, only 64 bytes total in size, with 16 byte pages (real address spaces are much bigger, of course, commonly 32 bits and thus 4-GB of address space, or even 64 bits).
+We’ll use tiny examples to make them easier to digest (at ﬁrst).
+( of the address space)
+Figure 18.1: A Simple 64-byte Address Space
+170 PAGING: INTRODUCTION
+page frame 0 of physical memory page frame 1 page frame 2 page frame 3 page frame 4 page frame 5 page frame 6 page frame 7
+Figure 18.2: 64-Byte Address Space Placed In Physical Memory
+Thus, we have an address space that is split into four pages (0 through 3).
+================================================================================
+
+Chunk 18:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_537
+Source: tfidf
+--------------------------------------------------------------------------------
+Assume we have an address space in which the used portions of the heap and stack are small.
+For the example, we use a tiny 16KB address space with 1KB pages (Figure 20.1); the page table for this address space is in Table 20.1.
+PAGING: SMALLER TABLES 203
+Virtual Address Space Physical Memory stack
+Figure 20.1: A 16-KB Address Space With 1-KB Pages
+This example assumes the single code page (VPN 0) is mapped to physical , the single heap page (VPN 4) to physical , and the two stack pages at the other end of the address space (VPNs 14 and 15) are mapped to physical pages 28 and 4, respectively.
+As you can see from the picture, most of the page table is unused, full of invalid entries. What a waste!
+And this is for a tiny 16KB address space.
+Imagine the page table of a 32-bit address space and all the potential wasted space in there!
+================================================================================
+
+Chunk 19:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_574
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+Beyond Physical Memory: Mechanisms
+Thus far, we’ve assumed that an address space is unrealistically small and ﬁts into physical memory.
+In fact, we’ve been assuming that every address space of every running process ﬁts into memory.
+We will now relax these big assumptions, and assume that we wish to support many concurrently-running large address spaces.
+To do so, we require an additional level in the memory hierarchy.
+Thus far, we have assumed that all pages reside in physical memory.
+However, to support large address spaces, the OS will need a place to stash away portions of address spaces that currently aren’t in great de- mand.
+In general, the characteristics of such a location are that it should have more capacity than memory; as a result, it is generally slower (if it were faster, we would just use it as memory, no?).
+================================================================================
+
+Chunk 20:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_577
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+The invention of multiprogramming (running multi- ple programs “at once”, to better utilize the machine) almost demanded the ability to swap out some pages, as early machines clearly could not hold all the pages needed by all processes at once.
+Thus, the combina- tion of multiprogramming and ease-of-use leads us to want to support using more memory than is physically available.
+It is something that all modern VM systems do; it is now something we will learn more about. 21.1 Swap Space
+The ﬁrst thing we will need to do is to reserve some space on the disk for moving pages back and forth.
+In operating systems, we generally refer to such space as swap space, because we swap pages out of memory to it and swap pages into memory from it.
+Thus, we will simply assume that the OS can read from and write to the swap space, in page-sized units.
+================================================================================
+
+Chunk 21:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_578
+Source: tfidf
+--------------------------------------------------------------------------------
+Thus, we will simply assume that the OS can read from and write to the swap space, in page-sized units.
+To do so, the OS will need to remember the disk address of a given page.
+The size of the swap space is important, as ultimately it determines the maximum number of memory pages that can be in use by a system at a given time.
+Let us assume for simplicity that it is very large for now.
+In the tiny example (Figure 21.1), you can see a little example of a 4- page physical memory and an 8-page swap space.
+In the example, three processes (Proc 0, Proc 1, and Proc 2) are actively sharing physical mem- ory; each of the three, however, only have some of their valid pages in memory, with the rest located in swap space on disk.
+A fourth process (Proc 3) has all of its pages swapped out to disk, and thus clearly isn’t currently running.
+One block of swap remains free.
+================================================================================
+
+Chunk 22:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_579
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+One block of swap remains free.
+Even from this tiny example, hopefully you can see how using swap space allows the system to pretend that memory is larger than it actually is.
+We should note that swap space is not the only on-disk location for swapping trafﬁc.
+For example, assume you are running a program binary (e.g., ls, or your own compiled main program).
+The code pages from this binary are initially found on disk, and when the program runs, they are loaded into memory (either all at once when the program starts execution,
+BEYOND PHYSICAL MEMORY: MECHANISMS 219
+PFN 0 PFN 1 PFN 2 PFN 3 Block 0
+Figure 21.1: Physical Memory and Swap Space
+or, as in modern systems, one page at a time when needed).
+================================================================================
+
+Chunk 23:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_580
+Source: tfidf
+--------------------------------------------------------------------------------
+or, as in modern systems, one page at a time when needed).
+However, if the system needs to make room in physical memory for other needs, it can safely re-use the memory space for these code pages, knowing that it can later swap them in again from the on-disk binary in the ﬁle system.
+================================================================================
+
+Chunk 24:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_657
+Source: dense/tfidf
+--------------------------------------------------------------------------------
+23.3 A Real Address Space
+One neat aspect of studying VMS is that we can see how a real address space is constructed (Figure 23.1.
+Thus far, we have assumed a simple address space of just user code, user data, and user heap, but as we can see above, a real address space is notably more complex.
+For example, the code segment never begins at .
+This page, instead, is marked inaccessible, in order to provide some support for de- tecting null-pointer accesses.
+Thus, one concern when designing an ad- dress space is support for debugging, which the inaccessible zero page provides here in some form.
+Perhaps more importantly, the kernel virtual address space (i.e., its data structures and code) is a part of each user address space.
+================================================================================
+
+Chunk 25:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_775
+Source: tfidf
+--------------------------------------------------------------------------------
+28.9 Compare-And-Swap
+Another hardware primitive that some systems provide is known as the compare-and-swap instruction (as it is called on SPARC, for exam- ple), or compare-and-exchange (as it called on x86).
+The C pseudocode for this single instruction is found in Figure 28.3.
+The basic idea is for compare-and-swap to test whether the value at the
+1 int CompareAndSwap(int *ptr, int expected, int new) {
+2 int actual = *ptr;
+3 if (actual == expected) 4 *ptr = new; 5 return actual;
+Figure 28.3: Compare-and-swap
+address speciﬁed by ptr is equal to expected; if so, update the memory location pointed to by ptr with the new value. If not, do nothing.
+In either case, return the actual value at that memory location, thus allowing the code calling compare-and-swap to know whether it succeeded or not.
+================================================================================
+
+Chunk 26:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_737
+Source: tfidf
+--------------------------------------------------------------------------------
+(d)
+(e)
+(f) (4,8,2,5,3)
+(8,2,5,3)
+(2,5,3)
+(5,3)
+(3)
+() (7)
+(4,7)
+(4,7,8)
+(2,4,7,8)
+(2,4,5,7,8)
+(2,3,4,5,7,8)
+阶段2 (a)
+(b)
+(f) (2) (2,3)
+(2,3,4,5,7,8) (3,4,5,7,8)
+(4,5,7,8)
+0
+1 class AdaptableHeapPriorityQueue(HeapPriorityQueue):
+2 """A locator-based priority queue implemented with a binary heap."""
+3
+4 #------------------------nested Locator class-------------
+5 class Locator(HeapPriorityQueue.Item):
+6 """Token for locating an entry of the priority queue."""
+7 slots ='_index' #add index as additional field
+8
+9 def init (self, k,v,j):
+10 super().-_init (k,v)
+11 self._index=j
+12
+13 ---------------------nonpublic behaviors-
+14 #override swap to record new indices
+15 def _swap(self,i,j):
+16 super().-swap(ij) #perform the swap
+17 self._data[i.index=i #reset locator index(post-swap)
+18 self.dataij.-index =j #reset locator index(post-swap)
+19
+20 def bubble(self,j):
+================================================================================
+
+Chunk 27:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_136
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+16.6 操作系统支持
+现在你应该大致了解了分段的基本原理。
+系统运行时，地址空间中的不同段被重定位到物理内存中。
+与我们之前介绍的整个地址空间只有一个基址/界限寄存器对的方式相比，大量节省了物理内存。
+具体来说，栈和堆之间没有使用的区域就不需要再分配物理内存，让我们能将更多地址空间放进物理内存。
+然而，分段也带来了一些新的问题。
+我们先介绍必须关注的操作系统新问题。
+第一个是老问题：操作系统在上下文切换时应该做什么？
+你可能已经猜到了：各个段寄存器中的内容必须保存和恢复。
+显然，每个进程都有自己独立的虚拟地址空间，操作系统必须在进程运行前，确保这些寄存器被正确地赋值。
+第二个问题更重要，即管理物理内存的空闲空间。
+新的地址空间被创建时，操作系统需要在物理内存中为它的段找到空间。
+之前， 我们假设所有的地址空间大小相同，物理内存可以被认为是一些槽块，进程可以放进去。
+现在，每个进程都有一些段，每个段的大小也可能不同。
+一般会遇到的问题是，物理内存很快充满了许多空闲空间的小洞，因而很难分配给新的段， 或扩大已有的段。
+这种问题被称为外部碎片（external fragmentation）[R69]，如图 16.3 （左边）所示。
+图 16.3 非紧凑和紧凑的内存
+在这个例子中，一个进程需要分配一个 20KB 的段。
+当前有 24KB 空闲，但并不连续（是3 个不相邻的块）。
+因此，操作系统无法满足这个 20KB 的请求。
+该问题的一种解决方案是紧凑（compact）物理内存，重新安排原有的段。
+例如，操作系统先终止运行的进程，将它们的数据复制到连续的内存区域中去，改变它们的段寄存器中的值，指向新的物理地址，从而得到了足够大的连续空闲空间。
+这样做，操作系统能让新的内存分配请求成功。
+但是，内存紧凑成本很高，因为拷贝段是内存密集型的， 一般会占用大量的处理器时间。
+图 16.3（右边）是紧凑后的物理内存。
+一种更简单的做法是利用空闲列表管理算法， 试图保留大的内存块用于分配。
+================================================================================
+
+Chunk 28:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_158
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+18.3 列表中究竟有什么
+图 18.4 例子：内核物理内存中的页表
+让我们来谈谈页表的组织。
+页表就是一种数据结构，用于将虚拟地址（或者实际上，是虚拟页号）映射到物理地址（物理帧号）。
+因此， 任何数据结构都可以采用。
+最简单的形式称为线性页表（linear page table），就是一个数组。
+操作系统通过虚拟页号（VPN）检索该数组，并在该索引处查找页表项（PTE），以便找到期望的物理帧号（PFN）。
+现在， 我们将假设采用这个简单的线性结构。
+在后面的章节中，我们将利用更高级的数据结构来帮助解决一些分页问题。
+至于每个 PTE 的内容，我们在其中有许多不同的位，值得有所了解。
+有效位（valid bit）通常用于指示特定地址转换是否有效。
+例如， 当一个程序开始运行时，它的代码和堆在其地址空间的一端，栈在另一端。
+所有未使用的中间空间都将被标记为无效（invalid），如果进程尝试访问这种内存，就会陷入操作系统， 可能会导致该进程终止。
+因此，有效位对于支持稀疏地址空间至关重要。
+通过简单地将地址空间中所有未使用的页面标记为无效，我们不再需要为这些页面分配物理帧，从而节省大量内存。
+我们还可能有保护位（protection bit），表明页是否可以读取、写入或执行。
+同样， 以这些位不允许的方式访问页，会陷入操作系统。
+还有其他一些重要的部分，但现在我们不会过多讨论。
+存在位（present bit）表示该页是在物理存储器还是在磁盘上（即它已被换出，swapped out）。
+当我们研究如何将部分地址空间交换（swap）到磁盘，从而支持大于物理内存的地址空间时，我们将进一步理解这一机制。
+交换允许操作系统将很少使用的页面移到磁盘， 从而释放物理内存。
+脏位（dirty bit）也很常见，表明页面被带入内存后是否被修改过。
+参考位（reference bit ，也被称为访问位，accessed bit）有时用于追踪页是否被访问，也用于确定哪些页很受欢迎，因此应该保留在内存中。
+================================================================================
+
+Chunk 29:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_196
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+第 21 章 超越物理内存：机制
+到目前为止，我们一直假定地址空间非常小， 能放入物理内存。
+事实上，我们假设每个正在运行的进程的地址空间都能放入内存。
+我们将放松这些大的假设，并假设我们需要支持许多同时运行的巨大地址空间。
+21.1 交换空间
+我们要做的第一件事情就是，在硬盘上开辟一部分空间用于物理页的移入和移出。
+在
+操作系统中，一般这样的空间称为交换空间（swap space），因为我们将内存中的页交换到其中，并在需要的时候又交换回去。
+因此，我们会假设操作系统能够以页大小为单元读取或者写入交换空间。
+为了达到这个目的，操作系统需要记住给定页的硬盘地址（disk address）。
+交换空间的大小是非常重要的，它决定了系统在某一时刻能够使用的最大内存页数。
+简单起见，现在假设它非常大。
+在小例子中（见图 21.1），你可以看到一个 4 页的物理内存和一个 8 页的交换空间。
+在这个例子中，3 个进程（进程 0、进程 1 和进程 2）主动共享物理内存。
+但 3 个中的每一个，都只有一部分有效页在内存中，剩下的在硬盘的交换空间中。
+第 4 个进程（进程 3）的所有页都被交换到硬盘上，因此很清楚它目前没有运行。
+有一块交换空间是空闲的。
+即使通过这个小例子，你应该也能看出，使用交换空间如何让系统假装内存比实际物理内存更大。
+图 21.1 物理内存和交换空间
+================================================================================
+
+Chunk 30:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_226
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+23.3 一个真实的地址空间
+研究VMS 有一个很好的方面，我们可以看到如何构建一个真正的地址空间（见图 23.1）。
+到目前为止，我们一直假设了一个简单的地址空间，只有用户代码、用户数据和用户堆，但正如我们上面所看到的，真正的地址空间显然更复杂。
+例如，代码段永远不会从第 0 页开始。
+相反，该页被标记为不可访问，以便为检测空指针（null-pointer）访问提供一些支持。
+因此， 设计地址空间时需要考虑的一个问题是对调试的支持，这正是无法访问的零页所提供的。
+图 23.1 VAX / VMS 地址空间
+也许更重要的是，内核虚拟地址空间（即其数据结构和代码）是每个用户地址空间的一部分。
+在上下文切换时，操作系统改变 P0 和 P1 寄存器以指向即将运行的进程的适当页表。
+但是，它不会更改 S 基址和界限寄存器，并因此将“相同的”内核结构映射到每个用户的地址空间。
+内核映射到每个地址空间，这有一些原因。
+这种结构使得内核的运转更轻松。
+例如，如果操作系统收到用户程序（例如，在 write()系统调用中）递交的指针，很容易将数据从该指针处复制到它自己的结构。
+操作系统自然是写好和编译好的，无须担心它访问的数据来自哪里。
+相反，如果内核完全位于物理内存中，那么将页表的交换页切换到磁盘是非常困难的。
+如果内核被赋予了自己的地址空间，那么在用户应用程序和内核之间移动数据将再次变得复杂和痛苦。
+通过这种构造（现在广泛使用）， 内核几乎就像应用程序库一样，尽管是受保护的。
+关于这个地址空间的最后一点与保护有关。
+显然，操作系统不希望用户应用程序读取或写入操作系统数据或代码。
+因此，硬件必须支持页面的不同保护级别才能启用该功能。
+VAX 通过在页表中的保护位中指定 CPU 访问特定页面所需的特权级别来实现此目的。
+因此，系统数据和代码被设置为比用户数据和代码更高的保护级别。
+试图从用户代码访问这些信息，将会在操作系统中产生一个陷阱，并且（你猜对了）可能会终止违规进程。
+================================================================================
+
+Chunk 31:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_232
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+我无法想象构建一个没有 TLB 的系统！
+我想到了一个超出 TLB 覆盖范围的程序：所有那些 TLB 未命中，简直不敢看。
+教授：是的，蒙住孩子们的眼睛！
+除了 TLB，你还学到了什么？
+学生：我现在也明白，页表是需要了解的数据结构之一。
+它只是一个数据结构，这意味着几乎可以使用任何结构。
+我们从简单的结构（如数组，即线性页表）开始， 一直到多级表（它们看起来像树），甚至像内核虚拟内存中的可分页页表一样疯狂。
+全是为了在内存中节省一点空间！
+教授： 的确如此。
+学生：还有一件更重要的事情：我了解到，地址转换结构需要足够灵活，以支持程序员想要处理的地址空间。
+在这个意义上，像多级表这样的结构是完美的。
+它们只在用户需要一部分地址空间时才创建表空间，因此几乎没有浪费。
+早期的尝试，比如简单的基址和界限寄存器，只是不够灵活。
+这些结构需要与用户期望和想要的虚拟内存系统相匹配。
+教授：这是一个很好的观点。
+我们所学到的关于交换到磁盘的所有内容的情况如何？
+学生：好的，学习肯定很有趣，而且很好地知道页替换的工作原理。
+一些基本的策略是很明显的（比如 LRU），但是建立一个真正的虚拟内存系统似乎更有趣，就像我们在 VMS案例研究中看到的一样。
+但不知何故，我发现这些机制更有趣，而策略则不太有趣。
+教授：哦，那是为什么？
+教授：什么？
+学生：好吧，我的机器现在运行速度有点慢……而且内存肯定不会太贵……
+教授：噢，很好，很好！
+这里有些钱，去买一些 DRAM，小事情。
+学生：谢谢教授！
+我再也不会交换到硬盘了——或者，如果发生交换，至少我会知道实际发生了什么！
+================================================================================
+
+Chunk 32:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_422
+Source: dense
+--------------------------------------------------------------------------------
+40.5 空闲空间管理
+文件系统必须记录哪些 inode 和数据块是空闲的，哪些不是，这样在分配新文件或目录时，就可以为它找到空间。
+因此，空闲空间管理（free space management）对于所有文件系统都很重要。
+在 VSFS 中，我们用两个简单的位图来完成这个任务。
+例如，当我们创建一个文件时，我们必须为该文件分配一个 inode。
+文件系统将通过位图搜索一个空闲的内容，并将其分配给该文件。
+文件系统必须将 inode 标记为已使用（用 1），并最终用正确的信息更新磁盘上的位图。
+分配数据块时会发生类似的一组活动。
+为新文件分配数据块时，还可能会考虑其他一些注意事项。
+例如， 一些 Linux 文件系统（如 ext2 和 ext3）在创建新文件并需要数据块时，会寻找一系列空闲块（如 8 块）。
+通过找到这样一系列空闲块，然后将它们分配给新创建的文件，文件系统保证文件的一部分将在磁盘上并且是连续的， 从而提高性能。
+因此， 这种预分配（pre-allocation）策略，是为数据块分配空间时的常用启发式方法。
+================================================================================
+
+Chunk 33:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_554
+Source: dense
+--------------------------------------------------------------------------------
+第 16章 分段
+关键问题：怎样支持大地址空间
+怎样支持大地址空间，同时栈和堆之间（可能）有大量空闲空间？
+在之前的例子里， 地址空间非常小，所以这种浪费并不明显。
+但设想一个 32 位（4GB）的地址空间，通常的程序只会使用几兆的内存，但需要整个地址空间都放在内存中。
+段 基址 大小
+代码 32KB 2KB
+堆 34KB 2KB
+栈 28KB 2KB
+段 基址 大小 是否反向增长
+代码 32KB 2KB 1
+堆 34KB 2KB 1
+栈 28KB 2KB 0
+段 基址 大小 是否反向增长 保护
+代码 32KB 2KB 1 读—执行
+堆 34KB 2KB 1 读—写
+栈 28KB 2KB 0 读—写
+================================================================================
+
+Chunk 34:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_555
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+第 17 章 空闲空间管理
+本章暂且将对虚拟内存的讨论放在一边，来讨论所有内存管理系统的一个基本方面，无论是 malloc 库（管理进程中堆的页），还是操作系统本身（管理进程的地址空间）。
+具体来说，我们会讨论空闲空间管理（free-space management）的一些问题。
+让问题更明确一点。
+管理空闲空间当然可以很容易，我们会在讨论分页概念时看到。
+如果需要管理的空间被划分为固定大小的单元，就很容易。
+在这种情况下，只需要维护这些大小固定的单元的列表，如果有请求，就返回列表中的第一项。
+如果要管理的空闲空间由大小不同的单元构成，管理就变得困难（而且有趣）。
+这种情况出现在用户级的内存分配库（如 malloc()和 free()），或者操作系统用分段（segmentation）的方式实现虚拟内存。
+在这两种情况下， 出现了外部碎片（external fragmentation）的问题：空闲空间被分割成不同大小的小块，成为碎片，后续的请求可能失败，因为没有一块足够大的连续空闲空间，即使这时总的空闲空间超出了请求的大小。
+上面展示了该问题的一个例子。
+在这个例子中， 全部可用空闲空间是 20 字节，但被切成两个 10 字节大小的碎片，导致一个 15 字节的分配请求失败。
+所以本章需要解决的问题是：
+关键问题：如何管理空闲空间
+要满足变长的分配请求，应该如何管理空闲空间？
+什么策略可以让碎片最小化？
+不同方法的时间和空间开销如何？
+================================================================================
+
+Chunk 35:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_556
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+第 18章 分页：介绍
+有时候人们会说，操作系统有两种方法，来解决大多数空间管理问题。
+第一种是将空间分割成不同长度的分片，就像虚拟内存管理中的分段。
+遗憾的是，这个解决方法存在固有的问题。
+具体来说， 将空间切成不同长度的分片以后，空间本身会碎片化（fragmented），随着时间推移，分配内存会变得比较困难。
+因此，值得考虑第二种方法：将空间分割成固定长度的分片。
+在虚拟内存中，我们称这种思想为分页，可以追溯到一个早期的重要系统，Atlas[KE+62, L78]。
+分页不是将一个进程的地址空间分割成几个不同长度的逻辑段（即代码、堆、段），而是分割成固定大小的单元，每个单元称为一页。
+相应地， 我们把物理内存看成是定长槽块的阵列，叫作页帧（page frame）。
+每个这样的页帧包含一个虚拟内存页。
+我们的挑战是：
+关键问题：如何通过页来实现虚拟内存
+如何通过页来实现虚拟内存，从而避免分段的问题？
+基本技术是什么？
+如何让这些技术运行良好，并尽可能减少空间和时间开销？
+================================================================================
+
+Chunk 36:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_38
+Source: bm25
+--------------------------------------------------------------------------------
+1.4.4 递 归消 除
+由上可见，按照递归的思想可使我们得以从宏观上理解和把握应用问题的实质，深入挖掘和 洞悉算法过程的主要矛盾和一般性模式，并最终设计和编写出简洁优美且精确紧凑的算法。
+然而， 递归模式并非十全十美，其众多优点的背后也隐含着某些代价。
+■ 空间成本
+一般的转换思路，无非是利用栈结构(第4章)模拟操作系统的工作过程。
+这类的通用方法 已超出本书的范围，以下仅针对一种简单而常见的情况，略作介绍。
+■ 尾递归及其消除
+在线性递归算法中，若递归调用在递归实例中恰好以最后一步操作的形式出现，则称作尾递 归 (tail recursion)。
+比如代码1 . 7中reverse(A,lo,hi) 算法的最后一步操作，是对去 除了首、末元素之后总长缩减两个单元的子数组进行递归倒置，即属于典型的尾递归。
+实际上， 属于尾递归形式的算法，均可以简捷地转换为等效的迭代版本。
+仍以代码1 . 7中reverse(A,lo,hi) 算法为例。
+如代码1.9所示，首先在起始位置插入一 个跳转标志next,然后将尾递归语句调用替换为 一 条指向next标志的跳转语句。
+1 void reverse(int*A,int lo,int hi)( // 数组倒置(直接改造而得的迭代版)
+3 if(lo<hi){
+4 Swap(A[lo],A[hi]); //交换A[1o]和A[hi]
+5 lo++;hi-; //收缩待倒置区间
+6 goto next;//跳转至算法体的起始位置，迭代地倒置A(lo, hi)
+7 } //else隐含了迭代的终止
+8 }//0(hi-10+1)
+代码1.9由递归版改造而得的数组倒置算法(选代版)
+新的迭代版与原递归版功能等效，但其中使用的goto 语句有悖于结构化程序设计的原则。
+这一语句虽仍不得不被C++ 等高级语言保留，但最好还是尽力回避。
+为此可如代码1. 10所示，将 n ext 标 志 与 if 判 断 综 合 考 查 ， 并 代 之 以 一 条 逻 辑 条 件 等 价 的 wh i le 语 句 。
+================================================================================
+
+Chunk 37:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_55
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2.4.1 静态空间管理
+向量实际规模与其内部数组容量的比值(即_size/_capacity), 亦称作装填因子(load
+factor), 它是衡量空间利用率的重要指标。
+从这一角度，上述难题可归纳为：
+为此，需要改用动态空间管理策略。
+其中一种有效的方法，即使用所谓的可扩充向量。
+2.4.2 可扩充向量
+一旦可用空间耗尽(图(b)), 就动态地扩大内部数组的容量。
+这里的难点及关键在于：
+A[]
+A[]
+(a)
+full
+A[]
+A[]
+full
+(b)
+full ACJ released
+B[ copied free BC] (d)
+图2.1 可扩充向量的溢出处理
+一种可行的方法，如图2.1(c~e) 所示。
+我们需要另行申请一个容量更大的数组B[] ( 图(c)),
+并将原数组中的成员集体搬迁至新的空间(图(d)), 此后方可顺利地插入新元素e 而不致溢出 ( 图(e))。
+当然，原数组所占的空间，需要及时释放并归还操作系统。
+================================================================================
+
+Chunk 38:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_20
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+1.4.4 算法的空间复杂度
+关于算法的存储空间需求，类似于算法的时间复杂度，我们采用渐近空间复杂度(Space Complexity) 作为算法所需存储空间的量度，简称空间复杂度，它也是问题规模n 的函数， 记作：
+S(n)=Of(n))
+一般情况下，一个程序在机器上执行时，除了需要寄存本身所用的指令、常数、变量和输入 数据外，还需要一些对数据进行操作的辅助存储空间。
+其中，对于输入数据所占的具体存储量取 决于问题本身，与算法无关，这样只需分析该算法在实现时所需要的辅助空间就可以了。
+若算 法执行时所需要的辅助空间相对于输入数据量而言是个常数，则称这个算法为原地工作，辅助 空间为O(1), 本节中前面的示例都是如此。
+有的算法需要占用临时的工作单元数与问题规模n 有 关，如第8章介绍的归并排序算法就属于这种情况。
+下面举一简单示例说明如何求算法的空间复杂度。
+【例1 .11】 数组逆序，将一维数组a 中的n 个数逆序存放到原数组中。
+【算法1】
+for(i=0;i<n/2;i++)
+{ t=a[i];
+a[i]=a[n-i-1];
+a[n-i-1]=t; }
+【算法2】
+for(i=0;i<n;i++)
+b[i]=a[n-i-1];
+for(i=0;i<n;i++)
+a[i]=b[i];
+算法1仅需要另外借助一个变量t, 与问题规模n 大小无关，所以其空间复杂度为O(1)。
+算法2需要另外借助一个大小为n 的辅助数组b, 所以其空间复杂度为O(n)。
+对于一个算法，其时间复杂度和空间复杂度往往是相互影响的，当追求一个较好的时间
+复杂度时，可能会导致占用较多的存储空间，即可能会使空间复杂度的性能变差，反之亦然。
+不过，通常情况下，鉴于运算空间较为充足，人们都以算法的时间复杂度作为算法优劣的衡 量指标。
+================================================================================
+
+Chunk 39:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_191
+Source: dense/tfidf
+--------------------------------------------------------------------------------
+3.2.1 地址空间的概念
+要使多个应用程序同时处于内存中并且不互相影响，需要解决两个问题：保护和重定位。
+我们来看 一个原始的对前者的解决办法，它曾被用在IBM 360上：给内存块标记上一个保护键，并且比较执行进 程的键和其访问的每个内存字的保护键。
+然而，这种方法本身并没有解决后一个问题，虽然这个问题可 以通过在程序被装载时重定位程序来解决，但这是一个缓慢且复杂的解决方法。
+一个更好的办法是创造一个新的存储器抽象：地址空间。
+就像进程的概念创造了一类抽象的CPU以 运行程序一样，地址空间为程序创造了一种抽象的内存。
+地址空间是一个进程可用于寻址内存的一套地 址集合。
+每个进程都有一个自己的地址空间，并且这个地址空间独立于其他进程的地址空间(除了在一 些特殊情况下进程需要共享它们的地址空间外)。
+地址空间的概念非常通用，并且在很多场合中出现。
+比如电话号码，在美国和很多其他国家， 一个 本地电话号码通常是一个7位的数字。
+因此，电话号码的地址空间是从0000000到9999999,虽然一些 号码并没有被使用，比如以000开头的号码。
+随着手机、调制解调器和传真机数量的增长，这个空间变 得越来越不够用了，从而导致需要使用更多位数的号码。
+x86 的I/O端口的地址空间从0到16383。
+IPv4 的地址是32位的数字，因此它们的地址空间从0到2³²-1(也有一些保留数字)。
+地址空间也可以是非数字的，以“.com” 结尾的网络域名的集合也是地址空间。
+这个地址空间是由 所有包含2~63个字符并且后面跟着“.com” 的字符串组成的，组成这些字符串的字符可以是字母、数字 和连字符。
+到现在你应该已经明白地址空间的概念了，它是很简单的。
+比较难的是给每个程序一个自己独有的地址空间，使得一个程序中的地址28所对应的物理地 址与另一个程序中的地址28所对应的物理地址不同。
+下面我们将讨论一个简单的方法，这个方法 曾经很常见，但是在有能力把更复杂(而且更好)的机制运用在现代CPU 芯片上之后，这个方法就 不再使用了。
+基址寄存器与界限寄存器
+================================================================================
+
+Chunk 40:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_194
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+图3-4 内存分配情况随着进程进出而变化，阴影区域表示未使用的内存
+交换在内存中产生了多个空闲区 (hole, 也称为空洞),通过把所有的进程尽可能向下移动，有可 能将这些小的空闲区合成一大块。
+该技术称为内存紧缩 (memo ry compaction)。
+通常不进行这个操作， 因为它要耗费大量的CPU时间。
+例如， 一台有16GB内存的计算机可以每8ns 复制8个字节，它紧缩全部 内存大约要花费16s。
+有一个问题值得注意，即当进程被创建或换入时应该为它分配多大的内存。
+若进程创建时其 大小是固定的并且不再改变，则分配很简单，操作系统准确地按其需要的大小进行分配，不多也 不少。
+但是如果进程的数据段可以增长，例如，很多程序设计语言都允许从堆中动态地分配内存，那么当 进程空间试图增长时，就会出现问题。
+若进程与一个空闲区相邻，那么可把该空闲区分配给进程供其增大。
+另一方面，若进程相邻的是另一个进程，那么要么把需要增长的进程移到内存中一个足够大的区域中去， 要么把一个或多个进程交换出去，以便生成一个足够大的空闲区。
+若一个进程在内存中不能增长，而且磁 盘上的交换区也已满了，那么这个进程只有挂起直到一些空间空闲(或者可以结束该进程)。
+如果大部分进程在运行时都要增长，为了减少因内存区域不够而引起的进程交换和移动所产生的开
+销，一种可用的方法是，当换入或移动进程时为它分配一些额外的内存。
+然而，当进程被换出到磁盘上 时，应该只交换进程实际上使用的内存中的内容，将额外的内存交换出去是一种浪费。
+在图3-5a中读者 可以看到 一 种已为两个进程分配了增长空间的内存配置。
+a) b)
+图3-5 a) 为可能增长的数据段预留空间； b) 为可能增长的数据段和堆栈段预留空间
+如果进程有两个可增长的段，例如，供变量动态分配和释放的作为堆使用的一个数据段，以及存放 普通局部变量与返回地址的一个堆栈段，则可使用另一种安排，如图3-5b所示。
+在图中可以看到所示进 程的堆栈段在进程所占内存的顶端并向下增长，紧接在程序段后面的数据段向上增长。
+在这两者之间的 内存可以供两个段使用。
+================================================================================
+
+Chunk 41:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_199
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3.3 虚拟内存
+尽管基址寄存器和界限寄存器可以用于创建地址空间的抽象，还有另一个问题需要解决：管理软件 的膨胀 (bloatware) 。
+虽然存储器容量增长快速，但是软件大小的增长更快。
+在20世纪80年代，许多大 学用一台4MB的VAX计算机运行分时操作的系统，供十几个用户(已经或多或少足够满足需要了)同时 运行。
+现在微软公司推荐64位Windows 8系统至少需要2GB内存，而多媒体的潮流则进一步推动了对内 存的需求。
+这一发展的结果是，需要运行的程序往往大到内存无法容纳，而且必然需要系统能够支持多个程序 同时运行，即使内存可以满足其中单独一个程序的需要，总体来看它们仍然超出了内存大小。
+交换技术 并不是一个具有吸引力的解决方案，因为一个典型SATA磁盘的峰值传输率高达每秒好几百兆，这意味 着需要好几秒才能换出或换入一个1GB的程序。
+虽然由系统完成实际的覆盖块换入换出操作，但是程序员必须把程序分割成多个片段。
+把一个大程 序分割成小的、模块化的片段是非常费时和枯燥的，并且易于出错。
+很少程序员擅长使用覆盖技术。
+因 此，没过多久就有人找到一个办法，把全部工作都交给计算机去做。
+采用的这个方法 (Fotheringham,1961) 称为虚拟内存 (virtual memory)。
+虚拟内存的基本思想是： 每个程序拥有自己的地址空间，这个空间被分割成多个块，每一块称作一页或页面 (page) 。
+每一页有 连续的地址范围。
+这些页被映射到物理内存，但并不是所有的页都必须在内存中才能运行程序。
+当程序 引用到一部分在物理内存中的地址空间时，由硬件立刻执行必要的映射。
+当程序引用到一部分不在物理 内存中的地址空间时，由操作系统负责将缺失的部分装入物理内存并重新执行失败的指令。
+从某个角度来讲，虚拟内存是对基址寄存器和界限寄存器的一种综合。
+8088为正文和数据分离出专 门的基址寄存器(但不包括界限寄存器)。
+而虚拟内存使得整个地址空间可以用相对较小的单元映射到 物理内存，而不是为正文段和数据段分别进行重定位。
+下面会介绍虚拟内存是如何实现的。
+================================================================================
+
+Chunk 42:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_230
+Source: dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.5.4 分离的指令空间和数据空间
+大多数计算机只有一个地址空间，既存放程序也存放数据，如图3-24a所示。
+如果地址空间足够大， 那么一切都好。
+然而，地址空间通常太小了，这就使得程序员对地址空间的使用出现困难。
+图3-24 a) 单个地址空间；b) 分离的I空间和D空间
+首先在PDP-11(16 位)上实现的一种解决方案是，为指令(程序正文)和数据设置分离的地址空 间，分别称为I空间和D 空间，如图3-24b所示。
+每个地址空间都从0开始到某个最大值，比较有代表性的 是2¹⁶-1或者2³²-1。
+链接器必须知道何时使用分离的I空间和D空间，因为当使用它们时，数据被重定位 到虚拟地址0,而不是在程序之后开始。
+尽管现在的地址空间已经很大，但其大小曾是一个很严重的问题。
+即便是在今天把地址空间划分成 I 和D层也很常见。
+现在的地址空间经常被划分到一级缓存里，而不再分给常规的地址空间。
+毕竟在一级 缓存中，内存也是个稀缺品。
+================================================================================
+
+Chunk 43:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_241
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.6.5 后备存储
+在前面讨论过的页面置换算法中，我们已经知道了如何选择换出内存的页面。
+但是却没有讨论当页 面被换出时会存放在磁盘上的哪个位置，现在我们讨论一下磁盘管理相关的问题。
+在磁盘上分配页面空间的最简单的算法是在磁盘上设置特殊的交换分区，甚至从文件系统划分一块 独立的磁盘(以平衡I/O 负载)。
+大多数UNIX 是这样处理的。
+在这个分区里没有普通的文件系统，这样 就消除了将文件偏移转换成块地址的开销。
+取而代之的是，始终使用相应分区的起始块号。
+当系统启动时，该交换分区为空，并在内存中以单独的项给出它的起始和大小。
+在最简单的情况下， 当第一个进程启动时，留出与这个进程一样大的交换区块，剩余的为总空间减去这个交换分区。
+当新进 程启动后，它们同样被分配与其核心映像同等大小的交换分区。
+进程结束后，会释放其磁盘上的交换区。
+交换分区以空闲块列表的形式组织。
+更好的算法在第10章里讨论。
+地址。
+但在进程启动前必须初始化交换区， 一种方法是将整个进程映像复制到交换区，以便随时可将所
+需内容装入，另一种方法是将整个进程装入内存，并在需要时换出。
+但这种简单模式有一个问题：进程在启动后可能增大，尽管程序正文通常是固定的，但数据有时会 增长，堆栈也总是在随时增长。
+这样，最好为正文、数据和堆栈分别保留交换区，并且允许这些交换区 在磁盘上多于一个块。
+另一个极端的情况是事先什么也不分配，在页面换出时为其分配磁盘空间，并在换入时回收磁盘空 间，这样内存中的进程不必固定于任何交换空间。
+其缺点是内存中每个页面都要记录相应的磁盘地址。
+换言之，每个进程都必须有一张表，记录每一个页面在磁盘上的位置。
+这两个方案如图3-28所示。
+内存 磁盘
+a)
+b)
+图3-28 a) 对静态交换区分页；b) 动态备份页面
+在图3-28a中，有一个带有8个页面的页表。
+页面0、3、4和6在内存中。
+页面1、2、5和7在磁盘上。
+磁盘上的交换区与进程虚拟地址空间(8页面)一样大，每个页面有固定的位置，当它从内存中被淘汰 时，便写到相应位置。
+================================================================================
+
+Chunk 44:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_242
+Source: dense_bm25
+--------------------------------------------------------------------------------
+磁盘上的交换区与进程虚拟地址空间(8页面)一样大，每个页面有固定的位置，当它从内存中被淘汰 时，便写到相应位置。
+该地址的计算需要知道进程的分页区域的起始位置，因为页面是按照它们的虚拟 页号的顺序连续存储的。
+内存中的页面通常在磁盘上有镜像副本，但是如果页面装入后被修改过，那么 这个副本就可能是过期的了。
+内存中的深色页面表示不在内存，磁盘上的深色页面(原则上)被内存中 的副本所替代，但如果有一个内存页面要被换回磁盘并且该页面在装入内存后没有被修改过，那么将使 用磁盘中(深色)的副本。
+在图3-28b中，页面在磁盘上没有固定地址。
+当页面换出时，要及时选择一个空磁盘页面并据此来 更新磁盘映射(每个虚拟页面都有一个磁盘地址空间)。
+内存中的页面在磁盘上没有副本。
+它们在磁盘 映射表中的表项包含一个非法的磁盘地址或者一个表示它们未被使用的标记位。
+不能保证总能够实现固定的交换分区。
+例如，没有磁盘分区可用时。
+在这种情况下，可以利用正常 文件系统中的一个或多个较大的、事前定位的文件。
+Windows 就使用这个方法。
+然而，可以利用优化方
+法减少所需的磁盘空间量。
+既然每个进程的程序正文来自文件系统中某个(可执行的)文件，这个可执 行文件就可用作交换区。
+而更好的方法是，由于程序正文通常是只读的，当内存资源紧张、程序页不得 不移出内存时，尽管丢弃它们，在需要的时候再从可执行文件读入即可。
+共享库也可以用这个方式工作。
+================================================================================
+
+Chunk 45:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_254
+Source: bm25
+--------------------------------------------------------------------------------
+3.9 小结
+本章主要讲解内存管理。
+我们看到在最简单的系统中是根本没有任何交换或分页的。
+一旦程序装入 内存，它将持续在内存中运行，直到结束。
+一些操作系统一次只允许一个进程在内存中运行，而另一些 操作系统支持多道程序设计。
+这种模型在小型或嵌入式实时系统中仍有用武之地。
+接下来是交换技术。
+通过交换技术，系统可以同时运行总内存占用超过实际物理内存大小的多个进 程。
+如果一个进程没有内存空间可用，它将会被交换到磁盘上。
+内存和磁盘上的空闲空间可以使用位图 或空闲区链表来记录。
+现代计算机都有某种形式的虚拟内存。
+最简单的情况下，每一个进程的地址空间被划分为同等大小 的块，称为页面，页面可以被放入内存中任何可用的页框内。
+有多种页面置换算法，其中两个比较好的 算法是老化算法和工作集时钟算法。
+为了使分页系统工作良好，仅选择算法是不够的，还要关注诸多问题，例如工作集的确定、内存分 配策略以及所需页面大小等。
+如果要处理在执行过程中大小有变化的数据结构，分段是一个有用的选择，它还能简化链接和共享。
+不仅如此，分段还有利于为不同的段提供不同的保护。
+有时，可以把分段和分页结合起来，以提供二维 的虚拟内存。
+MULTICS 系统以及32位Intel x86即是如此，支持分段也支持分页。
+不过，几乎没有操作系 统开发者会仔细考虑分段(因为他们更青睐其他的内存模型),这导致分段逐渐乏人问津。
+如今，即使 64位版本的x86也不支持真正的分段。
+习题
+2.在图3-3中基址寄存器和限界寄存器含有相同 的值16384,这是巧合还是它们总是相等?
+如 果这只是巧合，为什么在这个例子里它们是相 等的?
+3.交换系统通过“紧缩”来消除空闲区。
+假设有 很多空闲区和数据段随机分布，并且读或写32 位长的字需要4ns的时间，“紧缩”4GB的空间 大概需要多长时间?
+为了简单起见，假设字节0 在空闲区中，内存中最高地址处含有有效数据。
+4.在一个交换系统中，按内存地址排列的空闲区 大小是10MB 、4MB 、20MB 、18MB 、7MB、
+9MB 、12MB 和15MB。
+对于连续的段请求：
+================================================================================
+
+Chunk 46:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_572
+Source: bm25
+--------------------------------------------------------------------------------
+1. 可以把USENET新闻组系统和SETI@home项目 看作分布式系统吗?
+(SETI@home 使用数百万 台空闲的个人计算机，用来分析无线电频谱数 据以搜寻地球之外的智慧生物)。
+如果是，它们 属于图8-1中描述的哪些类?
+2.如果一个多处理器中的三个CPU在同一时刻试 图访问内存中同一个字，会发生什么?
+3.如果一个CPU在每条指令中都发出一个内存访 问请求，而且计算机的运行速度是200MIPS, 那么多少个CPU会使一个400MHz的总线饱和?
+假设对内存的访问需要一个总线周期。
+如果在 该系统中使用缓存技术，且缓存命中率达到 90%,又需要多少CPU?
+最后，如果要使32个 CPU共享该总线而且不使其过载，需要多高的 命中率?
+4.在图8-5的omega网络中，假设在交换网络2A和 交换网络3B之间的连线断了。
+那么哪些节点之 间的联系被切断了?
+5.在图8-7的模型中，信号是如何处理的?
+6.当如图8-8所示模型的系统调用发生时，必须要 在陷入内核时立即解决一个不会在图8-7的模型 中发生的问题。
+这个问题的本质是什么,应该 如何解决?
+================================================================================
+
+Chunk 47:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_674
+Source: bm25
+--------------------------------------------------------------------------------
+9.12 小结
+代码中有很多bug可以被利用来控制程序和系统。
+这些包括缓冲区溢出、格式串攻击、返回libc攻击、 整数溢出攻击、代码注入攻击和特权扩大攻击。
+Internet 上遍布恶意软件，有特洛伊木马、病毒、蠕虫、间谍软件和rookit 。
+每一个都对数据机密性 和一致性产生着威胁。
+更糟糕的是，恶意软件攻击可能会控制一台机器，并把这台机器变成一台僵尸机 器用来发送垃圾邮件或者发起其他的攻击。
+许多互联网上的攻击都是通过一台僵尸主控机控制一个僵尸 军队来完成的。
+幸运的是，系统有很多种方法来保护自己。
+最好的策略就是全面防御，使用多种技术一起防御。
+这 些技术有防火墙、病毒扫描、代码签名、囚禁、入侵检测，以及封装移动代码。
+习题
+1.机密性、完整性和可用性是安全的三个组成部 分。
+描述一款需要确保完整性和可用性，但对 机密性无要求的应用； 一款需要确保机密性和
+完整性，但对可用性无要求的应用；以及一款 需要确保机密性、完整性和可用性的应用。
+2.构建安全操作系统的一项技术是尽可能地最小
+化可信计算基 (TCB)。
+以下功能哪些需要在 TCB之内实现，哪些可以在TCB之外实现?
+(a) 进程上下文切换
+(b) 从磁盘读取文件
+(c) 扩容交换区
+(d) 听音乐
+(e) 获取智能手机的GPS坐标
+3.什么是隐蔽信道?
+隐蔽信道存在的基本要求是 什么?
+5.假设一个系统在某时有5000个对象和100个域。
+在所有域中1%的对象是可访问的(r 、w 和x的 某种组合),两个域中有10%的对象是可访问的， 剩下89%的对象只在唯一一个域中才可访问。
+假设需要一个单位的空间存储访问权 (r 、w 和x 的某种组合)、对象ID 或一个域ID。
+分别需要多 少空间存储全部的保护矩阵、作为访问控制表 的保护矩阵和作为能力表的保护矩阵?
+6.解释在下列操作过程中，哪种安全防护矩阵的 实现更为合适?
+(a) 赋予所有用户针对某一文件的读权限。
+(b) 撤销所有用户针对某一文件的写权限。
+(c) 赋予用户John 、Lisa 、Christie 和Jeff 针对某 一文件的写权限。
+================================================================================
+
+Chunk 48:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_959
+Source: bm25
+--------------------------------------------------------------------------------
+对象可以在地址空间中创建，并且保存在那里直到所有对它们 的引用消失，在此时它们可以自动被删除。
+这样的对象在地址空间中是永久的，甚至是在关机和重新启 动计算机的时候。
+有了64位的地址空间，在用光地址空间之前，可以用每秒100MB 的速率创建对象长达 5000年。
+当然，为了实际存储这么大量的数据，需要许多磁盘存储器用于分页交换，但是在历史上这是 第一次限制因素是磁盘，而不是地址空间。
+由于大量数目的对象在地址空间中，允许多个进程同时在相同的地址空间中运行，以便以一般的方式 共享对象就变得十分有趣了。
+这样的设计显然会通向与我们现在所使用的操作系统完全不同的操作系统。
+就64位地址而言，另一个必须重新思考的操作系统问题是虚拟内存。
+对于2⁴字节的虚拟地址空间 和8KB的页面，我们有2⁵¹个页面。
+常规的页表不能很好地按比例变换到这样的大小，所以需要别的东西。
+反转的页表是可行的，但是也有人提出了其他的想法(Talluri 等人，1995)。
+无论如何，64位操作系统 为新的研究提供了大量的余地。
+================================================================================
+
+Chunk 49:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_156
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3.4 交换式局域网与虚拟局域网技术
+3.4.1 交换式局域网技术
+1. 交换式局域网的基本概念
+交换机具有以下4个基本功能：
+· 建立和维护一个表示交换机端口号与 MAC 地址对应关系的映射表。
+· 在发送节点与接收节点端口之间建立虚连接。
+· 完成帧的过滤与转发。
+· 执行生成树协议，防止出现环路。
+2. 局域网交换机的工作原理
+交换式局域网的核心设备是交换机，它相当于局域网桥。
+网桥利用存储转发的方式实 现连接在不同缆段节点之间帧的交互；而交换机则利用集成电路交换芯片在多个端口之间 同时建立多个虚连接，实现多对端口之间帧的并发传输。
+图3-20给出了交换机结构与工作原理。
+其中的交换机有6个端口，其中端口1、4、5、6 分别连接节点A、B 与 C、D、E。
+端口/MAC 地址映射表(简称为端口转发表或地址表)记录 端口号与节点MAC 地址的对应关系。
+如果节点A 与 E 同时要发送数据，它们分别在帧的
+目的地址(DA) 字段填上目的地址。
+例如，节点A 要向节点D 发送帧，该帧的目的地址写入
+节 点D 的 MAC 地 址 0E1002000013; 节 点 E 要 向 节 点 B 发 送 ， 该 帧 的 目 的 地 址 写 入 节 点 B
+的 MAC 地址0C21002B0003 。
+节 点A、E 通过交换机端口1和6发送帧时，交换控制机构根 据端口转发表的对应关系找出对应的输出端口号，节点 A 将帧转发到端口5,发送给节点 D; 同时，节点E 将帧转发到端口4,发送给节点B。
+节 点A 向节点D、节点E 向节点B 同时 发送数据帧，而相互不干扰。
+交换机端口可以连接单一的节点，也可以连接交换机、集线器或路由器。
+例如，端口1 仅与节点A 连接，端口1是节点A 的独占端口；端口4通过集线器与节点 B、C 连接，则端 口4是节点 B、C 的共享端口。
+================================================================================
+
+Chunk 50:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_157
+Source: tfidf
+--------------------------------------------------------------------------------
+3. 端口转发表的建立与维护
+由于交换机根据端口转发表来转发帧，因此端口转发表的建立和维护十分重要。
+建立 和维护端口转发表需要解决两个问题： 一是交换机如何知道哪个节点连接到哪个端口；二
+计算机网络(第5版)
+0C21002B00031D01000300010E1002000013
+图3- 20 交换机结构与工作原理
+是当节点从交换机的一个端口转移到另一个端口时，交换机如何更新端口转发表。
+解决这 两个问题的基本方法是地址学习。
+4.交换机的交换方式
+交换机的交换方式主要有3种类型。
+1)直接交换方式
+在直接交换(cut through)方式中，交换机只要接收并检测到目的地址字段，就立即转 发该帧，而不进行差错校验。
+帧出错检测任务由节点完成。
+直接交换方式的优点是交换延 迟时间短。
+它的缺点是缺乏差错检测能力。
+2)存储转发交换方式
+在存储转发(store and forward)交换方式中，交换机首先完整地接收帧，并进行差错检 测。
+如果接收帧正确，则根据帧的目的地址选择对应的输出端口并转发。
+存储转发交换方 式的优点是：具有帧差错检测能力，支持不同输入速率与输出速率的端口之间的帧转发。
+它的缺点是交换延迟时间将会增长。
+数据链路层
+3)改进的直接交换方式
+改进的直接交换方式则将前两者相结合，在接收到帧的前64B 后，判断帧头字段是否 正确，如果正确就转发。
+对于短帧来说，改进的直接交换方式的交换延迟与直接交换方式接 近；对于长帧来说，由于仅对地址字段与控制字段进行差错检测，因此改进的直接交换方式 的交换延迟较小。
+图3-21给出了3种交换方式的比较。
+前导码 帧前定界符 目的地址 源地址 长度 数据 帧校验 直接交换方式---_
+改进的直接交换方式---
+存储转发交换方式--
+图3-21 3种交换方式的比较
+================================================================================
+
+Chunk 51:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_42
+Source: dense
+--------------------------------------------------------------------------------
+1.6.5 分组交换网中的延时
+1. 网络延时的概念
+分组交换网延时是指一个分组从源主机发出，经过分组交换网(或链路)到达目的主机
+计算机网络(第5版)
+在理想状态下，源主机(或路由器)发送的数据分组能够瞬间通过分组交换网到达目的 主机，因此分组传输没有延时，也不存在分组丢失与传输出错。
+显然，这在现实中是不可能 做到的。
+源主机发出的分组经过传输路径上的每个路由器转发时都会产生不同类型的延 时，这些延时主要包括以下4种：
+· 处理延时(nodal processing delay)。
+· 排队延时(queuing delay)。
+· 发送延时(transmission delay)。
+· 传播延时(propagation delay)。
+分组在网络中产生的总延时(total delay)等于以上4种延时的总和。
+这个过程和现实生活中的车辆在高速公路上行驶的情况相似。
+当人们开车进入一个收 费站时，第一步是车辆进入收费通道，收费站人员必须确定是否允许车辆进入高速公路。
+这 个过程相当于路由器在接收到分组时首先检查分组头中的目的地址、源地址及是否出现差 错。
+这个过程产生的延时相当于路由器的处理延时。
+第二步，当多个车辆通过收费站时，需 要排队缴费，也需要有一个等待时间。
+这个过程产生的延时相当于分组通过路由器等待发 送的排队延时。
+第三步，当收费站人员完成收费并允许车辆进入高速公路时，车辆才能通过 收费站入口驶入高速公路。
+这个过程产生的延时相当于路由器发送一个分组的发送延时。
+第四步，从一个收费站到下一个收费站，车辆需要行驶一段时间。
+这个过程需要的行驶时间 相当于分组从一个路由器通过传输介质传播到下一个路由器的传播延时。
+图1-26给出了分组通过一个路由器所产生的总延时。
+如果分别用dproc、dqueue、d trans与 dprop表示处理延时、排队延时、发送延时与传播延时，那么分组通过一个路由器所产生的总 延时 dtotal等于处理延时、排队延时、发送延时与传播延时之和。
+图1-26 分组通过一个路由器所产生的总延时
+================================================================================
+
+Chunk 52:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_198
+Source: dense
+--------------------------------------------------------------------------------
+4.2.2 交换
+交换结构位于一 台路由器的核心部位，因为正是通过这种交换结构，分组才能实际地 从一个输入端口交换(即转发)到一个输出端口中。
+交换可以用许多方式完成，如图4-6 所示。
+图 例 ：
+□ □ 血 输 入 端 口 □ 口输出端口
+图4-6 三种交换技术
+208
+第4章
+· 经内存交换。
+最简单、最早的路由器是传统的计算机，在输人端口与输出端口之 间的交换是在CPU (路由选择处理器)的直接控制下完成的。
+输入与输出端口的 功能就像在传统操作系统中的I/O 设备一样。
+一个分组到达一个输入端口时，该 端口会先通过中断方式向路由选择处理器发出信号。
+于是，该分组从输入端口处 被复制到处理器内存中。
+路由选择处理器则从其首部中提取目的地址，在转发表 中找出适当的输出端口，并将该分组复制到输出端口的缓存中。
+在这种情况下， 如果内存带宽为每秒可写进内存或从内存读出最多B 个分组，则总的转发吞吐量 (分组从输入端口被传送到输出端口的总速率)必然小于B/2 。
+也要注意到不能同 时转发两个分组，即使它们有不同的目的端口，因为经过共享系统总线一次仅能 执行一个内存读/写。
+许多现代路由器通过内存进行交换。
+然而，与早期路由器的一个主要差别是， 目的地址的查找和将分组存储(交换)进适当的内存存储位置是由输入线路卡来 处理的。
+在某些方面，经内存交换的路由器看起来很像共享内存的多处理器，用 一个线路卡上的处理将分组交换(写)进适当的输出端口的内存中。
+Cisco的 Cat- alyst 8500 系列的交换机 [Cisco 85002016] 是经共享内存转发分组的。
+●经总线交换。
+在这种方法中，输入端口经一根共享总线将分组直接传送到输出端 口，不需要路由选择处理器的干预。
+通常按以下方式完成该任务：让输入端口为 分组预先计划一个交换机内部标签(首部),指示本地输出端口，使分组在总线上 传送和传输到输出端口。
+该分组能由所有输出端口收到，但只有与该标签匹配的 端口才能保存该分组。
+然后标签在输出端口被去除，因为其仅用于交换机内部来 跨越总线。
+如果多个分组同时到达路由器，每个位于不同的输出端口，除了一个 分组外所有其他分组必须等待，因为一次只有一个分组能够跨越总线。
+因为每个 分组必须跨过单一总线，故路由器的交换带宽受总线速率的限制；在环状交叉路 的类比中，这相当于环状交叉路一次仅包含一辆汽车。
+================================================================================
+
+Chunk 53:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_199
+Source: tfidf
+--------------------------------------------------------------------------------
+因为每个 分组必须跨过单一总线，故路由器的交换带宽受总线速率的限制；在环状交叉路 的类比中，这相当于环状交叉路一次仅包含一辆汽车。
+尽管如此，对于运行在小 型局域网和企业网中的路由器来说，通过总线交换通常足够用了。
+Cisco 6500路由 器 [Cisco 65002016] 内部通过一个32Gbps 背板总线来交换分组。
+网络层：数据平面 209
+[Cisco 76002016]。
+更为复杂的互联网络使用多级交换元素，以使来自不同输入端口的分组通过 交换结构同时朝着相同的输出端口前行。
+对交换机体系结构的展望可参见 [Tobagi 1990] 。
+Cisco CRS利用了一种三级非阻塞交换策略。
+路由器的交换能力也 能够通过并行运行多种交换结构进行扩展。
+在这种方法中，输入端口和输出端口 被连接到并行运行的N 个交换结构。
+一个输入端口将一个分组分成K个较小的块， 并且通过N 个交换结构中的K 个发送(“喷射”)这些块到所选择的输出端口，输 出端口再将K个块装配还原成初始的分组。
+================================================================================
+
+Chunk 54:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_228
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+4.5 小 结
+在本章中，我们讨论了网络层的数据平面 ( data plane) 功能，即每台路由器的如下 功能：决定到达路由器的输入链路之一的分组如何转发到该路由器的输出链路之一。
+我们从仔细观察路由器的内部操作开始，学习输入和输出端口功能，以及基于目的地 的转发、路由器的内部交换机制、分组排队管理等等。
+我们涉及传统的IP 转发(其中转 发基于数据报的目的地址进行)和通用转发(其中转发和其他功能可以使用数据报首部中 的几个不同的字段值来进行),并且看到了后一种方法的多种用途。
+我们还详细地学习了 IPv4 和 IPv6 协议以及因特网编址，并对此有了更深入、更敏锐和更有趣的发现。
+借助于新得到的对网络层数据平面的理解，我们现在准备着手学习第5章中的网络层 控制平面 。
+复习题
+4 . 1节
+R1. 我们回顾在本书中使用的某些术语。
+前面讲过运输层的分组名字是报文段，数据链路层的分组名字 是帧。
+网络层的分组名字是什么?
+前面讲过路由器和链路层交换机都被称为分组交换机。
+路由器与 链路层交换机间的根本区别是什么?
+R2. 我们注意到网络层功能可被大体分成数据平面功能和控制平面功能。
+数据平面的主要功能是什么?
+控制平面的主要功能呢?
+R3. 我们对网络层执行的转发功能和路由选择功能进行区别。
+路由选择和转发的主要区别是什么?
+R4. 路由器中转发表的主要作用是什么?
+4.2节
+R6. 在4.2节中，我们看到路由器通常由输入端口、输出端口、交换结构和路由选择处理器组成。
+其中 哪些是用硬件实现的，哪些是用软件实现的?
+为什么?
+转到网络层的数据平面和控制平面的概念，
+哪些是用硬件实现的，哪些是用软件实现的?
+为什么?
+R7. 讨论为什么在高速路由器的每个输入端口都存储转发表的影子副本。
+R8. 基于目的地转发意味着什么?
+这与通用转发有什么不同(假定你已经阅读4.4节，两种方法中哪种 是软件定义网络所采用的)?
+R9. 假设一个到达分组匹配了路由器转发表中的两个或更多表项。
+================================================================================
+
+Chunk 55:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_229
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+R9. 假设一个到达分组匹配了路由器转发表中的两个或更多表项。
+采用传统的基于目的地转发，路由器 用什么原则来确定这条规则可以用于确定输出端口，使得到达的分组能交换到输出端口?
+R10. 在4.2节中讨论了三种交换结构。
+列出并简要讨论每一种交换结构。
+哪一种(如果有的话)能够跨 越交换结构并行发送多个分组?
+R11. 描述在输入端口会出现分组丢失的原因。
+描述在输入端口如何消除分组丢失(不使用无限大缓存区)。
+R12. 描述在输出端口会出现分组丢失的原因。
+通过提高交换结构速率，能够防止这种丢失吗?
+R13. 什么是HOL 阻塞?
+它出现在输人端口还是输出端口?
+网络层：数据平面 237
+R15. 举例说明为什么网络操作员要让一类分组的优先权超过另一类分组的。
+R16.RR 和 WFQ分组调度之间的基本差异是什么?
+存在RR 和 WFQ将表现得完全相同的场合吗?
+(提示：
+考虑WFQ权重。
+)
+4.3节
+R17. 假定主机 A向主机B 发送封装在一个IP 数据报中的TCP 报文段。
+当主机B 接收到该数据报时，主 机 B 中的网络层怎样知道它应当将该报文段(即数据报的有效载荷)交给TCP 而不是UDP 或某个 其他东西呢?
+R18. 在 IP 首部中，哪个字段能用来确保一个分组的转发不超过N 台路由器?
+R19. 前面讲过因特网检验和被用于运输层报文段(分别在图3-7和图3-29的 UDP 和TCP 首部中)以及 网络层数据报(图4-16的IP 首部中)。
+现在考虑一个运输层报文段封装在一个 IP 数据报中。
+在报 文段首部和数据报首部中的检验和要遍及IP 数据报中的任何共同字节进行计算吗?
+R20. 什么时候一个大数据报分割成多个较小的数据报?
+较小的数据报在什么地方装配成一个较大的数据报?
+R21. 路由器有IP 地址吗?
+如果有，有多少个?
+R22.IP 地址223.1.3.27的32比特二进制等价形式是什么?
+R24. 假设在一个源主机和一个目的主机之间有3台路由器。
+不考虑分片， 一个从源主机发送给目的主机
+的 IP 数据报将通过多少个接口?
+================================================================================
+
+Chunk 56:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_329
+Source: dense_bm25
+--------------------------------------------------------------------------------
+发 音 [Perlman 1999]。
+给出了交换机和路由器各自具有的优点 和缺点后(总结在表6- 1中),一个机构的 网络(例如，大学校园网或者公司园区网) 什么时候应该使用交换机，什么时候应该使
+对于交换网络和路由网络的优缺点的进一步讨论，以及如何能够将交换局域网技术扩 展为比今天的以太网容纳多两个数量级以上的主机，参见 [Meyers 2004;Kim 2008]。
+6.4.4 虚拟局域网
+在前面图6-15的讨论中，我们注意到现代机构的局域网常常是配置为等级结构的， 每个工作组(部门)有自己的交换局域网，经过一个交换机等级结构与其他工作组的交换 局域网互联。
+虽然这样的配置在理想世界中能够很好地工作，但在现实世界常常不尽如人 意。
+在图6-15中的配置中，能够发现3个缺点：
+●缺乏流量隔离。
+尽管该等级结构把组流量局域化到一个单一交换机中，但广播流 量(例如携带ARP 和 DHCP 报文或那些目的地还没有被自学习交换机学习到的 帧)仍然必须跨越整个机构网络。
+限制这些广播流量的范围将改善局域网的性能。
+也许更为重要的是，为了安全/隐私的目的也可能希望限制局域网广播流量。
+例 如，如果一个组包括公司的行政管理团队，另一个组包括运行着Wireshark 分组嗅 探器的心怀不满的雇员，网络管理员也许非常希望行政流量无法到达该雇员的主 机。
+通过用路由器代替图6-15中的中心交换机，能够提供这种类型的隔离。
+我们 很快看到这种隔离也能够经过一种交换(第二层)解决方案来取得。
+●交换机的无效使用。
+如果该机构不止有3个组，而是有10个组，则将要求有10 个第一级交换机。
+如果每个组都较小，比如说少于10个人，则单台96端口的交 换机将足以容纳每个人，但这台单一的交换机将不能提供流量隔离。
+●管理用户。
+如果一个雇员在不同组间移动，必须改变物理布线，以将该雇员连接 到图6-15中的不同的交换机上。
+属于两个组的雇员将使问题更为困难。
+幸运的是，这些难题中的每个都能够通过支持虚拟局域网 (Virtula Local Network, VLAN) 的交换机来处理。
+顾名思义，支持 VLAN 的交换机允许经一个单一的物理局域网 基础设施定义多个虚拟局域网。
+在一个VLAN 内的主机彼此通信，仿佛它们(并且没有其 他主机)与交换机连接。
+在一个基于端口的VLAN 中，交换机的端口(接口)由网络管 理员划分为组。
+每个组构成一个VLAN, 在每个VLAN中的端口形成一个广播域(即来自
+电气工程系 计算机科学系
+================================================================================
+
+Chunk 57:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_57
+Source: bm25
+--------------------------------------------------------------------------------
+第 1 章 计算机网络和因特网
+第 2 章 应用层
+第 3 章 运输层
+第 4 章 网络层：数据平面
+第 5 章 网络层：控制平面
+第 6 章 链路层和局域网
+第 7 章 无线网络和移动网络
+第 8 章 计算机网络中的安全
+第 9 章 多媒体网络
+复习题
+1 . 1节
+R3. 标准对于协议为什么重要?
+1.2节
+R4. 列出6种接入技术。
+将它们分类为住宅接入、公司接入或广域无线接入。
+R5.HFC 传输速率在用户间是专用的还是共享的?
+在下行HFC 信道中，可能出现碰撞吗?
+为什么?
+R6. 列出你所在城市中的可供使用的住宅接入技术。
+对于每种类型的接入方式，给出所宣称的下行速率、 上行速率和每月的价格。
+R7. 以 太LAN的传输速率是多少?
+R8. 能够运行以太网的一些物理媒体是什么?
+R9. 拨号调制解调器、HFC 、DSL和 FTTH都用于住宅接入。
+对于这些技术，给出每种技术的传输速率的 范围，并讨论它们的传输速率是共享的还是专用的。
+R10. 描述今天最为流行的无线因特网接入技术。
+对它们进行比较和对照。
+1 .3节
+R11. 假定在发送主机和接收主机间只有一台分组交换机。
+发送主机和交换机间以及交换机和接收主机间 的传输速率分别是R₁ 和 R₂ 。
+假设该交换机使用存储转发分组交换方式，发送一个长度为L 的分组 的端到端总时延是什么?
+(忽略排队时延、传播时延和处理时延。
+)
+R12. 与分组交换网络相比，电路交换网络有哪些优点?
+在电路交换网络中， TDM比 FDM 有哪些优点?
+R13. 假定用户共享一条2Mbps链路。
+同时假定当每个用户传输时连续以1Mbps传输，但每个用户仅传输 20%的时间。
+a. 当使用电路交换时，能够支持多少用户?
+b. 作为该题的后继问题，假定使用分组交换。
+为什么如果两个或更少的用户同时传输的话，在链 路前面基本上没有排队时延?
+为什么如果3个用户同时传输的话，将有排队时延?
+c. 求出某指定用户正在传输的概率。
+d. 假定现在有3个用户。
+求出在任何给定的时间，所有3个用户在同时传输的概率。
+求出队列增长 的时间比率。
+R14. 为什么等级结构中级别相同的两个ISP 通常互相对等?
+某IXP 是如何挣钱的?
+R15. 某些内容提供商构建了自己的网络。
+描述谷歌的网络。
+内容提供商构建这些网络的动机是什么?
+1.4节
+================================================================================
+
+Chunk 58:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_19
+Source: tfidf
+--------------------------------------------------------------------------------
+图的最下方归纳了三种交换方式在数据传 送阶段的主要特点：
+电路交换——整个报文的比特流连续地从源点直达终点，好像在一个管道中传送。
+报文交换——整个报文先传送到相邻节点，全部存储下来后查找转发表，转发到下一 个节点。
+分组交换——单个分组(这只是整个报文的一部分)传送到相邻节点，存储下来后查 找转发表，转发到下一个节点。
+图1-11 三种交换的比较。
+电路交换、报文交换、分组交换， P₁~P₄ 表示4个分组
+从图1-11 可看出，若要连续传送大量的数据，且其传送时间远大于连接建立时间，则 电路交换的传输速率较快。
+报文交换和分组交换不需要预先分配传输带宽，在传送突发数据 时可提高整个网络的信道⑨利用率。
+由于一个分组的长度往往远小于整个报文的长度，因此分 组交换比报文交换的时延小，同时也具有更好的灵活性。
+在过去很长的时期，人们都有这样的概念：电路交换适合于话音通信，而分组交换则 适合于数据通信。
+然而随着蜂窝移动通信的发展，这种概念已经发生了根本的变化。
+从第四 代蜂窝移动通信网开始，无论是话音通信还是数据通信，都要采用分组交换(见第9章9.3 节有关蜂窝移动通信网的讨论)。
+================================================================================
+
+Chunk 59:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_202
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+例如，可以构筑一个链 路速率较高的主干网和许多速率较低的区域网。
+每个区域网通过路由器连接到主干网。
+当在 一个区域内找不到目的站时，就通过路由器经过主干网到达另一个区域网，或者通过边界路 由器到别的自治系统中去查找。
+下面对这两类协议分别进行介绍。
+4.6.2 内部网关协议RIP
+1. 协议 RIP 的工作原理
+RIP(Routing Information Protocol)是内部网关协议IGP 中最先得到广泛 使用的协议[RFC 1058], 它的中文译名是路由信息协议。
+RIP 是一种分布式
+扫一扫
+视频讲解
+的基于距离向量的路由选择协议，是互联网的标准协议，其最大优点就是简单。
+RIP 协议要求网络中的每一个路由器都要维护从它自己到其他每一个目的网络的距离记 录(因此，这是一组距离，即“ 距离向量”)。
+协议RIP 将 “距离”定义如下：
+①注：这里的“距离”实际上指的是“最短距离”,但为方便起见往往省略“最短”二字。
+例如在前面的图4-7中，主机H₁ 经过5个路由器连接到另一个主机H₂, 中间经过了6 个网络或经过6跳。
+或者说，H₁ 到 H₂ 的距离是6。
+在图中并没有画出网络。
+在讨论路由选 择问题时，在主机和路由器之间或在路由器之间的网络，往往都用一条线段来表示。
+需要注 意的是，到直接连接的网络的距离也可定义为0。
+但这两种不同的定义对实现协议RIP 并无 影响，因为这对选择最佳路由的过程其实是一样的。
+RIP 不能在两个网络之间同时使用多条路由。
+RIP 选择一条具有最少网络数的路由(即 最短路由),哪怕还存在另一条高速(低时延)但网络数较多的路由。
+本节讨论的RIP 协议和下一节要讨论的OSPF 协议，都是分布式路由选择协议。
+它们的 共同特点就是每一个路由器都要不断地和其他一些路由器交换路由信息。
+我们一定要弄清以 下三个要点，即和哪些路由器交换信息?
+交换什么信息?
+在什么时候交换信息?
+协议RIP 的特点是：
+(1) 仅和相邻路由器交换信息。
+如果两个路由器之间的通信不需要经过另一个路由器， 那么这两个路由器就是相邻的。
+协议 RIP规定，不相邻的路由器不交换信息。
+(2)路由器交换的信息是当前本路由器所知道的全部信息，即自己现在的路由表。
+也就 是说，交换的信息是：“我到本自治系统中所有网络的(最短)距离，以及到每个网络应经 过的下一跳路由器”。
+(3) 按固定的时间间隔交换路由信息，例如，每隔30秒。
+================================================================================
+
+Chunk 60:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_228
+Source: dense
+--------------------------------------------------------------------------------
+2. 交换结构
+交换结构是路由器的关键构件[KURO17] 。
+正是这个交换结构把分组从一个输入端口转 移到某个合适的输出端口。
+实现这样的交换有多种方法，图4-57 给出了三种常用的交换方 法。
+输入端口是A,B 和 C, 输出端口是X,Y 和 Z。
+下面简单介绍它们的特点。
+最早使用的路由器就是利用普通的计算机，用计算机的 CPU 作为路由器的路由选择处 理机。
+路由器的输入和输出端口的功能和传统的操作系统中的I/O 设备一样。
+当路由器的某 个输入端口收到一个分组时，就用中断方式通知路由选择处理机。
+然后分组就从输入端口复 制到存储器中。
+路由器处理机从分组首部提取目的地址，查找路由表，再将分组复制到合适 的输出端口的缓存中。
+若存储器的带宽(读或写)为每秒 M 个分组，那么路由器的交换速 率(即分组从输入端口传送到输出端口的速率)一定小于M/2。
+这是因为存储器对分组的读
+和写需要花费的时间是同一个数量级。
+A X
+B
+C 2
+Ⅲ
+(a)通过存储器
+(b)通过总线
+A Ⅲ
+B Ⅲ
+Ⅲ
+X
+目
+(c)通过互连网络
+图4-57 三种常用的交换方法
+许多现代的路由器也通过存储器进行交换，图4-57(a) 的示意图表示分组通过存储器进 行交换。
+与早期的路由器的区别就是，目的地址的查找和分组在存储器中的缓存都是在输入 端口中进行的。
+思科(Cisco) 公司的Catalyst 8500系列交换机(有的公司把路由器也称为交换 机 )就采用了共享存储器的方法。
+图4 - 57(b) 是通过总线进行交换的示意图。
+采用这种方式时，数据报从输入端口通过共 享总线直接传送到合适的输出端口，而不需要路由选择处理机的干预。
+但是，由于总线是共 享的，因此在同一时间只能有一个分组在总线上传送。
+当分组到达输入端口时若发现总线忙 (因为总线正在传送另一个分组),则被阻塞而不能通过交换结构，并在输入端口排队等待。
+因为每一个要转发的分组都要通过这一条总线，因此路由器的转发带宽就受总线速率的限制。
+现代的技术已经可以将总线的带宽提高到能够满足小型企业网的需求。
+================================================================================
+
+Chunk 61:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_229
+Source: dense_bm25
+--------------------------------------------------------------------------------
+现代的技术已经可以将总线的带宽提高到能够满足小型企业网的需求。
+例如，思科公司的 6500路由器用来交换分组的背板总线速率已达到32 Gbit/s。
+图4- 57(c) 画的是通过纵横交换结构(crossbar switch fabric)进行交换。
+这种交换机构常称 为互连网络(interconnection network),它有2N条总线，可以使N 个输入端口和N个输出端 口相连接，这取决于相应的交叉节点是使水平总线和垂直总线接通还是断开。
+当输入端口收 到一个分组时，就将它发送到与该输入端口相连的水平总线上。
+若通向所要转发的输出端口 的垂直总线是空闲的，则在这个节点将垂直总线与水平总线接通，然后把该分组转发到这个 输出端口。
+例如，一个分组到达输入端口A, 应转发到输出端口Y。
+这时交换结构的控制器 就把总线A 和 Y 的交叉节点闭合，因此分组就从输入端口A 传送到了输出端口Y 。
+请注意， 如果与此同时还有一个分组要从输入端口B 转发到输出端口Z, 那么也可同时进行，因为A →Y 和 B→Z的转发是使用不同的总线的转发。
+和前两种交换机制不同，这种纵横交换结构 是一种无阻塞的交换结构，其特点是分组可以转发到任何一个输出端口，只要这个输出端口 没有被别的分组占用。
+如果这个输出端口(即对应的垂直总线)已被占用(有另 一个分组正
+在转发到同一个输出端口),那么后到达的分组就必须在输入端口排队等待。
+采用这种交换 方式的路由器例子如思科公司的12000系列交换路由器，其互连网络的速率达60 Gbit/s。
+================================================================================
+
+Chunk 62:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_46
+Source: bm25
+--------------------------------------------------------------------------------
+在这些网络之间的通信协议(即通信规则)可以是任意的。
+· 以大写字母 I 开始的 Internet (互联网)是专用名词，它指当前全球最大的、开放 的、由众多网络相互连接而成的特定计算机网络，并采用 TCP/IP 协议族作为通信 规则，且其前身是美国的 ARPANET 。
+Internet 的推荐译名是“因特网”,但很少被 使用 。
+· 互联网现在采用存储转发的分组交换技术以及三层ISP 结 构 。
+· 互联网按工作方式可划分为边缘部分与核心部分。
+主机在网络的边缘部分，其作 用是进行信息处理。
+路由器在网络的核心部分，其作用是按存储转发方式进行分 组交换 。
+· 按作用范围的不同，计算机网络分为广域网WAN、城域网MAN、局域网LAN 和 个 人 区 域 网PAN。
+· 计算机网络最常用的性能指标是：速率、带宽、吞吐量、时延(发送时延、传播时 延、处理时延、排队时延)、时延带宽积、往返时间和信道(或网络)利用率。
+· 网络协议即协议，是为进行网络中的数据交换而建立的规则。
+计算机网络的各层及 其协议的集合，称为网络的体系结构。
+· 五层协议的体系结构由应用层、运输层、网络层(或网际层)、数据链路层和物理 层组成。
+运输层最重要的协议是 TCP 和 UDP 协议，而网络层最重要的协议是 IP 协议 。
+习 题
+1-02 试简述分组交换的要点。
+1-03 试从多个方面比较电路交换、报文交换和分组交换的主要优缺点。
+1-05 互联网基础结构的发展大致分为哪几个阶段?
+请指出这几个阶段最主要的特点。
+1-06 简述互联网标准制定的几个阶段。
+1-07 小写和大写开头的英文名字internet 和Internet 在意思上有何重要区别?
+1-08 计算机网络都有哪些类别?
+各种类别的网络都有哪些特点?
+1-09 计算机网络中的主干网和本地接入网的主要区别是什么?
+1-10 试在下列条件下比较电路交换和分组交换。
+要传送的报文共x(bit) 。
+从源点到终点共
+1-11 在上题的分组交换网中，设报文长度和分组长度分别为x 和(p+h)(bit), 其中p 为分
+================================================================================
+
+Chunk 63:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_492
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+RTS/CTS 是强制使用还是选择使用?
+请说明理由。
+9-10 为什么在无线局域网上发送数据帧后，要求对方必须发回确认帧，而以太网就不需
+要对方发回确认帧?
+9-11 无线局域网的MAC 协议中的SIFS 和 DIFS 的作用是什么?
+9-12 试解释无线局域网中的名词：BSS,ESS,AP,BSA,DCF,PCF 和 NAV。
+9-14 为什么站点在检测到信道空闲后，在等待时间 DIFS 内还不能立即发送数据?
+为什么
+在等待时间DIFS 后，有时可立即发送数据，而有时必须执行退避算法?
+9-15 试用简单的例子说明无线局域网的MAC 帧首部中地址3的作用。
+9-16 试比较IEEE 802.3 和 IEEE 802.11局域网，找出它们之间的主要区别。
+9-17 无线个人区域网WPAN的主要特点是什么?
+现在已经有了什么标准?
+9-18 试举例说明怎样知道一个用作无线路由器的接入点AP 的 SSID 和 BSSID?
+9-19 第二代蜂窝移动通信网与第一代蜂窝移动通信网的主要区别是什么?
+第三代蜂窝移
+动通信网与第二代蜂窝移动通信网的主要区别是什么?
+9-20 第四代蜂窝移动通信网与第三代蜂窝移动通信网的主要区别是什么?
+9-21 我们在第1章中就讲过，电路交换适合于话音通信，分组交换适合于数据通信。
+为
+什么现在第四代蜂窝移动通信网LTE 全部使用分组交换进行话音通信和数据通信?
+路径的分组首部中的目的地址和源地址。
+9-23 在蜂窝移动通信网中，移动站的漫游所产生的切换，对正在工作的 TCP 连接有什么
+影响?
+9-24 某餐馆中有两个ISP 分别设置了接入点AP₁ 和 AP₂, 并且都使用802.11b 协议。
+两个
+ISP 都分别有自己的IP 地址块。
+(1)假定两个ISP 在配置其接入点时都选择了信道11。
+如果有用户 A 和 B 分别使用 接入点AP₁ 和 AP₂, 那么这两个无线网络能够正常工作吗?
+(2)若这两个AP 一个工作在信道1,而另一个工作在信道11,题目的答案有变化吗?
+9-25 为什么采用预约信道的方法可以较好地解决隐蔽站的问题?
+================================================================================
+

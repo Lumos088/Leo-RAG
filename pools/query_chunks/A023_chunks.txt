@@ -1,0 +1,1859 @@
+Query: A023
+Total chunks: 70
+================================================================================
+
+Chunk 1:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_413
+Source: dense
+--------------------------------------------------------------------------------
+路由算法是网络层软件的一部分，它负责确定一个进来的分组应该被传送到哪条输出线路 上。
+路由算法负责填充和更新路由表，转发功能则根据路由表的内容来确定当每个分组到来时应 该采取什么动作(如从哪个端口转发出去。
+03.【解答】
+1)以太网交换机(无VLAN 功能)连接的若干LAN 仍然是一个网络(同一个广播域),路 由器可以连接不同的LAN 、不同的WAN 或把 WAN 和 LAN 互连起来，隔离了广播域。
+IP 地址192.168.1.2/26与192.168.1.3/26的网络前缀均为192.168.1.0,视为LAN1。
+IP 地 址192.168.1.66/26与192.168.1.67/26的网络前缀均为192.168.1.64,视为LAN2。
+所以设 备1为路由器，设备2、3为以太网交换机。
+2)设备1为路由器，其接口应配置IP 地址。
+IF1 接口与路由器 R 相连，其相连接口的IP 地
+址为192.168.1.253/30,253的二进制表示形式为11111101,因此IF1 接口的网络前缀也 应为：192.168.1.11111 ,已分配192. 168. 1.253,去除全0全1,IF1 接口的 IP 地址应为
+192.168.1.254。
+LAN1 的默认网关为192.168.1.1,LAN2 的默认网关为192.168.1.65,网 关的IP 地址是具有路由功能的设备的IP 地址，通常默认网关地址就是路由器中的 LAN 端口地址，设备1的IF2、IF3接口的IP 地址分别设置为192.168.1.1和192.168.1.65。
+4)主机H3 发送一个目的地址为192.168.1.127的IP 数据报，主机号全为1,为本网络的广 播地址，由于路由器可以隔离广播域，只有主机H4 会接收到数据报。
+================================================================================
+
+Chunk 2:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1056
+Source: dense
+--------------------------------------------------------------------------------
+In- stead of sweeping in one direction across the disk, the algorithm sweeps from outer-to-inner, and then inner-to-outer, etc.
+For reasons that should now be obvious, this algorithm (and its vari- ants) is sometimes referred to as the elevator algorithm, because it be- haves like an elevator which is either going up or down and not just ser- vicing requests to Aoors based on which Aoor is closer.
+Imagine how an- noying it would be if you were going down from Aoor 10 to 1, and some- body got on at 3 and pressed 4, and the elevator went up to 4 because it was “closer” than 1!
+As you can see, the elevator algorithm, when used in real life, prevents ﬁghts from taking place on elevators.
+In disks, it just prevents starvation.
+Unfortunately, SCAN and its cousins do not represent thebest schedul- ing technology.
+================================================================================
+
+Chunk 3:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1107
+Source: tfidf
+--------------------------------------------------------------------------------
+Sequential read performance can utilize all of the disks except for the parity disk, and thus deliver a peak effective bandwidth of (N — 1) · S MB/s (an easy case).
+To understand the performance of sequential writes, we must ﬁrst un- derstand how they are done.
+When writing a big chunk of data to disk,
+RAID-4 can perform a simple optimization known as a full-stripe write.
+For example, imagine the case where the blocks 0, 1, 2, and 3 have been sent to the RAID as part of a write request (Table 38.4).
+Disk 0 Disk 1 Disk 2 Disk 3 Disk 4 0 1 2 3 P0 4 5 6 7 P1 8 9 10 11 P2 12 13 14 15 P3
+Table 38.4: Full-stripe Writes In RAID-4
+In this case, the RAID can simply calculate the new value of P0 (by performing an XOR across the blocks 0, 1, 2, and 3) and then write all of the blocks (including the parity block) to the ﬁve disks above in parallel (highlighted in gray in the ﬁgure).
+================================================================================
+
+Chunk 4:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_185
+Source: tfidf
+--------------------------------------------------------------------------------
+Figure 7.2: Why FIFO Is Not That Great
+As you can see in Figure 7.2, Job A runs ﬁrst for the full 100 seconds before B or C even get a chance to run.
+Thus, the average turnaround time for the system is high: a painful 110 seconds ( = 110).
+This problem is generally referred to as the convoy effect [B+79], where a number of relatively-short potential consumers of a resource get queued behind aheavyweight resource consumer.
+This scheduling scenario might remind you of a single line at a grocery store and what you feel like when
+you see the person in front of you with three carts full of provisions and a checkbook out; it’s going to be a while2 .
+So what should we do?
+How can we develop a better algorithm to deal with our new reality of jobs that run for different amounts of time?
+Think about it ﬁrst; then read on.
+================================================================================
+
+Chunk 5:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_269
+Source: tfidf
+--------------------------------------------------------------------------------
+The idea behind tem- poral locality is that when a piece of data is accessed, it is likely to be accessed again in the near future; imagine variables or even instructions themselves being accessed over and over again in a loop.
+The idea be- hind spatial locality is that if a program accesses a data item at address x, it is likely to access data items near x as well; here, think of a program streaming through an array, or instructions being executed one after the other.
+Because locality of these types exist in many programs, hardware systems can make good guesses about which data to put in a cache and thus work well.
+Now for the tricky part: what happens when you have multiple pro- cessors in a single system, with a single shared main memory, as we see in Figure 10.2?
+As it turns out, caching with multiple CPUs is much more compli- cated.
+================================================================================
+
+Chunk 6:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_312
+Source: tfidf
+--------------------------------------------------------------------------------
+The program, while it is running, uses a stack to keep track of where it is in the function call chain as well as to allocate local variables and pass parameters and return values to and from routines.
+Finally, the heap is used for dynamically-allocated, user-managed memory, such as that you might receive from a call to malloc() in C or new in an object- oriented language such as C++ or Java.
+Of course, there are other things in there too (e.g., statically-initialized variables), but for now let us just assume those three components: code, stack, and heap.
+In the example in Figure 13.3, we have a tiny address space (only 16 KB)1 .
+The program code lives at the top of the address space (starting at 0 in this example, and is packed into the ﬁrst 1K of the address space).
+================================================================================
+
+Chunk 7:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_46
+Source: tfidf
+--------------------------------------------------------------------------------
+Another main theme of this book is concurrency.
+We use this concep- tual term to refer to a host of problems that arise, and must be addressed, when working on many things at once (i.e., concurrently) in the same program.
+The problems of concurrency arose ﬁrst within the operating system itself; as you can see in the examples above on virtualization, the OS is juggling many things at once, ﬁrst running one process, then an- other, and so forth.
+As it turns out, doing so leads to some deep and interesting problems.
+5For this example to work, you need to make sure address-space randomization is dis- abled; randomization, as it turns out, can be a good defense against certain kinds of security Aaws.
+Read more about it on your own, especially if you want to learn how to break into computer systems via stack-smashing attacks.
+Not that we would recommend such a thing...
+1 #include <stdio .h>
+================================================================================
+
+Chunk 8:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_467
+Source: tfidf
+--------------------------------------------------------------------------------
+We also might have protection bits, indicating whether the page could be read from, written to, or executed from.
+Again, accessing a page in a way not allowed by these bits will generate a trap to the OS.
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+Figure 18.5: An x86 Page Table Entry (PTE)
+There are a couple of other bits that are important but we won’t talk about much for now.
+A present bit indicates whether this page is in phys- ical memory or on disk (swapped out); we will understand this in more detail when we study how to move parts of the address space to disk and back in order to support address spaces that are larger than physical memory and allow for the pages of processes that aren’t actively being run to be swapped out.
+A dirty bit is also common, indicating whether the page has been modiﬁed since it was brought into memory.
+================================================================================
+
+Chunk 9:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_474
+Source: tfidf
+--------------------------------------------------------------------------------
+Figure 18.6 shows the basic approach.
+For every memory reference (whether an instruction fetch or an explicit load or store), paging requires us to perform one extra memory reference in order to ﬁrst fetch the translation from the page table.
+That is a lot of work!
+Extra memory references are costly, and in this case will likely slow down the process by a factor of two or more.
+And now you can hopefully see that there are two real problems that we must solve.
+Without careful design of both hardware and software, page tables will cause the system to run too slowly, as well as take up too much memory.
+While seemingly a great solution for our memory virtualization needs, these two crucial problems must ﬁrst be overcome. 18.4 A Memory Trace
+Before closing, we now trace through a simple memory access exam- ple to demonstrate all of the resulting memory accesses that occur when using paging.
+================================================================================
+
+Chunk 10:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_51
+Source: tfidf
+--------------------------------------------------------------------------------
+Then, when we run the program a second time, we not only again get the wrong value, but also a different value than the last time.
+In fact, if you run the program over and over with high values of loops, you may ﬁnd that sometimes you even get the right answer!
+So why is this happening?
+As it turns out, the reason for these odd and unusual outcomes relate to how instructions are executed, which is one at a time.
+Unfortunately, a key part of the program above, where the shared counter is incremented, takes three instructions: one to load the value of the counter from mem- ory into a register, one to increment it, and one to store it back into mem- ory.
+Because these three instructions do not execute atomically (all at once), strange things can happen.
+It is this problem of concurrency that we will address in great detail in the second part of this book.
+1 #include <stdio .h>
+================================================================================
+
+Chunk 11:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_515
+Source: tfidf
+--------------------------------------------------------------------------------
+One common approach is to evict the least-recently-used or LRU entry.
+The idea here is to take advantage of locality in the memory-reference stream; thus, it is likely that an entry that has not recently been used is a good candidate for eviction as (perhaps) it won’t soon be referenced again.
+Another typical approach is to use a random policy.
+Randomness sometimes makes abad decision but has the nice property that there are not any weird corner case behaviors that can cause pessimal behavior, e.g., think of a loop accessing n+ 1 pages, a TLB of size n, and an LRU replacement policy.
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+Figure 19.4: A MIPS TLB Entry
+================================================================================
+
+Chunk 12:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_53
+Source: tfidf
+--------------------------------------------------------------------------------
+Thus, we need hardware and software to be able to store data persistently; such storage is thus critical to any system as users care a great deal about their data.
+The hardware comes in the form of some kind of input/output or I/O device; in modern systems, a hard drive is a common repository for long- lived information, although solid-state drives (SSDs) are making head- way in this arena as well.
+The software in the operating system that usually manages the disk is called the ﬁle system; it is thus responsible for storing any ﬁles the user creates in a reliable and efﬁcient manner on the disks of the system.
+Unlike the abstractions provided by the OS for the CPU and memory, the OS does not create a private, virtualized disk for each application.
+Rather, it is assumed that often times, users will want to share informa- tion that is in ﬁles.
+================================================================================
+
+Chunk 13:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_539
+Source: tfidf
+--------------------------------------------------------------------------------
+In our hybrid, we still have those structures in the MMU; here, we use the base not to point to the segment itself but rather to hold the physical address of the page table of that segment.
+The bounds register is used to indicate the end of the page table (i.e., how many valid pages it has).
+Let’s do a simple example to clarify.
+Assume a 32-bit virtual address space with 4KB pages, and an address space split into four segments.
+We’ll only use three segments for this example: one for code, one for heap, and one for stack.
+To determine which segment an address refers to, we’ll use the top two bits of the address space.
+Let’s assume 00 is the unused segment, with 01 for code, 10 for the heap, and 11 for the stack.
+Thus, a virtual address looks like this:
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+================================================================================
+
+Chunk 14:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_540
+Source: tfidf
+--------------------------------------------------------------------------------
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+In the hardware, assume that there are thus three base/bounds pairs, one each for code, heap, and stack.
+When a process is running, the base register for each of these segments contains the physical address of a lin- ear page table for that segment; thus, each process in the system now has three page tables associated with it.
+On a context switch, these registers must be changed to reAect the location of the page tables of the newly- running process.
+On a TLB miss (assuming a hardware-managed TLB, i.e., where the hardware is responsible for handling TLB misses), the hardware uses the segment bits (SN) to determine which base and bounds pair to use.
+The hardware then takes the physical address therein and combines it with the VPN as follows to form the address of the page table entry (PTE):
+================================================================================
+
+Chunk 15:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_575
+Source: tfidf
+--------------------------------------------------------------------------------
+In general, the characteristics of such a location are that it should have more capacity than memory; as a result, it is generally slower (if it were faster, we would just use it as memory, no?).
+In modern systems, this role is usually served by a hard disk drive.
+Thus, in our memory hierarchy, big and slow hard drives sit at the bottom, with memory just above.
+And thus we arrive at the crux of the problem:
+One question you might have: why do we want to support a single large address space for a process?
+Once again, the answer is convenience and ease of use.
+With a large address space, you don’t have to worry about if there is room enough in memory for your program’s data struc- tures; rather, you just write the program naturally, allocating memory as needed.
+It is a powerful illusion that the OS provides, and makes your life vastly simpler. You’re welcome!
+================================================================================
+
+Chunk 16:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_685
+Source: tfidf
+--------------------------------------------------------------------------------
+We have also seen how to create the illusion of a large, private virtual memory for each process; this abstrac- tion of the address space enables each program to behave as if it has its own memory when indeed the OSis secretly multiplexing address spaces across physical memory (and sometimes, disk).
+In this note, we introduce a new abstraction for a single running pro- cess: that of a thread.
+Instead of our classic view of a single point of execution within a program (i.e., a single PC where instructions are be- ing fetched from and executed), a multi-threaded program has more than one point of execution (i.e., multiple PCs, each of which is being fetched and executed from).
+Perhaps another way to think of this is that each thread is very much like a separate process, except for one difference: they share the same address space and thus can access the same data.
+================================================================================
+
+Chunk 17:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_838
+Source: tfidf
+--------------------------------------------------------------------------------
+The idea is to allocate all potentially needed memory before doing any of the work, thus avoiding failure deep down in the storage stack. Condition Variables
+Thus far we have developed the notion of a lock and seen how one can be properly built with the right combination of hardware and OS support.
+Unfortunately, locks are not the only primitives that are needed to build concurrent programs.
+In particular, there are many cases where a thread wishes to check whether a condition is true before continuing its execution.
+For example, a parent thread might wish to check whether a child thread has completed before continuing (this is often called a join()); how should such a wait be implemented?
+Let’s look at Figure 30.1.
+1 void *child(void *arg) {
+2 printf("child\n");
+3 // XXX how to indicate we are done? 4 return NULL; 5 } 6
+7 int main(int argc, char *argv[]) {
+================================================================================
+
+Chunk 18:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_108
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+8. 在链表的 add 方法中，颠倒两个步骤的执行顺序会是什么结果?
+引用的结果会是怎样 的?
+会出现什么问题?
+9. 假设需要移除链表中的最后一个节点，解释如何实现 remove 方法。
+10. 假设链表只有一个节点，解释如何实现 remove 方法。
+11. 修改从中序到后序的转换算法，使其能处理异常情况。
+12. 修改计算后序表达式的算法，使其能处理异常情况。
+13. 结合从中序到后序的转换算法以及计算后序表达式的算法，实现直接的中序计算。
+在计 算时，应该使用两个栈从左往右处理中序表达式标记。
+一个栈用于保存运算符，另一个 用于保存操作数。
+================================================================================
+
+Chunk 19:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_54
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2.2.1 大O 记法
+当我们试图摆脱程序或计算机的影响来描述算法的效率时，对算法的操作或步骤进行量化非 常重要。
+如果将每一个步骤看成基本计算单位，那么算法的执行时间就可以表述为解决问题所需 的步骤数。
+确定合适的基本计算单位很复杂，也依赖算法的实现。
+行次数)。
+我们可以将其定义成函数T, 令 T(n)=1+n。
+参数n 常被称作问题规模，可以将函数 解读为“当问题规模为n 时，解决问题所需的时间是T(n), 即需要1+n 步”。
+计算机科学家将分析向前推进了一步。
+精确的步骤数并不是在T(n)函数中起主导作用的因 素。
+也就是说，随着问题规模的增长， T(n) 函数的某一部分会比其余部分增长得更快。
+而起主 导作用的部分最后会被用于比较。
+数量级函数描述的是在n 增长时， T(n)增长最快的部分。
+数量 级 (order of magnitude)常被称作大O 记法( 0 指order), 记 作O(f(n)。
+它提供了计算所需实 际步骤数的一个近似值。
+f(n) 函数为T(n) 函数中起主导作用的部分提供了简单的表示。
+对于T(n)=1+n, 随着n 越来越大，常数1对最终结果的影响越来越小。
+如果要给出T(n) 的 近似值，可以舍去1,直接说执行时间是O(n) 。
+注意，1对于T(n) 来说是重要的。
+但是随着n的 增长，近似值在没有1的情况下也很精确。
+再举个例子，假设某算法的步骤数是T(n)=5n²+27n+1005 。
+当 n 很小时，例如1或2,常 数1005看起来是这个函数中起主导作用的部分。
+然而，随着n 增 长 ，n² 变得更重要。
+实际上， 当n 很大时，另两项的作用对于最终结果来说就不显著了，因此可以忽略后两项而只关注5n²。
+另外，当n 变大时，系数5的作用也不显著了。
+因此可以说，函数T(n)的数量级是f(n)=n². 或 者说是O(n²)。
+在学习算法的过程中，表2-1所示的函数会经常出现。
+为了判断哪一个才是T(n) 的主导部分， 我们必须了解它们在n 变大时彼此有多大差别。
+表2-1常见的大O函数
+================================================================================
+
+Chunk 20:
+Doc ID: Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_57
+Source: dense
+--------------------------------------------------------------------------------
+对算法进行分析时需要注意s1 中 的n 个字符，检查每一个时都需要遍历s2 中 的n 个字符。
+要匹配 s1 中的一个字符，列表中的n 个位置都要被访问一次。
+因此，访问次数就成了从1到n 的整数之和，这可以用以下公式来表示。
+当n 变大时，起主导作用的是n², 而 可以忽略。
+所以，这个方案的时间复杂度是O(n²)。
+2.方案2:排序比较法
+尽管s1 与 s2 是不同的字符串，但只要由相同的字符构成，它们就是异序词。
+基于这一点， 如果我们按照字母表顺序给字符排序，所有异序词字符串得到的结果将会是同一个字符串。
+代码 清单2-7给出了这个方案的实现代码。
+在Python 中，我们可以先将字符串转换为列表，然后使用 内建的sort 方法对列表排序。
+代码清单2-7 排序比较法
+a_list_ 1=list(s1)
+a_list_2=list(s2)
+5 a_list_1.sort()
+6 a_list_2.sort() 7
+8 pos =0
+9 matches =True 10
+11 while pos<len(s1)and matches:
+12 if a_list_1[pos]==a_list_2[pos]:
+13 pos =pos +1
+14 else:
+15 matches =False 16
+17 return matches
+乍看之下，由于在排序之后只需要遍历一次就可以比较n 个字符，因此这个算法的时间复杂 度像是O(n) 。
+然而，调用两次sort 方法会花费时间。
+我们在第5章中会看到，排序的时间复杂 度基本上是O(n²) 或O(nlogn), 因此排序操作起主导作用。
+也就是说，该算法和排序运算的数量 级相同。
+3.方案3:暴力法
+用暴力解决问题的方法基本上就是穷尽所有的可能。
+对于异序词检测问题而言，可以用 s1 中的字符生成所有可能的字符串，看看 s2 是否在其中。
+但这个方法有个问题。
+用 s1 中的字符 生成所有可能的字符串时，第1个字符有n 种可能，第2个字符有n-1 种可能，第3个字符有n-2 种可能，依次类推。
+================================================================================
+
+Chunk 21:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_126
+Source: dense
+--------------------------------------------------------------------------------
+3.2.5 二 次 函 数
+另一个经常出现在算法分析中的函数是二次函数，
+f(n)=n²
+即，给定输入值n, 函 数f 的值为n 与自身的乘积(即 “n 的平方”)。
+二次函数用在算法分析中的主要原因是，许多算法中都有嵌套循环，其中内存循环执行 一个线性操作数，外层循环则表示执行线性操作数的次数。
+因此，在这个情况下，算法执行 了n ·n=n² 个操作。
+嵌套循环和二次函数
+二次函数也可能出现在嵌套循环中，第一次循环迭代使用的操作数为1,第二次为2, 第三次为3,等等。
+即操作数为
+1+2+3+…+(n-2)+(n-1)+n
+1787年， 一个德国教师让9～10岁大的小学生计算从1～100所有整数之和。
+立刻有 一个孩子说自己已经有答案了!
+老师很怀疑，因为这个孩子的答题板上只有一个答案。
+但 是，他的答案5050却是正确的。
+这个孩子长大后成了那个时代最伟大的数学家之一，他就 是卡尔 · 高斯。
+我们推测年轻的高斯用了下面的恒等式。
+命题3-3:对于任何一个整数n≥1, 我们有：
+图3-3中所示即为命题3-3的两个“可视化”的证明。
+a) b)
+================================================================================
+
+Chunk 22:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_136
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3.3.2 比较分析
+假设有两个算法都能解决同一个问题：一个算法A, 其运行时间为0(n); 另一个算法 B, 其运行时间O(n²) 。
+哪一个算法更好呢?
+我们知道n 是 O(n²), 这就意味着算法A 比算法
+B 更具有渐近性，虽然当n 的值较小时，算法B 的运行时间可能低于A。
+我们使用大O 符号依据渐近增长率来为函数排序。
+在下面的序列中，我们将7个函数 按升序排序，即，假如函数f(n) 在函数g(n) 之前，那么f(n) 就 是O(g(n)):1,log n,n,n log n,n²,n³,2”。
+我们举例说明一下表3-2中7个函数的增长速率(也可以参考3.2.1节的图3-4)。
+表3-2从基本函数的算法分析中选择的值
+在表3-3中，我们进一步举例说明渐近观点的重要性。
+该表探讨了允许一个输入实例的 最大值，该实例由某个算法分别运行在1秒、1分钟和1小时的时候产生。
+该表显示了一个 好的算法设计的重要性：缓慢渐近算法由于运行时间长从而被快速渐近算法所击败，尽管常 数因子对于快速渐近算法而言可能更糟。
+表3-3 对于以微秒为单位的不同运行时间，一个问题分别在1秒、1分钟和1小时所 能解决的最大问题量
+表3-4 在固定的时间，利用一台比以往计算机快256倍的计算机，(显示出)新的可供 解决的最大问题量。
+每一个条目都是一个先前m倍的函数
+一些注意事项
+这里就渐近符号做一些提醒。
+首先，注意大0符号和其他符号在使用时可能会被误导， 因为它们“隐藏”的常数因子可能非常大。
+例如，虽然函数101⁰0n 是 O(n)是，但与运行时
+间为10n log n的算法相比，虽然线性算法渐近速度更快，我们可能更倾向于选择运行时间 为O(n log n)的算法。
+之所以这样，是因为常数10100被称为“天文数字”,在观测宇宙时， 许多天文学家一致认为该数字是原子数目的上限。
+所以，我们不可能得到一个像输入大小一 样大的现实问题，因此，在使用大0符号时，我们应该注意被“隐藏”的常数因子和低阶 项。
+上述观测引发了这样的问题：什么是“快速”算法。
+================================================================================
+
+Chunk 23:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_137
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+上述观测引发了这样的问题：什么是“快速”算法。
+一般来说，任何算法的运行时间为 O(n log n)(在给定一个合理的常数因子的情况下),都应被认为是高效的，甚至运行时间为 O(n²) 的算法在一些情形下，比如n 很小时，也被认为是快速的。
+但如果算法的运行时间为 O(2"), 则大多数情况不会被认为是高效的。
+指数运行时间
+有一个著名的关于国际象棋发明者的故事。
+他要求国王在象棋的第一个格只需支付1粒 米，第二格2粒，第三格4粒，第四格8粒，以此类推。
+如果使用编程技巧编写一个程序来 精确计算国王应支付的米粒数量，这将会是一个有趣的测试。
+如果必须在高效和不高效算法之间划清界限，那么很自然，多项式运行时间和指数运行 时间将会是一个明显的区别。
+也就是说，区分运行时间O(n) 是否为快速算法，只需看常数 c 是否满足c>1; 区分运行时间O(b") 是否为快速算法，只需看常数b 是否满足b>1 。
+本节 讨论的许多概念也应该看作“盐粒”,因为运行时间为O(n¹) 的算法可能不被认为是“高效” 的。
+即便如此，多项式运行时间和指数运行时间的区别仍被认为是健壮易处理的方式。
+================================================================================
+
+Chunk 24:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_162
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+4.1.3 二分查找
+本节将介绍一个典型的递归算法——二分查找。
+该算法用于在一个含有n 个元素的有序
+序列中有效地定位目标值。
+这是最重要的计算机算法之一，也是我们经常顺序存储数据(见
+图4-4)的原因。
+0 1 2 3 4 56 7 8 9 101112131415
+图4-4 值以索引序列顺序存储，比如Python 列表，顶部的数字是索引
+当序列无序时，寻找一个目标值的标准方法是使用循环来检查每一个元素，直至找到目 标值或检查完数据集的每个元素。
+这就是所谓的顺序查找算法。
+因为最坏的情况下每个元素 都需要检查，这个算法的时间复杂度是O(n) (即线性的时间)。
+当序列有序并且可通过索引访问时，有一个更有效的算法(直觉上，想想你如何手工完 成这个任务!
+)。
+对于任意索引j, 我们知道在索引0, … ,j-1 上存储的所有值都小于索引 j 上的值，并且在索引j+1,…,n-1 上存储的所有值都大于或等于索引j 上的值。
+在搜索 目标时，这种观察使我们能够迅速定位目标值。
+在查找时，如果不能排除一个元素与目标值 相匹配，那么称序列的这个元素为候选项。
+该算法维持两个参数low 和 high, 这样可使所有 候选条目的索引位于low 和 high 之间。
+首先，low=0 和 high=n-1。
+然后我们比较目标值 和中间值候选项，即索引项[mid] 的数据。
+mid=L(low+high)/2」
+考虑以下三种情况：
+●如果目标值等于[mid] 的数据，然后找到正在寻找的值，则查找成功并且终止。
+● 如果目标值<[mid] 的数据，对前半部分序列重复这一过程，即索引的范围从low 到
+mid-1。
+● 如果目标值>[mid] 的数据，对后半部分序列重复这一过程，即索引的范围从mid+
+1 到high。
+如果low>high, 说明索引范围[low,high] 为空，则查找不成功。
+该算法被称为二分查找。
+代码段4-3给出了一个Python 实例，其算法执行过程的说 明如图4-5所示。
+================================================================================
+
+Chunk 25:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_167
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+4.2 分析递归算法
+在第3章中，我们介绍了一种分析算法效率的数学方法，该方法基于算法执行的基本 操作次数的估计值。
+我们使用符号(比如 big-Oh) 来概括操作次数和问题输入大小之间的关 系。
+本节将演示如何执行这种类型的递归算法的时间复杂度分析。
+对于递归算法，我们将解释基于函数的特殊激活并且被执行的每个操作，该函数在被执 行期间管理控制流。
+换句话说，对于每次函数调用，我们只解释被调用的主体内执行的操作 的数目。
+然后，通过在每个单独调用过程中执行的操作数的总和，即所有调用次数，我们可 以解释被作为递归算法的一部分而执行的操作的总数。
+(顺便说一句，这也是我们分析非递 归函数的方式。
+这些非递归函数从它们的函数体中调用其他函数)
+计算阶乘
+正如4.1.1节所描述的，分析计算阶乘的函数的效率是比较容易的。
+图4-1给出了阶乘 函数的一个示例递归追踪。
+为了计算factorial(n), 共 执 行 了n+1 次函数调用。
+参数从第一 次调用时的n 下降到第二次调用时的n-1, 以此类推，直至达到参数为0时的基本情况。
+代码段4-1给出了函数体的检测，同样清楚的是，阶乘的每个调用执行了一个常数级别 的运算。
+因此，我们得出这样的结论：计算factorial(n) 的操作总次数是O(n), 因为有n+1 次函数的调用，所以每次调用占的操作次数为 O(1)。
+绘制一个英式标尺
+在4.1.2节分析英式标尺的应用程序中，我们考虑共有多少行输出这一基本问题。
+该输 出是通过初始调用draw_interval(c) 产生的，其中c 表示中央刻度线长度。
+这是该算法的整 体效率的合理基准，因为输出的每一行是基于一个对draw_line 函数的调用，以及对draw_ interval 的每次非零参数递归调用恰好产生一个对draw_line 的直接调用。
+命题4-1: 对 于c≥0, 调用draw_interval(c)函数刚好产生2° - 1行输出。
+证明：通过归纳法(参见3.4.3节),我们给出了这种声明的正式证明。
+================================================================================
+
+Chunk 26:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_302
+Source: dense
+--------------------------------------------------------------------------------
+不幸的是，算法height1 并不高效。
+我们目前还没有定义position() 方法，可以看到该 算法的执行时间是O(n), 其 中n 是树T中的节点个数。
+因为height1 算法针对每个叶子节点 都调用了算法 depth(p), 其中L 是 树T 叶子节点的集合。
+在最坏情况下， 。
+因此，算法height1 在最坏情 况下的执行时间为O(n²)。
+代码段8-5计算一个以p节点为根节点的子树的高度
+61 def _height2(self,p): #time is linear in size of subtree
+62 """Return the height of the subtree rooted at Position p."""
+63 if self.isleaf(p):
+64 return 0
+65 else:
+66 return 1+max(self..height2(c)for cin self.children(p))
+理解算法height2 为什么比算法height1 更高效很重要。
+该算法是递归的并且是从上到 下执行的。
+如果该算法最初在根节点调用，那么树T 的每个节点最终将会被调用。
+这是因为 树的根节点最终将在其每个孩子节点上递归调用，这反过来又将在每个节点的孩子节点中继 续递归调用下去。
+命题8-5: 假设 T 是一棵有n 个节点的树，并假设cp代表树 T中位置p 的孩子节点的个
+数，那么 T 中所有节点的位置之和为。
+证明：树 T 中除了根节点外的每个位置，都是另一个节点的孩子节点，并且都会成为上 面公式的一项。
+由命题8-5可知，在根节点调用算法height2 时，其执行时间为O(n), 其 中n 为树中节 点的个数。
+重新访问Tree 类的公共接口，计算子树的高度是有益的，但是用户可能希望能够计算 整个树的高度而不需要显式地指定树的根节点。
+我们可以通过一个公有的height 方法将非公 有的方法_height2 封装在实现方法中。
+在树T 中调用T.height() 方法时，height 方法提供了 一个默认的解释。
+================================================================================
+
+Chunk 27:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_538
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+12.8 练 习
+巩 固
+R-12.1 给出命题12-1的完整证明。
+R-12.2 在图12-2～图12-4中的归并排序树中，一些边被画成了箭头。
+那些向下的箭头是什么意思?
+向上的箭头又是什么意思?
+R-12.3 说明为何归并排序算法在一个 n 元素序列上的运行时间为O(n log n),即使n 不是2的幂的 时候。
+R-12.4 我们于12.2.2节中给出的基于数组的归并排序算法实现是否是稳定的?
+请解释为什么是或者
+为什么不是。
+R-12.5 我们在代码段12-3中给出的基于链表的归并排序算法实现是否是稳定的?
+请解释为什么是或
+者为什么不是。
+R-12.6 一个通过键来排序键值条目的算法被称为是离散的，如果任何时候，两个条目e 和e; 均有相 等的键，但在输入中，e; 出现在e; 之前，然后在输出中，该算法将e; 放 在ej 之后。
+描述一种 方法使得12.2节提到的归并排序算法变得离散。
+R-12.7 假设我们有2个已排序的n 元素序列A 和B, 并且序列中的每个元素均不相同，但其中可能 有一些元素同时存在于两个序列中。
+描述用于计算将A 和B 的并集A U B(没有重复元素) 表示为一个已排序序列的运行时间为O(n)的方法。
+R-12.8 假设我们修改了已经确定的快速排序版本，以便选择处于Ln/2」的元素(替代选择最后一个元 素作为基准值的方法)。
+这种版本的快速排序在一个已排序序列上的运行时间是什么?
+R-12.9 考虑对目前确定的选择处于Ln/2」位置的元素作为基准值的快速排序算法的版本进行改动。
+描 述能使这个版本的快速排序运行时间为Ω(n²)的序列种类。
+R-12.10 说明对于长度为n 且元素互不相同的序列，对其快速排序的最佳运行时间在Ω(nlog n)之内的原因。
+C-12.27
+C-12.28
+C-12.29
+C-12.30
+C-12.31
+C-12.32
+C-12.33
+C-12.34
+C-12.35
+C-12.36
+C-12.37
+C-12.38
+C-12.39
+================================================================================
+
+Chunk 28:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_547
+Source: dense
+--------------------------------------------------------------------------------
+13.2.1 穷 举
+如要搜索或者优化某些功能，穷举算法设计模式是一种强大的技术。
+在一般情况下运 用这种技术时，我们通常会列举输入相关的所有可能情况，并挑出列举的所有情况的最优 情况。
+在运用这种技术来设计一个穷举模式匹配算法时，我们推导出了可能是所要解决的第一 个算法——我们简单地测试了P 相对于T 产生的所有可能性。
+该算法实现如代码段13-1所示。
+代码段13-1穷举模式匹配算法的实现
+1 def find brute(T,P):
+2 """Return the lowest index of T at which substring P begins(or else -1)."""
+3 n,m=len(T),len(P) #introduce convenient notations
+4 for i in range(n-m+1): #try every potential starting index within T
+5 k=0 #an index into pattern P
+6 while k<m and Tli+k]==P[k]: #kth character of P matches
+7 k +=1
+8 if k==m: #if we reached the end of pattern, 9 return i #substring T[i:i+m]matches P
+10 return-1 #failed to find a match starting with any i
+性能
+对穷举模式匹配算法的分析很简单。
+它由两个嵌套的循环组成： 一个是在文本模式所有 可能的开始索引进行外部循环索引；另一个是在模式的每个字符之间进行内部循环索引，并 将它和文章中潜在对应的字符进行比较。
+因此，通过穷举搜索方法，穷举模式匹配算法的正 确性立刻就能得到保证。
+在最坏的情况下，穷举模式匹配的运行时间很长，因为对于T 中的每个索引，无论如 何都要对m个字符进行比较，最后却可能发现在当前的索引下P 和T并不匹配。
+================================================================================
+
+Chunk 29:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_564
+Source: dense
+--------------------------------------------------------------------------------
+13.4.2 贪心算法
+用于构建最优编码的霍夫曼算法是贪心算法的设计模式示例之一。
+这个设计模式应用于 优化问题，我们试图在最小化或者最大化该结构的一些特性的时候构造一些结构。
+但是有几个问题是可以解决的，并且这些问题可以说都具有贪心选择的特性，即全局 最优的性质可以通过一系列局部最优选择来实现(即选择是当时可用的可能性之中每一个当 前最优的选择)。
+计算最优可变长度的前缀代码的问题只是具有贪心选择特性的问题的示例 之 一 。
+================================================================================
+
+Chunk 30:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_573
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+13.6 练习
+巩固
+R-13.1 列出字符串P="aaabbaaa" 的前缀和后缀。
+R-13.2 字符串"cgtacgttcgtacg"的最长的(适当的)前缀同时也是该字符串的后缀是什么?
+R-13.3 请画图说明对文本"aaabaadaabaaa"和模式"aabaa" 使用蛮力模式匹配所进行的比较。
+R-13.4 用 Boyer-Moore算法重复先前的问题，不计算last(c) 函数进行的比较计数。
+R-13.5 用Knuth-Morris-Pratt算法重复练习R-13.3, 不计算失败函数进行的比较计数。
+R-13.6 在模式字符串中对字符计算代表使用在Boyer-Moore算法中的last 函数的映射：
+"the quick brown fox jumped over a lazy cat"。
+R-13.7 对模式字符串"cgtacgttcgtac"计算代表Knuth-Morris-Pratt失败函数的表。
+R-13.8 对10×5、5×2、2×20、20×12、12×4和4×60的矩阵链进行乘法的最好的方式是什么?
+请阐述具体过程。
+R-13.9 在图13-8中，GTTAA是给定字符串X 和Y的最长的公共子序列。
+然而，这个答案不是唯一 的。
+给出其他关于X 和 Y的长度为6的公共子序列。
+R-13.10 给出下面两个字符串的最长公共子序列数组L:
+X="skullandbones" Y="lullabybabies"
+这两个字符串的最长公共子序列是什么?
+R-13.11 画出下列字符串的频率数组和霍夫曼编码：
+"dogs do not spot hot pots or cats"
+查 找 。
+P-13.47 写一个工程，有两个字符串(例如 DNA 双旋链的表示)并且计算它们的编辑距离，同时显
+示相应的内容。
+P-13.48 为可变长度的模式执行关于蛮力算法和KMP 模式匹配算法的效率(执行的字符比较的数目)
+的实验性分析。
+P-13.49 为可变长度的模式执行关于蛮力算法和 Boyer-Moore 模式匹配算法的效率(执行的字符比较
+================================================================================
+
+Chunk 31:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_618
+Source: dense
+--------------------------------------------------------------------------------
+我们注意到一个高级优先级队列实现，称为斐波那契堆，它可以用于在O(m+n log n) 时间内实现 Dijkstra 算法。
+用 Python 对 Dijkstra 算法进行编程
+Dijkstra算法的伪代码描述已经给出，现在我们展示执行Dijkstra算法的Python 代码， 假设我们给出一个边元素是非负数字权重的图。
+算法的实现是以函数shortest_path_lengths 的形式，它把图和指定的源顶点作为参数(见代码段14-13)。
+它返回一个名为cloud 的字 典，映射每一个从源可达的顶点v 到它的最短路径距离d(s,v) 。
+我们依赖在9.5.2节开发的 AdaptableHeapPriorityQueue作为一个适用性强的优先队列。
+代码段14-13 Dijkstra 算法对从单源计算最短路径距离的Python 实现。
+我们假设边e 的 e.element()代表那条边的权重
+13
+14 #for each vertex v of the graph,add an entry to the priority queue,with
+15 #the source having distance 0 and all others having infinite distance
+16 for v in g.vertices():
+17 if v is src:
+18 d[v]=0
+19 else:
+20 dv]=float('inf') # syntax for positive infinity
+21 pqlocator[v]=pq.add(d[v],v) # save locator for future updates 22
+23 while not pq.is_empty():
+24 key,u=pq.remove_min()
+25 cloud[u]=key # its correct d[u]value
+26 del pqlocator[u] # u is no longer in pq
+================================================================================
+
+Chunk 32:
+Doc ID: [计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_635
+Source: bm25
+--------------------------------------------------------------------------------
+Dijkstra 算法修改伪代码。
+Prim-Jarník 算法为这个图计算最小生成树的执行过程。
+R-14.26 问题同上，重复表述Kruskal 算法。
+R-14.27 在一个湖中有8个小岛，有一个国家想建造7座桥去连通它们，使得每个岛通过一座桥或者
+更多的桥能够到达任何其他的岛。
+建造一座桥的花费和它的长度成正比。
+各个岛之间的距离 在下面的表中给出。
+2
+345
+185
+435
+295
+400
+175
+一
+一
+如何建桥可以得到最小的总建造花费?
+描述在说明了DFS 遍历的图14-9中的图形化约定的含义。
+线粗细的含义是什么?
+箭头的含 义是什么?
+虚线的含义是什么?
+对说明有向DFS 遍历的图14-8重复练习R-14.28。
+对说明BFS 遍历的图14-10重复练习R-14.28.
+对说明Floyd-Warshall 算法的图14-11重复练习R-14.28。
+对说明拓扑排序算法的图14-13重复练习R-14.28。
+对说明Dijkstra 算法的图14-15和图14-16重复练习R-14.28。
+对说明Prim-Jarník 算法的图14-20和图14-21重复练习R-14.28。
+对说明Kruskal 算法的图14-22～图14-2重复练习R-14.28。
+创新
+给出14.2.5节的邻接图实现的remove_vertex(v) 方法的Python 实现，确保你的实现工作对有 向图和无向图都能进行。
+你的方法的运行时间应该为O(deg(v))。
+给出14.2.5节的邻接图实现的remove_edge(e) 方法的Python 实现，确保你的实现工作对有 向图和无向图都能进行。
+你的方法的运行时间应该为O(1)。
+假设我们希望用边列表结构表示一个有n 个顶点的图G, 假设我们用集合{0,1, …,n-1}
+中的数字标识顶点。
+描述如何实现集合E, 使 得get_edge(u,v) 方法支持 O(log n)的性能。
+在 这种情况下你怎么实现这个方法?
+令 T 是以由一个连通的无向图G 的深度优先搜索产生的开始顶点为根的生成树。
+================================================================================
+
+Chunk 33:
+Doc ID: 操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_430
+Source: bm25
+--------------------------------------------------------------------------------
+[S+96]“Scalability in the XFS File System ”
+Adan Sweeney, Doug Doucette, Wei Hu, Curtis Anderson, Mike Nishimoto, Geoff Peck USENIX ’96, January 1996, San Diego, CA
+第一次尝试让操作具有可伸缩性，其中包括在目录中拥有数百万个文件这样的事情，这是核心关注点。
+它是一个把想法推向极致的好例子。
+这个文件系统的关键思想是： 一切都是树。
+我们也应该为这个文件系统写一章内容。
+作业
+使用工具 vsfs.py 来研究文件系统状态如何随着各种操作的发生而改变。
+文件系统以空状态开始，只有一个根目录。
+模拟发生时，会执行各种操作，从而慢慢改变文件系统的磁盘状态。
+详情请参阅 README 文件。
+问题
+1 ．用一些不同的随机种子（比如 17 、18 、19 、20）运行模拟器，看看你是否能确定每次状态变化之间一定发生了哪些操作。
+2 ．现在使用不同的随机种子（比如 21 、22 、23 、24），但使用-r 标志运行，这样做可以让你在显示操作时猜测状态的变化。
+关于 inode 和数据块分配算法，根据它们喜欢分配的块，你可以得出什么结论？
+3 ．现在将文件系统中的数据块数量减少到非常少（比如两个），并用 100 个左右的请求来运行模拟器。
+在这种高度约束的布局中， 哪些类型的文件最终会出现在文件系统中？
+什么类型的操作会失败？
+4．现在做同样的事情，但针对 inodes。
+只有非常少的 inode，什么类型的操作才能成功？
+哪些通常会失败？
+文件系统的最终状态可能是什么？
+================================================================================
+
+Chunk 34:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_13
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+1.1.4 算 法
+以上三例都可称作算法。
+那么,究竞什么是算法呢?
+所谓算法，是指基于特定的计算模型， 旨在解决某一信息处理问题而设计的一个指令序列。
+比如，针对“过直线上一点作垂直线”这一 问题，基于由绳索和奴隶构成的计算模型，由古埃及人设计的算法1. 1:针对“三等分线段”这 一 问题，基于由直尺和圆规构成的计算模型，由欧几里得设计的算法1.2:以及针对“将若干元 素按大小排序”这一问题，基于图灵机模型而设计的bubblesort1A() 算法，等等。
+一般地，本书所说的算法还应必须具备以下要素。
+■ 输入与输出
+待计算问题的任一实例，都需要以某种方式交给对应的算法，对所求解问题特定实例的这种 描述统称为输入(input)。
+对于上述三个例子而言，输入分别是“某条直线及其上一点”、“某 条线段”以及“由n 个整数组成的某一序列”。
+其中，第三个实例的输入具体地由A[] 与n共同描 述和定义，前者为存放待排序整数的数组，后者为整数的总数。
+经计算和处理之后得到的信息，即针对输入问题实例的答案，称作输出 (output) 。
+比 如 ， 对于上述三个例子而言，输出分别是“垂直线”、“三等分点”以及“有序序列”。
+在物理上， 输出有可能存放于单独的存储空间中，也可能直接存放于原输入所占的存储空间中。
+比如，第三 个实例即属于后一情形，经排序的整数将按非降次序存放在数组A[] 中 。
+■ 基本操作、确定性与可行性
+所谓确定性和可行性是指，算法应可描述为由若干语义明确的基本操作组成的指令序列，且 每一基本操作在对应的计算模型中均可兑现。
+以上述算法1. 1为例，整个求解过程可以明白无误 地描述为一系列借助绳索可以兑现的基本操作，比如“取等长绳索”、“联结绳索”、“将绳结 固定于指定点”以及“拉直绳索”等。
+再如算法1.2中，“从一点任意发出一条射线”、“在直 线上任取三个等距点”、“联接指定两点”等，也都属于借助尺规可以兑现的基本操作。
+================================================================================
+
+Chunk 35:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_14
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+再如算法1.2中，“从一点任意发出一条射线”、“在直 线上任取三个等距点”、“联接指定两点”等，也都属于借助尺规可以兑现的基本操作。
+细心的读者可能会注意到，算法1.2所涉及的操作并不都是基本的，比如，最后两句都要求 “过直线外一点作其平行线”,这本身就是另一几何作图问题。
+幸运的是，借助基本操作的适当 组合，这一子问题也可圆满解决，对应的算法则不妨称作是算法1.2的“子算法”。
+■ 有穷性与正确性
+不难理解，任意算法都应在执行有限次基本操作之后终止并给出输出，此即所谓算法的有穷 性 (finiteness) 。
+进一步地，算法不仅应该迟早会终止，而且所给的输出还应该能够符合由 问题本身在事先确定的条件，此即所谓算法的正确性(correctness)。
+■ 起泡排序
+证明算法有穷性和正确性的一个重要技巧，就是从适当的角度审视整个计算过程，并找出其 所具有的某种不变性和单调性。
+其中的单调性通常是指，问题的有效规模会随着算法的推进不断 递减。
+不变性则不仅应在算法初始状态下自然满足，而且应与最终的正确性相呼应 当问题的 有效规模缩减到0时，不变性应随即等价于正确性。
+那么,具体到bubblesort1A() 算法，其单调性和不变性应如何定义和体现呢?
+反观图1.3不难看出，每经过一趟扫描交换，尽管并不能保证序列立即达到整体有序，但从 “待求解问题的规模”这一角度来看，整体的有序性必然有所改善。
+以全局最大的元素(图1.3 中的整数7)为例，在第一趟扫描交换的过程中， 一旦触及该元素，它必将与后续的所有元素依 次交换。
+于是如图1.3(b) 所示，经过第一趟扫描之后，该最大元素必然就位：而且在此后的各 趟扫描交换中，该元素将绝不会参与任何交换。
+这就意味着，经过一趟扫描交换之后，我们只需 要关注前面更小的那n -1个元素。
+实际上，这一结论对后续的各趟扫描交换也都成立 考查 图1.3(c~g) 中的元素6~2,不难验证这一点。
+================================================================================
+
+Chunk 36:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_21
+Source: dense
+--------------------------------------------------------------------------------
+如此，不妨将T(n)定义为算法所执行基本操作的总次数。
+也就是说，T(n)决定于组成算法 的所有语句各自的执行次数，以及其中所含基本操作的数目。
+以代码1. 1中起泡排序 bubblesort1A() 算法为例，若将该算法处理长度为n的序列所需的时间记作T(n), 则按照上述 分析，只需统计出该算法所执行基本操作的总次数，即可确定T(n)的上界。
+■ 起泡排序
+bubblesort1A() 算法由内、外两层循环组成。
+内循环从前向后，依次比较各对相邻元素， 如有必要则将其交换。
+故在每一轮内循环中，需要扫描和比较n -1对元素，至多需要交换n -1 对元素。
+元素的比较和交换，都属于基本操作，故每一轮内循环至多需要执行2(n -1)次基本 操作。
+另外，根据1.1.4 节对该算法正确性的分析结论，外循环至多执行n -1轮。
+因此，总共 需要执行的基本操作不会超过2(n-1)² 次。
+若以此来度量该算法的时间复杂度，则有
+T(n)=0(2(n-1)²)
+根据大の记号的性质，可进一步简化和整理为：
+T(n)=0(2n²-4n+2)=o(2n²)=0(n²)
+■ 最坏、最好与平均情况
+由上可见，以大0记号形式表示的时间复杂度，实质上是对算法执行时间的一种保守估计 ——对于规模为n的任意输入，算法的运行时间都不会超过6(f(n)) 。
+比如，“起泡排序算法复 杂度T(n)=o(n²)” 意味着，该算法处理任何序列所需的时间绝不会超过(n²)。
+的确需要这 么长计算时间的输入实例，称作最坏实例或最坏情况(worst case)。
+比较而言，“最坏情况复杂度”是人们最为关注且使用最多的，在一些特殊的场合甚至成为 唯一的指标。
+比如控制核电站运转、管理神经外科手术室现场的系统而言，从最好或平均角度评 判算法的响应速度都不具有任何意义，在最坏情况下的响应速度才是唯一的指标。
+■ 大Q 记号
+为了对算法的复杂度最好情况做出估计，需要借助另一个记号。
+如果存在正的常数c和函数 g(n), 使得对于任何n>>2 都有
+T(n) ≥ c·g(n)
+================================================================================
+
+Chunk 37:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_265
+Source: dense
+--------------------------------------------------------------------------------
+7.2.4 查找算法及其实现
+■ 算法
+二叉搜索树的查找算法，亦采用了减而治之的思路与策略，其执行过程可描述为：
+例如，在图7.5中查找关键码22的过程如下。
+首先，经与根节点
+16比较确认目标关键
+码更大，故深入右子树
+25递归查找；经比较发
+现目标关键码更小，故
+继续深入左子树19递
+归查找：经再次比较确
+认目标关键码更大后，
+深入右子树22递归查
+找：最终在节点22处匹
+配，查找成功。
+图7.5 二叉搜索树的查找过程(查找所经过的通路，以粗线条示意)
+实际上，针对16、25、19的查找，也将经过该路径的某一前缀，成功终止于对应的节点。
+当然，查找未必成功。
+比如针对关键码20的查找也会经过同一查找通路并抵达节点22,但 在因目标关键码更小而试图继续向左深入时发现左子树为空◎,至此即可确认查找失败。
+一般地，在上述查找过程中， 一旦发现当前节点为NULL, 即说明查找范围已经缩小至空， 查找失败：否则，视关键码比较结果，向左(更小)或向右(更大)深入，或者报告成功(相等)。
+对照中序遍历序列可见，整个过程与有序向量的二分查找过程等效，故可视作后者的推广。
+■ searchIn() 算法与search() 接 口
+一 般地，在子树v中查找关键码e的过程，可实现为如代码7 . 3所示的算法search In()。
+1 template <typename T> // 在以v为根的(AVL 、SPLAY、rbTree等 )BST子树中查找关键码e
+2 static BinNodePosi(T)&searchIn(BinNodePosi(T)&v,const T&e,BinNodePosi(T)&hot){
+3 if(Iv IⅡ(e =v->data))return v;// 递归基：在节点v(或假想的通配节点)处命中
+4 hot =v; // 一般情况：先记下当前节点，然后再
+5 return searchIn(((e<v->data)?
+v->le:V->rc),e,hot );// 深入一层，递归查找
+================================================================================
+
+Chunk 38:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_3
+Source: dense_bm25
+--------------------------------------------------------------------------------
+又如，通过介绍动态规划、减而治之、分而 治之等算法策略，展示如何将人所擅长的概括化简思维方式与计算机强大的枚举迭代能力相结 合，高效地求解实际应用问题。
+再如，从数据元素访问形式的角度，按照循秩访问、循位置访问 或循链接访问、循关键码访问、循值访问、循优先级访问、循模式访问等方式，对各种数据结构 做了归类，并指明它们之间的联系与区别。
+通过引入代数判定树模型以及对应的下界等概念，并讲解如何针对具体计算模型确定特定问 题的复杂度下界，破除了部分读者对计算机计算能力的盲目迷信。
+按照CC 大纲综述报告的归纳结 论，这也是对计算学科所有专业本科毕业生共同要求中的第三点——不仅需要了解计算机技术可 以做什么 (possibilities) 以及如何做，更需要了解不能做什么(limitations) 以及为什 么不能做。
+■ 尊重认知规律，放眼拓展提升
+应用 (apply)、 分析 (analyze)、 评估(evaluate) 和创造(create) 等若干阶段，本书 也按照这一脉络，在叙述方式上做了一些粗浅的尝试。
+h
+为强化实践能力的培养，多从具体的应用问题入手，经逐步分析导出具体的解决方法。
+所列 230余段代码，均根据讲述的侧重按模块划分，在力求简洁的同时也配有详实的备注解说。
+读者 可以下载代码，边阅读边编译执行，真正做到“手到”和“心到”。
+几乎所有实现的数据结构均 符合对应的抽象数据类型接口标准，在强化接口规范的同时，从习惯与方式上为读者日后的团队 协作做铺垫与准备。
+在分析与评估方面，介绍了算法复杂度的典型层次及分析技巧，包括常规的最坏情况和平均 情况分析，以及分摊分析。
+针对递归算法，还着重介绍了递归跟踪法与递推方程法。
+另外从实用 的角度，还引入了稳定性、就地性等更为精细的性能评估尺度，并结合部分算法做了相关的分析 对 比 。
+数据结构与算法这二者之间相辅相成的关系，也是本书着重体现的一条重要线索。
+为此，本 书的体例与多数同类教材不尽相同。
+================================================================================
+
+Chunk 39:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_33
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+按照减而治之策略，此处随着递归的深入，调用参数将单调地线性递减。
+因此无论最初输入 的 n 有多大，递归调用的总次数都是有限的，故算法的执行迟早会终止，即满足有穷性。
+当抵达 递归基时，算法将执行非递归的计算(这里是返回0)。
+1.4.2 递归分析
+递归算法时间和空间复杂度的分析与常规算法很不一样，有其自身的规律和特定的技巧，以 下介绍递归跟踪与递推方程这两种主要的方法。
+■ 递归跟踪
+作为一种直观且可视的方法，递归跟踪(recursion trace)可用以分析递归算法的总体 运行时间与空间。
+具体地，就是按照以下原则，将递归算法的执行过程整理为图的形式：
+按上述约定，代码1.5中sum() 算法的递归跟踪如图1.6所示。
+其中，sum() 算法的每一递归 实例分别对应于一个方框，并标有相应的调用参数。
+每发生一次递归调用，就从当前实例向下引 出一条有向边，指向下层对应于新实例的方框。
+图1.6 对sum(A,5)的递归跟踪分析
+从图1.6可清楚地看出，整个算法所需的计算时间，应该等于所有递归实例的创建、执行和 销毁所需的时间总和。
+其中，递归实例的创建、销毁均由操作系统负责完成，其对应的时间成本 通常可以近似为常数，不会超过递归实例中实质计算步骤所需的时间成本，故往往均予忽略。
+为 便于估算，启动各实例的每一条递归调用语句所需的时间，也可以计入被创建的递归实例的账上， 如此我们只需统计各递归实例中非递归调用部分所需的时间。
+(n+1)×0(3)=O(3·(n+1))=0(n)
+■ 递推方程
+递归算法的另一常用分析方法，即递推方程 (recurrence equation) 法。
+与递归跟踪分 析相反，该方法无需绘出具体的调用过程，而是通过对递归模式的数学归纳，导出复杂度定界函 数的递推方程(组)及其边界条件，从而将复杂度的分析，转化为递归方程(组)的求解。
+在总体思路上，该方法与微分方程法颇为相似：很多复杂函数的显式表示通常不易直接获得， 但是它们的微分形式却往往遵循某些相对简洁的规律，通过求解描述这些规律的一组微分方程， 即可最终导出原函数的显式表示。
+微分方程的解通常并不唯一，除非给定足够多的边界条件。
+类 似地，为使复杂度定界函数的递推方程能够给出确定的解，也需要给定某些边界条件。
+以下我们 将看到，这类边界条件往往可以通过对递归基的分析而获得。
+================================================================================
+
+Chunk 40:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_410
+Source: tfidf
+--------------------------------------------------------------------------------
+代码10.10 Floyd建堆算法
+可见，该算法的实现十分简洁：只需自下而上、由深而浅地遍历所有内部节点，并对每个内 部节点分别调用一次下滤算法percolateDown() ( 代 码 1 0 . 9 ) 。
+■ 实 例
+图10 . 8为Floyd 算法的 一个实例。
+首先如图(a)所示，将9个词条组织为一棵完全二叉树。
+多数情况下，输入词条集均以向量形式给出，故除了通过各单元的秩明确对应的父子关系外，并 不需要做任何实质的操作。
+图18.8 Floyd算法实例(虚线示意下滤过程中的交换操作)
+此时，所有叶节点各自即是一个堆——尽管其规模仅为1。
+以下，自底而上地逐层合并。
+首先如图(b) 所示，在对3实施下滤调整之后，{8 }和{5 }合并为{8,3,5}。
+接下来 如 图(c) 所 示 ， 在 对 1 实 施 下 滤 调 整 之 后 ， { 8 , 3 , 5 } 与 { 9 } 合 并 为 { 9 , 8 , 1 , 3 , 5 } : 在 对 6 实 施 下 滤 调 整 之 后 ， { 7 } 与 { 4 } 合 并 为 { 7 , 6 , 4 } : 最 后 如 图(d) 所示，在对2实施 下 滤 调 整 之 后 ， { 9 , 8 , 1 , 3 , 5 } 与 { 7 , 6 , 4 } 合 并 为 { 9 , 8 , 7 , 5 , 1 , 6 , 4 , 3 , 2 } 。
+从算法推进的方向来看，前述蛮力算法与Floyd 算法恰好相反——若将前者理解为“自上而 下的上滤”,则后者即是“自下而上的下滤”。
+那么,这一细微的差异，是否会对总体时间复杂 度产生实质的影响呢?
+■ 复 杂 度
+由代码10. 10可见，算法依然需做n步迭代，以对所有节点各做一次下滤。
+这里，每个节点 的下滤所需的时间线性正比于其高度，故总体运行时间取决于各节点的高度总和。
+不妨仍以高度为h 、规 模 为n =zh+1-1的满二叉树为例做一大致估计，运行时间应为：
+Z:_((d-i)·2¹)=2+¹-(d+2)=n-log₂(n+1)=0(n)
+================================================================================
+
+Chunk 41:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_412
+Source: dense
+--------------------------------------------------------------------------------
+即便使用蛮力算法而不是Floyd 算法来完成H的初始化，
+整个算法的运行时间也不超过6(nlogn) 。
+纵览算法的整个过程，除了用于支持词条交换的一个 295
+辅助单元，几乎不需要更多的辅助空间，故的确属于就地算法。
+得益于向量结构的简洁性，几乎所有以上操作都可便捷地实现，因此该算法不仅可简明地编 码，其实际运行效率也因此往往要高于其它o(nlogn) 的算法。
+高运行效率、低开发成本以及低 资源消耗等诸多优点的完美结合，若离开堆这一精巧的数据结构实在难以想象。
+■ 实 例
+试考查利用以上算法，对向量{4,2,5,1,3 }的堆排序过程。
+首先如图10.10 所示， 采 用Floyd 算法将该向量整理为一个完全二叉堆。
+其中虚线示意下滤过程中的词条交换操作。
+4 2 5 1 3 4 3 5 1 2
+图18.18就地堆排序实例：建堆
+以下如图10.11 所示共需5步迭代。
+请对照以上算法描述，验证各步迭代的具体过程。
+(b2)
+④
+(d²)
+图18.11 就地堆排序实例：迭代
+■ 实 现
+按照以上思路，可基于向量排序器的统一规范，实现就地堆排序算法如代码10.11所示。
+1 template <typename T>void Vector<T>::heapsort(Rank lo,Rank hi){ //0<=lo<hi<=size
+2 PQ_ComplHeap<T>H(_elem+lo,hi-lo );// 将待排序区间建成一个完全二叉堆，0(n)
+3 while (IHempty()) //反复地摘除最大元并归入已排序的后缀，直至堆空
+4 _elem[--hi]=H.de1Max(); // 等效于堆顶与末元素对换后下滤
+5 }
+代码10.11基于向量的就地堆排序
+遵照向量接口的统 一规范(60 页代码2 . 25),这里允许在向量中指定待排序区间(lo,hi), 从而作为通用排序算法具有更好的灵活性。
+§10.3 “左式堆
+10.3. 1 堆合并
+除了标准的插入和删除操作，堆结构在实际应用中的另一常见操作即为合并。
+================================================================================
+
+Chunk 42:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_452
+Source: dense/tfidf
+--------------------------------------------------------------------------------
+11.5.2 算法与实现
+■ 算法
+以 上 散 列 并 非 满 射 ， 但 不 含 'θ'的 任 一d+1 进制值自然数，均唯 一 地对应于某个字符串，
+故它几乎已是 一 个完美的算法。
+字符串经如此转换所得的散列码，称作其指纹(fingerprint)。
+按 照 这 一 理 解 ， “ 判 断 模 式 串P 是 否 与 文 本 串T匹 配 ” 的 问 题 ， 可 以 转 化 为 “ 判 断T中 是 否 有 某 个 子 串 与 模 式 串P 拥有相同的指纹”的问题。
+具体地，只要逐 一 取出T中 长 度 为m的 子 串 ， 并 将 其 对 应 的 指 纹 与P 所对应的指纹做 一 比对，即可确定是否存在匹配位置 — — 这已经可以称作 一 个 串 匹 配 算 法 了 ， 并 以 其 发 明 者 姓 氏 命 名 为Karp-Rabin 算 法 。
+该算法相关的预定义如代码11.9所示。
+这里仅考虑了阿拉伯数字串，故每个串的指纹都已
+一 个 R = 1 0 进 制 数 。
+同 时 ， 使 用 6 4 位 整 数 的 散 列 码 。
+1 #define M 97 //散列表长度：既然这里并不需要真地存储散列表，不妨取更大的素数，以降低误判的可能
+2 #define R 10 // 基数：对于二进制串，取2;对于十进制串，取18;对于ASCII 字符串，取128或256
+3 #define DIGIT(S,1)((S)[1]-'B') // 取十进制串s的第1位数字值(假定s合 法 )
+4 typedef _int64 HashCode; // 用64位整数实现散列码
+5 bool check1by1(char"P,char*T,size_ti);
+6 Hashcode prepareDm(size tm);
+7 void updateHash(Hash Code&hashT,char*T,size tm.size tk.Hashcode Dn ):
+代码11.9 Karp-Rabin算法相关的预定义
+算法的主体结构如代码11.10所示。
+================================================================================
+
+Chunk 43:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_477
+Source: dense
+--------------------------------------------------------------------------------
+比如， k ≈0时，前两种算法均只需o(n) 时间。
+然而很遗憾，当k≈n/2 时，以上算法的复杂度均退化 至蛮力算法的o(nlogn)。
+因此，我们不得不转而从其它角度寻找突破口。
+12.2.5 基于快速划分的选取
+■ 秩、轴点与快速划分
+选取问题所查找元素的位序k, 就是其在对应的有序序列中的秩。
+就这一性质而言，该元素 与轴点颇为相似。
+尽管12.1.4节的快速划分算法只能随机地构造一个轴点，但若反复应用这一 算法，应该可以逐步逼近目标k。
+■ 逐步逼近
+以上构思可细化如下。
+首先，调用算法partition() 构造向量A的一个轴点A[i]=x。
+若i= k, 则该轴点恰好就是待选取的目标元素，即可直接将其返回。
+(a)k<i
+(b)i<k
+图12.11 基于快速划分算法逐步逼近选取目标元素
+反之，若如图12.11所示i≠k, 则无非两种情况。
+若如图(a),k<i, 则选取的目标元素 不可能(仅)来自于处于x右侧、不小于x的子向量(白色)G中。
+此时，不妨将子向量G剪除，
+然后递归地在剩余区间继续做k-选取。
+反之若如图(b),i<k, 则选取的目标元素不可能(仅) 来自于处于x左侧、不大于x的子向量(白色)L中。
+同理，此时也可将子向量L剪除，然后递归 地在剩余区间继续做(k -i)-选取。
+■ 实现
+基于以上减而治之、逐步逼近的思路，可实现quickSelect()算法如代码12. 10所示。
+1 template <typename T>void quickselect(Vector<T>&A,Rank k)( // 基于快速划分的k选取算法
+2 for(Rank lo =θ,hi=A.size()-1;lo<hi;){
+3 Ranki=lo,j=hi;T pivot =A[lo]; 347
+4 while (i<j){ //0(hi-1o+1)=0(n)
+5 while((1<J)8&(pivot(=A[J]))j--;A[1]=A[J];
+6 while ((i<j)&&(A[i]<=pivot ))i++;A[j]=A[i];
+7 } //assert:i==j
+8 A[1]=pivot;
+9 if(k<=1)hi=1-1;
+10 if(i<=k)lo =i+1;
+11 } //A[k]is now a pivot
+12
+================================================================================
+
+Chunk 44:
+Doc ID: 数据结构 (邓俊辉) (Z-Library)_chunk_478
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+12
+代码12.18 基于快速划分的k-选取算法
+该算法的流程，与代码12.2中的partition() 算法(版本A)如出一辙。
+每经过一步主迭代， 都会构造出一个轴点A[i], 然后1o和hi 将彼此靠拢，查找范围将收缩至A[i] 的某一侧。
+当轴点 的 秩i 恰 为k 时 ， 算 法 随 即 终 止 。
+如 此 ，A[k] 即 是 待 查 找 的 目 标 元 素 。
+12.2.6 k-选取算法
+以上从多个角度所做的尝试尽管有所收获，但就k-选取问题在最坏情况下的求解效率这一 最终指标而言，均无实质性的突破。
+本节将延续以上quickSelect() 算法的思路，介绍 一 个在最 坏 情 况 下 运 行 时 间 依 然 为 0(n) 的 k- 选 取 算 法 。
+■ 算法
+该 方 法 的 主 要 计 算 流 程 ， 可 描 述 如 算 法 1 2 . 1 所 示 。
+1 select(A,k)
+2 输入：规模为n的无序序列A, 秩k ≥日
+3 输出：A所对应有序序列中秩为k的元素 4{
+5 0)if(n =|A|<Q) return trivialselect(A,k); //递归基：序列规模不大时直接使用蛮力算法
+6 1 ) 将A均匀地划分为n/Q个子序列，各含Q个元素；//Q为一个不大的常数，其具体数值稍后给出
+7 2)各子序列分别排序，计算中位数，并将这些中位数组成一个序列；//可采用任何排序算法，比如选择排序
+8 3)通过递归调用select(), 计算出中位数序列的中位数，记作M;
+9 4)根据其相对于M的大小，将A中元素分为三个子集：L ( 小 于 ) 、E( 相 等 ) 和G( 大 于 ) ;
+18 5)if(ILI≥k) return select(L,k);
+11 else if (ILl+|E|≥k)return M;
+12 else return select(G,k-ILI-|E|);
+13
+算法12.1线性时间的k-选取
+其 一 如 图(a), 子 序 列L足 够 长 (L|≥k) 。
+此 时 ， 子 序 列E 和 G的 存 在 与 否 与k- 选 取 的 结
+果 无 关 ， 故 可 将 它 们 剪 除 ， 并 在L中 继 续 做 递 归 的k- 选 取 。
+(a) (b) (c)
+图12.12 k-选取目标元素所处位置的三种可能情况
+最后如图(c), 子序列L和E的长度总和仍不足k。
+此时，目标元素必然落在子序列G中，故可 将L和E剪除，并在G中继续做递归的(k -|L- |E|)- 选取。
+■ 复杂度
+================================================================================
+
+Chunk 45:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_108
+Source: dense
+--------------------------------------------------------------------------------
+同算法3.21一样，此算法从头到尾扫描表达式中每个字符，若表达式的字符串长度为n, 则 此算法的时间复杂度为O(n)。
+算法在运行时所占用的辅助空间主要取决于OPTR 栈 和OPND 栈的 大小，显然，它们的空间大小之和不会超过n, 所以此算法的空间复杂度也同样为O(n)。
+【例3 .2】 算法表达式的求值过程。
+利用算法3.22对算术表达式3*(7-2)进行求值，给出其求值的具体过程。
+#3*(7-2)#
+具体操作过程如表3.2所示。
+表3.2 算术表达式3*(7-2)的求值过程
+案例3 .4:舞伴问题。
+【案例分析】
+对于舞伴配对问题，先入队的男士或女士先出队配成舞伴，因此设置两个队列分别存放男士 和女士人队者。
+假设男士和女士的记录存放在一个数组中作为输入，然后依次扫描该数组的各元 素，并根据性别来决定是进入男队还是女队。
+当这两个队列构造完成之后，依次将两队当前的队 头元素出队来配成舞伴，直至某队列变空为止。
+此时，若某队仍有等待配对者，则输出此队列中 排在队头的等待者的姓名，此人将是下一轮舞曲开始时第一个可获得舞伴的人。
+【案例实现】
+算法中有关数据结构的定义如下：
+1/-----跳舞者个人信息- ----
+typedef struct
+{
+//姓名
+//性别，'F '表示女性，'M '表示男性
+}Person;
+// - - - - - 队列的顺序存储结构 #define MAXQSIZE 100
+typedef struct {
+Person *base;
+int front;
+int rear; }SqQueue;
+SqQueue Mdancers,Fdancers;
+算法3.23 舞伴问题
+【 算法步骤 】
+①初始化Mdancers 队列和Fdancers 队列。
+②反复循环，依次将跳舞者根据其性别插入Mdancers 队列或Fdancers 队列。
+③ 当Mdancers 队 列 和Fdancers 队列均为非空时，反复循环，依次输出男女舞伴的姓名。
+================================================================================
+
+Chunk 46:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_11
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+1.4.1 算法的定义及特性
+算 法(Algorithm) 是为了解决某类问题而规定的一个有限长的操作序列。
+一个算法必须满足以下五个重要特性。
+(1)有穷性。
+一个算法必须总是在执行有穷步后结束，且每一步都必须在有穷时间内完成。
+(2)确定性。
+对于每种情况下所应执行的操作，在算法中都有确切的规定，不会产生二义性， 使算法的执行者或阅读者都能明确其含义及如何执行。
+(3)可行性。
+算法中的所有操作都可以通过已经实现的基本操作运算执行有限次来实现。
+(4)输入。
+一个算法有零个或多个输入。
+当用函数描述算法时，输入往往是通过形参表示的， 在它们被调用时，从主调函数获得输入值。
+================================================================================
+
+Chunk 47:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_165
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+(a) 表达式(a*b-c) 的二叉树 (b) 遍历的递归执行过程 图5.113种遍历过程示意图
+根据前面3.4.4小节的内容，可利用栈将递归算法改写成非递归算法，如算法5.2所示。
+例如， 从中序遍历递归算法执行过程中递归工作栈的状态可见：
+(1)工作记录中包含两项，其一是递归调用的语句编号，其二是指向根结点的指针，则当栈 顶记录中的指针非空时，应遍历左子树，即指向左子树根的指针进栈；
+(2)若栈顶记录中的指针值为空，则应退至上一层，若是从左子树返回，则应访问当前层(即
+栈顶记录)中指针所指的根结点；
+(3)若是从右子树返回，则表明当前层的遍历结束，应继续退栈。
+从另一个角度看，这意味 着遍历右子树时不再需要保存当前层的根指针，直接修改栈顶记录中的指针即可。
+算法5.2 中序遍历的非递归算法
+【 算 法 步 骤 】
+①初始化一个空栈S, 指针p 指向根结点。
+②申请一个结点空间q, 用来存放栈顶弹出的元素。
+③ 当p 非空或者栈S 非空时，循环执行以下操作：
+● 如 果p 非空，则将p进栈，p 指向该结点的左孩子；
+● 如 果p 为空，则弹出栈顶元素并访间，将p 指向该结点的右孩子。
+【 算 法 描 述 】
+void InOrderTraverse(BiTree T)
+{//中序遍历二叉树T 的非递归算法
+InitStack(S);p=T;
+q=new BiTNode;
+while(pll!
+StackEmpty(S))
+{
+if(p)
+{
+Push(S,p);
+p=p->1child; }
+else
+{
+Pop(S,q);
+cout<<q->data; p=q->rchild;
+//p 非空
+//根指针进栈
+//根指针进栈，遍历左子树
+//p 为 空
+//退栈
+//访问根结点 //遍历右子树
+//while
+按上述算法，图5.11(a) 所示的二叉树的中序非递归遍历的栈S 的变化过程如图5.12所示。
+p→“*”
+P→“a” a
+* *
+P→“c” P→“NUL”
+b
+c c 出栈
+图5. 12 非递归中序遍历时栈S 的变化情况
+124 三
+【算法分析】
+================================================================================
+
+Chunk 48:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_223
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3. 深度优先搜索遍历的算法分析
+分析上述算法，在遍历图时，对图中每个顶点至多调用一次DFS 函数，因为一旦某个顶点被 标志成已被访问，就不再从它出发进行搜索。
+因此，遍历图的过程实质上是对每个顶点查找其邻 接点的过程，其耗费的时间则取决于所采用的存储结构。
+当用邻接矩阵表示图时，查找每个顶点 的邻接点的时间复杂度为O(n²), 其中n 为图中顶点数。
+而当以邻接表做图的存储结构时，查找邻 接点的时间复杂度为O(e),其 中e 为图中边数。
+由此，当以邻接表做存储结构时，深度优先搜索 遍历图的时间复杂度为 O(n+e)。
+================================================================================
+
+Chunk 49:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_239
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+6.6.3 拓扑排序
+1.AOV-网
+一个无环的有向图称作有向无环图(Directed Acycline Graph),简称DAG 图。
+有向无环图是 描述一项工程或系统的进行过程的有效工具。
+通常把计划、施工过程、生产流程、程序流程等都 当成一个工程。
+除了很小的工程外，一般的工程都可分为若干个称做活动(Activity) 的子工程， 而这些子工程之间，通常受着一定条件的约束，如其中某些子工程的开始必须在另一些子工程完 成之后。
+这种用顶点表示活动，用弧表示活动间的优先关 系的有向图称为顶点表示活动的网 (Activity On Vertex Network),简 称 AOV-网。
+在网中，若从顶点 v;到顶点v;有一条有向路径，则v₂是 v;的前驱；v;是 v;的后继。
+若<v;,v> 是网中一条弧，则v₂是 v,的直接 前 驱 ，v;是 v₂ 的直接后继。
+在 AOV-网中，不应该出现有向环，因为存在环
+176 三
+谬的。
+若设计出这样的流程图，工程便无法进行。
+而对程序的数据流图来说，则表明存在一个死 循环。
+因此，对给定的 AOV-网应首先判定网中是否存在环。
+检测的办法是对有向图的顶点进行 拓扑排序，若网中所有顶点都在它的拓扑有序序列中，则该AOV-网中必定不存在环。
+所谓拓扑排序就是将AOV- 网中所有顶点排成一个线性序列，该序列满足：若在AOV- 网中由 顶点v;到顶点v;有一条路径，则在该线性序列中的顶点v;必定在顶点v;之前。
+例如，图6.26所示的有向图有如下两个拓扑有序序列(当然，对此图也可构造出其他的拓扑 有序序列):
+C₁,C₂,C₃,C₄,C₅,C₇,C₉,C10,C11,C₆,C12,C₈ 和
+C₉,C10,C11,C₆,C₁,C12,C₄,C₂,C₃,Cs,C₇,C₈
+================================================================================
+
+Chunk 50:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_300
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+7.4.4 散列表的查找
+在散列表上进行查找的过程和创建散列表的过程基本一致。
+算法7. 10描述了开放地址法(线 性探测法)处理冲突的散列表的查找过程。
+下面以开放地址法为例，给出散列表的存储表示。
+【算法步骤】
+①给定待查找的关键字key, 根据造表时设定的散列函数计算H₀=H(key)。
+② 若 单 元H₀ 为空，则所查元素不存在。
+③ 若 单 元H₀ 中元素的关键字为key, 则查找成功。
+④否则重复下述解决冲突的过程：
+● 按处理冲突的方法，计算下一个散列地址H₁ ;
+● 若 单 元H₁ 为空，则所查元素不存在；
+● 若 单 元H₁ 中元素的关键字为key, 则查找成功。
+【算法描述】
+#define NULLKEY 0
+int SearchHash(HashTable HT,KeyType key)
+//单元为空的标记
+数据结构(C 语言版)(第2版)
+{//在散列表HT中查找关键字为key 的元素，若查找成功，返回散列表的单元标号，否则返回-1
+HO=H(key);
+if(HT[H0].key==NULLKEY)return
+else if(HT[H0].key==key)return
+-1; H0;
+//根据散列函数H(key) 计算散列地址
+//若单元H0为空，则所查元素不存在
+//若单元H0 中元素的关键字为key, 则查找成功
+else
+{
+for(i=1;i<m;++i)
+{
+Hi=(HO+i)8m; //按照线性探测法计算下一个散列地址Hi
+if(HT[Hi].key==NULLKEY)return -1; // 若单元Hi 为空，则所查元素不存在
+else if(HT[Hi].key==key)return Hi; //若单元Hi 中元素的关键字为key, 则查找成功
+} //for
+return -1;
+//else
+【算法分析】
+从散列表的查找过程可见：
+(1)虽然散列表在关键字与记录的存储位置之间建立了直接映像，但由于“冲突”的产生， 使得散列表的查找过程仍然是一个给定值和关键字进行比较的过程。
+================================================================================
+
+Chunk 51:
+Doc ID: 数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_89
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+3.4.3 递归算法的效率分析
+1. 时间复杂度的分析
+在算法分析中，当一个算法中包含递归调用时，其时间复杂度的分析可以转化为一个递归 方程求解。
+实际上，这个问题是数学上求解渐近阶的问题，而递归方程的形式多种多样，其求 解方法也不一而足。
+迭代法是求解递归方程的一种常用方法，其基本步骤是迭代地展开递归方 程的右端，使之成为一个非递归的和式，然后通过对和式的估计来达到对方程左端(即方程的 解)的估计。
+下面以阶乘的递归函数 Fact(n)为例，说明通过迭代法求解递归方程来计算时间复杂度的 方法。
+设 Fact(n)的执行时间是T(n) 。
+此递归函数中语句if(n==0)return 1;的执行时间是O(1), 递归调用 Fact(n-1) 的执行时间是 T(n-1), 所 以 else return n*Fact(n-1);的执行时间是O(1)+ T(n-1)。
+其中，设两数相乘和赋值操作的执行时间为 O(1), 则对某常数 C 、D 有如下递归 方程：
+67
+设 n>2, 利用上式对T(n-1)展开，即在上式中用n-1代替n 得到
+T(n-1)=C+T(n-2)
+再代入 T(n)=C+T(n-1)中，有
+T(n)=2C+T(n-2)
+同理，当n>3 时有
+T(n)=3C+T(n-3)
+依次类推，当n>i 时有
+T(n)=iC+T(n-i)
+最后，当i=n 时有
+T(n)=nC+T(0)=nC+D
+求得递归方程的解为：T(n)=O(n)
+采用这种方法计算Fibonacci数列和Hanoi 塔问题递归算法的时间复杂度均为O(2")。
+================================================================================
+
+Chunk 52:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_435
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+假设在给定的一 小时内一个驱动器崩溃的概率是p, 那么在给 定的一小时内具有k个驱动器的RAID失效的概 率是多少?
+22.从读性能、写性能、空间开销以及可靠性方面 对0级RAID到5级RAID进行比较。
+23.1ZB 等于多少PB?
+24.为什么光存储设备天生地比磁存储设备具有更 高的数据密度?
+注意：本题需要某些高中物理 以及磁场是如何产生的知识。
+25.光盘和磁盘的优点和缺点各是什么?
+26. 如果一个磁盘控制器没有内部缓冲， 一旦从磁 盘上接收到字节就将它们写到内存中，那么交 错编号还有用吗?
+请讨论你的答案。
+27.如果一个磁盘是双交错编号的，那么该磁盘是 否还需要柱面斜进以避免在进行磁道到磁道的 寻道时错过数据?
+请讨论你的答案。
+28.考虑一个包含16个磁头和400个柱面的磁盘。
+该磁盘分成4个100柱面的区域，不同的区域分 别包含160个、200个、240个和280个扇区。
+假 设每个扇区包含512字节，相邻柱面间的平均 寻道时间为1ms, 并且磁盘转速为7200rpm 。
+计算磁盘容量、最优磁道斜进以及最大数据传 输率。
+29.一个磁盘制造商拥有两种5.25英寸的磁盘，每 种磁盘都具有10000个柱面。
+新磁盘的线性记 录密度是老磁盘的两倍。
+在较新的驱动器上哪 个磁盘的特性更好，哪个无变化?
+新的是否具 有什么劣势?
+30.一个计算机制造商决定重新设计Pentium 硬盘 的分区表以提供四个以上的分区。
+这一变化有 什么后果?
+31.磁盘请求以柱面10、22、20、2、40、6和38的 次序进入磁盘驱动器。
+寻道时每个柱面移动需 要6ms, 以下各算法所需的寻道时间是多少?
+(b) 最近柱面优先。
+(c) 电梯算法(初始向上移动)。
+在各情形下，假设磁臂起始于柱面20。
+32.调度磁盘请求的电梯算法的一个微小更改是总 是沿相同的方向扫描。
+在什么方面这一更改的 算法优于电梯算法?
+34.在讨论使用非易失性RAM的稳定的存储器时， 掩饰了如下要点。
+如果稳定写完成但是在操作 系统能够将无效的块编号写入非易失性RAM 之前发生了崩溃，那么会有什么结果?
+这一竞 争条件会毁灭稳定的存储器的抽象概念吗?
+请 解释你的答案。
+35.在关于稳定存储器的讨论中，证明了如果在写 过程中发生了CPU 崩溃，磁盘可以恢复到一个 一致的状态(写操作或者已完成，或者完全没 有发生)。
+如果在恢复的过程中CPU再次崩溃， 这一特性是否还保持?
+请解释你的答案。
+================================================================================
+
+Chunk 53:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_451
+Source: tfidf
+--------------------------------------------------------------------------------
+既 然A 没有任何没有标记的出发弧，我们再回溯到R, 从 而 完 成 了 以R 为 起 始 点 的 检 测 。
+现 在 我 们 重 新 以A 为 起 始 点 启 动 该 算 法 ， 并 重 置L 为 空 表 。
+这 次 检 索 也 很 快 就 结 束 了 ， 所 以 我 们 又 从 B 开 始 。
+从B 节 点 我 们 顺 着 弧 到 达D, 这 时L=[B,T,E,V,G,U,D] 。
+现 在 我 们 必 须 随 机 选 择 。
+如
+果 选S 点 ， 那 么 走 进 了 死 胡 同 并 回 溯 到D 。
+接 着 选T 并 将L 更 新 为[B,T,E,V,G,U,D,T], 在 这 一
+点上我们发现了环 ， 算法结束 。
+这 种 算 法 远 不 是 最 佳 算 法 ， 较 好 的 一 种 算 法 参 见 (Even,1979) 。
+但 毫 无 疑 问 ， 该 实 例 表 明 确 实 存 在 检测死锁的算法 。
+================================================================================
+
+Chunk 54:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_832
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+4. 异步过程调用
+另一个特殊的内核控制对象是APC (异步过程调用)对象。
+APC 与DPC的相同之处是它们都是延迟 处理系统例行程序，不同之处在于DPC 是在特定的CPU 上下文中执行，而APC 是在一个特定的线程上下 文中执行。
+当处理一个键盘敲击操作时，DPC 在哪一个上下文中运行是没有关系的，因为一个DPC 仅仅 是处理中断的另一部分，中断只需要管理物理设备和执行独立线程操作，例如在内核空间的一个缓冲区 记录数据。
+当原始中断发生时，DPC 例程运行在任何线程的上下文中。
+它利用I/O 系统来报告I/O操作已经完成， I/O 系统安排一个APC 在线程的上下文中运行从而做出原始的I/O 请求，在这里它可以访问处理输入的线 程的用户态地址空间。
+在下一个合适的时间，内核层会将APC移交给线程而且调度线程运行。
+一个APC被设计成看上去像 一个非预期的程序调用，有些类似于UNIX 中的信号处理程序。
+不过在内核态下，内核态的APC 为了完 成I/O 操作，而在完成初始化I/O 操作的线程的上下文中执行。
+这使APC既可以访问内核态的缓冲区，又 可以访问用户态下，属于包含线程的进程的地址空间。
+一个APC 在什么时候被移交，取决于线程已经在 做什么,以及系统的类型是什么。
+在一个多处理器系统中，甚至是在DPC 完成运行之前，接收APC的 线 程才可以开始执行。
+用户态下的APC 也可以用来把用户态的I/O操作已经完成的信息，通知给初始化I/O 操作的线程。
+但 只有当内核中的目标线程被阻塞和被标示为准备接收APC时，用户态下的APC 才可调用用户态下的应用 程序。
+但随着用户态堆栈和寄存器的修改，为了执行在ntdll.d1I系统库中的APC 调度算法，内核将等待中 的线程中断，并返回到用户态。
+APC 调度算法调用和I/O操作相关的用户态应用程序。
+除了一些I/O 完成后， 作为一种执行代码方法的用户态下的APC 外 ，Win32 API中 的QueueUserAPC 允许将APC 用于任意目的。
+执行体也使用除了I/O 完成之外的一些APC 操作。
+================================================================================
+
+Chunk 55:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_911
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+8. 在Windows 中线程拥有独立的用户态栈和内核 态栈的原因是哪些?
+9.TLB 对性能有重大的影响。
+为了提高TLB的 有 效 性 ，Windows 使用了大小为2MB的页，这是 什么?
+为什么2MB的页面没有一直使用?
+10.在一个执行体对象上可定义的不同操作的数量 有没有限制?
+如果有，这个限制从何而来?
+如 果没有，请说明为什么。
+11.Win32 API的调用WaitForMultipleObjects 以 一组同步对象的句柄为参数，使得线程被这组 同步对象阻塞。
+一旦它们中的任何一个收到信 号，调用者线程就会被释放。
+这组同步对象是 否可以包含两个信号灯、一个互斥体和一个临
+界区?
+理由是什么?
+提示：这不是一个恶作剧 的问题，但确实有必要认真考虑一番。
+12.在多线程程序中初始化全局变量的时候，允许 这个变量被两次初始化的竞争条件是一个常见 的程序错误。
+为什么会发生这种情况?
+Windows 提供了InitOnceExcuteOnce API来阻 止这种情况的发生，它是怎样执行的?
+14.用户每次从应用程序切换出去的时候，现代应 用程序都必须要将它们的状态保存到磁盘。
+这 样看起来效率比较低，因为用户可能会多次切 换回这个应用程序，然后这个应用程序就简单 地重新启动运行。
+操作系统为什么要求应用程 序如此频繁地保存它们的状态，而不是在这个 点上就让它们真正结束运行?
+15.如11.4节所述，有一个特殊的句柄表用于为进 程和线程分配ID 。
+句柄表的算法通常是分配 第一个可用的句柄(按照后进先出的顺序维护 空闲链表)。
+在最新发布的Windows 版本中， 该算法变成了ID 表总是以先进先出的顺序跟 踪空闲链表。
+使用后进先出顺序分配进程线 ID 有什么潜在的问题?
+为什么.UX 操作系统没 有这个问题?
+16.假设时间片配额被设置为20毫秒，当前优先 级为24的线程在配额开始的时候刚开始执行。
+突然一个I/O操作完成了并且一个优先级为28 的线程变成就绪状态。
+这个线程需要等待多久 才可以使用CPU?
+================================================================================
+
+Chunk 56:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_255
+Source: dense
+--------------------------------------------------------------------------------
+1. 距离向量路由选择算法
+距离向量路由选择算法也称为 Bellman-Ford 算法。
+向量(vector) 集方向与数值于一 身 。
+IP 路由就是一种向量，它有方向(指向目的网络的下一跳路由器)和数值(路由的度量 值)。
+路由的度量值又称为路由的开销。
+衡量路由算法开销的参数主要有延时、带宽、跳数、 可靠性、费用等。
+理解距离向量路由选择算法时需要注意以下几个问题：
+· 距离向量路由选择算法的设计思想比较简单，它要求路由器周期性地通知相邻路由 器：自己可以到达哪些网络及到达这些网络的距离(跳数)。
+· 路由更新报文主要内容是由若干(V,D) 组成的表。
+其中V 代表向量，指出路由器可 到达的目的网络或目的主机；D 代表距离，指出路由器到达目的网络或目的主机的
+网络层
+距 离 。
+· 相邻路由器收到某个路由器的(V,D) 报文后，按最短路径原则更新自己的路由表。
+================================================================================
+
+Chunk 57:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_345
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+如果第一个零窗口探测报文没有收到应
+答，则发送第二个零窗口探测报文，直至收到非零窗口通知为止。
+4)传输效率问题
+发送端的应用进程将数据传送到发送缓存之后，接下来就由 TCP 控制整个传输过程。
+考虑到传输效率的问题，TCP 需要注意什么时候发送多长报文段的问题。
+这个问题受到应 用进程产生数据的速度与 TCP 发送能力的限制，是很复杂的问题。
+传输层
+的 IP 分组头，封装到一个 IP 分组中。
+那么,在41B的 IP 分组中，TCP 报头占20B,IP 分组 头占20B, 应用层数据仅有1B 。
+即使接收端在接收之后没有数据发送，它也要返回一个40B 的确认，其中，TCP 报头占20B,IP 分组头占20B 。
+接下来，接收端向发送端发送一个窗口
+更新报文，通知将窗口向前移1B, 这个分组的长度也是40B 。
+最后，如果发送端也要发送1B 261
+的数据，那么发送端返回一个41B 的分组，作为对窗口更新报文的应答。
+从上述过程可以 看出，如果用户以较慢的速度输入字符，每个字符要发送总长度为162B 的4个报文段。
+这 种方法显然是不合适的。
+针对如何提高传输效率的问题，John Nagle提出了Nagle 算法：
+(1)当数据是以每次1B 进入发送端时，发送端第一次仅发送1B, 其他字节被存入发送 缓存。
+在第一个报文段确认之后，发送端将缓存中的数据放在第2个报文段中发送。
+这种 在发送与等待应答的同时缓存待发送数据的处理方法可以有效地提高传输效率。
+(2)当发送缓存中的数据字节数达到发送窗口的1/2或接近最大报文段长度(MSS) 时，立即将它们作为一个报文段来发送。
+还有一种情况，被称为糊涂窗口综合征(silly window syndrome)。
+假设TCP 接收缓存 已满，而应用进程每次仅从接收缓存读取1B, 那么接收缓存就腾空1B, 接收端向发送端发 出确认报文，并将接收窗口设置为1。
+发送端发送的确认报文长度为40B。
+接下来，发送端 以 4 1B的代价发送1B 的数据。
+================================================================================
+
+Chunk 58:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_346
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+接下来，发送端 以 4 1B的代价发送1B 的数据。
+接下来，应用进程每次仅从接收缓存中读取1B, 接收端向发 送端发出确认报文，继续将接收窗口设置为1。
+发送端发送的确认报文长度为40B 。
+再接 下来，发送端以41B的代价发送1B的数据。
+这样继续下去，必然造成传输效率很低。
+解决这个问题的方法：禁止接收端发送仅有1B的窗口更新报文，让接收端等待一段时 间，使缓存已有足够的空间接收一个最大长度的报文段，或者缓存空出一半之后，再发送窗 口更新报文。
+Nagle 算法与解决糊涂窗口综合征问题的思路相同，那就是：发送端不要发送太小的 报文段，接收端通知的 rwnd 不能太小。
+2.TCP 窗口与拥塞控制
+1)拥塞控制的基本概念
+拥塞控制用于防止过多的报文进入网络，进而造成路由器与链路过载。
+需要注意的是：
+流量控制的重点放在点-点链路通信量的局部控制上，而拥塞控制的重点放在进入网络的报 文总量的全局控制上。
+网络出现拥塞(congestion) 的原因很复杂，涉及链路带宽、路由器处理分组的能力、节 点缓存与处理分组的能力以及路由选择、流量控制算法等一系列问题。
+人们通常将网络出 现拥塞的条件写为
+网络资源的需求>网络可用资源
+如果在某段时间内，用户对某类网络资源需求多，就有可能造成拥塞。
+例如， 一条链路的带 宽为100Mb/s, 而连接在该链路上的100台计算机都要求以10Mb/s 的速率发送数据，显然 该链路无法满足计算机对链路带宽的需求。
+人们就会想到将链路带宽升级到1Gb/s, 以满 足用户的要求。
+当某个节点的缓存容量过小或处理速度太慢时，进入节点的大量报文不能 及时被处理，而不得不丢弃一些报文。
+人们就会想到将这个节点的主机升级，换成大容量的 缓存、高速的处理器，使这个节点的处理能力改善，不出现报文丢失现象。
+但是，这些局部的
+计算机网络(第5版)
+改善都不能从根本上解决网络拥塞的问题，仅是将造成拥塞的瓶颈从节点计算或存储能力 转移到链路带宽或路由器上。
+图5-25给出了拥塞控制的作用。
+================================================================================
+
+Chunk 59:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_240
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+)这种计算就是一种集中式路由选择算法的例子，即路由选择算法在一个位置(你 的大脑中)运行，该位置具有网络的完整信息。
+一般而言，路由选择算法的一种分类方式 是根据该算法是集中式还是分散式来划分。
+● 集中式路由选择算法 (centralized routing algorithm) 用完整的、全局性的网络知识 计算出从源到目的地之间的最低开销路径。
+也就是说，该算法以所有节点之间的 连通性及所有链路的开销为输入。
+这就要求该算法在真正开始计算以前，要以某 种方式获得这些信息。
+计算本身可在某个场点(例如，图5-2中所示的逻辑集中 式控制器)进行，或在每台路由器的路由选择组件中重复进行(例如在图5-1 中)。
+然而，这里的主要区别在于，集中式算法具有关于连通性和链路开销方面的 完整信息。
+具有全局状态信息的算法常被称作链路状态 (Link State,LS) 算法， 因为该算法必须知道网络中每条链路的开销。
+我们将在5.2.1节中学习LS 算法。
+● 在分散式路由选择算法 (decentralized routing algorithm) 中，路由器以迭代、分布 式的方式计算出最低开销路径。
+没有节点拥有关于所有网络链路开销的完整信息。
+相反，每个节点仅有与其直接相连链路的开销知识即可开始工作。
+然后，通过迭 代计算过程以及与相邻节点的信息交换， 一个节点逐渐计算出到达某目的节点或 一组目的节点的最低开销路径。
+我们将在后面的5.2.2节学习一个称为距离向量 (Distance-Vector,DV) 算法的分散式路由选择算法。
+之所以叫作DV 算法，是因 为每个节点维护到网络中所有其他节点的开销(距离)估计的向量。
+这种分散式 算法，通过相邻路由器之间的交互式报文交换，也许更为天然地适合那些路由器 直接交互的控制平面，就像在图5-1中那样。
+路由选择算法的第二种广义分类方式是根据算法是静态的还是动态的进行分类。
+在静 态路由选择算法 (static routing algorithm) 中，路由随时间的变化非常缓慢，通常是人工进 行调整(如人为手工编辑一条链路开销)。
+================================================================================
+
+Chunk 60:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_276
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+5.7.2 简单网络管理协议
+276 第5章
+动或关闭)已经导致了MIB 对象值的改变。
+表5-2中显示了SNMPv2 定义的7种类型的报文，这些报文一般称为协议数据单元 (PDU) 。
+图5-21显示了这些PDU的格式。
+表5-2 SNMPv2 PDU类型
+SNMP PDU
+图5-21 SNMP PDU 格式
+5.8 小 结
+我们学习了构建控制平面有两大类方法：传统的每路由器控制(其中在每台路由器中 运行算法，并且路由器中的路由选择组件与其他路由器中的路由选择组件通信)和软件定 义网络 (SDN) 控制 (其中一个逻辑上集中的控制器计算并向每台路由器分发转发表为它 们所用)。
+我们在5.2节中学习了两种基本的路由选择算法，即链路状态和距离矢量，用 于计算图中的最小开销路径；这些算法在每路由器控制和SDN 控制中都有应用。
+这些算 法是两种广泛部署的因特网路由选择协议OSPF 和BGP的基础，我们在5 .3节和5.4节中 讨论了这两种协议。
+我们在5.5节中讨论了网络层控制平面的SDN 方法，研究了SDN 网 络控制应用程序、SDN 控制器，以及控制器和SDN 控制设备之间通信所使用的OpenFlow 协议。
+在5.6节和5.7节中，我们包括了管理IP 网络的某些技术细节： ICMP (互联网控 制报文协议)和SNMP (简单网络管理协议)。
+在完成了网络层学习之后，我们的旅行此时沿着协议栈向下走了一步，即到了链路 层。
+像网络层一样，链路层是每台网络连接的设备的一部分。
+但我们将在下一章中看到， 链路层的任务是在相同链路或局域网之间更局域化地移动分组。
+尽管这种任务从表面上看
+278 第5章
+可能比网络层任务简单得多，但我们将看到，链路层涉及许多重要和引人入胜的问题，这 些问题会花费我们不少时间。
+复习题
+5 . 1节
+R1. 基于每路由器控制的控制平面意味着什么?
+在这种情况下，当我们说网络控制平面和数据平面是 “整体地”实现时，是什么意思?
+R2. 基于逻辑上集中控制的控制平面意味着什么?
+在这种有情况下，数据平面和控制平面是在相同的设 备或在分离的设备中实现的吗?
+请解释。
+5.2节
+R3. 比较和对照集中式和分布式路由选择算法的性质。
+给出一个路由选择协议的例子，该路由选择协议 采用分布式方法和集中式方法。
+R4. 比较和对照链路状态和距离矢量这两种路由选择算法。
+R5. 在距离矢量路由选择中的“无穷计数”是什么意思?
+================================================================================
+
+Chunk 61:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_277
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+R5. 在距离矢量路由选择中的“无穷计数”是什么意思?
+R6. 每个自治系统使用相同的AS 内部路由选择算法是必要的吗?
+说明其原因。
+5.3~5.4节
+R7. 为什么在因特网中用到了不同的AS间 与AS内部协议?
+R8. 是非判断题：当一台OSPF 路由器发送它的链路状态信息时，它仅向那些直接相邻的节点发送。
+解释 理 由 。
+R9. 在 OSPF自治系统中区域表示什么?
+为什么引入区域的概念?
+R10. 定义和对比下列术语：子网、前缀和BGP 路由。
+R11.BGP 是怎样使用NEXT-HOP 属性的?
+它是怎样使用AS-PATH属性的?
+R12. 描述一个较高层ISP 的网络管理员在配置BGP时是如何实现策略的。
+5.5节
+R14. 描述在SDN 控制器中的通信层、网络范围状态管理层和网络控制应用程序层的主要任务。
+R15. 假定你要在SDN 控制平面中实现一个新型路由选择协议。
+你将在哪个层次中实现该协议?
+解释 理 由 。
+R16. 什么类型的报文流跨越SDN 控制器的北向和南向API?
+谁是从控制器跨越南向接口发送的这些报文 的接收者?
+谁是跨越北向接口从控制器发送的这些报文的接收者?
+R17. 描述两种从受控设备到控制器发送的OpenFlow 报文(由你所选)类型的目的。
+描述两种从控制器 到受控设备发送的OpenFlow报文(由你所选)类型的目的。
+R19. 列举4种不同类型的ICMP报文。
+R20. 在发送主机执行Traceroute程序，收到哪两种类型的ICMP报文?
+R22.SNMP GetRequest和 SetRequest 报文的目的是什么?
+R23.SNMP 陷阱报文的目的是什么?
+网络层：控制平面 279
+习 题
+P1. 观察图5-3,列举从y 到 u 不包含任何环路的路径。
+P2. 重 复 习 题P1, 列 举 从x 到 z 、z 到 u 以 及z 到 w 的不包含任何环路的路径。
+P3. 考虑下面的网络。
+对于标明的链路开销，用Dijkstra 的 最 短 路 算 法 计 算 出 从x 到 所 有 网 络 节 点 的 最 短 路径。
+================================================================================
+
+Chunk 62:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_278
+Source: tfidf
+--------------------------------------------------------------------------------
+对于标明的链路开销，用Dijkstra 的 最 短 路 算 法 计 算 出 从x 到 所 有 网 络 节 点 的 最 短 路径。
+通过计算 一 个类似于表5 - 1的表，说明该算法是如何工作的。
+P4. 考 虑 习 题P3 中 所 示 的 网 络 。
+使 用Dijkstra 算法和 一 个类似于表5 - 1的表来说明你做的工作：
+a. 计 算 出 从t 到所有网络节点的最短路径。
+b. 计 算 出 从u 到所有网络节点的最短路径。
+c. 计 算 出 从v 到所有网络节点的最短路径。
+d. 计 算 出 从w 到所有网络节点的最短路径。
+e. 计 算 出 从y 到所有网络节点的最短路径。
+f. 计 算 出 从z 到所有网络节点的最短路径。
+P5. 考虑下图所示的网络，假设每个节点初始时知道到它的每个邻居的开销。
+考虑距离向量算法，并显 示 在 节 点z 中 的 距 离 表 表 项 。
+P6. 考 虑 一 个 一 般 性 拓 扑 ( 即 不 是 以 上 所 显 示 的 特 定 网 络 ) 和 一 个 同 步 版 本 的 距 离 向 量 算 法 。
+假 设 每 次 迭代时， 一 个节点与其邻居交换其距离向量并接收它们的距离向量。
+假定算法开始时，每个节点只 知道到其直接邻居的开销，在该分布式算法收敛前所需的最大迭代次数是多少?
+评估你的答案。
+P7. 考 虑 下 图 所 示 的 网 络 段 。
+x 只 有 两 个 相 连 邻 居w 与 y。
+w 有 一 条 通 向 目 的 地 μ ( 没 有 显 示 ) 的 最 低 开 销 路 径 ， 其 值 为 5 ,y 有 一 条 通 向 目 的 地u 的 最 低 开 销 路 径 ， 其 值 为 6 。
+从w 与 y 到 u ( 以 及w 与 y 之 间)的完整路径未显示出来。
+网络中所有链路开销皆为正整数值。
+a. 给 出x 对 目 的 地w 、y 和 u 的 距 离 向 量 。
+b. 给出对于c(x,w) 或 c(x,y) 的链路开销的变化，使得执行了距离向量算法后， x 将通知其邻居 有一条通向u 的新最低开销路径。
+================================================================================
+
+Chunk 63:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_398
+Source: bm25
+--------------------------------------------------------------------------------
+7.9 小结
+复习题
+7.1节
+R1. 一个无线网络运行在“基础设施模式”下是什么含义?
+如果某网络没有运行在基础设施模式下，那 么它运行在什么模式下?
+这种运行模式与基础设施模式之间有什么不同?
+R2. 在7.1节的分类法中，所确定的四种无线网络类型各是什么?
+你已经使用的是这些无线网络类型中 的哪一种?
+7.2节
+R3. 下列类型的无线信道损伤之间有什么区别：路径损耗、多径传播、来自其他源的干扰?
+无线网络和移动网络 381
+7.3~7.4节
+R5. 描述802.11中信标帧的作用。
+R6. 是非判断：802.11站在传输一个数据帧前，必须首先发送一个RTS 帧并收到一个对应的CTS帧。
+R7. 为什么802.11中使用了确认，而有线以太网中却未使用?
+R8. 是非判断：以太网和802.11使用相同的帧格式。
+R9. 描述RTS门限值的工作过程。
+R10. 假设IEEE 802.11 RTS和 CTS帧与标准的DATA 和 ACK 帧一样长，使用CTS 和 RTS 帧还会有好处 吗?
+为什么?
+R 11.7.3.4 节讨论了802.11移动性，其中无线站点从一个 BSS 到同一子网中的另一个BSS。
+当 AP 是通 过交换机互连时，为了让交换机能适当地转发帧， 一个AP 可能需要发送一个带有哄骗的MAC地址 的帧，为什么?
+R12. 在某蓝牙网络中的一个主设备和在802.11网络中的一个基站之间有什么不同?
+R13. 在802.15.4 ZigBee标准中超级帧的含义是什么?
+R14. 在 3G 蜂窝数据体系结构中，“核心网”的作用是什么?
+R15. 在 3G 蜂窝数据体系结构中，RNC 的作用是什么?
+在蜂窝语音网中RNC起什么作用?
+R16. 在 4G 体系结构中eNodeB 、MME 、P-GW和 S-GW 的作用是什么?
+R17.3G 和 4G 蜂窝体系结构之间的3个重要差别是什么?
+7.5~7.6节
+R18. 如果某节点与因特网具有无线连接，则该节点必定是移动的吗?
+试解释之。
+================================================================================
+
+Chunk 64:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_444
+Source: bm25
+--------------------------------------------------------------------------------
+8 . 1节
+R1. 报文机密性和报文完整性之间的区别是什么?
+你能具有机密性而没有完整性吗?
+你能具有完整性而 没有机密性吗?
+证实你的答案。
+8.2节
+计算机网络中的安全 433
+明文攻击和选择明文攻击吗?
+R5. 考虑一个8块密码。
+这个密码有多少种可能的输入块?
+有多少种可能的映射?
+如果我们将每种映射 视为一个密钥，则该密码具有多少种可能的密钥?
+R6. 假定N 个人中的每个人都和其他N-1 个人使用对称密钥密码通信。
+任两人 (i 和j) 之间的所有通
+信对该N 个人的组中的所有其他人都是可见的，且该组中的其他人都不应当能够解密他们的通信。
+则这个系统总共需要多少个密钥?
+现在假定使用公开密钥密码。
+此时需要多少个密钥?
+R7. 假定n=10000 、a=10023 和 b=10004 。
+请你使用等同的模算术来心算 (a·b)mod n。
+R9. 散列以何种方式提供比检验和(如因特网检验和)更好的报文完整性检验?
+R10. 你能够“解密”某报文的散列来得到初始报文吗?
+解释你的答案。
+R11. 考 虑 MAC 算 法 ( 图 8 - 9 ) 的 一 种 变 形 算 法 ， 其 中 发 送 方 发 送 (m,H(m)+s), 这 里H(m)+s 是
+H(m) 和s 的级联。
+该变形算法有缺陷吗?
+为什么?
+R12. 一个签名的文档是可鉴别的和不可伪造的，其含义是什么?
+R15. 假设Alice 有一个准备发送给任何请求者的报文。
+数以千计的人要获得Alice 的报文，但每个人都要 确保该报文的完整性。
+在这种场景下，你认为是基于MAC还是基于数字签名的完整性方案更为适 合?
+为什么?
+R16. 在某端点鉴别协议中，使用不重数的目的是什么?
+R17. 我们说一个不重数是一个在生存期中只使用一次的值，这意味着什么?
+其中是指谁的生存期?
+R18. 基于HMAC的报文完整性方案易受重放攻击影响吗?
+如果是，能够在方案中综合一个不重数来去除 这种脆弱性吗?
+8.5~8.8节
+R19. 假定 Bob 从 Alice 处接收一个PGP 报文。
+================================================================================
+
+Chunk 65:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_445
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+R19. 假定 Bob 从 Alice 处接收一个PGP 报文。
+Bob怎样才能确定 Alice (而不是如 Trudy) 生成了该报文?
+PGP为保证报文完整性使用了MAC吗?
+R20. 在 SSL记录中，有一个字段用于SSL 序号。
+这种说法是正确还是错误?
+R21. 在 SSL握手中随机不重数的目的是什么?
+R23. 假设Bob向 Trudy 发起一条TCP 连接，而Trudy 正在伪装她是Alice。
+在握手期间，Trudy 向 Bob 发 送 Alice的证书。
+在SSL 握手算法的哪一步，Bob 将发现他没有与Alice通信?
+R24. 考虑使用IPsec 从主机A 向主机B 发送分组流。
+通常，为该流中的每个发送分组将创建一个新SA。
+这种说法是正确还是错误?
+R25. 假设在图8-28中总部和分支机构之间通过IPsec 运 行TCP 。
+如果TCP 重新传输相同的分组，则由
+R1 发送的两个对应的分组将在ESP 首部中具有相同的序号。
+这种说法是正确还是错误?
+R26.IKE SA 和 IPsec SA 是相同的东西。
+这种说法是正确还是错误?
+R27. 考虑802.11的WEP。
+假定数据是10101100并且密钥流是11110000。
+相应的密文是什么?
+R28. 在 WEP 中，在每个帧中以明文发送IV。
+这种说法是正确还是错误?
+8.9节
+R29. 状态分组过滤器维护两个数据结构。
+给出它们的名字并简单地讨论它们做些什么。
+R30. 考虑某传统的(无状态的)分组过滤器。
+该分组过滤器可能基于TCP 标志位以及其他首部字段过 滤分组。
+这种说法是正确还是错误?
+R31. 在传统的分组过滤器中，每个接口能够具有自己的访问控制表。
+这种说法是正确还是错误?
+R32. 为什么应用程序网关必须与分组过滤器协同工作才能有效?
+434 第 8 章
+R33. 基于特征的IDS 和 IPS 检查TCP 和 UDP报文段的载荷。
+这种说法是正确还是错误?
+习 题
+================================================================================
+
+Chunk 66:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_144
+Source: bm25
+--------------------------------------------------------------------------------
+· 以太网采用无连接的工作方式，对发送的数据帧不进行编号，也不要求对方发回确 认。
+目的站收到有差错帧就把它丢弃，其他什么也不做。
+· 以太网采用的协议是具有冲突检测的载波监听多点接入 CSMA/CD。
+协议的要点是： 发送前先监听，边发送边监听， 一旦发现总线上出现了碰撞，就立即停止发送。
+然 后按照退避算法等待一段随机时间后再次发送。
+因此，每一个站在自己发送数据之 后的一小段时间内，存在着遭遇碰撞的可能性。
+以太网上各站点都平等地争用以太 网信道。
+· 传统的总线以太网基本上都是使用集线器的双绞线以太网。
+这种以太网在物理上是 星形网，但在逻辑上则是总线网。
+集线器工作在物理层，它的每个端口仅仅简单地 转发比特，不进行碰撞检测。
+● 以太网的硬件地址，即MAC 地址实际上就是适配器地址或适配器标识符，与主机 所在的地点无关。
+源地址和目的地址都是48位长。
+● 以太网的适配器有过滤功能，它只接收单播帧、广播帧或多播帧。
+· 使用集线器可以在物理层扩展以太网(扩展后的以太网仍然是一个网络)。
+· 交换式集线器常称为以太网交换机或第二层交换机(工作在数据链路层)。
+它就是
+一个多端口的网桥，而每个端口都直接与某台单主机或另一个集线器相连，且工作 在全双工方式。
+以太网交换机能同时连通许多对端口，使每一对相互通信的主机都 能像独占通信媒体那样，无碰撞地传输数据。
+· 高速以太网有100 Mbit/s 的快速以太网、吉比特以太网和10 Gbit/s 的10吉比特以 太网。
+最近还发展到400吉比特以太网。
+在宽带接入技术中，也常使用高速以太网 进行接入。
+习 题
+3-01 数据链路(即逻辑链路)与链路(即物理链路)有何区别?
+“链路接通了”与“数 据链路接通了”的区别何在?
+3-02 数据链路层中的链路控制包括哪些功能?
+试讨论数据链路层做成可靠的链路层有哪 些优点和缺点。
+3-03 网络适配器的作用是什么?
+网络适配器工作在哪一层?
+3-05 如果在数据链路层不进行封装成帧，会发生什么问题?
+3-06 PPP 协议的主要特点是什么?
+为什么 PPP 不使用帧的编号?
+================================================================================
+
+Chunk 67:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_146
+Source: bm25
+--------------------------------------------------------------------------------
+用 TDM 相比有何优缺点?
+3-20 假定1 km 长的CSMA/CD 网络的数据率为1 Gbit/s 。
+设信号在网络上的传播速率为
+200000 km/s。
+求能够使用此协议的最短帧长。
+3-21 什么叫作比特时间?
+使用这种时间单位有什么好处?
+100比特时间是多少微秒?
+3-22 假定在使用CSMA/CD 协议的10 Mbit/s 以太网中某个站在发送数据时检测到碰撞，
+执行退避算法时选择了随机数 r=100 。
+试问这个站需要等待多长时间后才能再次发 送数据?
+如果是100 Mbit/s 的以太网呢?
+3-23 公式(3-3)表示，以太网的极限信道利用率与连接在以太网上的站点数无关。
+能否由
+此推论出：以太网的利用率也与连接在以太网上的站点数无关?
+请说明你的理由。
+3-24 假定站点A 和 B 在同一个10 Mbit/s 以太网网段上。
+这两个站点之间的传播时延为
+3-25 上题中的站点A 和 B 在 t=0 时同时发送了数据帧。
+当t=225 比特时间，A 和 B 同
+时检测到发生了碰撞，并且在t=225+48=273 比特时间完成了干扰信号的传输。
+A 和 B 在 CSMA/CD 算法中选择不同的r 值退避。
+假定A 和B 选择的随机数分别是rA = 0 和rB=1 。
+试 问A 和B 各在什么时间开始重传其数据帧?
+A 重传的数据帧在什么 时间到达B?
+A 重传的数据会不会和B 重传的数据再次发生碰撞?
+B 会不会在预定的 重传时间停止发送数据?
+3-26 以太网上只有两个站，它们同时发送数据，产生了碰撞。
+于是按截断二进制指数退
+避算法进行重传。
+重传次数记为i,i=1,2,3, … 。
+试计算第1次重传失败的概率、第 2次重传失败的概率、第3次重传失败的概率，以及一个站成功发送数据之前的平均 重传次数I。
+3-27 有10个站连接到以太网上。
+试计算以下三种情况下每一个站所能得到的带宽。
+(1)10个站都连接到一个10 Mbit/s 以太网集线器；
+(2)10个站都连接到一个100 Mbit/s 以太网集线器；
+================================================================================
+
+Chunk 68:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_15
+Source: tfidf
+--------------------------------------------------------------------------------
+2. 分 组 交 换 的 主 要 特 点
+分 组 交 换 则 采 用存 储 转 发技 术 ① 。
+图 1 - 9 表 示 把 一 个 报 文 划 分 为 几 个 分 组 后 再 进 行 传 送 。
+通 常 我 们 把 要 发 送 的 整 块 数 据 称 为 一 个报 文(message)。
+在 发 送 报 文 之 前 ， 先 把 较 长 的 报 文 划 分 为 一 个 个 更 小 的 等 长 数 据 段 ， 例 如 ， 视频讲解
+报文
+101001110101100…………001010011101000
+发送在前
+首 部
+数 据 分组
+首部
+数 据 分组
+首 部
+数 据 分组
+图 1 - 9 以分组为基本单位在网络中传送
+图 1 - 1 0(a) 强 调 互 联 网 的 核 心 部 分 是 由 许 多 网 络 和 把 它 们 互 连 起 来 的 路 由 器 组 成 的 ， 而 主机处在互联网的边缘部分 。
+在互联网核心部分的路由器之间一般都用高速链路相连接 ， 而 在网络边缘部分的主机接入到核心部分则通常以相对较低速率的链路相连接 。
+位 于 网 络 边 缘 部 分 的 主 机 和 位 于 网 络 核 心 部 分 的 路 由 器 都 是 计 算 机 ， 但 它 们 的 作 用 却 很 不 一 样 。
+主 机 是 为 用 户 进 行 信 息 处 理 的， 并 且 可 以 和 其 他 主 机 通 过 网 络 交 换 信 息 。
+路 由 器 则 用 来 转 发 分 组 ， 即 进 行 分 组 交 换。
+路 由 器 收 到 一 个 分 组 ， 先 暂 时 存 储 一 下 ， 检 查 其 首 部 ， 查 找 转 发 表 ， 按 照 首 部 中 的 目 的 地 址 ， 找 到 合 适 的 接 口 转 发 出 去 ， 把 分 组 交 给 下 一 个 路 由 器 。
+这 样 一 步 一 步 地 ( 有 时 会 经 过 几 十 个 不 同 的 路 由 器 ) 以 存 储 转 发 的 方 式 ， 把 分 组 交 付 最 终 的 目 的 主 机 。
+================================================================================
+
+Chunk 69:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_297
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+5.7.2 TCP的传输效率
+前面已经讲过，应用进程把数据传送到 TCP 的发送缓存后，剩下的发
+送任务就由TCP 来控制了。
+可以用不同的机制来控制TCP 报文段的发送时
+机。
+例如，第一种机制是TCP 维持一个变量，它等于最大报文段长度MSS 。
+视频讲解
+只要缓存中存放的数据达到MSS 字节时，就组装成一个TCP 报文段发送出去。
+第二种机制 是由发送方的应用进程指明要求发送报文段，即TCP 支持的推送(push)操作。
+第三种机制是 发送方的一个计时器期限到了，这时就把当前已有的缓存数据装入报文段(但长度不能超过 MSS) 发送出去。
+但是，如何控制TCP 发送报文段的时机仍然是一个较为复杂的问题[RFC 1122]。
+在 TCP 的实现中广泛使用 Nagle 算法。
+算法如下：若发送应用进程把要发送的数据逐 个字节地送到 TCP 的发送缓存，则发送方就把第一个数据字节先发送出去，把后面到达的 数据字节都缓存起来。
+当发送方收到对第一个数据字符的确认后，再把发送缓存中的所有数 据组装成一个报文段发送出去，同时继续对随后到达的数据进行缓存。
+只有在收到对前一个 报文段的确认后才继续发送下一个报文段。
+当数据到达较快而网络速率较慢时，用这样的方 法可明显地减少所用的网络带宽。
+Nagle 算法还规定，当到达的数据已达到发送窗口大小的 一半或已达到报文段的最大长度时，就立即发送一个报文段。
+这样做，就可以有效地提高网 络的吞吐量。
+另一个问题叫作糊涂窗口综合征(silly window syndrome),有时也会使TCP 的性能变坏。
+设想一种情况：TCP 接收方的缓存已满，而交互式的应用进程一次只从接收缓存中读取1 个字节(这样就使接收缓存空间仅腾出1个字节),然后向发送方发送确认，并把窗口设置 为1个字节(但发送的数据报是40字节长)。
+接着，发送方又发来1个字节的数据(请注意， 发送方发送的IP 数据报是41字节长)。
+接收方发回确认，仍然将窗口设置为1个字节。
+这 样进行下去，使网络的效率很低。
+================================================================================
+
+Chunk 70:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_492
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+RTS/CTS 是强制使用还是选择使用?
+请说明理由。
+9-10 为什么在无线局域网上发送数据帧后，要求对方必须发回确认帧，而以太网就不需
+要对方发回确认帧?
+9-11 无线局域网的MAC 协议中的SIFS 和 DIFS 的作用是什么?
+9-12 试解释无线局域网中的名词：BSS,ESS,AP,BSA,DCF,PCF 和 NAV。
+9-14 为什么站点在检测到信道空闲后，在等待时间 DIFS 内还不能立即发送数据?
+为什么
+在等待时间DIFS 后，有时可立即发送数据，而有时必须执行退避算法?
+9-15 试用简单的例子说明无线局域网的MAC 帧首部中地址3的作用。
+9-16 试比较IEEE 802.3 和 IEEE 802.11局域网，找出它们之间的主要区别。
+9-17 无线个人区域网WPAN的主要特点是什么?
+现在已经有了什么标准?
+9-18 试举例说明怎样知道一个用作无线路由器的接入点AP 的 SSID 和 BSSID?
+9-19 第二代蜂窝移动通信网与第一代蜂窝移动通信网的主要区别是什么?
+第三代蜂窝移
+动通信网与第二代蜂窝移动通信网的主要区别是什么?
+9-20 第四代蜂窝移动通信网与第三代蜂窝移动通信网的主要区别是什么?
+9-21 我们在第1章中就讲过，电路交换适合于话音通信，分组交换适合于数据通信。
+为
+什么现在第四代蜂窝移动通信网LTE 全部使用分组交换进行话音通信和数据通信?
+路径的分组首部中的目的地址和源地址。
+9-23 在蜂窝移动通信网中，移动站的漫游所产生的切换，对正在工作的 TCP 连接有什么
+影响?
+9-24 某餐馆中有两个ISP 分别设置了接入点AP₁ 和 AP₂, 并且都使用802.11b 协议。
+两个
+ISP 都分别有自己的IP 地址块。
+(1)假定两个ISP 在配置其接入点时都选择了信道11。
+如果有用户 A 和 B 分别使用 接入点AP₁ 和 AP₂, 那么这两个无线网络能够正常工作吗?
+(2)若这两个AP 一个工作在信道1,而另一个工作在信道11,题目的答案有变化吗?
+9-25 为什么采用预约信道的方法可以较好地解决隐蔽站的问题?
+================================================================================
+

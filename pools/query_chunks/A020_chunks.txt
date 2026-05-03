@@ -1,0 +1,1647 @@
+Query: A020
+Total chunks: 68
+================================================================================
+
+Chunk 1:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_254
+Source: dense
+--------------------------------------------------------------------------------
+18. 【2015统考真题】下列关于交换机的叙述中，正确的是()。
+A. 以太网交换机本质上是一种多端口网桥
+B. 通过交换机互连的一组工作站构成一个冲突域
+C. 交换机每个端口所连网络构成一个独立的广播域
+D. 以太网交换机可实现采用不同网络层协议的网络互连
+19. 【2016统考真题】若主机H2 向主机H4 发送一个数据帧，主机H4 向主机H2 立即发送 一个确认帧，则除H4 外，从物理层上能够收到该确认帧的主机还有()。
+================================================================================
+
+Chunk 2:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_272
+Source: dense
+--------------------------------------------------------------------------------
+4.1.4 拥塞控制
+在通信子网中，因出现过量的分组而引起网络性能下降的现象称为拥塞。
+例如，某个路由
+络就可能已进入拥塞状态；如果网络的负载继续增大，而网络的吞吐量下降到零，那么网络就可 能已进入死锁状态。
+为避免拥塞现象的出现，要采用能防止拥塞的一系列方法对子网进行拥塞控制。
+拥塞控制主 要解决的问题是如何获取网络中发生拥塞的信息，从而利用这些信息进行控制，以避免由于拥塞 而出现分组的丢失，以及严重拥塞而产生网络死锁的现象。
+流量控制和拥塞控制的区别：流量控制往往是指在发送端和接收端之间的点对点通信量的控 制。
+流量控制所要做的是抑制发送端发送数据的速率，以便使接收端来得及接收。
+而拥塞控制必 须确保通信子网能够传送待传送的数据，是一个全局性的问题，涉及网络中所有的主机、路由器 及导致网络传输能力下降的所有因素。
+拥塞控制的方法有两种：
+1)开环控制。
+在设计网络时事先将有关发生拥塞的因素考虑周到，力求网络在工作时不产 生拥塞。
+这是一种静态的预防方法。
+一旦整个系统启动并运行，中途就不再需要修改。
+开环控制手段包括确定何时可接收新流量、何时可丢弃分组及丢弃哪些分组，确定何种 调度策略等。
+所有这些手段的共性是，在做决定时不考虑当前网络的状态。
+2)闭环控制。
+事先不考虑有关发生拥塞的各种因素，采用监测网络系统去监视，及时检测
+================================================================================
+
+Chunk 3:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_396
+Source: dense
+--------------------------------------------------------------------------------
+4.8 网络层设备
+4.8.1 冲突域和广播域
+这里的“域”表示冲突或广播在其中发生并传播的区域。
+1. 冲突域
+冲突域是指连接到同一物理介质上的所有结点的集合，这些结点之间存在介质争用的现象。
+在OSI 参考模型中，冲突域被视为第1层概念，像集线器、中继器等简单无脑复制转发信号的第 1层设备所连接的结点都属于同一个冲突域，也就是说它们不能划分冲突域。
+而第2层(网桥、 交换机)、第3层(路由器)设备都可以划分冲突域。
+================================================================================
+
+Chunk 4:
+Doc ID: 2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_457
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+14. 以下关于TCP 窗口与拥塞控制概念的描述中，错误的是()。
+A. 接收端窗口(rwnd) 通过TCP 首部中的窗口字段通知数据的发送方
+B. 发送窗口确定的依据是：发送窗口=min[接收端窗口，拥塞窗口]
+C. 拥塞窗口是接收端根据网络拥塞情况确定的窗口值
+D. 拥塞窗口大小在开始时可以按指数规律增长
+15.TCP 使用三次握手协议来建立连接，设A、B 双方发送报文的初始序列号分别为X 和 Y, A 发送(①)的报文给 B,B 接收到报文后发送(②)的报文给A, 然后A 发送一个确 认报文给B 便建立了连接(注意，ACK 的下标为捎带的序号).
+①A.SYN=1, 序号=X C.SYN=1, 序号=Y
+②A.SYN=1, 序号=X+1
+C.SYN=1, 序号=Y,ACKx+1=1
+B.SYN=1, 序号=X+1,ACKx=1
+D.SYN=1, 序号=Y,ACKy+1=1
+B.SYN=1, 序号=X+1,ACKx=1
+D.SYN=1, 序号=Y,ACKy+1=1
+16.TCP “三次握手”过程中，第二次“握手”时，发送的报文段中()标志位被置为1.
+A.SYN B.ACK
+C.ACK 和RST D.SYN 和ACK
+17.A 和B 之间建立了TCP 连接，A 向 B 发送了一个报文段，其中序号字段seq=200, 确
+认号字段ack=201, 数据部分有2个字节，那么在B对该报文的确认报文段中()。
+A.seq=202,ack=200 B.seq=201,ack=201
+C.seq=201,ack=202 D.seq=202,ack=201
+18.TCP 的通信双方，有一方发送了带有FIN 标志的数据段后，表示().
+A. 将断开通信双方的TCP 连接
+B. 单方面释放连接，表示本方已经无数据发送，但可以接收对方的数据
+C. 中止数据发送，双方都不能发送数据
+D. 连接被重新建立
+================================================================================
+
+Chunk 5:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1107
+Source: tfidf
+--------------------------------------------------------------------------------
+Sequential read performance can utilize all of the disks except for the parity disk, and thus deliver a peak effective bandwidth of (N — 1) · S MB/s (an easy case).
+To understand the performance of sequential writes, we must ﬁrst un- derstand how they are done.
+When writing a big chunk of data to disk,
+RAID-4 can perform a simple optimization known as a full-stripe write.
+For example, imagine the case where the blocks 0, 1, 2, and 3 have been sent to the RAID as part of a write request (Table 38.4).
+Disk 0 Disk 1 Disk 2 Disk 3 Disk 4 0 1 2 3 P0 4 5 6 7 P1 8 9 10 11 P2 12 13 14 15 P3
+Table 38.4: Full-stripe Writes In RAID-4
+In this case, the RAID can simply calculate the new value of P0 (by performing an XOR across the blocks 0, 1, 2, and 3) and then write all of the blocks (including the parity block) to the ﬁve disks above in parallel (highlighted in gray in the ﬁgure).
+================================================================================
+
+Chunk 6:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_185
+Source: tfidf
+--------------------------------------------------------------------------------
+Figure 7.2: Why FIFO Is Not That Great
+As you can see in Figure 7.2, Job A runs ﬁrst for the full 100 seconds before B or C even get a chance to run.
+Thus, the average turnaround time for the system is high: a painful 110 seconds ( = 110).
+This problem is generally referred to as the convoy effect [B+79], where a number of relatively-short potential consumers of a resource get queued behind aheavyweight resource consumer.
+This scheduling scenario might remind you of a single line at a grocery store and what you feel like when
+you see the person in front of you with three carts full of provisions and a checkbook out; it’s going to be a while2 .
+So what should we do?
+How can we develop a better algorithm to deal with our new reality of jobs that run for different amounts of time?
+Think about it ﬁrst; then read on.
+================================================================================
+
+Chunk 7:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_269
+Source: tfidf
+--------------------------------------------------------------------------------
+The idea behind tem- poral locality is that when a piece of data is accessed, it is likely to be accessed again in the near future; imagine variables or even instructions themselves being accessed over and over again in a loop.
+The idea be- hind spatial locality is that if a program accesses a data item at address x, it is likely to access data items near x as well; here, think of a program streaming through an array, or instructions being executed one after the other.
+Because locality of these types exist in many programs, hardware systems can make good guesses about which data to put in a cache and thus work well.
+Now for the tricky part: what happens when you have multiple pro- cessors in a single system, with a single shared main memory, as we see in Figure 10.2?
+As it turns out, caching with multiple CPUs is much more compli- cated.
+================================================================================
+
+Chunk 8:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_467
+Source: tfidf
+--------------------------------------------------------------------------------
+We also might have protection bits, indicating whether the page could be read from, written to, or executed from.
+Again, accessing a page in a way not allowed by these bits will generate a trap to the OS.
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+Figure 18.5: An x86 Page Table Entry (PTE)
+There are a couple of other bits that are important but we won’t talk about much for now.
+A present bit indicates whether this page is in phys- ical memory or on disk (swapped out); we will understand this in more detail when we study how to move parts of the address space to disk and back in order to support address spaces that are larger than physical memory and allow for the pages of processes that aren’t actively being run to be swapped out.
+A dirty bit is also common, indicating whether the page has been modiﬁed since it was brought into memory.
+================================================================================
+
+Chunk 9:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_474
+Source: tfidf
+--------------------------------------------------------------------------------
+Figure 18.6 shows the basic approach.
+For every memory reference (whether an instruction fetch or an explicit load or store), paging requires us to perform one extra memory reference in order to ﬁrst fetch the translation from the page table.
+That is a lot of work!
+Extra memory references are costly, and in this case will likely slow down the process by a factor of two or more.
+And now you can hopefully see that there are two real problems that we must solve.
+Without careful design of both hardware and software, page tables will cause the system to run too slowly, as well as take up too much memory.
+While seemingly a great solution for our memory virtualization needs, these two crucial problems must ﬁrst be overcome. 18.4 A Memory Trace
+Before closing, we now trace through a simple memory access exam- ple to demonstrate all of the resulting memory accesses that occur when using paging.
+================================================================================
+
+Chunk 10:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_51
+Source: tfidf
+--------------------------------------------------------------------------------
+Then, when we run the program a second time, we not only again get the wrong value, but also a different value than the last time.
+In fact, if you run the program over and over with high values of loops, you may ﬁnd that sometimes you even get the right answer!
+So why is this happening?
+As it turns out, the reason for these odd and unusual outcomes relate to how instructions are executed, which is one at a time.
+Unfortunately, a key part of the program above, where the shared counter is incremented, takes three instructions: one to load the value of the counter from mem- ory into a register, one to increment it, and one to store it back into mem- ory.
+Because these three instructions do not execute atomically (all at once), strange things can happen.
+It is this problem of concurrency that we will address in great detail in the second part of this book.
+1 #include <stdio .h>
+================================================================================
+
+Chunk 11:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_515
+Source: tfidf
+--------------------------------------------------------------------------------
+One common approach is to evict the least-recently-used or LRU entry.
+The idea here is to take advantage of locality in the memory-reference stream; thus, it is likely that an entry that has not recently been used is a good candidate for eviction as (perhaps) it won’t soon be referenced again.
+Another typical approach is to use a random policy.
+Randomness sometimes makes abad decision but has the nice property that there are not any weird corner case behaviors that can cause pessimal behavior, e.g., think of a loop accessing n+ 1 pages, a TLB of size n, and an LRU replacement policy.
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+Figure 19.4: A MIPS TLB Entry
+================================================================================
+
+Chunk 12:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_539
+Source: tfidf
+--------------------------------------------------------------------------------
+In our hybrid, we still have those structures in the MMU; here, we use the base not to point to the segment itself but rather to hold the physical address of the page table of that segment.
+The bounds register is used to indicate the end of the page table (i.e., how many valid pages it has).
+Let’s do a simple example to clarify.
+Assume a 32-bit virtual address space with 4KB pages, and an address space split into four segments.
+We’ll only use three segments for this example: one for code, one for heap, and one for stack.
+To determine which segment an address refers to, we’ll use the top two bits of the address space.
+Let’s assume 00 is the unused segment, with 01 for code, 10 for the heap, and 11 for the stack.
+Thus, a virtual address looks like this:
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+================================================================================
+
+Chunk 13:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_540
+Source: tfidf
+--------------------------------------------------------------------------------
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+In the hardware, assume that there are thus three base/bounds pairs, one each for code, heap, and stack.
+When a process is running, the base register for each of these segments contains the physical address of a lin- ear page table for that segment; thus, each process in the system now has three page tables associated with it.
+On a context switch, these registers must be changed to reAect the location of the page tables of the newly- running process.
+On a TLB miss (assuming a hardware-managed TLB, i.e., where the hardware is responsible for handling TLB misses), the hardware uses the segment bits (SN) to determine which base and bounds pair to use.
+The hardware then takes the physical address therein and combines it with the VPN as follows to form the address of the page table entry (PTE):
+================================================================================
+
+Chunk 14:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_685
+Source: tfidf
+--------------------------------------------------------------------------------
+We have also seen how to create the illusion of a large, private virtual memory for each process; this abstrac- tion of the address space enables each program to behave as if it has its own memory when indeed the OSis secretly multiplexing address spaces across physical memory (and sometimes, disk).
+In this note, we introduce a new abstraction for a single running pro- cess: that of a thread.
+Instead of our classic view of a single point of execution within a program (i.e., a single PC where instructions are be- ing fetched from and executed), a multi-threaded program has more than one point of execution (i.e., multiple PCs, each of which is being fetched and executed from).
+Perhaps another way to think of this is that each thread is very much like a separate process, except for one difference: they share the same address space and thus can access the same data.
+================================================================================
+
+Chunk 15:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_706
+Source: tfidf
+--------------------------------------------------------------------------------
+Atomically, in this context, means “as a unit”, which sometimes we take as “all or none.”
+What we’d like is to execute the three instruction sequence atomically: mov 0x8049a1c, %eax add $0x1, %eax mov %eax, 0x8049a1c
+As we said, if we had a single instruction to do this, we could just issue that instruction and be done.
+But in the general case, we won’t have such an instruction.
+Imagine we were building a concurrent B-tree, and wished to update it; would we really want the hardware to support an “atomic update of B-tree” instruction?
+Probably not, at least in a sane instruction set.
+Thus, what we will instead do is ask the hardware for a few useful instructions upon which we can build a general set of what we call syn- chronization primitives.
+================================================================================
+
+Chunk 16:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_707
+Source: tfidf
+--------------------------------------------------------------------------------
+Thus, what we will instead do is ask the hardware for a few useful instructions upon which we can build a general set of what we call syn- chronization primitives.
+By using these hardware synchronization prim- itives, in combination with some help from the operating system, we will be able to build multi-threaded code that accesses critical sections in a
+synchronized and controlled manner, and thus reliably produces the cor- rect result despite the challenging nature of concurrent execution.
+Pretty awesome, right?
+This is the problem we will study in this section of the book.
+It is a wonderful and hard problem, and should make your mind hurt (a bit).
+If it doesn’t, then you don’t understand!
+Keep working until your head hurts; you then know you’re headed in the right direction.
+At that point, take a break; we don’t want your head hurting too much.
+================================================================================
+
+Chunk 17:
+Doc ID: Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_977
+Source: dense
+--------------------------------------------------------------------------------
+In systems without asynchronous I/O, the pure event-based approach cannot be implemented.
+However, clever researchers have derived meth- ods that work fairly well in their place.
+For example, Pai et al. [
+PDZ99] describe a hybrid approach in which events are used to process network packets, and a thread pool is used to manage outstanding I/Os.
+Read their paper for details.
+================================================================================
+
+Chunk 18:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_1003
+Source: dense
+--------------------------------------------------------------------------------
+DENNING,PJ.:"The Working Set Model for Program Behavior,"Commun.of the ACM, vol.11,pp.323-333,1968a.
+DENNING,P.J.:"Thrashing:Its Causes and Prevention,"Proc.AFIPS National Computer Conf,AFIPS,pp.915-922,1968b.
+DENNING,P.J.:"Virtual Memory,"Computing Surveys,vol.2,pp.153-189,Sept.1970. DENNING,D.:Information Warfare and Security,Boston:Addison-Wesley,1999.
+DENNING,PJ.:"Working Sets Past and Present,"IEEE Trans.on Software Engineering, vol.SE-6,pp.64-84,Jan.1980.
+DENNIS,J.B.,and VAN HORN,E.C.:"Programming Semantics for Multiprogrammed Computations,"Commun.of the ACM,vol.9,pp.143-155,March 1966.
+DIFFIE,W.,and HELLMAN,M.E.: "New Directions in Cryptography,"IEEE Trans.on Information Theory,vol.IT-22,pp.644-654,Nov.1976.
+DIJKSTRA,E.W.: "Co-operating Sequential Processes,"in Programming Languages,
+Genuys,F.(Ed.),London:Academic Press,1965.
+================================================================================
+
+Chunk 19:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_1122
+Source: dense
+--------------------------------------------------------------------------------
+ASLR 通过随机化地址空间使得ROP攻击难以实现
+PatchGuard 检测试图修改内核数据的行为，如利用rootkit进行攻击
+Windows更新 提供常规的安全补丁以减少漏洞
+Windows Defender 内置的基本反病毒功能
+偏移 0 1 2 3 4 5 6 7 8 910
+磁盘地址50 51 52 22 24 25 26 53 54 -60
+系统调用处理程序 系统调用处理程序 系统调用处理程序 系统调用处理程序 系统调用处理程序 系统调用处理程序
+文件系统1 文件系统1 … … 文件系统m 文件系统m
+虚拟内存 虚拟内存 虚拟内存 虚拟内存 虚拟内存 虚拟内存
+驱 动 程序1 瞿率 … · 瞿
+线程、线程调度、线程同步 线程、线程调度、线程同步 线程、线程调度、线程同步 线程、线程调度、线程同步 线程、线程调度、线程同步 线程、线程调度、线程同步
+中断处理、上下文切换、MMU 中断处理、上下文切换、MMU 中断处理、上下文切换、MMU 中断处理、上下文切换、MMU 中断处理、上下文切换、MMU 中断处理、上下文切换、MMU
+隐藏低层硬件 隐藏低层硬件 隐藏低层硬件 隐藏低层硬件 隐藏低层硬件 隐藏低层硬件
+微内核 微内核 微内核 微内核 微内核 微内核 微内核
+found=0;
+for(p=&proc table[0];p<&proc table[PROC TABLE SIZE];p++){
+if(p->proc_pid==pid){ found=1;
+break; {
+}
+#define BYTE_SIZE 8
+int bit_count(int byte) {
+int i,count=0;
+for(i=0;i<BYTE_SIZE;i++)
+if(byte >>i)&1)count++; return(count);
+( /*一个字节包含8个位*/
+/*对一个字节中的位进行计数*/
+1*返回和*/
+3,8,13 3,8,13 26,4,9 90,2,6
+3,8,13 3,8,13 4,19,20 4,6,9
+================================================================================
+
+Chunk 20:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_581
+Source: bm25
+--------------------------------------------------------------------------------
+而蠕虫不需要用户的交互或配合，它是自传播的。
+它们的传播与用户的行为无关，也可能是用户自愿安 装了攻击者的代码。
+例如，攻击者可以重打包流行但是昂贵的软件(例如游戏或者文字处理工具),并 在网上免费发布。
+对于很多用户来说，免费是极为诱人的。
+然而，安装免费游戏时也自动安装了额外的 功能，这些功能将计算机以及上面的所有东西都交给远方的计算机罪犯。
+这种软件叫作特洛伊木马，也 是我们稍后将简要讨论的主题。
+基于以上问题，本章将分为两个主要部分进行讨论。
+首先详细介绍安全的现状，包括威胁和攻击 (9.1节)、安全和攻击的本质(9.2节)、不同的访问控制方法(9.3节)以及安全模型(9.4节)。
+除此之外， 我们还将探讨安全中的核心方法——密码学(9.5节),以及不同的安全认证方式(9.6节)。
+到目前为止，我们还没有面临什么实质威胁，然而现实并非如此。
+接下来的四节将讨论实际存在的 安全问题，包括攻击者使用的控制计算机系统的技巧，以及为防止这种情况的发生而采取的应对措施。
+我们还会讨论内部攻击以及各种不同的电子病毒。
+最后，我们简单地讨论计算机安全相关的研究现状并 对本章进行总结。
+================================================================================
+
+Chunk 21:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_584
+Source: dense_bm25
+--------------------------------------------------------------------------------
+9.2 操作系统安全
+然而， 一些最重要的安全事故是由复杂的网络攻击导致的。
+在本书中，我们只关注涉及操作系统 的攻击。
+换句话说，我们将不会涉及网络攻击或针对SQL 数据库的攻击。
+相反，我们关注的是以操作 系统为攻击目标，或是在安全策略执行中操作系统起到重要作用(或更常见的是未能起到作用)的攻 击行为。
+9.2.1 可信系统
+如今，报纸上总是经常能看到攻击者破解计算机系统、窃取信息或者控制数百万台计算机等类似的 故事。
+天真的人可能会问下面两个问题：
+1)建立一个安全的操作系统有可能吗?
+2)如果可能，为什么不去做呢?
+第一个问题的答案原则上是肯定的。
+理论上，软件是可以避免错误的，我们甚至可以验证它是安全 的——只要软件不是过大或者过于复杂。
+不幸的是，今天的计算机系统极其复杂，这与第二个问题有很 大关系。
+第二个问题是，为什么不建立一个安全系统?
+主要原因有两个。
+首先，现代系统虽然不安全但 是用户不愿抛弃它们。
+假设Microsoft 宣布除了Windows 外还有一个新的SecureOS 产品，并保证不会受到 病毒感染但不能运行Windows 应用程序，那么很少会有用户和公司把Windows 像个烫手山芋一样扔掉转
+这里有两个简单的例子。
+最早的电子邮件系统通过ACSII 文本发送消息。
+它们非常简单并且是绝对 安全的。
+除非邮件系统存在漏洞，否则几乎没有ASCII 文本可能对计算机系统造成损失(本章后面会阐 述，一些攻击手段还是可以通过此方式发动攻击的)。
+然后人们想方设法扩展电子邮件的功能，引入了 其他类型的文档，如可以包含宏程序的Word 文件。
+读这样的文件意味着在自己的计算机上运行别人的程 序。
+无论沙盒怎么有效，在自己的计算机上运行别人的程序必定比ASCII 文本要危险得多。
+是用户要求 从被动的文本改为主动的程序吗?
+大概不是吧，但有人认为这是个极好的主意，而没有考虑到隐含的安 全问题。
+================================================================================
+
+Chunk 22:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_607
+Source: dense_bm25
+--------------------------------------------------------------------------------
+9.7 软件漏洞
+由于本书是一本关于操作系统的书，关注点是恶意应用如何破坏操作系统，因此许多利用软件漏洞 攻击网站和数据库的方法不属于本书关心的范畴。
+一个典型的例子是有人发现操作系统中的一个漏洞， 然后利用它运行有错误的代码来损坏计算机。
+强迫下载并不完全属于这种情形，但是利用程序中的漏洞 而进行攻击的方法在内核中也是常见的。
+在刘易斯 ·卡洛尔 (Lewis Caroll) 的著作《爱丽丝镜中奇遇记》(Through the Looking Glass) 中 ， 红皇后带着爱丽丝疯狂地奔跑。
+她们竭尽全力，但是无论跑得多快，还是被困在同一个地方。
+爱丽丝说： “在我们的国家，如果像这样一直快跑，那么通常可以到达别的地方。
+”皇后说：“你看，现在你尽全力 奔跑，来使自己能够停留在某一个位置。
+如果你想到达其他地方，就必须以至少两倍的速度跑!
+”
+红皇后效应是典型的进化军备竞赛。
+在过去的几百万年中，斑马和狮子的祖先都进化了。
+斑马跑得 更快也有更敏锐的视觉、听觉和嗅觉来发现食肉动物，这对于躲避狮子很有用。
+但与此同时，狮子也变 得更快、更强壮、更健康、更擅长隐匿，这些进化对于捕食斑马有很大的作用。
+所以，虽然狮子和斑马 都“改善了”自己的设计，但是它们并没有在捕食关系中获得更大的成功，而是仍要在野外努力求生。
+红皇后效应也适用于漏洞攻击。
+为了应对日益先进的安全措施，攻击手段也变得越来越复杂。
+虽然每一个漏洞都与特定程序中的缺陷相关，但总有几类漏洞经常发生，它们值得我们研究以理解 攻击是如何奏效的。
+在接下来的几节中，我们不仅会对这些手段进行研究，而且会介绍阻止、避免这些 攻击的对策，同时也会介绍一些对抗措施以应对这些把戏。
+这将为你提供关于攻击者与防御者的军备竞 赛的有益思路——就像与红皇后跑步一样。
+首先，我们从古老的缓冲区溢出开始讨论，这是计算机安全史上最重要的漏洞利用技术之一。
+这项 技术被用在Robert Morris Jr.于1988年编写的第一个网络爬虫中，并且至今仍被广泛使用。
+================================================================================
+
+Chunk 23:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_609
+Source: tfidf
+--------------------------------------------------------------------------------
+9.7.1 缓冲区溢出攻击
+几乎所有操作系统和大部分应用程序都是用C 语言或C++ 语言编写的(因为程序员钟爱它们，它们
+能够被编译为十分高效的目标代码),因此它们成为很多攻击的源头。
+遗憾的是，C 和C++ 的编译器都没 有 数 组 边 界 检 查 。
+举 例 来 说 ，C 语 言 库 中 的gets 函 数 臭 名 昭 著 , 该 函 数 读 取 一 个 字 符 串 ( 大 小 未 知 ) 到 一 个固定大小的缓冲区中，但是不进行溢出检查，这个函数很容易成为缓冲区溢出攻击的目标( 一 些编 译器甚至能探测到gets 函数的使用并做出警告)。
+所以，以下的代码也没有进行检查：
+01.void A(){
+================================================================================
+
+Chunk 24:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_613
+Source: dense_bm25
+--------------------------------------------------------------------------------
+不过这个想法还是不错的。
+如果攻击者提供的 字节不能作为合法代码来执行，代码注入攻击就会失效。
+现代CPU有一个被人们称为NX位的功能，NX 代表不执行。
+它对于区分数据段(堆、栈、变量和全 局变量)和文本段(包含代码)是非常有用的。
+具体来说，许多现代操作系统试图确保数据段是可写的， 但不可执行，并且文本段是可执行的，但不可写。
+这个策略在OpenBSD 上被称为W^X(W 异或X) 。
+它 表示内存是可写的或可执行的，但不是两者都可以。
+Mac OS X 、Linux和Windows 有类似的保护方案。
+该安全措施的通用名称是DEP (数据执行保护)。
+有些硬件不支持NX位，在这种情况下，DEP 仍然工作， 但执行发生在软件中。
+DEP 可以防止迄今为止讨论的所有攻击。
+攻击者可以在进程中嵌入尽可能多的shellcode 。
+然而，除 非他能够使内存可执行，否则就没有办法运行它们。
+4.代码重用攻击
+DEP 使得在数据区域中执行代码是不可能的，栈金丝雀使其更难(但不是不可能)改写返回地址和 函数指针。
+不幸的是，这并不是故事的结局，因为攻击者也会得到启发——已经有大量的二进制数据在 那里了，为什么还要嵌入代码?
+换言之，攻击者不需要引入新的代码，只需基于二进制文件和库中现有 的函数和指令构造必要的功能。
+我们先来看看最简单的攻击返回libc, 然后讨论更复杂但非常流行的返 回导向编程技术。
+假设图9-22的缓冲区溢出漏洞已经覆盖当前函数的返回地址，但不能执行攻击者在栈中提供的代码。
+问题是，它能返回到别的地方吗?
+答案当然是可以。
+几乎所有的C程序都链接libc 库，这个库包含大部分 C 程序所需的关键函数。
+system 函数是常用的关键函数之一，会接收字符串作为输入，并将其传入shell 程序中执行。
+通过使用system函数，攻击者能执行任何它想执行的程序。
+所以，攻击者仅仅需要在栈上 放置一个包含命令的字符串代替执行shellcode, 并通过返回地址来转移控制至system函数。
+这种攻击方式就是人们所熟知的返回libc 攻击，并且有多个变种。
+================================================================================
+
+Chunk 25:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_614
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+这种攻击方式就是人们所熟知的返回libc 攻击，并且有多个变种。
+system 不是攻击者唯一感兴趣的 函数。
+例如，攻击者可以使用mprotect函数来让部分数据段可执行。
+此外，除了显式跳转到libc函数，也 存在一些隐式攻击方式。
+在Linux中，攻击者可以返回PLT (过程链接表)。
+PLT是一个使动态链接更容
+易的结构，并且包含执行时依次调用动态链接函数的代码段，返回此代码然后间接执行库函数。
+返回导向编程 (RO P) 的概念是将程序代码重用到极致的想法。
+利用返回导向编程，攻击者可以返 回到文本段中的任何指令而不仅仅是返回库函数的入口地址。
+例如，他可以使代码从一个函数中间执行， 而不是从函数的开始。
+代码会在这个点上开始执行，一次一个指令。
+在少数指令执行过后，会遇到另一 个返回指令。
+现在，我们再次问同样的问题：我们能返回哪里?
+由于攻击者对堆栈有控制权，因此他可 以再次使代码返回他想要的任何地方，是的，当他第一次进行攻击后，他可以无限次地进行这样的攻击。
+a) b)
+图9-23 返回导向编程：链接小工具
+返回导向编程看起来可能非常复杂。
+但和以往一样，人们已经开发出尽可能自动化的工具，如小工 具收割机，甚至还有ROP 编译器。
+目前，返回导向编程是最重要的攻击技术之一。
+5.地址空间布局随机化
+还有一个阻止这些攻击的方法。
+除了修改返回地址和注入一些 (ROP) 程序，攻击者应该能够返回
+与金丝雀和DEP相似，许多现代操作系统都支持ASLR, 但往往使用不同的粒度。
+它们中大部分提 供给用户应用程序，只有很少一部分将它应用在系统内核中(Giuffrida 等人，2012)。
+这三种保护机制 的合力显著提高了攻击者入侵的门槛。
+只是跳转到嵌入代码甚至一些内存中已有的函数已经很难奏效。
+它们共同构成了现代操作系统的重要防线。
+它们的突出优点之一是以非常合理的性能成本来提供保护。
+6.绕过ASLR
+即使有这三种防御措施，攻击者还是可以攻击系统。
+ASLR 有几个弱点，入侵者可以借此绕过它。
+第一个弱点是ASLR的随机性不够强。
+================================================================================
+
+Chunk 26:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_621
+Source: bm25
+--------------------------------------------------------------------------------
+%08x 代表printf 将会打印下一个参数作为8位的十六进制数。
+所以若该值是1,就会打印0000001。
+换句话说，使用该格式 化字符串时，printf 将会简单地假设栈中的下一个值是它该打 印的32位数字，在那之后的值是它应该存储打印字符串的数 量的地址。
+在本例中共有9位，其中8位用来表示十六进制数， 剩下一位是空。
+假设它提供格式化字符串：
+"%08x%08x%n"
+在这个例子中，printf 将存储栈上的第三个格式化字符串提供 的地址所存的值，等等。
+这是给攻击者提供“在任意地方写” 的格式化字符串漏洞的关键。
+其细节超越了本书的范围，但 基本思路是攻击者确保正确的目标地址在栈上。
+这要比你想 象的简单。
+例如我们之前提供的有漏洞的代码，字符串g也 在栈中，比printf 的栈帧的地址更高(见图9-24)。
+让我们假 设字符串像图9-24那样以AAAA 开始，随后的是%0x, 最 后 以 % 0n结束。
+将会发生什么?
+如果攻击者得到的%0x的数量 是正确的，那么他将到达格式化字符串(存储在缓冲区B) 。
+换句话说，printf 将使用格式化字符串的前4个字节作为地址 进行写入。
+因此，字符A的ASCII码是65(十六进制是0x41), 它将会把结果写在0x41414141, 但是攻击者也可以指定其他
+图9-24 格式化字符串攻击。
+得到%08x的 正确数量后，攻击者可以将格式 化字符串的前4个字符作为地址
+地址。
+当然它必须确保打印的字符串的数量是正确的(因为这是要被写入目标地址的内容)。
+实际上会 比它多一些，但不会多很多。
+如果在任何搜索引擎中输入“格式字符串攻击”,你会发现很多关于该问 题的信息。
+一旦用户有能力重写内存并强制跳转到新注入的代码，代码就拥有了被攻击程序的能力和权限。
+如 果程序是SETUID 权限，攻击者就能够用root 权限创造一个Shell 程序。
+另一方面，例子当中固定大小的
+字符串数组也可能成为缓冲区溢出攻击的目标。
+================================================================================
+
+Chunk 27:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_622
+Source: dense
+--------------------------------------------------------------------------------
+9.7.3 悬垂指针
+第三种坊间特别流行的内存错误攻击技术称作悬垂指针攻击。
+该技术最简单的表现很容易理解，但 产生的漏洞却十分棘手。
+C 和C++允许程序使用malloc 调用来分配堆中的内存，它返回指向新分配的内 存块的指针。
+之后程序不再需要它时，便调用free 来释放内存。
+当程序在释放内存后仍然意外地使用该 块内存时，悬垂指针错误就会发生。
+考虑下面这段(极端)歧视老年人的代码：
+01.int*A=(int *)malloc(128); /给128位整数分配空间*/
+02.int year_of_birth =read_user_input(); /"从标准输入读取整数*/
+03.if(input<1900){
+================================================================================
+
+Chunk 28:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_656
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+9.10.1 防火墙
+因此，我们需要某种机制来保证“好”的留下来并且阻止“坏”的进入。
+一种方法是使用防火墙 (firewall), 它是一种中世纪古老的安全措施的现代版本：在你的城堡周围挖一条护城河。
+这样的设计强 制每一个进入或者离开城堡的人都要经过唯一的一座吊桥，I/O 警察可以在吊桥上检查每一个经过的人。
+对于网络，这种方法也是可行的： 一个公司可能有很多的任意连接的局域网，但是所有进入或离开公司 的网络流都要强制地通过一个电子吊桥——防火墙。
+防火墙有两种基本的类型：硬件防火墙和软件防火墙。
+有局域网需要保护的公司通常选择硬件防火 墙；而家庭的个人用户通常会选择软件防火墙。
+首先，让我们看一看硬件防火墙。
+一般的硬件防护墙如 图9-32所示。
+在该图中，来自网络提供者的连接(电缆或光纤)会被插到防火墙上，防火墙也连接到局域 网上。
+不经过防火墙的允许任何包都不能进入或者离开局域网。
+实际的情况下，防护墙通常会和路由器、 网络地址转换盒、指令检查系统和其他设备联合起来工作，但是在这里我们只关注于防火墙自身的功能。
+207.68.160.190:80 207.68.160.191:25 207.68.160.192:21
+图9-32 一个由防火墙保护的局域网示意图(含三台主机)
+除了无状态防火墙以外，还有一种跟踪连接以及连接状况的状态防火墙。
+这些防火墙能够更好地防 止某些类型的攻击，特别是那些和建立连接有关的攻击。
+另外， 一些其他类型的防火墙实现了入侵检测 系统 (Intrusion Detection System,IDS),利 用IDS防火墙不仅可以检测包的头部还可以用检测包的内容 来查找可疑的内容。
+================================================================================
+
+Chunk 29:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_665
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+当第一次出现系统调用不符合原
+来的模式时，狱卒十分肯定地认定出现了攻击并会采取行动，比如结束这个进程并向系统管理员报警。
+这样， 入侵检测系统就能够在攻击发生的时候检查到它们。
+静态系统调用分析只是很多IDS工作方法中的一种。
+当使用这种基于静态模型的入侵检测的时候，狱卒必须知道这个模型(比如系统调用图)。
+最直接 的方式就是让编译器产生它并让程序的作者签名同时附上它的证书。
+这样的话，任何预先修改可执行程 序的企图都会被在程序运行的时候检测到，因为实际的行为和被签过名的预期行为不一致。
+很不幸的是，一个聪明的攻击者可能发动一种叫作模仿攻击 (mimi cry attack)的攻击，在这种攻 击中插入的代码会有和该程序同样的系统调用序列(Wagner 和Soto,2002), 所以我们需要更复杂的模 型，不能仅仅依靠跟踪系统调用。
+然而，作为深层防御的一部分，IDS 还是扮演着重要的角色。
+无论如何，基于模型的IDS不仅仅是一种。
+许多IDS利用了一个叫作蜜罐 (honeypot) 的概念，这是 一个吸引和捕捉攻击者和恶意软件的陷阱。
+通常蜜罐会是一个孤立的机器，几乎没有防御，表面看起来 令人感兴趣并且有些有价值的内容，像一个成熟等待采摘的果实一样。
+设置蜜罐的人会小心翼翼地监视 它上面的任何攻击并尽量去了解攻击的特征。
+一些IDS会把蜜罐放在虚拟机上防止对下层实际系统的破 坏。
+所以很自然地，恶意软件也会像之前提到的那样努力检查自己是否运行在虚拟机上。
+================================================================================
+
+Chunk 30:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_674
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+9.12 小结
+代码中有很多bug可以被利用来控制程序和系统。
+这些包括缓冲区溢出、格式串攻击、返回libc攻击、 整数溢出攻击、代码注入攻击和特权扩大攻击。
+Internet 上遍布恶意软件，有特洛伊木马、病毒、蠕虫、间谍软件和rookit 。
+每一个都对数据机密性 和一致性产生着威胁。
+更糟糕的是，恶意软件攻击可能会控制一台机器，并把这台机器变成一台僵尸机 器用来发送垃圾邮件或者发起其他的攻击。
+许多互联网上的攻击都是通过一台僵尸主控机控制一个僵尸 军队来完成的。
+幸运的是，系统有很多种方法来保护自己。
+最好的策略就是全面防御，使用多种技术一起防御。
+这 些技术有防火墙、病毒扫描、代码签名、囚禁、入侵检测，以及封装移动代码。
+习题
+1.机密性、完整性和可用性是安全的三个组成部 分。
+描述一款需要确保完整性和可用性，但对 机密性无要求的应用； 一款需要确保机密性和
+完整性，但对可用性无要求的应用；以及一款 需要确保机密性、完整性和可用性的应用。
+2.构建安全操作系统的一项技术是尽可能地最小
+化可信计算基 (TCB)。
+以下功能哪些需要在 TCB之内实现，哪些可以在TCB之外实现?
+(a) 进程上下文切换
+(b) 从磁盘读取文件
+(c) 扩容交换区
+(d) 听音乐
+(e) 获取智能手机的GPS坐标
+3.什么是隐蔽信道?
+隐蔽信道存在的基本要求是 什么?
+5.假设一个系统在某时有5000个对象和100个域。
+在所有域中1%的对象是可访问的(r 、w 和x的 某种组合),两个域中有10%的对象是可访问的， 剩下89%的对象只在唯一一个域中才可访问。
+假设需要一个单位的空间存储访问权 (r 、w 和x 的某种组合)、对象ID 或一个域ID。
+分别需要多 少空间存储全部的保护矩阵、作为访问控制表 的保护矩阵和作为能力表的保护矩阵?
+6.解释在下列操作过程中，哪种安全防护矩阵的 实现更为合适?
+(a) 赋予所有用户针对某一文件的读权限。
+(b) 撤销所有用户针对某一文件的写权限。
+(c) 赋予用户John 、Lisa 、Christie 和Jeff 针对某 一文件的写权限。
+================================================================================
+
+Chunk 31:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_678
+Source: dense
+--------------------------------------------------------------------------------
+34. 使 用MMU硬件来阻止如图9-24的溢出攻击可 行吗?
+解释为什么?
+35.描述堆栈伪随机数机制如何工作，以及它如何 被攻击者所绕过。
+36.TOCTOU 攻击利用了攻击者与受害者之间的竞 争条件。
+一种针对此攻击的防御手段为事务化 文件系统的操作。
+解释此手段为何能够起效， 以及可能存在的问题。
+37. 指出C编译器的某项功能，它可以消除大量的安 全漏洞。
+为什么这没有被更被广泛地应用呢?
+38.特洛伊木马能够攻击应用权能字保护的系统吗?
+39.当一个文件被删除时，其文件块只是简单地被放 回空闲列表，而不会对文件块中的内容进行擦除。
+如果操作系统在释放文件块之前对文件块的内容 进行清理，你认为是否有益?
+综合考虑安全与性 能两方面的要求，并做出相应的解释。
+40.对于寄生虫病毒来说：
+(a) 如何确定它会在主程序之前执行?
+(b) 在病毒执行后如何返回主程序?
+41.一些操作系统需求在记录开始之前便进行硬盘 分区，这样的需求为什么会为引导扇区病毒提 供生活空间?
+================================================================================
+
+Chunk 32:
+Doc ID: 现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_978
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+13.1.9 安 全
+Anderson,Security Engineering,2nd Edition
+Van der Veen et al.,Memory Errors:the Past,the Present,and the Future
+关于内存错误(包括缓冲溢出、格式字符串攻击、悬空指针以及其他错误)的历史回顾，其中包括 攻击与防御、逃避防御的攻击、阻止逃避早期防御的攻击的新防御等，你都会有所了解。
+作者展示了尽 管内存攻击手段已经很陈旧，而且其他攻击手段都在不断增强，但是内存错误仍然是非常重要的攻击途 径。
+更重要的是，他们认为这种情况在短期之内不会有任何改变。
+Bratus,What Hackers Learn That the Rest of Us Don't
+Bratus et al.,From Buffer Overflows to Weird Machines and Theory of Computation
+Denning,Information Warfare and Security
+信息已经变成了战争武器，既是军事武器也是军事配合武器。
+参与者不仅尝试攻击对方的信息系 统，而且要防卫好自己的系统。
+在这本吸引人的书中，作者讨论了所有能想到的关于攻击策略和防卫策 略的话题，从数据欺骗到包窥探器。
+该书对于计算机安全有极大兴趣的读者来说是必读的。
+Ford and Allen,How Not to Be Seen
+病毒，间谍软件，rootkits和数字版权管理系统都对隐藏数据情有独钟。
+这篇文章对各种隐身的方 法进行了简要的介绍。
+Hafner and Markoff,Cyberpunk
+Johnson and Jajodia,Exploring Steganography:Seeing the Unseen
+隐身术具有悠久的历史，可以回到利用信使的头发隐藏信息的时代，那时先将信使的头发剃光，然 后在剃光的头上文上信息，之后在信使的头发长出来之后再将他送走。
+尽管当前的技术很多，但是它们
+也是数字化的。
+================================================================================
+
+Chunk 33:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_330
+Source: dense
+--------------------------------------------------------------------------------
+2. 支持字节流传输
+图5-13给出了TCP 支持字节流传输的过程。
+流(stream) 相当于一个管道，从一端放 入什么内容，从另一端原样取出什么内容。
+流描述了一个没有出现丢失、重复和乱序的数据 传输过程。
+如果数据是通过键盘输入的，那么应用程序逐个将字符提交给发送端。
+如果数据是从 文件中获取的，那么数据可能会逐行或逐块交付给发送端。
+应用程序与TCP 每次交互的数 据长度可能不同，但是TCP 将应用程序提交的数据看成一串无结构的字节流。
+为了能够支 持字节流传输，发送端和接收端都需要使用缓存。
+发送端使用发送缓存保存来自应用程序 的数据。
+发送端不可能为每个写操作创建一个报文段，而是将几个写操作组合成一个报文 段，由 IP 协议封装成IP 分组之后发送到接收端。
+在接收端，IP 协议将接收的IP 分组拆封 之后，将数据部分提交给 TCP 并按字节流存储在接收缓存中，最后由应用程序通过读操作 从接收缓存中读出数据。
+由于 TCP 在传输过程中将应用程序提交的数据看成一串无结构的字节流，因此接收端 的数据字节起始与终结位置必须由应用程序自己确定。
+================================================================================
+
+Chunk 34:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_394
+Source: bm25
+--------------------------------------------------------------------------------
+202.60.32.102 59.1.16.8
+202.60.32.102 59.1.16.8
+59.1.16.8
+202.60.32.102
+Protocol TCP
+TCP
+TCP
+HTTP HTTP HTTP HTTP HTTP HTTP HTTP HTTP HTTP HTTP HTTP HTTP HTTP
+TCP TCP TCP TCP
+Summary
+SYN=1
+SYN=1 ACK=1 ACK=1
+GET HTTP/1.1 ACK=1
+HTTP/1.1200 OK …… 数据(续上)
+数据(续上) ACK=1
+GET img/test.jpg HTTP/1.1
+ACK=1
+HTTP/1.1200 OK …… 数据(续上)
+数据(续上)
+数据(续上) ACK=1
+FIN=1 ACK=1
+FIN=1 ACK=1 ACK=1
+ACK=1
+计算机网络(第5版)
+小 结
+当前互联网应用的特征是在 Web 应用继续发展的基础上出现了一批 P2P 网络应用。
+互联网应用系统的工作模式可分为C/S 模式与P2P 模式。
+P2P 网络是在互联网中由对等 节点组成的一种动态的逻辑覆盖网。
+SIP 是实现即时通信的控制信令协议，它传输的数据可以是普通文本数据，也可以是语 音或视频数据，以及 E-mail 、 聊天、游戏等数据。
+DHCP 为主机自动分配IP 地址及其他重要配置参数，支持远程主机、移动终端设备、无 盘工作站的地址共享与配置。
+SNMP 是实现网络管理的应用层协议，可监控网络运行状态，提高网络资源利用率，及 时报告和处理网络故障，以保证网络正常运行。
+习 题
+应用层
+表6-6 协议栈
+根据对图6-45中协议执行过程的描述，请回答以下几个问题：
+①这台主机的MAC 地址是多少?
+②这台主机租用的IP 地址是多少?
+③IP 地址的子网掩码是多少?
+④默认网关地址是多少?
+⑤IP 地址的租用获准时间是多少?
+⑥IP 地址的租用期是多少?
+计算机网络(第5版)
+根据对图6-46中协议执行过程的描述，请回答以下几个问题：
+②图中①处漏掉的信息是什么?
+根据对图6-47中协议执行过程的描述，请回答以下几个问题：
+================================================================================
+
+Chunk 35:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_400
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+1. 安全攻击
+任何危及网络与信息系统安全的行为都被视为攻击。
+最常用的网络攻击分类是将攻击 分为被动攻击与主动攻击两类。
+图7-3描述了网络攻击的4种基本类型。
+1)被动攻击
+2)主动攻击
+主动攻击(active attack)可以分为3种基本方式。
+· 截获数据。
+网络攻击者假冒和顶替合法的接收用户，在线截获网络上传输的数据， 如图7-3(b) 所示。
+·篡改或重放数据。
+网络攻击者假冒接收者身份截获网络上传输的数据之后，经过篡 改再发送给合法的接收者，或者在截获网络上传输的数据之后的某个时刻一次或多
+次重新发送该数据，造成网络数据传输混乱，如图7-3(c) 所示。
+· 伪造数据。
+网络攻击者假冒合法的发送用户，将伪造的数据发送给合法的接收用 户，如图7-3(d) 所示。
+网络攻击者
+互联网
+(c) 篡改或重放数据 (d) 伪造数据
+图7-3 网络攻击的4种基本类型
+· 认 证(authentication) 。
+提供对通信实体和数据来源的认证与身份鉴别。
+· 访问控制(access control)。
+通过对用户身份的认证和用户权限的确认，防止未授权 用户非法使用系统资源。
+· 数 据 保 密 性(data confidentiality)。
+防止数据在传输过程中被泄露或窃听。
+· 数据完整性(data integrity)。
+确保接收数据与发送数据的一致性，防止数据被修 改、插入、删除或重放。
+· 防抵赖(non-reputation) 。
+确保数据由特定的用户发送或接收，防止发送方在发送 数据之后否认，或接收方在收到数据之后否认。
+================================================================================
+
+Chunk 36:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_413
+Source: bm25/dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+7.4 网络攻击与防御技术
+7.4.1 网络攻击的概念
+网络安全
+1. 网络攻击的分类
+目前，网络攻击大致可以分为以下几类：
+· 系统入侵类攻击。
+· 缓冲区溢出攻击。
+· 欺骗类攻击。
+系统入侵类攻击者的最终目的都是为了获得主机系统的控制权，从而破坏主机和网络 系统。
+这类攻击又分为信息收集攻击、口令攻击和漏洞攻击。
+缓冲区溢出攻击是指：通过 向程序缓冲区写超出其长度的内容，造成缓冲区溢出，从而破坏程序的堆栈，使程序转而执 行其他指令。
+缓冲区溢出攻击的目的在于扰乱那些以特权身份运行的程序的功能，使攻击 者获得程序的控制权。
+欺骗类攻击的主要类型包括 IP 欺骗、ARP 欺骗、DNS 欺骗、Web 欺 骗、电子邮件欺骗、源路由欺骗、地址欺骗与口令欺骗等。
+================================================================================
+
+Chunk 37:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_414
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2. 网络安全威胁的层次
+3. 网络攻击手段的分类
+网络攻击手段很多并且在不断地变化。
+当前已出现的主要网络攻击手段大致可以分为 4种类型：
+· 欺骗类攻击。
+包括口令欺骗、IP 地址欺骗、ARP 欺骗、DNS 欺骗、源路由欺骗等。
+计算机网络(第5版)
+·漏洞类攻击。
+包括针对网络协议漏洞、操作系统漏洞、应用软件漏洞与数据库漏洞 等的攻击。
+实际上，漏洞分为技术漏洞与管理漏洞等两大类，这里主要考虑技术漏 洞类的问题。
+================================================================================
+
+Chunk 38:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_415
+Source: dense/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+7.4.2 DoS 攻 击 与 DDoS 攻 击
+1.DoS 攻击的基本概念
+·制造大量广播包或传输大量文件，占用网络链路与路由器带宽资源。
+·制造大量错误日志、垃圾邮件，占用主机中共享的磁盘资源。
+·制造大量无用信息、进程通信交互信息，占用CPU 和系统内存资源。
+2.DDoS 攻击的基本概念
+图7-19 DDoS 攻击过程示意图
+DDoS 攻击的实现大致分为3步。
+击控制台立即撤离，使得追踪很难实现。
+DDoS 攻击的主要特征如下：
+· 被攻击主机上有大量等待的TCP 连接。
+· 网络中充斥着大量无用数据包，并且数据包的源地址是伪造的。
+· 大量无用数据包造成网络拥塞，使被攻击主机无法正常与外界通信。
+· 严重时可造成被攻击主机的系统瘫痪。
+================================================================================
+
+Chunk 39:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_416
+Source: dense
+--------------------------------------------------------------------------------
+7.5 入侵检测技术
+7.5.1 入侵检测的概念
+入侵检测系统(Intrusion Detection System,IDS)是对计算机和网络资源的恶意使用行 为进行识别的系统。
+它的目的是监测和发现可能存在的攻击行为，包括来自系统外部的入 侵行为与来自内部用户的非授权行为，并采取相应的防护手段。
+1.入侵检测系统的功能
+1980 年，James Anderson 在论文 Computer Security Threat Monitoring and Surveillance 中 提 出 了 IDS 的概念。
+1987年，Domthy Donning 在论文 An Intrusion Detection Model 中提出了IDS 的框架结构。
+IDS 的基本功能如下：
+·对用户和系统的行为进行监控、分析。
+· 对系统配置和漏洞进行检查。
+· 对重要的系统和数据文件的完整性进行评估。
+·对异常行为进行统计分析，识别攻击类型，并向网络管理人员报警。
+·对操作系统进行审计、跟踪管理，识别违反授权的用户活动。
+2.入侵检测系统结构
+图7-20给出了IDS 的通用入侵检测框架(Common Intrusion Detection Framework,
+计算机网络(第5版)
+CIDF) 。
+IDS 一般由事件发生器、事件分析器、响应单元与事件数据库组成。
+规则设计
+与修改
+352
+事件发生器
+事件
+事件分析器
+历史活动 状态
+更新规则
+提取规则
+事件数据库
+响应单元 处理意见
+图7-20 IDS 的通用侵检测框架
+CIDF 将 IDS 需要分析的数据统称为事件(event), 它可以是网络中的数据包，也可以是 从系统日志等其他途径获得的信息。
+事件发生器(event generator)产生的事件可能是经过 协议解析的数据包或者从日志文件中提取的相关部分。
+事件分析器(event analyzer)根据事件数据库的入侵特征描述、历史行为模型等，解析 事件发生器产生的事件，获得格式化的描述，判断事件是否合法。
+================================================================================
+
+Chunk 40:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_417
+Source: dense_bm25
+--------------------------------------------------------------------------------
+事件分析器(event analyzer)根据事件数据库的入侵特征描述、历史行为模型等，解析 事件发生器产生的事件，获得格式化的描述，判断事件是否合法。
+响应单元(response unit) 是对分析结果做出反应的功能单元，例如切断连接、改变属性、报警等响应。
+事件数据库 (event database)存储攻击类型或检测规则数据，它可以是复杂的数据库，也可以是简单的 文本文件。
+事件数据库存储入侵特征描述、历史行为模型、专家经验等。
+================================================================================
+
+Chunk 41:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_418
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+7.5.2 入侵检测的基本方法
+1. 入侵检测方法分类
+通过对各种事件进行分析，发现违反安全策略的行为，是IDS 的核心功能。
+按照采用 的检测方法，入侵检测可分为异常检测和误用检测。
+1)异常检测
+异常检测是指：已知网络的正常活动状态，如果当前网络不符合正常活动状态，则认为 有攻击发生。
+异常检测的关键是建立对应正常网络活动的特征原型。
+所有与该特征原型差 别很大的行为都被视为异常。
+显然，入侵活动与异常活动是有区别的，关键问题是如何选择 一个区分异常事件的阈值，以便减少漏报和误报的问题。
+在用户数量多、运行状态复杂的环 境中，试图用逻辑方法明确划分正常活动与异常是很困难的。
+2)误用检测
+误用检测建立在使用某种模式或特征描述方法能够对任何已知攻击进行表达的理论基 础上。
+误用检测的主要问题是：如何确定已定义的攻击特征模式可以覆盖与实际攻击相关 的所有要素，以及如何匹配入侵活动的特征。
+根据攻击者入侵时的某些行为特征，建立一种 入侵行为模型。
+如果用户行为或过程与入侵行为模型一致，则判定发生入侵行为。
+================================================================================
+
+Chunk 42:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_421
+Source: dense
+--------------------------------------------------------------------------------
+7.6 防火墙技术
+7.6.1 防火墙的概念
+保护网络安全的主要手段之一是构筑防火墙(firewall) 。
+防火墙的概念起源于中世纪 的城堡防卫系统，那时人们为了保护城堡的安全，在城堡周围挖一条护城河，每个进入城堡 的人都要经过吊桥，并且要接受城门守卫的检查。
+人们借鉴了这种防护思想，设计了一种网 络安全防护系统，这种系统被称为防火墙。
+防火墙是在网络之间执行控制策略的系统，它包括硬件和软件。
+在设计防火墙时，人们 作了一个假设：防火墙保护的内部网络是可信任的网络(trusted network),而外部网络是 不可信任的网络(untrusted network)。
+设置防火墙的目的是保护内部网络资源不被外部非 授权用户使用，防止内部网络受到外部非法用户的攻击。
+因此，防火墙安装位置一定是在内 部网络与外部网络之间，其结构如图7-22所示。
+可信任的网络 不可信任的网络
+图7-22 防火墙的位置与作用
+防火墙的主要功能如下：
+· 检查所有从外部网络进入内部网络的数据包。
+· 检查所有从内部网络发到外部网络的数据包。
+· 执行安全策略，限制所有不符合安全策略要求的数据包通过。
+· 具有防攻击能力，能保证自身的安全性。
+网络安全
+否会对网络安全构成威胁，为内部网络建立安全边界(security perimeter)。
+构成防火墙系统的两个基本部件是包过滤路由器(packet filtering router)和应用级网 关(application gateway)。
+最简单的防火墙仅有一个包过滤路由器，而复杂的防火墙系统由 包过滤路由器和应用级网关组合而成。
+由于组合方式有多种，因此防火墙系统结构也有多 种形式。
+================================================================================
+
+Chunk 43:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_426
+Source: dense
+--------------------------------------------------------------------------------
+2. 堡垒主机的概念
+从理论上说，用一台双归属主机作为应用级网关可起到防火墙的作用，这种结构如 图7-29所示。
+在这种结构中，应用级网关暴露给整个外部网络，其自身安全会影响到整个 系统，因此运行应用级网关软件的计算机必须很可靠。
+人们将位于防火墙关键部位、运行应
+离开内部 网络的包
+进入内部 网络的包
+互联网
+应用级网关
+(堡垒主机)
+图7-29 以堡垒主机作为应用级网关的结构
+3. 防火墙系统结构配置表示
+由于网络的安全策略与防护要求不同，防火墙系统配置与结构有很大区别，可采用多级 结构。
+但是，任何一种结构的防火墙系统都由包过滤路由器与应用级网关组合而成。
+为了讨论方便，这里引入一些符号，使防火墙系统结构配置表示更简洁。
+表7-3给出了 这些符号及其描述，在其中用堡垒主机表示应用级网关。
+表7-3 防火墙系统结构配置表示
+================================================================================
+
+Chunk 44:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_430
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+2. 网络攻击对象与形式的变化
+在深入讨论网络安全问题时，应该注意网络攻击对象与形式的变化。
+第一，计算机病毒已成为网络战武器。
+第二，工业控制系统成为新的攻击重点。
+卡巴斯基实验室发现曾席卷全球的2010年的震网(Stuxnet) 病毒、2011年的毒区
+网络安全
+(Duqu) 病毒与火焰病毒有深层次关联。
+它们应该出自同一个设计者。
+震网病毒是第一个 将目标锁定在工业控制网络的病毒；而毒区病毒是一种复杂的木马病毒，其主要功能是充当 系统后门，从事窃取隐私、机密信息等网络间谍活动。
+对于长期从事信息安全研究的人，他们的注意力集中在互联网、移动互联网以及人们最 熟悉的操作系统(如 Windows) 及应用软件上。
+工业控制系统是一种专用系统，在系统设计 中更重视功能、性能与可靠性问题。
+工业控制网络采用相对独立的通信协议、网络设备与应 用软件。
+在2010年6月发现震网病毒时，人们惊呼：“工业病毒”时代已经来临。
+造成工业控制系统成为新的攻击重点的原因可以归纳为以下3点：
+· 很多大型企业在生产过程中采用计算机控制技术。
+这些大型企业除了民用产品之 外，也可能涉及军用产品的生产。
+例如，冶金企业除了生产工业与建筑用钢，也会生产军舰、 坦克所需的钢材，因此这些企业的生产过程自动化与企业管理系统中蕴藏着军事秘密。
+对 于核电站、兵工厂等关乎国家安全的企业，其生产过程自动化与企业管理系统一定会成为某 些人入侵、窃密、监控的对象。
+正是由于存在上述因素，导致了威胁工业控制网络的震网病毒的出现。
+震网病毒首先 通过CPS 与嵌入式系统，借助工业控制中广泛应用的 SIMATIC WinCC 操作系统，利用操 作系统与数字签名的漏洞，进入工业控制网络，直接破坏工业控制系统的运行。
+第三，网络信息搜索功能将变成网络攻击工具。
+震网病毒、毒区病毒、火焰病毒以及Shodan 搜索引擎的出现，使人们深刻地认识到：病 毒程序已经从最初的恶作剧演变成非法获利的工具，又进一步演变成国家之间军事、政治斗 争工具。
+网络攻击已危及看似安全的工业控制系统，而对工业控制系统的攻击后果是十分 严重的。
+================================================================================
+
+Chunk 45:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_481
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3 202.1.64.166 211.80.20.200 TCP:S=1298 D=80 SYN=1 seq=60029 TCP:S=1298 D=80 SYN=1 seq=60029
+4 211.80.20.200 202.1.64.166 TCP:S=80 D=1298 SYN=1 ACK=1 seq=35601 ack=60030 TCP:S=80 D=1298 SYN=1 ACK=1 seq=35601 ack=60030
+5 202.1.64.166 211.80.20.200 TCP:S=1298 D=80 ACK=1 seq=60030 ack=35602 TCP:S=1298 D=80 ACK=1 seq=60030 ack=35602
+6 202.1.64.166 211.80.20.200 HTTP:Port=1535 GET/HTTP/1.1 HTTP:Port=1535 GET/HTTP/1.1
+SSnffer Portable-Local,Ethenet(Line speedat 100 Mbos)-[a2cap:Fltered3,36/250D0 Ehernet frames,Fiter:M3kik] 二固 ×
+Ee Moabr Cepure Dispay Ioos Database Yrdon Help 6× SSnffer Portable-Local,Ethenet(Line speedat 100 Mbos)-[a2cap:Fltered3,36/250D0 Ehernet frames,Fiter:M3kik] 二固 ×
+Ee Moabr Cepure Dispay Ioos Database Yrdon Help 6× SSnffer Portable-Local,Ethenet(Line speedat 100 Mbos)-[a2cap:Fltered3,36/250D0 Ehernet frames,Fiter:M3kik] 二固 ×
+================================================================================
+
+Chunk 46:
+Doc ID: 计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_486
+Source: dense_bm25
+--------------------------------------------------------------------------------
+3 202.1.64.166 211.80.20.200 TCP:S=1298 D=80 SYN=1 seq=10020 TCP:S=1298 D=80 SYN=1 seq=10020
+4 211.80.20.200 202.1.64.166 TCP:S=80 D=1298 SYN=1 ACK=1 seq=25609 ack=① TCP:S=80 D=1298 SYN=1 ACK=1 seq=25609 ack=①
+5 202.1.64.166 211.80.20.200 TCP:S=1298 D=80 ACK=1 seq=②ack=③ TCP:S=1298 D=80 ACK=1 seq=②ack=③
+6 202.1.64.166 211.80.20.200 HTTP:Port=1535 GET/HTTP/1.1 HTTP:Port=1535 GET/HTTP/1.1
+SSniffer Portable-Local Ethernet (Luine speedat 100Mbps)-[a2.cap:Fltered3,36/25000 Ethernet frames,Fi康er:M3trix]6×
+Fie Montor Capture Dispay Ioos Database Wrdow telp □× SSniffer Portable-Local Ethernet (Luine speedat 100Mbps)-[a2.cap:Fltered3,36/25000 Ethernet frames,Fi康er:M3trix]6×
+Fie Montor Capture Dispay Ioos Database Wrdow telp □× SSniffer Portable-Local Ethernet (Luine speedat 100Mbps)-[a2.cap:Fltered3,36/25000 Ethernet frames,Fi康er:M3trix]6×
+================================================================================
+
+Chunk 47:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_154
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+3.5.6 TCP 连接管理
+运 输 层 167
+连接请求
+ACK
+SYN=1,seq=client isn
+连接允许
+二
++1
+SYN=
+ack
+SYN=0
+ack=server_ssn=lnt_isn+1
+时间 时间
+图3-39 TCP三次握手：报文段交换
+天下没有不散的宴席，对于TCP 连接也是如此。
+参与一条TCP 连接的两个进程中的
+图3-40 关闭一条TCP连接
+168 第3章
+一个TCP连接
+CLOSED
+等待30秒
+TIME_WAIT
+接收FIN, 发送ACK
+FIN_WAIT_2
+接收ACK, 不发送
+图3-41
+发送SYN
+SYN_SENT
+接收SYN&ACK, 发送ACK
+ESTABLISHED
+发送FIN
+FIN_WAIT_ 1
+发起关闭连接
+运 输 层 169
+170 第3章
+除。
+这些状态变迁是自解释的。
+在这两个状态变迁图中，我们只给出了TCP 连接是如何正 常地被建立和拆除的。
+我们没有描述在某些不正常的情况下(例如当连接的双方同时都要 发起或终止一条连接时)发生的事情。
+如果你对此问题及其他与TCP 有关的高级问题感 兴趣，推荐阅读Stevens 的内容更全面的书籍 [Stevens 1994]。
+既然我们已经对TCP连接管理有了深入的了解，我们再次回顾nmap 端口扫描工具， 并更为详细地研究它的工作原理。
+为了探索目标主机上的一个特定的TCP 端口，如端口 6789,nmap 将对那台主机的目的端口6789发送一个特殊的TCP SYN 报文段。
+有3种可能 的输出 ：
+●源主机从目标主机接收到一个TCP SYNACK报文段。
+因为这意味着在目标主机上 一个应用程序使用TCP端口6789运行， nmap返回“打开”。
+●源主机从目标主机接收到一个TCP RST报文段。
+这意味着该SYN 报文段到达了目 标主机，但目标主机没有运行一个使用TCP 端口6789的应用程序。
+但攻击者至少 知道发向该主机端口6789的报文段没有被源和目标主机之间的任何防火墙所阻 挡。
+(将在第8章中讨论防火墙。
+)
+●源什么也没有收到。
+================================================================================
+
+Chunk 48:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_155
+Source: bm25/dense/dense_bm25
+--------------------------------------------------------------------------------
+●源什么也没有收到。
+这很可能表明该SYN 报文段被中间的防火墙所阻挡，无法到 达目标主机。
+到此，我们介绍完了TCP 中的差错控制和流量控制。
+在3.7节中，我们将回到TCP并 更深入地研究TCP拥塞控制问题。
+然而，在此之前，我们先后退一步，在更广泛环境中讨 论拥塞控制问题。
+3.6 拥塞控制原理
+在本节中，我们考虑一般情况下的拥塞控制问题，试图理解为什么网络拥塞是一件坏
+3.6.1 拥塞原因与代价
+================================================================================
+
+Chunk 49:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_436
+Source: dense
+--------------------------------------------------------------------------------
+8.9.1 防火墙
+防火墙 (firewall) 是一个硬件和软件的结合体，它将一个机构的内部网络与整个因特 网隔离开，允许一些数据分组通过而阻止另一些分组通过。
+防火墙允许网络管理员控制外 部和被管理网络内部资源之间的访问，这种控制是通过管理流入和流出这些资源的流量实 现的。
+防火墙具有3个目标：
+● 仅被授权的流量(由本地安全
+策略定义)允许通过。
+随着进入和离开机构网络的所有流量流经防火墙，该防火 墙能够限制对授权流量的访问。
+●防火墙自身免于渗透。
+防火墙自身是一种与网络连接的设备，如果设计或安装不 当，将可能危及安全，在这种情况下它仅提供了一种安全的假象(这比根本没有 防火墙更糟糕!
+)。
+计算机网络中的安全 425
+用 iptables (通常与Linux 装在一起的公共域软件)产生一个防火墙(分组过滤器)。
+此 外，如第4章和第5章中所讨论的，防火墙现在经常在路由器中实现并使用SDN 进行远程 控 制 。
+防 火 墙 能 够 分 为 3 类：传统分组过滤器 (traditional packet filter)、状态过滤器 (stateful filter) 和应用程序网关 (application gateway)。
+在下面小节中，我们将依次学习 它 们 。
+================================================================================
+
+Chunk 50:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_440
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+8.9.2 入侵检测系统
+我们刚刚看到，当决定让哪个分组通过防火墙时，分组过滤器(传统的和状态的)检 查 IP 、TCP 、UDP 和 ICMP 首部字段。
+然而，为了检测多种攻击类型，我们需要执行深度 分组检查 ( deep packet inspection), 即查看首部字段以外部分，深入查看分组携带的实际 应用数据。
+如我们在8.9.1节所见，应用程序网关经常做深度分组检查。
+而一个应用程序 网关仅对一种特定的应用程序执行这种检查。
+显然，这为另一种设备提供了商机，即一种不仅能够检查所有通过它传递的分组的首部 (类似于分组过滤器),而且能执行深度分组检查(与分组过滤器不同)的设备。
+当这样的 设备观察到一个可疑的分组时，或一系列可疑的分组时，它能够防止这些分组进入该机构网 络。
+或者仅仅是因为觉得该活动可疑，该设备虽说能够让这些分组通过，但要向网络管理员 发出告警，网络管理员然后密切关注该流量并采取适当的行动。
+当观察到潜在恶意流量时能 产生告警的设备称为入侵检测系统 (Intrusion Detection System,IDS) 。
+滤除可疑流量的设备 称为入侵防止系统 (Intrusion Prevention System,IPS)。
+在本节中我们一起学习IDS 和 IPS 这
+两种系统，因为这些系统的最为有趣的技术方面是它们检测可疑流量的原理(而不是它们是 否发送告警或丢弃分组)。
+我们因此将IDS 系统和IPS 系统统称为IDS 系统。
+IDS 能够用于检测多种攻击，包括网络映射(例如使用nmap 进行分析)、端口扫描、 TCP 栈扫描、DoS带宽洪泛攻击、蠕虫和病毒、操作系统脆弱性攻击和应用程序脆弱性攻 击。
+(参见1.6节有关网络攻击的概述内容。
+)目前，数以千计的机构应用了IDS 系统。
+这 些已部署的系统有许多是专用的，Cisco 、Check Point 和其他安全装备厂商在市场上销售这 些系统。
+但是许多已部署的IDS 系统是公共域系统，如极为流行的Snort IDS系统(我们 将简要讨论它)。
+================================================================================
+
+Chunk 51:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_444
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+8 . 1节
+R1. 报文机密性和报文完整性之间的区别是什么?
+你能具有机密性而没有完整性吗?
+你能具有完整性而 没有机密性吗?
+证实你的答案。
+8.2节
+计算机网络中的安全 433
+明文攻击和选择明文攻击吗?
+R5. 考虑一个8块密码。
+这个密码有多少种可能的输入块?
+有多少种可能的映射?
+如果我们将每种映射 视为一个密钥，则该密码具有多少种可能的密钥?
+R6. 假定N 个人中的每个人都和其他N-1 个人使用对称密钥密码通信。
+任两人 (i 和j) 之间的所有通
+信对该N 个人的组中的所有其他人都是可见的，且该组中的其他人都不应当能够解密他们的通信。
+则这个系统总共需要多少个密钥?
+现在假定使用公开密钥密码。
+此时需要多少个密钥?
+R7. 假定n=10000 、a=10023 和 b=10004 。
+请你使用等同的模算术来心算 (a·b)mod n。
+R9. 散列以何种方式提供比检验和(如因特网检验和)更好的报文完整性检验?
+R10. 你能够“解密”某报文的散列来得到初始报文吗?
+解释你的答案。
+R11. 考 虑 MAC 算 法 ( 图 8 - 9 ) 的 一 种 变 形 算 法 ， 其 中 发 送 方 发 送 (m,H(m)+s), 这 里H(m)+s 是
+H(m) 和s 的级联。
+该变形算法有缺陷吗?
+为什么?
+R12. 一个签名的文档是可鉴别的和不可伪造的，其含义是什么?
+R15. 假设Alice 有一个准备发送给任何请求者的报文。
+数以千计的人要获得Alice 的报文，但每个人都要 确保该报文的完整性。
+在这种场景下，你认为是基于MAC还是基于数字签名的完整性方案更为适 合?
+为什么?
+R16. 在某端点鉴别协议中，使用不重数的目的是什么?
+R17. 我们说一个不重数是一个在生存期中只使用一次的值，这意味着什么?
+其中是指谁的生存期?
+R18. 基于HMAC的报文完整性方案易受重放攻击影响吗?
+如果是，能够在方案中综合一个不重数来去除 这种脆弱性吗?
+8.5~8.8节
+R19. 假定 Bob 从 Alice 处接收一个PGP 报文。
+================================================================================
+
+Chunk 52:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_446
+Source: bm25
+--------------------------------------------------------------------------------
+习 题
+P2.Trudy 使用了已知明文攻击，其中她知道了7个字母的(密文，明文)转换对，减少了8.2.1节的例 子中将被检查的大约10⁹数量级的可能替换的数量。
+请说明之。
+P3. 考虑图8-4所示的多码代替密码系统。
+利用报文 “The quick brown fox jumps over the lazy dogs” 得到 的明文编码，选择明文攻击足以破解所有报文吗?
+为什么?
+P4. 考虑图8-5中显示的块密码。
+假设每个块密码 T, 只是反转了8个输入比特的次序(例如，使得 11110000变为00001111)。
+进一步假设64比特置乱函数不修改任何比特(使得第m 个比特的输出值 等于第m 个比特的输入值)。
+a. 对 于n=3 和初始64比特输人等于10100000重复了8次，输出的值是多少?
+b. 重复 (a), 但此时将初始64比特的最后一个比特从0变为1。
+c. 重复 (a) 和 (b), 但此时假定64比特的置乱函数反转了64比特的次序。
+P5. 考虑图8-5中的块密码。
+对于给定的“密钥”,Alice 和 Bob将需要8个表，每张表8比特乘以8比 特。
+对于Alice ( 或 Bob) 来说，要存储所有8张表，将需要多少比特的存储器?
+这个数如何与一个 全表64比特的块密码所需的比特数进行比较?
+P6. 考虑在表8-1中的3比特块密码。
+假定明文是100100100。
+a. 初始假设未使用CBC。
+生成的密文是什么?
+b. 假设Trudy 嗅探该密文。
+假设她知道正在应用无CBC的一个3比特块密码(但不知道特定的密 码),她能够推测到什么?
+c. 现在假设使用CBC, 其中IV=111 。
+产生的密文是什么?
+P7. 如题：
+P8. 考虑具有p=5 和 q=11 的 RSA。
+a.n 和z 是什么?
+b. 令 e 为3。
+为什么这是一个对e 的可接受的选择?
+c. 求 d 使得de=1(mod z) 和d<160。
+[(a mod n)·(b mod n)]mod n=(a·b)mod n
+================================================================================
+
+Chunk 53:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_48
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+1.6 面对攻击的网络
+38 第1章
+因为我们在计算机网络和因特网协议方面还没有专业知识，所以这里我们将从审视某 些今天最为流行的与安全性相关的问题开始。
+这将刺激我们的胃口，以便我们在后续章节 中进行更为充实的讨论。
+我们在这里以提出问题开始：什么会出现问题?
+计算机网络是如 何受到攻击的?
+今天一些最为流行的攻击类型是什么?
+1. 坏家伙能够经因特网将有害程序放入你的计算机中
+至今为止的多数恶意软件是自我复制 (self-replicating) 的 ：一旦它感染了一台主机， 就会从那台主机寻求进入因特网上的其他主机，从而形成新的感染主机，再寻求进入更多 的主机。
+以这种方式，自我复制的恶意软件能够指数式地快速扩散。
+恶意软件能够以病毒 或蠕虫的形式扩散。
+病 毒 (virus) 是一种需要某种形式的用户交互来感染用户设备的恶意 软件。
+典型的例子是包含恶意可执行代码的电子邮件附件。
+如果用户接收并打开这样的附 件，不经意间就在其设备上运行了该恶意软件。
+通常，这种电子邮件病毒是自我复制的： 例如，一旦执行，该病毒可能向用户地址簿上的每个接收方发送一个具有相同恶意附件的 相同报文。
+蠕 虫 (worm) 是一种无须任何明显用户交互就能进入设备的恶意软件。
+例如， 用户也许运行了一个攻击者能够发送恶意软件的脆弱网络应用程序。
+在某些情况下，没有 用户的任何干预，该应用程序可能从因特网接收恶意软件并运行它，生成了蠕虫。
+新近感 染设备中的蠕虫则能扫描因特网，搜索其他运行相同网络应用程序的易受感染的主机。
+当 它发现其他易受感染的主机时，便向这些主机发送一个它自身的副本。
+今天，恶意软件无 所不在且防范成本高。
+当你用这本书学习时，我们鼓励你思考下列问题：计算机网络设计 者能够采取什么防御措施，以使与因特网连接的设备免受恶意软件的攻击?
+●连接洪泛。
+攻击者在目标主机中创建大量的半开或全开TCP 连接(将在第3章中 讨论TCP连接)。
+该主机因这些伪造的连接而陷入困境，并停止接受合法的连接。
+当学习这本书时，我们鼓励你考虑下列问题：计算机网络设计者能够采取哪些措施防 止 DoS攻击?
+我们将看到，对于3种不同类型的DoS攻击需要采用不同的防御方法。
+================================================================================
+
+Chunk 54:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_546
+Source: dense
+--------------------------------------------------------------------------------
+[Parekh 1993] A.Parekh,R.Gallagher,"A Generalized Processor Sharing Ap-
+proach to Flow Control in Integrated Services Networks:The Single-Node Case," IEEE/ACM Transactions on Networking,Vol.1,No.3(June 1993),pp.344-357.
+[Partridge 1992]C.Partridge,S.Pink,"An Implementation of the Revised Internet
+Stream Protocol(ST-2),"Journal of Internetworking:Research and Experience,Vol.3, No.1(Mar.1992).
+[Partridge 1998]C.Partridge,et al."A Fifty Gigabit per second IP Router,"IEEE ACM Transactions on Networking,Vol.6,No.3(Jun.1998),pp.237-248.
+[Pathak 2010]A.Pathak,Y.A.Wang,C.Huang,A.Greenberg,Y.C.Hu,J.Li,
+K.W.Ross,"Measuring and Evaluating TCP Splitting for Cloud Services,"Pas- sive and Active Measurement(PAM)Conference(Zurich,2010) .
+[Perkins 1994]A.Perkins,"Networking with Bob Metcalfe,"The Red Herring Magazine(Nov.1994).
+[Perkins 1998]C.Perkins,O.Hodson,V.Hardman,"A Survey of Packet Loss
+================================================================================
+
+Chunk 55:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_573
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+Sigcomm,2015.
+[SIP Software 2016]H.Schulzrinne Software Package site,http://www. cs.columbia.edu/IRT/software
+[Skoudis 2004]E.Skoudis,L.Zeltser,Malware:Fighting Malicious Code,Pren- tice Hall,2004.
+[Skoudis 2006]E.Skoudis,T.Liston,Counter Hack Reloaded:A Step-by-Step Guide to Computer Attacks and Effective Defenses(2nd Edition),Prentice Hall, 2006.
+[Smith 2009]J.Smith,"Fighting Physics:A Tough Battle,"Communications of the ACM,Vol.52,No.7(July 2009),pp.60-65.
+参 考 文 献 507
+[Solensky 1996]F.Solensky,"IPv4 Address Lifetime Expectations,"in IPng:
+Internet Protocol Next Generation(S.Bradner,A.Mankin,ed.),Addison-Wesley, Reading,MA,1996.
+[Spragins 1991]J.D.Spragins,Telecommunications Protocols and Design, Addison-Wesley,Reading,MA,1991.
+[Srikant 2004]R.Srikant,The Mathematics of Internet Congestion Control, Birkhauser.2004
+================================================================================
+
+Chunk 56:
+Doc ID: 计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_592
+Source: bm25/dense_bm25/tfidf
+--------------------------------------------------------------------------------
+另 一个按序报文段等待ACK传输
+比期望序号大的失序报文段到达。
+检测 出间隔
+能部分或完全填充接收数据间隔的报文 段到达 延迟的ACK。
+对另一个按序报文段的到达最多等待500ms。
+如果下 一个按序报文段在这个时间间隔内没有到达，则发送一个ACK
+立即发送单个累积ACK,以确认两个按序报文段
+立即发送冗余ACK,指示下一个期待字节的序号(其为间隔的低端 的序号)
+倘若该报文段起始于间隔的低端，则立即发送ACK
+关注安全性
+SYN洪泛攻击
+这种TCP连接管理协议为经典的DoS攻击即SYN洪泛攻击(SYN flood attack)提
+对应于SYN的其他状态信息。
+实 践 原 则
+2011]。
+Wireshark 实验：探究UDP
+人 物 专 访
+1 23 4 5
+到达
+时间
+1=0 t=2 t=4 t=6 1=8 1=10 1=12 =14 时间
+离开
+223.1.1.1
+================================================================================
+
+Chunk 57:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_15
+Source: tfidf
+--------------------------------------------------------------------------------
+2. 分 组 交 换 的 主 要 特 点
+分 组 交 换 则 采 用存 储 转 发技 术 ① 。
+图 1 - 9 表 示 把 一 个 报 文 划 分 为 几 个 分 组 后 再 进 行 传 送 。
+通 常 我 们 把 要 发 送 的 整 块 数 据 称 为 一 个报 文(message)。
+在 发 送 报 文 之 前 ， 先 把 较 长 的 报 文 划 分 为 一 个 个 更 小 的 等 长 数 据 段 ， 例 如 ， 视频讲解
+报文
+101001110101100…………001010011101000
+发送在前
+首 部
+数 据 分组
+首部
+数 据 分组
+首 部
+数 据 分组
+图 1 - 9 以分组为基本单位在网络中传送
+图 1 - 1 0(a) 强 调 互 联 网 的 核 心 部 分 是 由 许 多 网 络 和 把 它 们 互 连 起 来 的 路 由 器 组 成 的 ， 而 主机处在互联网的边缘部分 。
+在互联网核心部分的路由器之间一般都用高速链路相连接 ， 而 在网络边缘部分的主机接入到核心部分则通常以相对较低速率的链路相连接 。
+位 于 网 络 边 缘 部 分 的 主 机 和 位 于 网 络 核 心 部 分 的 路 由 器 都 是 计 算 机 ， 但 它 们 的 作 用 却 很 不 一 样 。
+主 机 是 为 用 户 进 行 信 息 处 理 的， 并 且 可 以 和 其 他 主 机 通 过 网 络 交 换 信 息 。
+路 由 器 则 用 来 转 发 分 组 ， 即 进 行 分 组 交 换。
+路 由 器 收 到 一 个 分 组 ， 先 暂 时 存 储 一 下 ， 检 查 其 首 部 ， 查 找 转 发 表 ， 按 照 首 部 中 的 目 的 地 址 ， 找 到 合 适 的 接 口 转 发 出 去 ， 把 分 组 交 给 下 一 个 路 由 器 。
+这 样 一 步 一 步 地 ( 有 时 会 经 过 几 十 个 不 同 的 路 由 器 ) 以 存 储 转 发 的 方 式 ， 把 分 组 交 付 最 终 的 目 的 主 机 。
+================================================================================
+
+Chunk 58:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_285
+Source: bm25
+--------------------------------------------------------------------------------
+这时，发送方 TCP 把 PSH 置1,并立即创建一个报文段发送出去。
+接收方 TCP 收 到PSH=1 的报文段，就尽快地(即“推送”向前)交付接收应用进程，而不再等到 整个缓存都填满了后再向上交付。
+虽然应用程序可以选择推送操作，但推送操作很少使用。
+(9)复位RST(ReSeT) 当 RST =1时，表明TCP 连接中出现严重差错(如主机崩溃 或其他原因),必须释放连接，然后再重新建立运输连接。
+将RST 置为1还用来拒绝一个非 法的报文段或拒绝打开一个连接。
+RST 也可称为重建位或重置位。
+(10)同步SYN (SYNchronization) 在连接建立时用来同步序号。
+当SYN=1 而 ACK =0时，表明这是一个连接请求报文段。
+对方若同意建立连接，则应在响应的报文段中使 SYN=1 和 ACK=1 。
+因 此 ，SYN 置为1就表示这是一个连接请求或连接接受报文。
+关于连 接的建立和释放，在后面的5.9节还要进行详细讨论。
+(11) 终止FIN(FINish, 意思是“完了”“终止”) 用来释放一个连接。
+当FIN=1 时， 表明此报文段的发送方的数据已发送完毕，并要求释放运输连接。
+(12) 窗口 占2字节。
+窗口值是[0,2¹⁶-1]之间的整数。
+窗口指的是发送本报文段的 一方的接收窗口(而不是自己的发送窗口)。
+窗口值告诉对方：从本报文段首部中的确认号 算起，接收方目前允许对方发送的数据量(以字节为单位)。
+之所以要有这个限制，是因为 接收方的数据缓存空间是有限的。
+总之，窗口值作为接收方让发送方设置其发送窗口的
+依据。
+例如，发送了一个报文段，其确认号是701,窗口字段是1000。
+这就 是告诉对方：“从701 号算起，我(即发送此报文段的一方)的接收缓存空 间还可接收1000个字节数据(字节序号是701～1700),你在给我发送数据 时，必须考虑到我的接收缓存容量。
+”
+总之，应当记住：
+扫一扫
+视频讲解
+(13)检验和 占2字节。
+检验和字段检验的范围包括首部和数据这两部分。
+和 UDP
+(14)紧急指针 占2字节。
+================================================================================
+
+Chunk 59:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_314
+Source: bm25
+--------------------------------------------------------------------------------
+5.9.3 TCP的有限状态机
+为了更清晰地看出 TCP 连接的各种状态之间的关系，图5-30 给出了 TCP 的有限状态机。
+图中每一个方框是TCP 可能具有的状态。
+每个方框中 的大写英文字符串是TCP 标准所使用的TCP 连接状态名。
+状态之间的箭头
+扫一扫
+视频讲解
+还有一些状态变迁，例如连接建立过程中的从LISTEN 到 SYN-SENT 和从SYN-SENT 到 SYN-RCVD 。
+读者可分析在什么情况下会出现这样的变迁(见习题5-43)。
+图 5 - 3 0 TCP 的 有 限 状 态 机
+本章的重要概念
+·运输层提供应用进程间的逻辑通信，也就是说，运输层之间的通信并不是真正在两 个运输层之间直接传送数据。
+运输层向应用层屏蔽了下面网络的细节(如网络拓扑、 所采用的路由选择协议等),它使应用进程看见的就是好像在两个运输层实体之间 有一条端到端的逻辑通信信道。
+· 网络层为主机之间提供逻辑通信，而运输层为应用进程之间提供端到端的逻辑 通 信 。
+· 运输层用一个16位端口号来标志一个端口。
+端口号只具有本地意义，它只是为了 标志本计算机应用层中的各个进程在和运输层交互时的层间接口。
+在互联网的不同 计 算 机 中 ， 相 同 的 端 口 号 是 没 有 关 联 的 。
+· 两台计算机中的进程要互相通信，不仅要知道对方的 IP 地址(为了找到对方的计 算机),而且还要知道对方的端口号(为了找到对方计算机中的应用进程)。
+· UDP 的主要特点是：(1)无连接；(2)尽最大努力交付；(3)面向报文；(4)无拥塞 控制；(5)支持一对一、一对多、多对一和多对多的交互通信；(6)首部开销小
+(只有四个字段：源端口、目的端口、长度和检验和)。
+· TCP 的主要特点是：(1)面向连接；(2)每一条 TCP 连接只能是点对点的(一对
+· 停止等待协议能够在不可靠的传输网络上实现可靠的通信。
+每发送完一个分组就停 止发送，等待对方的确认。
+在收到确认后再发送下一个分组。
+分组需要进行编号。
+================================================================================
+
+Chunk 60:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_320
+Source: bm25
+--------------------------------------------------------------------------------
+引起分组丢失的情况?
+如有，请举出三种情况。
+5-41 用 TCP 传送512字节的数据。
+设窗口为100字节，而 TCP 报文段每次也是传送100
+字节的数据。
+再设发送方和接收方的起始序号分别选为100和200,试画出类似于图 5-28的工作示意图。
+从连接建立阶段到连接释放都要画上(可不考虑传播时延)。
+不发送ack=u+1 的确认?
+(因为后面要发送的连接释放报文段中仍有ack=u+1 这 一信息。
+)
+5-43 在图5-30中，在什么情况下会发生从状态SYN-SENT 到状态SYN-RCVD 的变迁?
+5-44 试以具体例子说明为什么一个运输连接可以有多种方式释放。
+可以设两个互相通信
+的用户分别连接在网络的两节点上。
+5-45 解释为什么突然释放运输连接就可能会丢失用户数据，而使用 TCP 的连接释放方法
+就可保证不丢失数据。
+5-46 试用具体例子说明为什么在运输连接建立时要使用三报文握手。
+说明如不这样做可
+能会出现什么情况。
+(4)所有的协议首部开销都可忽略，所有确认报文段和连接建立阶段的报文段的长度 都可忽略(即忽略这些报文段的发送时间)。
+T=2 RTT+L/R 当 nM>R(RTT)+M
+或 T=2 RTT+L/R+(K-1)[M/R+RTT-nM/R] 当 nM<R(RTT)+M
+(提示：求证的第一个等式发生在发送窗口较大的情况，可以连续把文件发送完。
+求 证的第二个等式发生在发送窗口较小的情况，发送几个报文段后就必须停顿下来，等 收到确认后再继续发送。
+建议先画出双方交互的时间图，然后再进行推导。
+)
+5-48 网络允许的最大报文段长度为128字节，序号用8位表示，报文段在网络中的寿命
+为30秒。
+求发送报文段的一方所能达到的最高数据率。
+5-49 下面是以十六进制格式存储的一个UDP 首部：
+CB84000D001C001C
+试问：
+(1)源端口号是什么?
+(2)目的端口号是什么?
+(3)这个用户数据报的总长度是多少?
+(4)数据长度是多少?
+5-50 把图5-6计算UDP 检验和的例子自己具体演算一下，看是否能够得出书上的计算结果。
+================================================================================
+
+Chunk 61:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_322
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+(8)发送方A 收到ack=3072 的确认报文段。
+5-62 TCP 连接处于ESTABLISHED 状态。
+以下的事件相继发生：
+(1)收到一个FIN 报文段。
+(2)应用程序发送“关闭”报文。
+在每一个事件之后，连接的状态是什么?
+在每一个事件之后发生的动作是什么?
+5-63 TCP 连接处于SYN-RCVD 状态。
+以下的事件相继发生：
+(1)应用程序发送“关闭”报文。
+(2)收到FIN 报文段。
+在以上的每一个事件之后，连接的状态是什么?
+在每一个事件之后发生的动作是什么?
+5-64 TCP 连接处于FIN-WAIT-1状态。
+以下的事件相继发生：
+收到ACK 报文段。
+收到FIN 报文段。
+发生了超时。
+在以上的每一个事件之后，连接的状态是什么?
+在每一个事件之后发生的动作是什么?
+5-65 假定主机A 向 B 发送一个TCP 报文段。
+在这个报文段中，序号是50,而数据一共有
+6字节长。
+试问，在这个报文段中的确认字段是否应当写入56?
+5-66 主机 A 通过 TCP 连接向B 发送一个很长的文件，因此这需要分成很多个报文段来发
+送。
+假定某一个TCP 报文段的序号是x, 那么下一个报文段的序号是否就是x+1 呢?
+5-67 TCP 的吞吐量应当是每秒发送的数据字节数，还是每秒发送的首部和数据之和的字
+节数?
+吞吐量应当是每秒发送的字节数，还是每秒发送的比特数?
+5-68 在 TCP 的连接建立的三报文握手过程中，为什么第三个报文段不需要对方的确认?
+这会不会出现问题?
+5-69 现在假定使用类似TCP 的协议(即使用滑动窗口可靠传送字节流),数据传输速率是
+1 Gbit/s, 而网络的往返时间RTT=140ms 。
+假定报文段的最大生存时间是60秒。
+如 果要尽可能快地传送数据，在我们的通信协议的首部中，发送窗口和序号字段至少 各应当设为多大?
+5-70 假定用TCP 协议在40 Gbit/s 的线路上传送数据。
+(1)如果TCP 充分利用了线路的带宽，那么需要多长的时间TCP 会发生序号绕回?
+================================================================================
+
+Chunk 62:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_384
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+7.1 网络安全问题概述
+7.1.1 计算机网络面临的安全性威胁
+计算机网络的通信面临两大类威胁，即被动攻击和主动攻击(如图7-1所示)。
+图7-1 对网络的被动攻击和主动攻击
+被动攻击是指攻击者从网络上窃听他人的通信内容。
+通常把这类攻击称为截获。
+在被 动攻击中，攻击者只是观察和分析某一个协议数据单元PD U (这里使用PDU 这一名词是考 虑到所涉及的可能是不同的层次)而不干扰信息流。
+即使这些数据对攻击者来说是不易理解 的，他也可通过观察 PDU 的协议控制信息部分，了解正在通信的协议实体的地址和身份， 研究 PDU 的长度和传输的频度，从而了解所交换的数据的某种性质。
+这种被动攻击又称为 流量分析(traffic analysis)。
+在战争时期，通过分析某处出现大量异常的通信量，往往可以发 现敌方指挥所的位置。
+主动攻击有如下几种最常见的方式。
+(1)篡改 攻击者故意篡改网络上传送的报文。
+这里也包括彻底中断传送的报文，甚 至是把完全伪造的报文传送给接收方。
+这种攻击方式有时也称为更改报文流。
+(2)恶意程序 恶意程序(rogue program)种类繁多，对网络安全威胁较大的主要有以 下几种：
+· 计算机病毒(computer virus),一种会“传染”其他程序的程序，“传染”是通过修 改其他程序来把自身或自己的变种复制进去而完成的。
+· 计算机蠕虫(computer worm), 一种通过网络的通信功能将自身从一个节点发送到 另一个节点并自动启动运行的程序。
+· 特洛伊木马(Trojan horse),一种程序，它执行的功能并非所声称的功能而是某种恶 意功能。
+如一个编译程序除了执行编译任务以外，还把用户的源程序偷偷地复制下 来，那么这种编译程序就是一种特洛伊木马。
+计算机病毒有时也以特洛伊木马的形 式出现。
+· 逻辑炸弹(logic bomb), 一种当运行环境满足某种特定条件时执行其他特殊功能的 程序。
+如一个编辑程序，平时运行得很好，但当系统时间为13日又为星期五时，它 会删去系统中所有的文件，这种程序就是一种逻辑炸弹。
+================================================================================
+
+Chunk 63:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_407
+Source: dense_bm25
+--------------------------------------------------------------------------------
+2. 协议 TLS必须包含的措施
+以上介绍的只是协议 TLS 的要点。
+但若仅仅是这样，还不能提供足够的安全。
+因此， 对前面图7-21所示的双方的握手阶段，需要补充一些措施。
+前面曾提到在关闭TLS 连 接 之 前 ，A 或 B 应当先发送关闭TLS 的记录，目的是防止入 侵者的截断攻击(truncation attack)。
+所谓截断攻击就是在A 和 B 正在进行会话时，入侵者突 然发送TCP 的 FIN 报文段来关闭 TCP 连接。
+但如果A 或 B 没有事先发送一个要关闭TLS
+================================================================================
+
+Chunk 64:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_410
+Source: dense
+--------------------------------------------------------------------------------
+7.6 系统安全：防火墙与入侵检测
+7.6.1 防火墙
+防 火 墙(firewall) 作为 一 种访问控制技术，通过严格控制进出网络边界的分组，禁止任何不 必要的通信，从而减少潜在入侵的发生，尽可能降低这类安全威胁所带来的安全风险。
+由于防 火墙不可能阻止所有入侵行为，作为系统防御的第二道防线，入侵检测系统 IDS(Intrusion
+Detection System)通 过 对 进 入 网 络 的 分 组 进 行 深 度 分 析 与 检 测 发 现 疑 似 入 侵 行 为 的 网 络 活 动 ， 并进行报警以便进一步采取相应措施 。
+防火墙是一种特殊编程的路由器，安装在一个网点和网络的其余部分之间，目的是实
+施访问控制策略。
+这个访问控制策略是由使用防火墙的单位自行制定的。
+这种安全策略应当
+最适合本单位的需要。
+图7-24指出防火墙位于互联网和内部网络之间。
+互联网这边是防火
+墙的外面 ， 而内部网络这边是防火墙的里面 。
+一般都把防火墙里面的网络称为 “可信的网络 ” (trusted network)①, 而 把 防 火 墙 外 面 的 网 络 称 为 “不 可 信 的 网 络 ”(untrusted network)。
+图7-24 防火墙在互连网络中的位置
+①注：2004年11月，联合国总部建立了“互联网治理工作组WGIG(Working Group on Internet Governance)”,来解决互联 网的诚信和安全问题。
+我国在2006年2月颁布的《国家中长期科学和技术发展规划纲要(2006-2020年)》中，提出以发展高 可信网络为重点。
+现在高可信网络已成为研究热点。
+防火墙技术一般分为以下两类。
+分组过滤路由器的优点是简单高效，且对于用户是透明的，但不能对高层数据进行过 滤。
+例如，不能禁止某个用户对某个特定应用进行某个特定的操作，不能支持应用层用户鉴 别等。
+这些功能需要使用应用网关技术来实现。
+通常可将这两种技术结合使用，图7-24所画的防火墙就同时具有这两种技术。
+它包括 两个分组过滤路由器和一个应用网关，它们通过两个局域网连接在一起。
+================================================================================
+
+Chunk 65:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_411
+Source: dense/dense_bm25
+--------------------------------------------------------------------------------
+7.6.2 入侵检测系统
+防火墙试图在入侵行为发生之前阻止所有可疑的通信。
+但事实是不可能阻止所有的入 侵行为，有必要采取措施在入侵已经开始，但还没有造成危害或在造成更大危害前，及时检 测到入侵，以便尽快阻止入侵，把危害降低到最小。
+入侵检测系统 IDS 正是这样一种技术。
+IDS 对进入网络的分组执行深度分组检查，当观察到可疑分组时，向网络管理员发出告警或 执行阻断操作(由于 IDS 的“误报”率通常较高，多数情况不执行自动阻断)。
+IDS 能用于 检测多种网络攻击，包括网络映射、端口扫描、 DoS 攻击、蠕虫和病毒、系统漏洞攻击等。
+入侵检测方法一般可以分为基于特征的入侵检测和基于异常的入侵检测两种。
+不论采用什么检测技术都存在“漏报”和“误报”情况。
+如果“漏报”率比较高，则 只能检测到少量的入侵，给人以安全的假象。
+对于特定 IDS, 可以通过调整某些阈值来降低 “漏报”率，但同时会增大“误报”率。
+“误报”率太大会导致大量虚假警报，网络管理员 需要花费大量时间分析报警信息，甚至会因为虚假警报太多而对报警“视而不见”,使 IDS 形同虚设。
+================================================================================
+
+Chunk 66:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_415
+Source: bm25/dense_bm25
+--------------------------------------------------------------------------------
+7-15 试述实现报文鉴别和实体鉴别的方法。
+7-16 结合第5章图5-6计算UDP 的检验和的例子，说明这种检验和不能用来鉴别报文。
+7-17 报文的机密性与完整性有何区别?
+什么是MD5?
+7-18 什么是重放攻击?
+怎样防止重放攻击?
+7-19 图7-11的鉴别过程也有可能被骗子利用。
+假定A 发送报文和B 联系，但不巧被骗子
+7-20 什么是“中间人攻击”?
+怎样防止这种攻击?
+7-21 试讨论Kerberos 协议的优缺点。
+7-22 互联网的网络层安全协议族IPsec 都包含哪些主要协议?
+7-23 用户A 和 B 使用IPsec 进行通信。
+A 需要向B 接连发送6个分组。
+是否需要在每发
+送一个分组之前，都先建立一次安全关联SA?
+7-24 在图7-18(b)中，公司总部和业务员之间先建立了TCP 连接，然后使用IPsec 进行通信。
+假定有一个 TCP 报文段丢失了。
+后来在重传该序号的报文段时，相应的 IPsec 安全
+数据报是否也要使用同样的IPsec 序号呢?
+7-25 试简述协议TLS的工作过程。
+7-28 试述防火墙的工作原理和所提供的功能。
+什么叫作网络级防火墙和应用级防火墙?
+本章最重要的内容是；
+(1)多媒体信息的特点(如时延和时延抖动，播放时延等)。
+(2)流媒体的概念。
+(3)IP 电话使用的几种协议。
+================================================================================
+
+Chunk 67:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_506
+Source: bm25
+--------------------------------------------------------------------------------
+点，而终点组装 IP 数据报已超时，因而只能丢弃该数据报； IP 数据报已经到达终点， 但终点的缓存没有足够的空间存放此数据报；数据报在转发过程中经过一个局域网的 网桥，但网桥在转发该数据报的帧时没有足够的差错空间而只好丢弃。
+5-42 如 果B 不再发送数据了，是可以把两个报文段合并成为一个，即只发送FIN +ACK
+报文段。
+但如果B 还有数据要发送，而且要发送一段时间，那就不行，因为 A 迟 迟 收不到确认，就会以为刚才发送的 FIN 报文段丢失了，就超时重传这个 FIN 报文段， 浪费网络资源。
+CLOSED→SYN-SENT→SYN-RCVD→ESTABLISHED
+5-47 发送窗口的两种不同情况分别如图A-10(a) 和(b) 所示。
+根据此图，很容易证明本题。
+(a)当nM>R(RTT)+M (b)当nM<R(RTT)+M
+图A-10 习题5-47的图
+5-48 8.704 kbit/s
+5-52 UDP 用户数据报的检验和既检验 UDP 用户数据报的首部又检验整个的 UDP 用户数
+5-53 UDP的最小长度是8字节，最短IP 数据报的长度是28字节。
+5-54 0.667
+5-55 0.364
+5-56 0.222
+5-58 4秒
+5-59 窗口的变化如图A-11所示。
+在这之后 的窗口
+—发送窗口=1000—
+22401 ●●● 23400
+已发送并收到确认 允许发送的序号 不允许发送
+图 A-11 习题5-59的图
+5-65 无法知道应写入什么数值。
+5-66 仅在此报文段中仅有1个字节的数据时，下一个报文段的序号才是x+1。
+5-67 TCP的吞吐量本来并没有标准的定义，TCP 的吞吐量可定义为每秒发送的数据字节数。
+计算机内部的数据传送是以每秒多少字节作为单位的，而在通信线路上的数据率则常 用每秒多少比特作为单位。
+5-69 取序号字段长度n=33 位。
+但应注意，TCP 的序号字段为32位。
+5-70 (1)859ms (2)42.7天 5-73 这种情况是允许的。
+================================================================================
+
+Chunk 68:
+Doc ID: 计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_552
+Source: bm25
+--------------------------------------------------------------------------------
+这样做的结 果是，这些对等方相互之间都能够以令人满意的速率交换文件块。
+· 在P2P 应用中，广泛使用的索引和查找技术是分布式散列表DHT。
+习 题 6-01 互联网的域名结构是怎样的?
+它与目前的电话网的号码结构有何异同之处?
+6-04 设想有一天整个互联网的 DNS 系统都瘫痪了(这种情况不大会出现),试问还有可 能给朋友发送电子邮件吗?
+6-05 文件传送协议 FTP 的主要工作过程是怎样的?
+为什么说FTP 是带外传送控制信息?
+主进程和从属进程各起什么作用?
+6-06 简单文件传送协议TFTP 与 FTP 的主要区别是什么?
+各用在什么场合?
+6-07 远程登录TELNET 的主要特点是什么?
+什么叫作虚拟终端NVT?
+6-08 解释以下名词。
+各英文缩写词的原文是什么?
+wwW,URL,HTTP,HTML,CGI, 浏览器，超文本，超媒体，超链，页面，活动文档， 搜索引擎。
+6-09 假定一个超链从一个万维网文档链接到另一个万维网文档时，由于万维网文档上出 现了差错而使得超链指向一个无效的计算机名字。
+这时浏览器将向用户报告什么?
+6-11 你所使用的浏览器的高速缓存有多大?
+请进行一个实验：访问几个万维网文档，然 后将你的计算机与网络断开，然后再回到你刚才访问过的文档。
+你的浏览器的高速 缓存能够存放多少个页面?
+6-12 什么是动态文档?
+试举出万维网使用动态文档的一些例子。
+6-13 浏览器同时打开多个TCP 连接进行浏览的优缺点如何?
+请说明理由。
+6-14 请判断以下论述的正误，并简述理由。
+源点 终点 源点 终点 源点 终点
+O
+程序 源点 终点
+被动攻击 主 动 攻 击 主 动 攻 击 主 动 攻 击
+应用程序
+TLS(或SSL/TLS)
+TCP
+IP
+标准 比特率(kbit/s) 帧大小(ms) 处理时延(ms) 帧长(字节) 数字信号处理MIPS
+G.729 8 10 10 10 20
+G.723.1 5.3/6.3 30 30 20/24 16
+版本 P X 参与源数 M 有效载荷类型 序 号 12 字节
+================================================================================
+

@@ -1,0 +1,16 @@
+{
+  "built_at": "2025-12-26T19:27:44",
+  "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "batch_size": 64,
+  "use_cosine": true,
+  "index_type": "IndexFlatIP",
+  "dim": 384,
+  "ntotal": 7587,
+  "chunk_files": [
+    "ds_chunks.json",
+    "os_chunks.json",
+    "cn_chunks.json"
+  ],
+  "index_path": "H:\\RAG project\\stage2\\vector_db\\kb.index",
+  "meta_path": "H:\\RAG project\\stage2\\vector_db\\kb_meta.json"
+}

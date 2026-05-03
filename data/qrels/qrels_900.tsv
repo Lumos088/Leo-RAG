@@ -1,0 +1,331 @@
+qid	doc_id	relevance	score
+A001	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_445	1	0.9999
+A001	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_448	1	0.9974
+A001	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_461	1	0.9924
+A001	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_334	1	0.9404
+A001	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_457	0	0.3181
+A002	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_137	1	0.9270
+A002	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_425	1	0.7226
+A002	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_489	0	0.4272
+A002	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_440	0	0.3846
+A002	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_309	0	0.1002
+A003	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_11	1	0.9768
+A003	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_344	1	0.9184
+A003	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_12	1	0.9151
+A003	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_28	1	0.8552
+A003	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_24	0	0.2859
+A004	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_172	0	0.4438
+A004	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_110	0	0.2409
+A004	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_115	0	0.0966
+A004	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_31	0	0.0237
+A004	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_847	0	0.0234
+A005	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_490	1	0.9517
+A005	数据结构 (邓俊辉) (Z-Library)_chunk_323	1	0.7548
+A005	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_494	1	0.6173
+A005	数据结构 (邓俊辉) (Z-Library)_chunk_328	0	0.2750
+A005	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_754	0	0.0360
+A006	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_288	1	0.9979
+A006	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_307	1	0.9804
+A006	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_282	1	0.9578
+A006	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_197	0	0.3314
+A006	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_168	0	0.2598
+A007	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_161	1	0.8411
+A007	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_155	1	0.8372
+A007	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_336	0	0.2957
+A007	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_309	0	0.2653
+A007	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_449	0	0.1513
+A008	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_212	1	0.9615
+A008	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_215	1	0.9479
+A008	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_216	1	0.9311
+A008	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_214	1	0.9271
+A008	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_244	0	0.3058
+A009	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_151	1	0.5079
+A009	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_253	0	0.4677
+A009	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_188	0	0.3536
+A009	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_973	0	0.2264
+A009	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_310	0	0.0305
+A010	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_637	1	0.8534
+A010	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_199	0	0.0220
+A010	数据结构 (邓俊辉) (Z-Library)_chunk_78	0	0.0100
+A010	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_358	0	0.0046
+A010	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_61	0	0.0014
+A011	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_318	1	0.9271
+A011	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_419	1	0.8903
+A011	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_43	1	0.8380
+A011	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_219	0	0.3747
+A011	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_410	0	0.1295
+A012	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_109	1	0.9545
+A012	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_178	0	0.2011
+A012	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_529	0	0.1366
+A012	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_847	0	0.0713
+A012	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_113	0	0.0082
+A013	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_334	1	0.8306
+A013	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_336	0	0.4627
+A013	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_362	0	0.2003
+A013	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_370	0	0.1317
+A013	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_189	0	0.0394
+A014	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_274	1	0.8641
+A014	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_164	0	0.1646
+A014	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_272	0	0.1455
+A014	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_284	0	0.0782
+A014	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_99	0	0.0123
+A015	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_199	1	0.8133
+A015	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_70	1	0.6296
+A015	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_358	0	0.2961
+A015	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_582	0	0.2254
+A015	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_267	0	0.0259
+A016	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_160	1	0.7836
+A016	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_161	1	0.6888
+A016	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_449	0	0.4159
+A016	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_155	0	0.2867
+A016	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_137	0	0.0182
+A017	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_275	0	0.3614
+A017	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_269	0	0.2346
+A017	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_747	0	0.0259
+A017	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_271	0	0.0140
+A017	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_301	0	0.0011
+A018	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_367	1	0.5628
+A018	数据结构 (邓俊辉) (Z-Library)_chunk_352	0	0.0765
+A018	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_241	0	0.0710
+A018	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_164	0	0.0376
+A018	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_582	0	0.0062
+A019	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_445	1	0.9295
+A019	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_316	0	0.0005
+A019	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_134	0	0.0004
+A019	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_391	0	0.0003
+A019	数据结构 (邓俊辉) (Z-Library)_chunk_34	0	0.0003
+A020	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_413	0	0.0084
+A020	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_430	0	0.0051
+A020	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_384	0	0.0021
+A020	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_573	0	0.0004
+A020	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_414	0	0.0004
+A021	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_512	0	0.0244
+A021	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_289	0	0.0017
+A021	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_169	0	0.0014
+A021	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_317	0	0.0011
+A021	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_127	0	0.0008
+A022	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_677	1	0.9091
+A022	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_683	1	0.6891
+A022	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_684	1	0.6437
+A022	数据结构 (邓俊辉) (Z-Library)_chunk_491	1	0.6139
+A022	数据结构 (邓俊辉) (Z-Library)_chunk_492	0	0.0378
+A023	数据结构 (邓俊辉) (Z-Library)_chunk_13	0	0.2173
+A023	数据结构 (邓俊辉) (Z-Library)_chunk_33	0	0.0117
+A023	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_167	0	0.0090
+A023	数据结构 (邓俊辉) (Z-Library)_chunk_478	0	0.0074
+A023	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_11	0	0.0047
+A024	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_338	1	0.9892
+A024	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_340	1	0.9776
+A024	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_149	1	0.9461
+A024	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_148	0	0.3583
+A024	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_303	0	0.0014
+A025	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_166	0	0.2403
+A025	数据结构 (邓俊辉) (Z-Library)_chunk_393	0	0.1724
+A025	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_232	0	0.0096
+A025	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_77	0	0.0047
+A025	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_182	0	0.0006
+A026	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_136	1	0.5443
+A026	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_451	0	0.0325
+A026	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_422	0	0.0250
+A026	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_180	0	0.0199
+A026	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_561	0	0.0115
+A027	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_196	1	0.9811
+A027	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_579	1	0.9245
+A027	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_556	0	0.0051
+A027	数据结构 (邓俊辉) (Z-Library)_chunk_55	0	0.0019
+A027	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_415	0	0.0002
+A028	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_425	0	0.2934
+A028	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_423	0	0.1561
+A028	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_70	0	0.0032
+A028	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_358	0	0.0031
+A028	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_380	0	0.0010
+A029	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_292	1	0.9992
+A029	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_240	1	0.9961
+A029	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_240	1	0.9940
+A029	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_241	1	0.9893
+A029	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_241	1	0.5716
+A030	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_881	0	0.0349
+A030	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_753	0	0.0080
+A030	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_575	0	0.0040
+A030	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_433	0	0.0030
+A030	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_178	0	0.0007
+A031	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_333	0	0.4440
+A031	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_341	0	0.4390
+A031	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_153	0	0.1177
+A031	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_320	0	0.1043
+A031	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_338	0	0.0735
+A032	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_192	0	0.2848
+A032	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_546	0	0.1872
+A032	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_158	0	0.0547
+A032	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_155	0	0.0144
+A032	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_371	0	0.0028
+A033	数据结构 (邓俊辉) (Z-Library)_chunk_259	0	0.0208
+A033	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_304	0	0.0096
+A033	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_404	0	0.0026
+A033	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_281	0	0.0014
+A033	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_751	0	0.0002
+A034	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_272	1	0.9979
+A034	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_272	1	0.9819
+A034	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_303	1	0.9615
+A034	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_273	1	0.8735
+A034	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_185	0	0.2265
+A035	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_211	0	0.0094
+A035	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_382	0	0.0052
+A035	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_32	0	0.0012
+A035	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_595	0	0.0010
+A035	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_34	0	0.0002
+A036	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_396	1	0.9692
+A036	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_402	1	0.9502
+A036	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_397	1	0.8355
+A036	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_396	0	0.0035
+A036	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_296	0	0.0015
+A037	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_488	1	0.9997
+A037	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_677	1	0.9821
+A037	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_178	1	0.8083
+A037	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_528	0	0.0060
+A037	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_600	0	0.0024
+A038	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_526	1	0.9789
+A038	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_145	1	0.8388
+A038	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_49	1	0.7020
+A038	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_428	0	0.0439
+A038	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_528	0	0.0037
+A039	数据结构 (邓俊辉) (Z-Library)_chunk_307	1	0.9665
+A039	数据结构 (邓俊辉) (Z-Library)_chunk_80	1	0.9617
+A039	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_509	1	0.6752
+A039	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_135	0	0.4252
+A039	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_442	0	0.3641
+A040	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_589	0	0.1389
+A040	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_150	0	0.0361
+A040	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_123	0	0.0333
+A040	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_133	0	0.0045
+A040	数据结构 (邓俊辉) (Z-Library)_chunk_353	0	0.0013
+A041	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_289	1	0.8899
+A041	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_221	1	0.8874
+A041	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_99	0	0.3122
+A041	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_329	0	0.0346
+A041	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_138	0	0.0006
+A042	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1009	1	0.9928
+A042	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1008	1	0.9765
+A042	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_355	1	0.8513
+A042	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_352	1	0.6387
+A042	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_325	0	0.0077
+A043	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_157	0	0.0114
+A043	数据结构 (邓俊辉) (Z-Library)_chunk_366	0	0.0038
+A043	数据结构 (邓俊辉) (Z-Library)_chunk_41	0	0.0022
+A043	数据结构 (邓俊辉) (Z-Library)_chunk_32	0	0.0013
+A043	数据结构 (邓俊辉) (Z-Library)_chunk_277	0	0.0009
+A044	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_612	1	0.9180
+A044	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_106	1	0.6455
+A044	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_613	1	0.5790
+A044	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_210	1	0.5679
+A044	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_66	0	0.4380
+A045	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_381	1	0.9627
+A045	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_303	1	0.9378
+A045	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_382	0	0.1055
+A045	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_524	0	0.0031
+A045	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_238	0	0.0007
+A046	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_153	0	0.0107
+A046	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_527	0	0.0075
+A046	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_438	0	0.0036
+A046	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_154	0	0.0035
+A046	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_626	0	0.0007
+A047	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_639	1	0.9493
+A047	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_608	1	0.9027
+A047	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_16	1	0.8147
+A047	数据结构 (邓俊辉) (Z-Library)_chunk_27	1	0.5919
+A047	数据结构 (邓俊辉) (Z-Library)_chunk_429	1	0.5638
+A048	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_207	1	0.5591
+A048	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_624	0	0.4394
+A048	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_363	0	0.0489
+A048	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_367	0	0.0189
+A048	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_868	0	0.0107
+A049	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_239	1	0.9987
+A049	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_610	1	0.9592
+A049	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_576	0	0.3083
+A049	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_284	0	0.0013
+A049	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_443	0	0.0002
+A050	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_369	1	0.9547
+A050	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_351	1	0.8593
+A050	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_510	0	0.3426
+A050	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_505	0	0.1285
+A050	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_521	0	0.0100
+A051	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_216	1	0.9978
+A051	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_217	1	0.9573
+A051	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_212	1	0.8436
+A051	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_619	1	0.8227
+A051	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_627	1	0.6411
+A052	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_125	1	0.9977
+A052	数据结构 (邓俊辉) (Z-Library)_chunk_432	1	0.9967
+A052	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_553	1	0.9616
+A052	数据结构 (邓俊辉) (Z-Library)_chunk_436	1	0.9440
+A052	数据结构 (邓俊辉) (Z-Library)_chunk_438	1	0.9333
+A053	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_115	1	0.9860
+A053	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_172	1	0.6885
+A053	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_112	0	0.4511
+A053	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_108	0	0.0912
+A053	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_101	0	0.0722
+A054	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_331	1	0.9858
+A054	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_55	1	0.9853
+A054	计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_274	1	0.9767
+A054	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_113	1	0.8566
+A054	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_521	1	0.7758
+A055	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_247	1	0.9906
+A055	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_265	0	0.2085
+A055	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_870	0	0.0140
+A055	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_258	0	0.0044
+A055	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_155	0	0.0020
+A056	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_884	0	0.0216
+A056	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_264	0	0.0210
+A056	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_114	0	0.0021
+A056	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_202	0	0.0017
+A056	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_203	0	0.0011
+A057	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_111	0	0.4886
+A057	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_80	0	0.0538
+A057	数据结构 (邓俊辉) (Z-Library)_chunk_132	0	0.0538
+A057	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_74	0	0.0417
+A057	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_114	0	0.0166
+A058	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_125	1	0.9996
+A058	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_936	1	0.9973
+A058	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_75	1	0.9210
+A058	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_310	0	0.0195
+A058	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_464	0	0.0032
+A059	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_202	1	0.9662
+A059	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_576	1	0.9092
+A059	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_253	1	0.6010
+A059	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_239	1	0.5222
+A059	Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_284	0	0.0243
+A060	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_108	0	0.3148
+A060	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_172	0	0.2208
+A060	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_115	0	0.1214
+A060	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_101	0	0.0049
+A060	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_112	0	0.0033
+A061	数据结构 (邓俊辉) (Z-Library)_chunk_458	1	0.9960
+A061	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_531	1	0.9948
+A061	[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_514	1	0.9899
+A061	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_323	0	0.4190
+A061	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_311	0	0.3687
+A062	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_303	1	0.9491
+A062	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_203	1	0.8678
+A062	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_367	1	0.7171
+A062	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_132	1	0.5749
+A062	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_388	0	0.4527
+A063	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_65	1	0.7833
+A063	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_49	0	0.0942
+A063	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_39	0	0.0583
+A063	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_40	0	0.0563
+A063	数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_69	0	0.0408
+A064	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_299	1	0.9944
+A064	计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_307	1	0.9864
+A064	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_355	1	0.9618
+A064	计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_222	1	0.9457
+A064	2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_357	0	0.0787
+A065	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_461	1	0.9869
+A065	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_337	1	0.9142
+A065	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_334	1	0.8889
+A065	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_457	1	0.8140
+A065	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_449	0	0.0755
+A066	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_440	0	0.0027
+A066	操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_433	0	0.0019
+A066	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1259	0	0.0006
+A066	现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_749	0	0.0004
+A066	Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau etc.) (Z-Library)_chunk_1239	0	0.0001
