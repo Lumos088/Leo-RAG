@@ -1,0 +1,35 @@
+{
+  "metadata_version": "stage1-v1",
+  "in_place": false,
+  "input_dir": "E:\\RAG\\data\\chunks",
+  "output_dir": "E:\\RAG\\data\\stage1\\chunks",
+  "files": [
+    {
+      "file": "ds_chunks.json",
+      "chunks": 2064,
+      "chunks_with_chapter_path": 2044,
+      "chapter_coverage": 0.9903100775193798,
+      "sources": 4,
+      "output": "E:\\RAG\\data\\stage1\\chunks\\ds_chunks.json"
+    },
+    {
+      "file": "os_chunks.json",
+      "chunks": 3303,
+      "chunks_with_chapter_path": 3244,
+      "chapter_coverage": 0.982137450802301,
+      "sources": 3,
+      "output": "E:\\RAG\\data\\stage1\\chunks\\os_chunks.json"
+    },
+    {
+      "file": "cn_chunks.json",
+      "chunks": 2220,
+      "chunks_with_chapter_path": 2203,
+      "chapter_coverage": 0.9923423423423423,
+      "sources": 4,
+      "output": "E:\\RAG\\data\\stage1\\chunks\\cn_chunks.json"
+    }
+  ],
+  "total_chunks": 7587,
+  "chunk_ids_preserved": true,
+  "chunk_text_preserved": true
+}

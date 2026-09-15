@@ -4,7 +4,9 @@ import jieba
 
 class BM25Retriever:
     def __init__(self, docs):
-        self.tokenized_docs = [list(jieba.cut(d["text"])) for d in docs]
+        self.tokenized_docs = [
+            list(jieba.cut(d.get("retrieval_text") or d["text"])) for d in docs
+        ]
         self.bm25 = BM25Okapi(self.tokenized_docs)
         self.docs = docs
 

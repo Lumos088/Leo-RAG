@@ -1,0 +1,35 @@
+{
+  "schema_version": "stage2-sufficiency-v1",
+  "purpose": "Define answer-required atomic facts and minimum sufficient evidence for adaptive Parent-Child context evaluation.",
+  "query_types": [
+    "comparison",
+    "definition",
+    "enumeration",
+    "mechanism",
+    "synthesis"
+  ],
+  "review_status": [
+    "auto",
+    "reviewed"
+  ],
+  "required_fields": [
+    "qid",
+    "query",
+    "query_type",
+    "required_facts",
+    "minimum_sufficient_evidence",
+    "evidence_complete",
+    "review_status",
+    "evaluation_status",
+    "exclusion_reason"
+  ],
+  "fact_fields": [
+    "fact_id",
+    "description",
+    "supporting_evidence_ids"
+  ],
+  "evaluation_status": [
+    "eligible",
+    "excluded"
+  ]
+}

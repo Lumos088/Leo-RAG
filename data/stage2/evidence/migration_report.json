@@ -1,0 +1,21 @@
+{
+  "schema_version": "stage2-evidence-v1",
+  "ok": true,
+  "sources": 11,
+  "legacy_chunks": 7587,
+  "located_legacy_chunks": 7587,
+  "qrels_rows": 3719,
+  "judged_rows": 2062,
+  "blank_unjudged_rows": 1657,
+  "positive_rows": 1188,
+  "zero_rows": 874,
+  "positive_qids": 64,
+  "evidence_units": 1515,
+  "relevance_distribution": {
+    "2": 249,
+    "1": 830,
+    "3": 109,
+    "0": 874
+  },
+  "chunk_span_digest": "b103fd33331e34574cc9fd314a4cdf64007d693a96b8a620518ac33a0616b4ef"
+}

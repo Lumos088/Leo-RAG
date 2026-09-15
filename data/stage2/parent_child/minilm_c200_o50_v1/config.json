@@ -1,0 +1,15 @@
+{
+  "schema_version": "parent-child-v1",
+  "variant": "minilm_c200_o50_v1",
+  "built_at": "2026-09-12T18:12:18+08:00",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "parent_strategy": "preserve-stage1-chunk",
+  "child_strategy": "line-boundary-token-budget",
+  "target_tokens": 200,
+  "overlap_tokens": 50,
+  "hard_max_tokens": 400,
+  "parent_id_compatibility": "Stage-1 IDs preserved exactly",
+  "child_id_format": "<parent_id>__child_<001-based-position>",
+  "parents_dir": "E:\\RAG\\data\\stage2\\parent_child\\minilm_c200_o50_v1\\parents",
+  "children_dir": "E:\\RAG\\data\\stage2\\parent_child\\minilm_c200_o50_v1\\children"
+}

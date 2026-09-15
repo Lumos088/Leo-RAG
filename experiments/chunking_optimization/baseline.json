@@ -1,0 +1,93 @@
+{
+  "schema_version": "chunking-baseline-v1",
+  "production_config_path": "E:\\RAG\\config\\parent_child.json",
+  "production_config_sha256": "c37395f74f83a2fdf3166f2e65b478afc83c6db2af19c06065ef7a8813b5d437",
+  "production_config": {
+    "schema_version": "parent-child-runtime-v1",
+    "enabled": true,
+    "variant": "stage4_minilm_c200_o50_parent_rrf20_adaptive",
+    "child_index_dir": "vector_db/stage4/parent_child/minilm_c200_o50_contextual_v1",
+    "parent_dir": "data/stage4/parent_child/minilm_c200_o50_v1/parents",
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_candidates": 50,
+    "parent_top_k": 5,
+    "parent_score_aggregation": "max",
+    "parent_rerank_enabled": true,
+    "parent_rerank_candidates": 20,
+    "parent_rerank_mode": "rrf",
+    "parent_rrf_k": 20,
+    "parent_child_rank_weight": 1.0,
+    "parent_bge_rank_weight": 1.0,
+    "baseline_rescue_enabled": true,
+    "definition_child_highlight_enabled": true,
+    "child_highlights_per_parent": 1,
+    "context_token_budget": 6000,
+    "max_context_chars": 16000
+  },
+  "holdout_summary_path": "E:\\RAG\\experiments\\stage2\\answer_eval\\adaptive_holdout15_v1\\summary.json",
+  "holdout_summary_sha256": "497c2f3c09d070a67d6c80e8d4677d4c97170dc469a09b9d8dd3c5da72df4f51",
+  "holdout": {
+    "question_count": 15,
+    "qids": [
+      "A057",
+      "A037",
+      "A027",
+      "A035",
+      "A062",
+      "A007",
+      "A002",
+      "A023",
+      "A038",
+      "A016",
+      "A036",
+      "A066",
+      "A006",
+      "A061",
+      "A052"
+    ],
+    "strategies": {
+      "baseline": {
+        "mean_fact_coverage": 0.9211111111111111,
+        "full_fact_rate": 0.6666666666666666,
+        "mean_unsupported_claims": 0.0,
+        "mean_citation_validity": 1.0,
+        "mean_clarity_score": 4.666666666666667,
+        "mean_redundancy_score": 3.8
+      },
+      "adaptive": {
+        "mean_fact_coverage": 0.9477777777777778,
+        "full_fact_rate": 0.8,
+        "mean_unsupported_claims": 0.0,
+        "mean_citation_validity": 1.0,
+        "mean_clarity_score": 4.866666666666666,
+        "mean_redundancy_score": 3.8666666666666667
+      }
+    },
+    "mean_context_chars": {
+      "baseline": 4148.333333333333,
+      "adaptive": 5974.066666666667
+    },
+    "mean_generation_seconds": {
+      "baseline": 2.4321438666588318,
+      "adaptive": 2.5136419866699726
+    },
+    "preference": {
+      "context_aware": 8,
+      "baseline": 4,
+      "tie": 3
+    },
+    "holdout_acceptance": {
+      "fact_coverage_not_lower": true,
+      "full_fact_rate_not_lower": true,
+      "citation_validity": true,
+      "unsupported_not_higher": true,
+      "context_budget": true
+    },
+    "holdout_pass": true
+  },
+  "selection_policy": "Development data selects one candidate; frozen holdout is run once and never used to retune."
+}

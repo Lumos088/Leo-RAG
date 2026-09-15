@@ -1,0 +1,642 @@
+[
+  {
+    "qid": "A001",
+    "query": "死锁的四个必要条件是什么",
+    "latency_seconds": 0.9070413000299595,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.0975609756097561,
+    "mrr": 1.0,
+    "ndcg": 0.6613977655514712
+  },
+  {
+    "qid": "A002",
+    "query": "TCP 可靠传输机制包括哪些",
+    "latency_seconds": 0.6413821000023745,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.08196721311475409,
+    "mrr": 1.0,
+    "ndcg": 0.8696713085388743
+  },
+  {
+    "qid": "A003",
+    "query": "操作系统的主要功能有哪些",
+    "latency_seconds": 0.5970002999529243,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.07407407407407407,
+    "mrr": 1.0,
+    "ndcg": 0.6407496304844239
+  },
+  {
+    "qid": "A004",
+    "query": "进程调度的评价指标有哪些",
+    "latency_seconds": 0.6471308000036515,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.10204081632653061,
+    "mrr": 1.0,
+    "ndcg": 0.7364722470744329
+  },
+  {
+    "qid": "A005",
+    "query": "红黑树必须满足哪些性质",
+    "latency_seconds": 0.6191321000223979,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.2631578947368421,
+    "mrr": 1.0,
+    "ndcg": 0.8389776660073724
+  },
+  {
+    "qid": "A006",
+    "query": "B 树和 B+ 树的主要特性有哪些",
+    "latency_seconds": 0.6207175000454299,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.35714285714285715,
+    "mrr": 1.0,
+    "ndcg": 0.771896160584116
+  },
+  {
+    "qid": "A007",
+    "query": "TCP 拥塞控制包含哪几个阶段",
+    "latency_seconds": 0.6148790000006557,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.09090909090909091,
+    "mrr": 1.0,
+    "ndcg": 0.7508672308992497
+  },
+  {
+    "qid": "A008",
+    "query": "教材中介绍的主要页面置换算法有哪些",
+    "latency_seconds": 0.6188872000202537,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.17857142857142858,
+    "mrr": 1.0,
+    "ndcg": 0.7454046875530762
+  },
+  {
+    "qid": "A009",
+    "query": "枚举操作系统中3种常见的内存分配算法",
+    "latency_seconds": 0.65127809997648,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.2,
+    "mrr": 1.0,
+    "ndcg": 0.6835984833202855
+  },
+  {
+    "qid": "A010",
+    "query": "列出判断一个图是否为有向无环图的2种常用方法",
+    "latency_seconds": 0.6582242000149563,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.21739130434782608,
+    "mrr": 1.0,
+    "ndcg": 0.838257148294559
+  },
+  {
+    "qid": "A011",
+    "query": "枚举OSI七层模型中传输层的4项核心功能",
+    "latency_seconds": 0.6269049000111409,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.16129032258064516,
+    "mrr": 1.0,
+    "ndcg": 0.6639760998441188
+  },
+  {
+    "qid": "A012",
+    "query": "列出进程从阻塞态转换为就绪态的3种触发条件",
+    "latency_seconds": 0.6484856000170112,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.11904761904761904,
+    "mrr": 1.0,
+    "ndcg": 0.8613632863224759
+  },
+  {
+    "qid": "A013",
+    "query": "枚举构建大根堆时堆调整操作需满足的3个关键条件",
+    "latency_seconds": 0.6466220999718644,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.23529411764705882,
+    "mrr": 1.0,
+    "ndcg": 0.6440082837813647
+  },
+  {
+    "qid": "A014",
+    "query": "枚举操作系统中4种常见的文件访问方式",
+    "latency_seconds": 0.6448287999955937,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.0851063829787234,
+    "mrr": 1.0,
+    "ndcg": 0.6937128299299877
+  },
+  {
+    "qid": "A015",
+    "query": "图的两种基本遍历算法是什么",
+    "latency_seconds": 0.6253162000211887,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.10526315789473684,
+    "mrr": 1.0,
+    "ndcg": 0.8531545716974074
+  },
+  {
+    "qid": "A016",
+    "query": "枚举TCP协议为缓解拥塞所采用的3种核心控制算法",
+    "latency_seconds": 0.6176569999661297,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.0851063829787234,
+    "mrr": 1.0,
+    "ndcg": 0.7475849696781455
+  },
+  {
+    "qid": "A017",
+    "query": "列出判断一个文件是否为特殊文件的2个关键特征",
+    "latency_seconds": 0.6520518999896012,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.1388888888888889,
+    "mrr": 1.0,
+    "ndcg": 0.8256787811751161
+  },
+  {
+    "qid": "A018",
+    "query": "枚举实现优先级队列的3种常用底层结构",
+    "latency_seconds": 0.6467259000055492,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.20833333333333334,
+    "mrr": 1.0,
+    "ndcg": 0.7182483388343136
+  },
+  {
+    "qid": "A019",
+    "query": "Coffman 条件指的是什么",
+    "latency_seconds": 0.7678612000308931,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 1.0
+  },
+  {
+    "qid": "A020",
+    "query": "什么是 SYN Flood 攻击",
+    "latency_seconds": 0.6484426999813877,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 0.25,
+    "mrr": 1.0,
+    "ndcg": 0.614883930211949
+  },
+  {
+    "qid": "A022",
+    "query": "什么是 Tarjan 算法",
+    "latency_seconds": 0.59397370001534,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.5714285714285714,
+    "mrr": 1.0,
+    "ndcg": 0.8539316501572937
+  },
+  {
+    "qid": "A023",
+    "query": "什么是 Nagle 算法",
+    "latency_seconds": 0.6425241000251845,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 1.0
+  },
+  {
+    "qid": "A024",
+    "query": "什么是滑动窗口协议",
+    "latency_seconds": 0.6054365999880247,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.2777777777777778,
+    "mrr": 1.0,
+    "ndcg": 0.9161872351436834
+  },
+  {
+    "qid": "A025",
+    "query": "什么是优先级反转",
+    "latency_seconds": 0.6105851999600418,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 0.25,
+    "mrr": 1.0,
+    "ndcg": 0.8207820281163857
+  },
+  {
+    "qid": "A027",
+    "query": "什么是交换空间Swap Space",
+    "latency_seconds": 0.6307431000168435,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 0.3,
+    "mrr": 1.0,
+    "ndcg": 0.6754509969175473
+  },
+  {
+    "qid": "A028",
+    "query": "什么是跳表Skip List",
+    "latency_seconds": 0.6044114999822341,
+    "success": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "mrr": 0.0,
+    "ndcg": 0.0
+  },
+  {
+    "qid": "A029",
+    "query": "什么是网络地址转换NAT",
+    "latency_seconds": 0.6041795999626629,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "mrr": 1.0,
+    "ndcg": 0.9486104385104379
+  },
+  {
+    "qid": "A030",
+    "query": "什么是文件控制块FCB",
+    "latency_seconds": 0.6394582000211813,
+    "success": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "mrr": 0.0,
+    "ndcg": 0.0
+  },
+  {
+    "qid": "A031",
+    "query": "什么是拓扑排序Topological Sorting",
+    "latency_seconds": 0.610120499972254,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.5,
+    "mrr": 1.0,
+    "ndcg": 0.8613383596426211
+  },
+  {
+    "qid": "A032",
+    "query": "什么是页框Page Frame",
+    "latency_seconds": 0.7633375999866985,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.25,
+    "mrr": 0.5,
+    "ndcg": 0.5713772228041107
+  },
+  {
+    "qid": "A033",
+    "query": "什么是并查集Union-Find",
+    "latency_seconds": 0.6654237000038847,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.5,
+    "mrr": 0.2,
+    "ndcg": 0.23719771276929622
+  },
+  {
+    "qid": "A034",
+    "query": "什么是ICMP协议",
+    "latency_seconds": 0.595853199949488,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.23529411764705882,
+    "mrr": 1.0,
+    "ndcg": 0.7903055545787667
+  },
+  {
+    "qid": "A035",
+    "query": "什么是临界区Critical Section",
+    "latency_seconds": 0.6343939000507817,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.45454545454545453,
+    "mrr": 1.0,
+    "ndcg": 0.7735969381494525
+  },
+  {
+    "qid": "A036",
+    "query": "什么是哈希冲突Hash Collision",
+    "latency_seconds": 0.5981492000282742,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.45454545454545453,
+    "mrr": 1.0,
+    "ndcg": 0.7034320808788063
+  },
+  {
+    "qid": "A037",
+    "query": "什么是 TLB",
+    "latency_seconds": 0.6107057000044733,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.21052631578947367,
+    "mrr": 1.0,
+    "ndcg": 0.6423232684404256
+  },
+  {
+    "qid": "A038",
+    "query": "RTT 是什么",
+    "latency_seconds": 0.6056744999950752,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.2857142857142857,
+    "mrr": 1.0,
+    "ndcg": 0.543460976941977
+  },
+  {
+    "qid": "A039",
+    "query": "什么是 O(n log n) 复杂度",
+    "latency_seconds": 0.6171089999843389,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.0625,
+    "mrr": 0.3333333333333333,
+    "ndcg": 0.18148604814387062
+  },
+  {
+    "qid": "A040",
+    "query": "什么是 SYN、ACK",
+    "latency_seconds": 0.6256109999958426,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.25,
+    "mrr": 1.0,
+    "ndcg": 0.4708163472988998
+  },
+  {
+    "qid": "A041",
+    "query": "什么是 MTU",
+    "latency_seconds": 0.6086101999972016,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.35714285714285715,
+    "mrr": 1.0,
+    "ndcg": 0.7493503044419051
+  },
+  {
+    "qid": "A042",
+    "query": "什么是 DMA",
+    "latency_seconds": 0.7527194999856874,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.38461538461538464,
+    "mrr": 1.0,
+    "ndcg": 0.9357070198635065
+  },
+  {
+    "qid": "A043",
+    "query": "什么是 CAP 定理",
+    "latency_seconds": 0.6555313999997452,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 1.0,
+    "mrr": 0.3333333333333333,
+    "ndcg": 0.5
+  },
+  {
+    "qid": "A044",
+    "query": "什么是 FIFO",
+    "latency_seconds": 0.585296000004746,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.25,
+    "mrr": 1.0,
+    "ndcg": 0.8539316501572934
+  },
+  {
+    "qid": "A045",
+    "query": "什么是DHCP",
+    "latency_seconds": 0.6218706999788992,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.38461538461538464,
+    "mrr": 1.0,
+    "ndcg": 0.8840428758277087
+  },
+  {
+    "qid": "A046",
+    "query": "什么是SRTF调度算法",
+    "latency_seconds": 0.617364700010512,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.14285714285714285,
+    "mrr": 0.2,
+    "ndcg": 0.09797563950575583
+  },
+  {
+    "qid": "A047",
+    "query": "Floyd-Warshall算法的时间复杂度是什么",
+    "latency_seconds": 0.6194412999902852,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 0.6,
+    "mrr": 0.3333333333333333,
+    "ndcg": 0.4672904917208617
+  },
+  {
+    "qid": "A048",
+    "query": "什么是MMU内存管理单元",
+    "latency_seconds": 0.6325393000151962,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.4166666666666667,
+    "mrr": 1.0,
+    "ndcg": 0.758559236663497
+  },
+  {
+    "qid": "A049",
+    "query": "什么是DAG有向无环图",
+    "latency_seconds": 0.6184915999765508,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.35714285714285715,
+    "mrr": 1.0,
+    "ndcg": 0.8460752650607282
+  },
+  {
+    "qid": "A050",
+    "query": "什么是SMTP协议",
+    "latency_seconds": 0.8074094000039622,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 0.2,
+    "mrr": 1.0,
+    "ndcg": 0.6837003453466949
+  },
+  {
+    "qid": "A051",
+    "query": "什么是LRU页面置换算法",
+    "latency_seconds": 0.653881200007163,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.23809523809523808,
+    "mrr": 1.0,
+    "ndcg": 0.7901938410193965
+  },
+  {
+    "qid": "A052",
+    "query": "什么是KMP算法",
+    "latency_seconds": 0.6011551999836229,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "mrr": 1.0,
+    "ndcg": 0.9826072798331944
+  },
+  {
+    "qid": "A053",
+    "query": "进程和线程的区别是什么",
+    "latency_seconds": 0.6410156000056304,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.3125,
+    "mrr": 1.0,
+    "ndcg": 0.8740066058757132
+  },
+  {
+    "qid": "A054",
+    "query": "TCP 和 UDP 的区别是什么",
+    "latency_seconds": 0.6185024000005797,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 0.25,
+    "mrr": 0.5,
+    "ndcg": 0.3613618117253675
+  },
+  {
+    "qid": "A055",
+    "query": "分页和分段的区别是什么",
+    "latency_seconds": 0.6115796000231057,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.4,
+    "mrr": 1.0,
+    "ndcg": 0.7323987659486003
+  },
+  {
+    "qid": "A056",
+    "query": "阻塞 IO 和非阻塞 IO 的区别",
+    "latency_seconds": 0.6450668000034057,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.4444444444444444,
+    "mrr": 1.0,
+    "ndcg": 0.9228093671333918
+  },
+  {
+    "qid": "A057",
+    "query": "栈和堆的区别",
+    "latency_seconds": 0.632355900015682,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.3333333333333333,
+    "mrr": 1.0,
+    "ndcg": 0.6960611227834692
+  },
+  {
+    "qid": "A058",
+    "query": "数据通信中同步传输与异步传输的区别是什么",
+    "latency_seconds": 0.649238099984359,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.35714285714285715,
+    "mrr": 1.0,
+    "ndcg": 0.8714131766302144
+  },
+  {
+    "qid": "A059",
+    "query": "有向图与无向图的区别是什么",
+    "latency_seconds": 0.656814799993299,
+    "success": 1.0,
+    "precision": 0.6,
+    "recall": 0.23076923076923078,
+    "mrr": 1.0,
+    "ndcg": 0.7827986520850378
+  },
+  {
+    "qid": "A060",
+    "query": "作业调度与进程调度的区别是什么",
+    "latency_seconds": 0.6380187000031583,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.36363636363636365,
+    "mrr": 1.0,
+    "ndcg": 0.8539316501572937
+  },
+  {
+    "qid": "A061",
+    "query": "快速排序与归并排序的区别是什么",
+    "latency_seconds": 0.7752320999861695,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.3333333333333333,
+    "mrr": 1.0,
+    "ndcg": 0.8211816967888173
+  },
+  {
+    "qid": "A062",
+    "query": "虚拟地址与物理地址的区别是什么",
+    "latency_seconds": 0.657575499964878,
+    "success": 1.0,
+    "precision": 0.8,
+    "recall": 0.21052631578947367,
+    "mrr": 1.0,
+    "ndcg": 0.6164336326286644
+  },
+  {
+    "qid": "A063",
+    "query": "数组与链表的区别是什么",
+    "latency_seconds": 0.6052129999734461,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.45454545454545453,
+    "mrr": 1.0,
+    "ndcg": 0.8186093893738696
+  },
+  {
+    "qid": "A064",
+    "query": "IPv4与IPv6的区别是什么",
+    "latency_seconds": 0.6324010000098497,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.3125,
+    "mrr": 1.0,
+    "ndcg": 0.933579955310489
+  },
+  {
+    "qid": "A065",
+    "query": "死锁预防与死锁避免的区别是什么",
+    "latency_seconds": 0.636844199965708,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.4166666666666667,
+    "mrr": 1.0,
+    "ndcg": 0.6789122088255236
+  },
+  {
+    "qid": "A066",
+    "query": "DFS与BFS的区别是什么",
+    "latency_seconds": 0.6268024999881163,
+    "success": 1.0,
+    "precision": 1.0,
+    "recall": 0.5555555555555556,
+    "mrr": 1.0,
+    "ndcg": 0.9269658250786468
+  }
+]

@@ -16,7 +16,7 @@ def load_run_file(file_path, top_n=30):
 
 def build_initial_pool():
     import os
-    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     dense_file = os.path.join(script_dir, 'runs', 'dense.run')
     dense_bm25_file = os.path.join(script_dir, 'runs', 'dense_bm25.run')
     
@@ -40,7 +40,7 @@ def build_initial_pool():
     
     df = pd.DataFrame(pool_data)
     import os
-    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     output_file = os.path.join(script_dir, 'pools', 'initial_pool_dense_bm25.csv')
     df.to_csv(output_file, index=False, encoding='utf-8')
     

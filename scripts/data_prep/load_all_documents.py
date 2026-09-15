@@ -8,15 +8,21 @@ from docx import Document  # 用于解析 docx
 from docx.opc.exceptions import PackageNotFoundError  # 捕获无效 docx 文件异常
 
 # ===== 1. 配置路径 =====
-# 原始教材所在目录
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+
+# 原始教材默认放在项目内的 data/raw/textbooks；也可用环境变量覆盖。
+TEXTBOOKS_DIR = os.environ.get(
+    "RAG_TEXTBOOKS_DIR",
+    os.path.join(BASE_DIR, "data", "raw", "textbooks"),
+)
 COURSE_DIRS = {
-    "Computer Networks": r"H:\RAG project\data\raw\textbooks\computer networks",
-    "Data Structures": r"H:\RAG project\data\raw\textbooks\data structures",
-    "Operating System": r"H:\RAG project\data\raw\textbooks\os"
+    "Computer Networks": os.path.join(TEXTBOOKS_DIR, "computer networks"),
+    "Data Structures": os.path.join(TEXTBOOKS_DIR, "data structures"),
+    "Operating System": os.path.join(TEXTBOOKS_DIR, "os"),
 }
 
 # 阶段二结构化文档输出目录
-BASE_DIR = r"H:\RAG project\stage2"
 RAW_OUTPUT_DIR = os.path.join(BASE_DIR, "data", "raw_documents")
 os.makedirs(RAW_OUTPUT_DIR, exist_ok=True)
 

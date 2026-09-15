@@ -1,0 +1,26 @@
+{
+  "question_count": 15,
+  "strategies": {
+    "baseline": {
+      "mean_fact_coverage": 0.8777777777777778,
+      "full_fact_rate": 0.6666666666666666,
+      "mean_unsupported_claims": 0.2,
+      "mean_citation_validity": 1.0,
+      "mean_clarity_score": 4.866666666666666,
+      "mean_redundancy_score": 4.133333333333334
+    },
+    "parent_rrf": {
+      "mean_fact_coverage": 0.8461111111111111,
+      "full_fact_rate": 0.5333333333333333,
+      "mean_unsupported_claims": 0.06666666666666667,
+      "mean_citation_validity": 1.0,
+      "mean_clarity_score": 4.8,
+      "mean_redundancy_score": 4.333333333333333
+    }
+  },
+  "preference": {
+    "parent_rrf": 4,
+    "tie": 7,
+    "baseline": 4
+  }
+}

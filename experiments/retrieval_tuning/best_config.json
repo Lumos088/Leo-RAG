@@ -1,0 +1,95 @@
+{
+  "selection_metric": "development NDCG@10 with held-out NDCG/Recall non-regression gate",
+  "constraint": {
+    "development_recall_minimum": 0.9479335581721502,
+    "held_out_metrics": [
+      "NDCG@10",
+      "Recall@50"
+    ],
+    "rule": "both must be no worse than baseline"
+  },
+  "baseline_config": {
+    "dense_k": 50,
+    "bm25_k": 50,
+    "rrf_k": 60,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": 50
+  },
+  "development_winner_config": {
+    "dense_k": 50,
+    "bm25_k": 75,
+    "rrf_k": 20,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": 50
+  },
+  "best_config": {
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": 50
+  },
+  "baseline": {
+    "dev": {
+      "MRR@10": 0.9534722222222222,
+      "Success@1": 0.9375,
+      "Success@5": 0.9583333333333334,
+      "Success@10": 1.0,
+      "Recall@50": 0.9479335581721502,
+      "NDCG@10": 0.7743782435369942,
+      "NDCG@50": 0.831556789898452
+    },
+    "test": {
+      "MRR@10": 1.0,
+      "Success@1": 1.0,
+      "Success@5": 1.0,
+      "Success@10": 1.0,
+      "Recall@50": 0.9449460705334766,
+      "NDCG@10": 0.7906862704846024,
+      "NDCG@50": 0.8423252209741106
+    },
+    "all": {
+      "MRR@10": 0.9651041666666667,
+      "Success@1": 0.953125,
+      "Success@5": 0.96875,
+      "Success@10": 1.0,
+      "Recall@50": 0.9471866862624817,
+      "NDCG@10": 0.7784552502738963,
+      "NDCG@50": 0.8342488976673667
+    }
+  },
+  "best": {
+    "dev": {
+      "MRR@10": 0.9432870370370371,
+      "Success@1": 0.9166666666666666,
+      "Success@5": 0.9583333333333334,
+      "Success@10": 1.0,
+      "Recall@50": 0.9498335619432869,
+      "NDCG@10": 0.7751411277923892,
+      "NDCG@50": 0.8305070179924833
+    },
+    "test": {
+      "MRR@10": 1.0,
+      "Success@1": 1.0,
+      "Success@5": 1.0,
+      "Success@10": 1.0,
+      "Recall@50": 0.9476638884298658,
+      "NDCG@10": 0.796499010549685,
+      "NDCG@50": 0.8484858479245543
+    },
+    "all": {
+      "MRR@10": 0.9574652777777778,
+      "Success@1": 0.9375,
+      "Success@5": 0.96875,
+      "Success@10": 1.0,
+      "Recall@50": 0.9492911435649316,
+      "NDCG@10": 0.7804805984817131,
+      "NDCG@50": 0.835001725475501
+    }
+  },
+  "grid_size": 45,
+  "rerank_shortlist_size": 4
+}

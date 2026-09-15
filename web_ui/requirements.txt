@@ -5,6 +5,7 @@ streamlit>=1.29.0
 pydantic>=2.5.0
 python-multipart>=0.0.6
 aiohttp>=3.9.0
+requests>=2.31.0
 
 # Core RAG Dependencies (Verified Compatible Versions)
 faiss-cpu>=1.13.0

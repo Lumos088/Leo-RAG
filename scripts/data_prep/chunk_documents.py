@@ -9,7 +9,7 @@ from typing import List, Dict, Any
 
 # ========= 路径配置 =========
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.dirname(SCRIPT_DIR)
+BASE_DIR = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 
 CLEANED_DIR = os.path.join(BASE_DIR, "data", "cleaned")
 CHUNKS_DIR = os.path.join(BASE_DIR, "data", "chunks")

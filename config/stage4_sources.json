@@ -1,0 +1,57 @@
+{
+  "schema_version": "stage4-source-manifest-v1",
+  "retrieved_at": "2026-09-14",
+  "sources": [
+    {
+      "collection": "Dive into Deep Learning",
+      "repository": "d2l-ai/d2l-en",
+      "revision": "23d7a5aecceee57d1292c56e90cce307f183bb0a",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://github.com/d2l-ai/d2l-en/blob/23d7a5aecceee57d1292c56e90cce307f183bb0a/LICENSE",
+      "attribution": "Aston Zhang, Zachary C. Lipton, Mu Li, and Alexander J. Smola, Dive into Deep Learning",
+      "documents": [
+        {"slug": "d2l_linear_regression", "path": "chapter_linear-regression/linear-regression.md", "title": "Linear Regression", "topics_zh": ["机器学习", "线性回归", "损失函数", "梯度下降"]},
+        {"slug": "d2l_softmax", "path": "chapter_linear-classification/softmax-regression.md", "title": "Softmax Regression", "topics_zh": ["分类", "Softmax", "交叉熵", "概率"]},
+        {"slug": "d2l_mlp", "path": "chapter_multilayer-perceptrons/mlp.md", "title": "Multilayer Perceptrons", "topics_zh": ["深度学习", "多层感知机", "激活函数", "神经网络"]},
+        {"slug": "d2l_backprop", "path": "chapter_multilayer-perceptrons/backprop.md", "title": "Forward Propagation, Backward Propagation, and Computational Graphs", "topics_zh": ["反向传播", "计算图", "梯度", "链式法则"]},
+        {"slug": "d2l_cnn", "path": "chapter_convolutional-neural-networks/why-conv.md", "title": "From Fully Connected Layers to Convolutions", "topics_zh": ["卷积神经网络", "CNN", "平移不变性", "局部性"]},
+        {"slug": "d2l_rnn", "path": "chapter_recurrent-neural-networks/rnn.md", "title": "Recurrent Neural Networks", "topics_zh": ["循环神经网络", "RNN", "序列模型", "隐状态"]},
+        {"slug": "d2l_attention", "path": "chapter_attention-mechanisms-and-transformers/queries-keys-values.md", "title": "Queries, Keys, and Values", "topics_zh": ["注意力机制", "Query", "Key", "Value", "注意力池化"]},
+        {"slug": "d2l_multihead", "path": "chapter_attention-mechanisms-and-transformers/multihead-attention.md", "title": "Multi-Head Attention", "topics_zh": ["多头注意力", "投影", "并行注意力", "Transformer"]},
+        {"slug": "d2l_transformer", "path": "chapter_attention-mechanisms-and-transformers/transformer.md", "title": "The Transformer Architecture", "topics_zh": ["Transformer", "编码器", "解码器", "自注意力", "位置编码"]},
+        {"slug": "d2l_sgd", "path": "chapter_optimization/sgd.md", "title": "Stochastic Gradient Descent", "topics_zh": ["随机梯度下降", "SGD", "优化", "学习率"]}
+      ]
+    },
+    {
+      "collection": "The Hugging Face Course",
+      "repository": "huggingface/course",
+      "revision": "5805d51523d561a82520b301dbc8c5759b212844",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/huggingface/course/blob/5805d51523d561a82520b301dbc8c5759b212844/LICENSE",
+      "attribution": "Hugging Face, The Hugging Face Course",
+      "documents": [
+        {"slug": "hf_transformers_tasks", "path": "chapters/en/chapter1/3.mdx", "title": "Transformers, what can they do?", "topics_zh": ["Transformer任务", "文本分类", "生成", "问答"]},
+        {"slug": "hf_transformers_work", "path": "chapters/en/chapter1/4.mdx", "title": "How do Transformers work?", "topics_zh": ["Transformer原理", "预训练", "注意力", "迁移学习"]},
+        {"slug": "hf_architectures", "path": "chapters/en/chapter1/6.mdx", "title": "Transformer Architectures", "topics_zh": ["自编码模型", "自回归模型", "编码器解码器", "语言模型"]},
+        {"slug": "hf_tokenizers", "path": "chapters/en/chapter2/4.mdx", "title": "Tokenizers", "topics_zh": ["分词器", "Tokenizer", "词元", "输入ID"]},
+        {"slug": "hf_finetuning", "path": "chapters/en/chapter3/3.mdx", "title": "Fine-tuning with the Trainer API", "topics_zh": ["微调", "训练", "Trainer", "验证集"]},
+        {"slug": "hf_learning_curves", "path": "chapters/en/chapter3/5.mdx", "title": "Understanding Learning Curves", "topics_zh": ["学习曲线", "过拟合", "欠拟合", "训练损失", "验证损失"]},
+        {"slug": "hf_semantic_search", "path": "chapters/en/chapter5/6.mdx", "title": "Semantic Search with FAISS", "topics_zh": ["语义搜索", "向量检索", "FAISS", "Embedding", "最近邻"]},
+        {"slug": "hf_question_answering", "path": "chapters/en/chapter7/7.mdx", "title": "Question Answering", "topics_zh": ["问答系统", "抽取式问答", "上下文", "答案跨度"]},
+        {"slug": "hf_lora", "path": "chapters/en/chapter11/4.mdx", "title": "LoRA (Low-Rank Adaptation)", "topics_zh": ["LoRA", "参数高效微调", "低秩矩阵", "大语言模型"]},
+        {"slug": "hf_llm_evaluation", "path": "chapters/en/chapter11/5.mdx", "title": "Evaluation", "topics_zh": ["大语言模型评测", "基准测试", "人工评测", "自动评测"]}
+      ]
+    },
+    {
+      "collection": "Faiss",
+      "repository": "facebookresearch/faiss",
+      "revision": "b5a14632a6f2bfdc824c86d683b9d6e9205c2604",
+      "license": "MIT",
+      "license_url": "https://github.com/facebookresearch/faiss/blob/b5a14632a6f2bfdc824c86d683b9d6e9205c2604/LICENSE",
+      "attribution": "Meta AI Research, Faiss",
+      "documents": [
+        {"slug": "faiss_readme", "path": "README.md", "title": "Faiss: similarity search and clustering", "topics_zh": ["FAISS", "向量相似度", "余弦相似度", "内积", "欧氏距离", "索引"]}
+      ]
+    }
+  ]
+}

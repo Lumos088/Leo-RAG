@@ -1,0 +1,177 @@
+{
+  "schema_version": "chunking-search-v1",
+  "generated_at": "2026-09-15T12:38:00+08:00",
+  "selection_scope": "development/evaluation pool only; frozen answer holdout not accessed",
+  "candidate_source": "E:\\RAG\\experiments\\chunking_optimization\\corpus_profile.json",
+  "model_limit": {
+    "model_max_seq_length": 128,
+    "special_tokens": 2,
+    "raw_body_tokens": 126,
+    "shared_safe_body_tokens": 73,
+    "worst_case_body_tokens": 73,
+    "note": "Shared-safe capacity uses the observed p95 metadata prefix; worst-case capacity is reported separately instead of letting one outlier collapse the search space."
+  },
+  "ranked_variants": [
+    {
+      "variant": "struct_t100_min30_max100_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 100,
+        "min_tokens": 30,
+        "max_tokens": 100,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.25,
+        "derived_from": {
+          "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "raw embedding capacity (no metadata prefix)",
+          "overlap": "none or sentence p75, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.752716049382716,
+      "all_facts_covered_at_5": 0.5333333333333333,
+      "evidence_recall_at_5": 0.2210263593757512,
+      "parent_ndcg_at_10": 0.7014248570348761,
+      "success_at_1_proxy": 0.9592592592592594,
+      "child_duplicate_parent_rate_at_50": 0.2471111111111111,
+      "p95_query_seconds": 1.0434,
+      "children": 40173,
+      "index_bytes": 61705773
+    },
+    {
+      "variant": "struct_t125_min30_max125_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 125,
+        "min_tokens": 30,
+        "max_tokens": 125,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.2,
+        "derived_from": {
+          "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "raw embedding capacity (no metadata prefix)",
+          "overlap": "none or sentence p75, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7671604938271606,
+      "all_facts_covered_at_5": 0.5111111111111111,
+      "evidence_recall_at_5": 0.23306322166637614,
+      "parent_ndcg_at_10": 0.7086366095260843,
+      "success_at_1_proxy": 0.9629629629629629,
+      "child_duplicate_parent_rate_at_50": 0.22488888888888892,
+      "p95_query_seconds": 1.0023,
+      "children": 31001,
+      "index_bytes": 47617581
+    },
+    {
+      "variant": "struct_t125_min30_max125_o0",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 125,
+        "min_tokens": 30,
+        "max_tokens": 125,
+        "overlap_max_tokens": 0,
+        "overlap_ratio_cap": 0.0,
+        "derived_from": {
+          "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "raw embedding capacity (no metadata prefix)",
+          "overlap": "none or sentence p75, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7598765432098765,
+      "all_facts_covered_at_5": 0.5111111111111111,
+      "evidence_recall_at_5": 0.2357638872695383,
+      "parent_ndcg_at_10": 0.6968850384072419,
+      "success_at_1_proxy": 0.9481481481481481,
+      "child_duplicate_parent_rate_at_50": 0.1928888888888889,
+      "p95_query_seconds": 0.9597,
+      "children": 29063,
+      "index_bytes": 44640813
+    },
+    {
+      "variant": "struct_t100_min30_max100_o0",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 100,
+        "min_tokens": 30,
+        "max_tokens": 100,
+        "overlap_max_tokens": 0,
+        "overlap_ratio_cap": 0.0,
+        "derived_from": {
+          "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "raw embedding capacity (no metadata prefix)",
+          "overlap": "none or sentence p75, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7437654320987656,
+      "all_facts_covered_at_5": 0.4666666666666667,
+      "evidence_recall_at_5": 0.22734610790146645,
+      "parent_ndcg_at_10": 0.6917221104814298,
+      "success_at_1_proxy": 0.9388888888888889,
+      "child_duplicate_parent_rate_at_50": 0.20755555555555555,
+      "p95_query_seconds": 1.0699,
+      "children": 36710,
+      "index_bytes": 56386605
+    },
+    {
+      "variant": "struct_t80_min30_max80_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 80,
+        "min_tokens": 30,
+        "max_tokens": 80,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.25,
+        "derived_from": {
+          "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "raw embedding capacity (no metadata prefix)",
+          "overlap": "none or sentence p75, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7310493827160494,
+      "all_facts_covered_at_5": 0.4666666666666667,
+      "evidence_recall_at_5": 0.21761509960750677,
+      "parent_ndcg_at_10": 0.669437861640442,
+      "success_at_1_proxy": 0.9476190476190476,
+      "child_duplicate_parent_rate_at_50": 0.24222222222222223,
+      "p95_query_seconds": 1.5566,
+      "children": 50322,
+      "index_bytes": 77294637
+    },
+    {
+      "variant": "struct_t80_min30_max80_o0",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 80,
+        "min_tokens": 30,
+        "max_tokens": 80,
+        "overlap_max_tokens": 0,
+        "overlap_ratio_cap": 0.0,
+        "derived_from": {
+          "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "raw embedding capacity (no metadata prefix)",
+          "overlap": "none or sentence p75, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.6843209876543209,
+      "all_facts_covered_at_5": 0.4666666666666667,
+      "evidence_recall_at_5": 0.1943950923425127,
+      "parent_ndcg_at_10": 0.6576275914303567,
+      "success_at_1_proxy": 0.9185185185185184,
+      "child_duplicate_parent_rate_at_50": 0.21244444444444446,
+      "p95_query_seconds": 1.1086,
+      "children": 46596,
+      "index_bytes": 71571501
+    }
+  ],
+  "shortlist": [
+    "struct_t100_min30_max100_o25",
+    "struct_t125_min30_max125_o25",
+    "struct_t125_min30_max125_o0"
+  ]
+}

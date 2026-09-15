@@ -1,0 +1,29 @@
+{
+  "question_count": 15,
+  "children_per_parent": 2,
+  "strategies": {
+    "baseline": {
+      "mean_fact_coverage": 0.8777777777777778,
+      "full_fact_rate": 0.6666666666666666,
+      "mean_unsupported_claims": 0.0,
+      "mean_citation_validity": 1.0,
+      "mean_clarity_score": 4.666666666666667,
+      "mean_redundancy_score": 4.066666666666666
+    },
+    "context_aware": {
+      "mean_fact_coverage": 0.7927777777777778,
+      "full_fact_rate": 0.4666666666666667,
+      "mean_unsupported_claims": 0.0,
+      "mean_citation_validity": 1.0,
+      "mean_clarity_score": 4.733333333333333,
+      "mean_redundancy_score": 4.2
+    }
+  },
+  "mean_context_chars": 3613.5333333333333,
+  "mean_generation_seconds": 2.10834454667444,
+  "preference": {
+    "context_aware": 2,
+    "baseline": 7,
+    "tie": 6
+  }
+}

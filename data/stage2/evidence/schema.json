@@ -1,0 +1,15 @@
+{
+  "schema_version": "stage2-evidence-v1",
+  "canonicalization_version": "stage1-lines-v1",
+  "identity": "evidence_id = SHA256(source_id|char_start|char_end|text_sha256)[:20]",
+  "span_semantics": "Zero-based half-open [char_start, char_end) in canonical source text.",
+  "unjudged_semantics": "Blank legacy rel values remain unjudged and are not converted to rel=0.",
+  "future_chunk_mapping": {
+    "same_source_required": true,
+    "intersection_chars": "max(0, min(chunk_end,evidence_end)-max(chunk_start,evidence_start))",
+    "evidence_coverage": "intersection_chars / evidence_char_length",
+    "chunk_purity": "intersection_chars / chunk_char_length",
+    "initial_match_rule": "evidence_coverage >= 0.50 OR chunk_purity >= 0.80",
+    "note": "Report both coverage values; validate thresholds on a reviewed sample before final evaluation."
+  }
+}

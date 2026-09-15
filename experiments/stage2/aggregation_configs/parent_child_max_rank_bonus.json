@@ -1,0 +1,17 @@
+{
+  "schema_version": "parent-child-runtime-v1",
+  "enabled": false,
+  "variant": "minilm_c200_o50_v1_max_rank_bonus",
+  "child_index_dir": "vector_db/stage2/parent_child/minilm_c200_o50_v1",
+  "parent_dir": "data/stage2/parent_child/minilm_c200_o50_v1/parents",
+  "dense_k": 75,
+  "bm25_k": 50,
+  "rrf_k": 20,
+  "dense_weight": 1.0,
+  "bm25_weight": 1.0,
+  "rerank_candidates": 50,
+  "parent_top_k": 5,
+  "parent_score_aggregation": "max_rank_bonus",
+  "parent_rank_bonus_weight": 0.05,
+  "context_token_budget": 6000
+}

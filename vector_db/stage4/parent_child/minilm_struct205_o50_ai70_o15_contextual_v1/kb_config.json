@@ -1,0 +1,35 @@
+{
+  "schema_version": "stage1-index-v1",
+  "built_at": "2026-09-15T13:15:39+08:00",
+  "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "query_prefix": "",
+  "passage_prefix": "",
+  "normalize_embeddings": true,
+  "model_key": "minilm",
+  "text_mode": "contextual",
+  "batch_size": 64,
+  "device": "cuda",
+  "index_type": "IndexFlatIP",
+  "dim": 384,
+  "ntotal": 21544,
+  "chunks_dir": "data/stage4/parent_child/minilm_struct205_o50_ai70_o15_v1/children",
+  "chunk_files": [
+    "ds_chunks.json",
+    "os_chunks.json",
+    "cn_chunks.json",
+    "ai_chunks.json"
+  ],
+  "chunk_file_sha256": {
+    "ds_chunks.json": "7843acbf969980020213825298ba3c47e9f8e85102038cb27169e2010337aef7",
+    "os_chunks.json": "03e16415d437f9a8192cc971881ad8276e88dc0a2694db0f2b49535eebbb11a2",
+    "cn_chunks.json": "7aa6af6c5a7e29a827b274ea3140f41c68c3aa6e7644bf2b94f5cbf88cf544bc",
+    "ai_chunks.json": "d98958f69c7389787bba692082196a2f120099d3851ce19dd41ff3e0880c0348"
+  },
+  "index_path": "vector_db/stage4/parent_child/minilm_struct205_o50_ai70_o15_contextual_v1/kb.index",
+  "meta_path": "vector_db/stage4/parent_child/minilm_struct205_o50_ai70_o15_contextual_v1/kb_meta.json",
+  "model_load_seconds": 9.338,
+  "encode_seconds": 24.352,
+  "chunks_per_second": 884.677,
+  "index_bytes": 33091629,
+  "metadata_bytes": 44216207
+}

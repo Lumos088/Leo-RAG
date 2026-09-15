@@ -21,6 +21,18 @@ def detect_subject(question: str) -> str | None:
     """
     q = question.lower()
 
+    ai_keywords = [
+        "machine learning", "deep learning", "neural network", "transformer",
+        "embedding", "fine-tuning", "finetuning", "lora", "language model",
+        "attention", "tokenizer", "softmax", "backpropagation", "gradient descent",
+        "faiss", "retrieval-augmented", "vector database", "linear regression",
+        "机器学习", "深度学习", "神经网络", "注意力", "大语言模型", "语言模型",
+        "向量检索", "语义搜索", "嵌入模型", "分词器", "微调", "反向传播",
+        "梯度下降", "学习率", "过拟合", "欠拟合", "卷积", "循环神经网络",
+        "线性回归", "多层感知机", "监督学习", "无监督学习", "交叉熵",
+        "损失函数", "自编码模型", "自回归模型", "模型评测", "向量数据库",
+    ]
+
     # ===== Operating System =====
     os_keywords = [
         "process", "thread", "cpu", "scheduling",
@@ -52,6 +64,10 @@ def detect_subject(question: str) -> str | None:
     ]
 
     # OS 优先
+    for kw in ai_keywords:
+        if kw in q:
+            return "Artificial Intelligence"
+
     for kw in os_keywords:
         if kw in q:
             return "Operating System"
@@ -88,4 +104,3 @@ def route_query(question: str):
         "lang_priority": lang_priority,
         "subject": detect_subject(question)
     }
-

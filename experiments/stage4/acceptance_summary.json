@@ -1,0 +1,47 @@
+{
+  "schema_version": "stage4-acceptance-v2",
+  "accepted_at": "2026-09-15",
+  "production_variant": "stage4_minilm_struct205_o50_ai70_o15_parent_rrf20_adaptive",
+  "corpus": {
+    "source_documents": 21,
+    "legacy_parents_preserved": 7587,
+    "ai_parents_added": 119,
+    "ai_children_added": 1536,
+    "total_parents": 7706,
+    "total_children": 21544,
+    "legacy_parent_ids_preserved": true
+  },
+  "chunking": {
+    "legacy": {"strategy": "structured", "target_tokens": 205, "min_tokens": 30, "max_tokens": 205, "overlap_max_tokens": 50, "overlap_ratio_cap": 0.244},
+    "ai": {"strategy": "structured", "target_tokens": 70, "min_tokens": 30, "max_tokens": 70, "overlap_max_tokens": 15, "overlap_ratio_cap": 0.21},
+    "parent_top_k": 6
+  },
+  "development_answer_evaluation": {
+    "questions": 15,
+    "reference_fact_coverage": 0.8944444444444445,
+    "candidate_fact_coverage": 0.9027777777777778,
+    "reference_full_fact_rate": 0.7333333333333333,
+    "candidate_full_fact_rate": 0.7333333333333333,
+    "passed": true
+  },
+  "holdout_answer_evaluation": {
+    "questions": 15,
+    "reference_fact_coverage": 0.9438095238095238,
+    "candidate_fact_coverage": 0.9755555555555555,
+    "reference_full_fact_rate": 0.7333333333333333,
+    "candidate_full_fact_rate": 0.8666666666666667,
+    "citation_validity": 1.0,
+    "unsupported_claims": 0.0,
+    "passed": true
+  },
+  "ai_evaluation": {
+    "questions": 25,
+    "top_k": 6,
+    "success": 1.0,
+    "recall": 0.94,
+    "mrr": 0.7613,
+    "ndcg": 0.7688,
+    "passed": true
+  },
+  "production_config_switched": true
+}

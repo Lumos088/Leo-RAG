@@ -1,0 +1,66 @@
+{
+  "schema_version": "parent-child-evaluation-v1",
+  "comparison_note": "Evidence metrics compare Stage-1 chunks with ranked Child spans. Parent metrics use legacy qrels because v1 Parent IDs are unchanged.",
+  "evidence_match_rule": "same source AND (evidence coverage >= 0.50 OR candidate purity >= 0.80)",
+  "topics": 60,
+  "excluded_topics": [
+    "A022",
+    "A030",
+    "A043",
+    "A046"
+  ],
+  "parent_score_aggregation": "top2_mean",
+  "parent_rank_bonus_weight": 0.05,
+  "baseline": {
+    "evidence": {
+      "EvidenceRecall@5": 0.3311937095955559,
+      "EvidenceCoverage@5": 0.33320428480513653,
+      "EvidenceRecall@10": 0.5428929615615623,
+      "EvidenceCoverage@10": 0.545697025787334,
+      "EvidenceRecall@50": 0.9359794754416915,
+      "EvidenceCoverage@50": 0.9364610298150349
+    },
+    "parent": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.22652326563867678,
+      "ParentRecall@5": 0.331193709595556,
+      "ParentRecall@8": 0.46406827563722625,
+      "ParentRecall@10": 0.5428929615615624,
+      "ParentRecall@50": 0.9359794754416915,
+      "ParentMRR@10": 0.9833333333333333,
+      "ParentNDCG@10": 0.8148988911428874
+    }
+  },
+  "parent_child": {
+    "evidence": {
+      "EvidenceRecall@5": 0.2545132814943843,
+      "EvidenceCoverage@5": 0.12780713989756268,
+      "EvidenceRecall@10": 0.4023260821492028,
+      "EvidenceCoverage@10": 0.20903947435082953,
+      "EvidenceRecall@50": 0.7884277372445888,
+      "EvidenceCoverage@50": 0.4806268456401289
+    },
+    "parent": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.17633546656085128,
+      "ParentRecall@5": 0.26285423782799017,
+      "ParentRecall@8": 0.375995496360826,
+      "ParentRecall@10": 0.43735693285950905,
+      "ParentRecall@50": 0.7884277372445887,
+      "ParentMRR@10": 0.913888888888889,
+      "ParentNDCG@10": 0.662324404654808
+    },
+    "retrieval_shape": {
+      "ChildDuplicateParentRate@50": 0.192,
+      "UniqueParents@50Children": 40.4,
+      "UniqueSources@10Parents": 3.3333333333333335
+    },
+    "timing": {
+      "load_seconds": 30.455,
+      "mean_seconds": 0.3971,
+      "median_seconds": 0.3667,
+      "p95_seconds": 0.6641,
+      "total_seconds": 23.825
+    }
+  }
+}

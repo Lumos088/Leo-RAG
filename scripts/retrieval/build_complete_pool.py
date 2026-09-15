@@ -4,7 +4,7 @@ import json
 import pandas as pd
 from collections import defaultdict
 
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(base_dir, 'venv', 'Lib', 'site-packages'))
 
 from rank_bm25 import BM25Okapi
@@ -73,7 +73,7 @@ class TFIDFRetriever:
         return results
 
 def build_complete_pool():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     runs_dir = os.path.join(base_dir, 'runs')
     chunks_dir = os.path.join(base_dir, 'data', 'chunks')
     

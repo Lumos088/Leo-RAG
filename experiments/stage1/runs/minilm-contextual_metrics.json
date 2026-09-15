@@ -1,0 +1,61 @@
+{
+  "label": "minilm-contextual",
+  "index_dir": "E:\\RAG\\vector_db\\stage1\\minilm\\contextual",
+  "embedding": {
+    "key": "minilm",
+    "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "query_prefix": "",
+    "passage_prefix": "",
+    "normalize_embeddings": true
+  },
+  "index": {
+    "text_mode": "contextual",
+    "dimension": 384,
+    "index_bytes": 11653677,
+    "offline_encode_seconds": 76.249
+  },
+  "parameters": {
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "output_k": 50,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": null
+  },
+  "topics": 64,
+  "timing_seconds": {
+    "model_load": 8.721,
+    "bm25_build": 7.168,
+    "reranker_load": 0.0,
+    "queries_total": 1.784,
+    "query_mean": 0.0279,
+    "total": 17.728
+  },
+  "systems": {
+    "dense": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.7150359623015873,
+      "Success@1": 0.640625,
+      "Success@5": 0.796875,
+      "Success@10": 0.859375,
+      "Recall@50": 0.4462547458861716,
+      "NDCG@10": 0.3502296403947358
+    },
+    "hybrid": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.8580729166666667,
+      "Success@1": 0.78125,
+      "Success@5": 0.96875,
+      "Success@10": 0.96875,
+      "Recall@50": 0.8676817884900567,
+      "NDCG@10": 0.5824125769091797
+    }
+  },
+  "run_files": {
+    "dense": "E:\\RAG\\experiments\\stage1\\runs\\minilm-contextual_dense.run",
+    "hybrid": "E:\\RAG\\experiments\\stage1\\runs\\minilm-contextual_hybrid.run"
+  }
+}

@@ -1,0 +1,126 @@
+﻿qid,doc_id,rank,score
+AI001,AI_hf_learning_curves_0001_b6354b46,1,0.0
+AI001,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_9,2,0.0
+AI001,AI_d2l_linear_regression_0008_620971d0,3,0.0
+AI001,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_558,4,0.0
+AI001,AI_d2l_linear_regression_0010_c7a61c72,5,0.0
+AI002,AI_d2l_sgd_0007_fbb84a41,1,0.0
+AI002,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_180,2,0.0
+AI002,AI_hf_learning_curves_0004_ca126f0a,3,0.0
+AI002,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_460,4,0.0
+AI002,AI_d2l_backprop_0005_893eb985,5,0.0
+AI003,AI_d2l_softmax_0004_cd4277e1,1,0.0
+AI003,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_90,2,0.0
+AI003,AI_d2l_mlp_0001_65c18e20,3,0.0
+AI003,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_224,4,0.0
+AI003,AI_d2l_mlp_0004_9dd2c377,5,0.0
+AI004,AI_d2l_softmax_0008_1c0220d8,1,0.0
+AI004,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_103,2,0.0
+AI004,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_22,3,0.0
+AI004,AI_d2l_softmax_0009_99f77ae0,4,0.0
+AI004,AI_d2l_softmax_0007_d38ea792,5,0.0
+AI005,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_179",1,0.0
+AI005,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_391,2,0.0
+AI005,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_404",3,0.0
+AI005,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_248,4,0.0
+AI005,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_167",5,0.0
+AI006,AI_d2l_backprop_0002_d796b72e,1,0.0
+AI006,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_477,2,0.0
+AI006,数据结构 (邓俊辉) (Z-Library)_chunk_97,3,0.0
+AI006,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_84,4,0.0
+AI006,Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_255,5,0.0
+AI007,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_91,1,0.0
+AI007,AI_d2l_linear_regression_0010_c7a61c72,2,0.0
+AI007,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_430,3,0.0
+AI007,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_224,4,0.0
+AI007,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_287,5,0.0
+AI008,AI_d2l_linear_regression_0010_c7a61c72,1,0.0
+AI008,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_430,2,0.0
+AI008,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_398,3,0.0
+AI008,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_152,4,0.0
+AI008,AI_d2l_linear_regression_0009_5314eaf6,5,0.0
+AI009,AI_d2l_attention_0003_21a44c3f,1,0.0
+AI009,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_122,2,0.0
+AI009,AI_d2l_attention_0004_a0680357,3,0.0
+AI009,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_282,4,0.0
+AI009,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_87,5,0.0
+AI010,AI_d2l_attention_0004_a0680357,1,0.0
+AI010,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_283,2,0.0
+AI010,"现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_964",3,0.0
+AI010,AI_d2l_multihead_0001_f89a189f,4,0.0
+AI010,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_353,5,0.0
+AI011,AI_d2l_transformer_0004_462a31d9,1,0.0
+AI011,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_98",2,0.0
+AI011,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_10,3,0.0
+AI011,AI_d2l_transformer_0001_95088dfa,4,0.0
+AI011,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_540,5,0.0
+AI012,AI_d2l_transformer_0004_462a31d9,1,0.0
+AI012,AI_d2l_transformer_0003_da66d28e,2,0.0
+AI012,AI_d2l_transformer_0001_95088dfa,3,0.0
+AI012,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_36,4,0.0
+AI012,AI_hf_architectures_0001_224ecfb9,5,0.0
+AI013,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_211,1,0.0
+AI013,AI_d2l_sgd_0008_1ae14d3f,2,0.0
+AI013,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_90,3,0.0
+AI013,AI_d2l_sgd_0001_71c5b9b4,4,0.0
+AI013,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_9,5,0.0
+AI014,AI_d2l_transformer_0004_462a31d9,1,0.0
+AI014,AI_d2l_transformer_0001_95088dfa,2,0.0
+AI014,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_59,3,0.0
+AI014,AI_hf_architectures_0001_224ecfb9,4,0.0
+AI014,AI_hf_transformers_work_0004_c78578d3,5,0.0
+AI015,AI_hf_transformers_work_0003_7dbbcb28,1,0.0
+AI015,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_231,2,0.0
+AI015,AI_hf_transformers_work_0002_82688984,3,0.0
+AI015,AI_d2l_transformer_0004_462a31d9,4,0.0
+AI015,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_416,5,0.0
+AI016,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_98",1,0.0
+AI016,数据结构 (邓俊辉) (Z-Library)_chunk_164,2,0.0
+AI016,数据结构 (邓俊辉) (Z-Library)_chunk_192,3,0.0
+AI016,AI_hf_transformers_work_0003_7dbbcb28,4,0.0
+AI016,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_71",5,0.0
+AI017,AI_hf_tokenizers_0004_d648f663,1,0.0
+AI017,"现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_115",2,0.0
+AI017,AI_hf_question_answering_0003_31b53a85,3,0.0
+AI017,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_416,4,0.0
+AI017,AI_hf_tokenizers_0003_55acd62b,5,0.0
+AI018,AI_hf_question_answering_0011_98ecf689,1,0.0
+AI018,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_282,2,0.0
+AI018,AI_hf_finetuning_0001_f13b813d,3,0.0
+AI018,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_152,4,0.0
+AI018,AI_hf_finetuning_0004_d0104dd8,5,0.0
+AI019,AI_hf_learning_curves_0001_b6354b46,1,0.0
+AI019,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_416,2,0.0
+AI019,AI_hf_learning_curves_0004_ca126f0a,3,0.0
+AI019,Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_131,4,0.0
+AI019,AI_d2l_linear_regression_0010_c7a61c72,5,0.0
+AI020,AI_hf_semantic_search_0004_a17d37e8,1,0.0
+AI020,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_568",2,0.0
+AI020,AI_hf_semantic_search_0001_3aeac085,3,0.0
+AI020,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_153,4,0.0
+AI020,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_152,5,0.0
+AI021,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_524",1,0.0
+AI021,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_90,2,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_464,3,0.0
+AI021,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_36,4,0.0
+AI021,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_168",5,0.0
+AI022,AI_hf_lora_0001_cbdd363e,1,0.0
+AI022,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_576,2,0.0
+AI022,AI_hf_lora_0002_bbd56d70,3,0.0
+AI022,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_30,4,0.0
+AI022,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_497,5,0.0
+AI023,数据结构 (邓俊辉) (Z-Library)_chunk_425,1,0.0
+AI023,"现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_529",2,0.0
+AI023,AI_d2l_rnn_0005_2969fab4,3,0.0
+AI023,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_79,4,0.0
+AI023,AI_hf_architectures_0002_4e2662b8,5,0.0
+AI024,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_255",1,0.0
+AI024,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_376,2,0.0
+AI024,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_315",3,0.0
+AI024,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_278,4,0.0
+AI024,计算机网络（原书第7版） 自顶向下方法 (James F. Kurose Keith W. Ross) (Z-Library)_chunk_279,5,0.0
+AI025,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_73,1,0.0
+AI025,数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_117,2,0.0
+AI025,数据结构 (邓俊辉) (Z-Library)_chunk_495,3,0.0
+AI025,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_174,4,0.0
+AI025,数据结构 (邓俊辉) (Z-Library)_chunk_448,5,0.0

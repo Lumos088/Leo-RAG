@@ -1,0 +1,4 @@
+# Install after the base requirements on Windows with an NVIDIA GPU.
+# The local version suffix prevents pip from silently selecting the CPU wheel.
+--extra-index-url https://download.pytorch.org/whl/cu132
+torch==2.13.0+cu132

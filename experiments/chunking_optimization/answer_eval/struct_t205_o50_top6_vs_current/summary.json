@@ -1,0 +1,53 @@
+{
+  "schema_version": "chunking-answer-head-to-head-v1",
+  "question_count": 15,
+  "qids": [
+    "A004",
+    "A008",
+    "A001",
+    "A003",
+    "A009",
+    "A011",
+    "A054",
+    "A020",
+    "A024",
+    "A058",
+    "A010",
+    "A033",
+    "A039",
+    "A059",
+    "A063"
+  ],
+  "holdout_overlap": [],
+  "reference": {
+    "mean_fact_coverage": 0.8944444444444445,
+    "full_fact_rate": 0.7333333333333333,
+    "mean_unsupported_claims": 0.0,
+    "mean_citation_validity": 1.0,
+    "mean_clarity_score": 4.6,
+    "mean_redundancy_score": 3.8666666666666667
+  },
+  "candidate": {
+    "mean_fact_coverage": 0.9027777777777778,
+    "full_fact_rate": 0.7333333333333333,
+    "mean_unsupported_claims": 0.0,
+    "mean_citation_validity": 1.0,
+    "mean_clarity_score": 4.866666666666666,
+    "mean_redundancy_score": 4.266666666666667
+  },
+  "preference": {
+    "context_aware": 8,
+    "tie": 6,
+    "baseline": 1
+  },
+  "mean_candidate_context_chars": 5857.266666666666,
+  "mean_candidate_generation_seconds": 2.164817606669385,
+  "acceptance": {
+    "fact_coverage_not_lower": true,
+    "full_fact_rate_not_lower": true,
+    "citation_validity_at_least_095": true,
+    "unsupported_not_higher": true,
+    "mean_context_within_budget": true
+  },
+  "pass": true
+}

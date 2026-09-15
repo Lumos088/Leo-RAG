@@ -11,13 +11,13 @@ import jieba
 
 # ========== 路径配置 ==========
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.dirname(SCRIPT_DIR)
+BASE_DIR = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 
 RAW_OUTPUT_DIR = os.path.join(BASE_DIR, "data", "raw_documents")
 CLEANED_OUTPUT_DIR = os.path.join(BASE_DIR, "data", "cleaned")
 os.makedirs(CLEANED_OUTPUT_DIR, exist_ok=True)
 
-STRUCTURED_PATH = r"H:\RAG project\stage2\data\raw_documents\all_structured_documents.json"
+STRUCTURED_PATH = os.path.join(RAW_OUTPUT_DIR, "all_structured_documents.json")
 
 # 新增：配置目录与噪音模式文件路径
 CONFIG_DIR = os.path.join(BASE_DIR, "config")

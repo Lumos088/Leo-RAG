@@ -1,0 +1,121 @@
+{
+  "run": "E:\\RAG\\experiments\\stage1\\runs\\minilm-raw-rerank_rerank.run",
+  "selection_rule": "On development queries, retain K values with Recall@K >= 95% of the best tested Recall@K; then maximize NDCG@K; prefer smaller K on exact ties.",
+  "k_values": [
+    3,
+    5,
+    8,
+    10
+  ],
+  "development_qids": [
+    "A001",
+    "A003",
+    "A005",
+    "A007",
+    "A008",
+    "A010",
+    "A011",
+    "A012",
+    "A014",
+    "A016",
+    "A018",
+    "A019",
+    "A020",
+    "A023",
+    "A024",
+    "A025",
+    "A027",
+    "A028",
+    "A029",
+    "A030",
+    "A032",
+    "A033",
+    "A034",
+    "A035",
+    "A037",
+    "A038",
+    "A039",
+    "A040",
+    "A041",
+    "A044",
+    "A045",
+    "A046",
+    "A047",
+    "A048",
+    "A049",
+    "A050",
+    "A051",
+    "A053",
+    "A054",
+    "A055",
+    "A056",
+    "A058",
+    "A059",
+    "A060",
+    "A061",
+    "A064",
+    "A065",
+    "A066"
+  ],
+  "test_qids": [
+    "A002",
+    "A004",
+    "A006",
+    "A009",
+    "A013",
+    "A015",
+    "A017",
+    "A022",
+    "A031",
+    "A036",
+    "A042",
+    "A043",
+    "A052",
+    "A057",
+    "A062",
+    "A063"
+  ],
+  "development": {
+    "3": {
+      "queries": 48,
+      "Recall@3": 0.23871869286353964,
+      "Precision@3": 0.9236111111111113,
+      "NDCG@3": 0.8084405511873552,
+      "Success@3": 0.9791666666666666
+    },
+    "5": {
+      "queries": 48,
+      "Recall@5": 0.3354166554374786,
+      "Precision@5": 0.8583333333333333,
+      "NDCG@5": 0.7913557374637968,
+      "Success@5": 0.9791666666666666
+    },
+    "8": {
+      "queries": 48,
+      "Recall@8": 0.4907489316568494,
+      "Precision@8": 0.8098958333333334,
+      "NDCG@8": 0.7979201654879412,
+      "Success@8": 1.0
+    },
+    "10": {
+      "queries": 48,
+      "Recall@10": 0.5699721999997799,
+      "Precision@10": 0.7770833333333331,
+      "NDCG@10": 0.8003728493134732,
+      "Success@10": 1.0
+    }
+  },
+  "recall_floor": 0.5414735899997909,
+  "eligible_k": [
+    10
+  ],
+  "selected_k": 10,
+  "held_out_test": {
+    "queries": 16,
+    "Recall@10": 0.5574874569843383,
+    "Precision@10": 0.8,
+    "NDCG@10": 0.7954415421167328,
+    "Success@10": 1.0
+  },
+  "warning": "Only queries with at least one positive judgement are used. Precision is a lower-bound estimate when qrels are incompletely pooled."
+}

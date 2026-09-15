@@ -2,7 +2,8 @@ import json
 import os
 from collections import Counter
 
-BASE_DIR = r"H:\RAG project\stage2"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 META_PATH = os.path.join(BASE_DIR, "vector_db", "kb_meta.json")
 
 with open(META_PATH, "r", encoding="utf-8") as f:

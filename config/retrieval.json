@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage1-production-v1",
+  "index_dir": "vector_db/stage4/parents/minilm_raw",
+  "dense_k": 75,
+  "bm25_k": 50,
+  "rrf_k": 20,
+  "dense_weight": 1.0,
+  "bm25_weight": 1.0,
+  "rerank_candidates": 50,
+  "final_top_k": 5,
+  "max_top_k": 10,
+  "max_context_chars": 16000
+}

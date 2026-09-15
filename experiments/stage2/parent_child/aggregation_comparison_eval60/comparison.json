@@ -1,0 +1,122 @@
+{
+  "baseline": {
+    "context_fact@3": {
+      "mean_fact_recall": 0.8084391534391533,
+      "all_facts_covered_rate": 0.5
+    },
+    "context_fact@5": {
+      "mean_fact_recall": 0.8669312169312168,
+      "all_facts_covered_rate": 0.6166666666666667
+    },
+    "parent_metrics": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.22652326563867678,
+      "ParentRecall@5": 0.331193709595556,
+      "ParentRecall@8": 0.46406827563722625,
+      "ParentRecall@10": 0.5428929615615624,
+      "ParentRecall@50": 0.9359794754416915,
+      "ParentMRR@10": 0.9833333333333333,
+      "ParentNDCG@10": 0.8148988911428874
+    }
+  },
+  "max": {
+    "parent_metrics": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.18719519049709848,
+      "ParentRecall@5": 0.2752738746964089,
+      "ParentRecall@8": 0.392037844442257,
+      "ParentRecall@10": 0.4504204795430573,
+      "ParentRecall@50": 0.7884277372445887,
+      "ParentMRR@10": 0.9319444444444446,
+      "ParentNDCG@10": 0.7070059118972286
+    },
+    "context_fact@3": {
+      "mean_fact_recall": 0.7134589947089948,
+      "all_facts_covered_rate": 0.45
+    },
+    "context_fact@5": {
+      "mean_fact_recall": 0.8263756613756612,
+      "all_facts_covered_rate": 0.5833333333333334
+    }
+  },
+  "top2_mean": {
+    "parent_metrics": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.17633546656085128,
+      "ParentRecall@5": 0.26285423782799017,
+      "ParentRecall@8": 0.375995496360826,
+      "ParentRecall@10": 0.43735693285950905,
+      "ParentRecall@50": 0.7884277372445887,
+      "ParentMRR@10": 0.913888888888889,
+      "ParentNDCG@10": 0.662324404654808
+    },
+    "context_fact@3": {
+      "mean_fact_recall": 0.6551058201058202,
+      "all_facts_covered_rate": 0.4
+    },
+    "context_fact@5": {
+      "mean_fact_recall": 0.7737367724867724,
+      "all_facts_covered_rate": 0.5
+    }
+  },
+  "max_rank_bonus": {
+    "parent_metrics": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.18719519049709848,
+      "ParentRecall@5": 0.2752738746964089,
+      "ParentRecall@8": 0.392037844442257,
+      "ParentRecall@10": 0.4504204795430573,
+      "ParentRecall@50": 0.7884277372445887,
+      "ParentMRR@10": 0.9319444444444446,
+      "ParentNDCG@10": 0.7070059118972286
+    },
+    "context_fact@3": {
+      "mean_fact_recall": 0.7134589947089948,
+      "all_facts_covered_rate": 0.45
+    },
+    "context_fact@5": {
+      "mean_fact_recall": 0.8263756613756612,
+      "all_facts_covered_rate": 0.5833333333333334
+    }
+  },
+  "parent_rerank20": {
+    "parent_metrics": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.20806377619798555,
+      "ParentRecall@5": 0.3011426444475603,
+      "ParentRecall@8": 0.4158214960184632,
+      "ParentRecall@10": 0.4772850751523872,
+      "ParentRecall@50": 0.4772850751523872,
+      "ParentMRR@10": 0.9555555555555556,
+      "ParentNDCG@10": 0.7271806215300909
+    },
+    "context_fact@3": {
+      "mean_fact_recall": 0.7615013227513228,
+      "all_facts_covered_rate": 0.45
+    },
+    "context_fact@5": {
+      "mean_fact_recall": 0.8478306878306877,
+      "all_facts_covered_rate": 0.5666666666666667
+    }
+  },
+  "parent_rrf20": {
+    "parent_metrics": {
+      "evaluated_queries": 60,
+      "ParentRecall@3": 0.19835902747233902,
+      "ParentRecall@5": 0.30459307066667546,
+      "ParentRecall@8": 0.42734072507311865,
+      "ParentRecall@10": 0.4813930410290064,
+      "ParentRecall@50": 0.4813930410290064,
+      "ParentMRR@10": 0.9477777777777779,
+      "ParentNDCG@10": 0.7337667585319756
+    },
+    "context_fact@3": {
+      "mean_fact_recall": 0.7815145502645502,
+      "all_facts_covered_rate": 0.5166666666666667
+    },
+    "context_fact@5": {
+      "mean_fact_recall": 0.8791203703703702,
+      "all_facts_covered_rate": 0.65
+    }
+  }
+}

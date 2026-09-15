@@ -6,7 +6,7 @@ import re
 
 # ========= 路径配置 =========
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.dirname(SCRIPT_DIR)
+BASE_DIR = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 
 RAW_DIR = os.path.join(BASE_DIR, "data", "raw_documents")
 CLEAN_DIR = os.path.join(BASE_DIR, "data", "cleaned")
@@ -86,7 +86,7 @@ def load_noise_patterns(path: str):
 
 def count_noise_patterns(raw_docs, clean_docs):
     """
-    使用 H:\\RAG project\\stage2\\config\\noise_patterns.txt 中的模式，
+    使用项目目录下 config/noise_patterns.txt 中的模式，
     统计所有噪音模式在清洗前后的“总出现次数”。
     """
     print("\n====== 噪音模式统计（清洗前 vs 清洗后） ======")

@@ -1,0 +1,88 @@
+{
+  "schema_version": "parent-child-evaluation-v1",
+  "comparison_note": "Evidence metrics compare Stage-1 chunks with ranked Child spans. Parent metrics use legacy qrels because v1 Parent IDs are unchanged.",
+  "evidence_match_rule": "same source AND (evidence coverage >= 0.50 OR candidate purity >= 0.80)",
+  "topics": 45,
+  "excluded_topics": [
+    "A002",
+    "A006",
+    "A007",
+    "A016",
+    "A022",
+    "A023",
+    "A027",
+    "A030",
+    "A035",
+    "A036",
+    "A037",
+    "A038",
+    "A043",
+    "A046",
+    "A052",
+    "A057",
+    "A061",
+    "A062",
+    "A066"
+  ],
+  "parent_score_aggregation": "max",
+  "parent_rank_bonus_weight": 0.05,
+  "parent_rerank_enabled": true,
+  "parent_rerank_candidates": 20,
+  "parent_rerank_mode": "rrf",
+  "parent_rrf_k": 20,
+  "parent_child_rank_weight": 1.0,
+  "parent_bge_rank_weight": 1.0,
+  "parent_output_k": 50,
+  "baseline": {
+    "evidence": {
+      "EvidenceRecall@5": 0.32284093648050777,
+      "EvidenceCoverage@5": 0.3248503562250979,
+      "EvidenceRecall@10": 0.531620437526475,
+      "EvidenceCoverage@10": 0.5345098571348657,
+      "EvidenceRecall@50": 0.9286768810373849,
+      "EvidenceCoverage@50": 0.9292238953659152
+    },
+    "parent": {
+      "evaluated_queries": 45,
+      "ParentRecall@3": 0.21896273703502475,
+      "ParentRecall@5": 0.3228409364805078,
+      "ParentRecall@8": 0.4541537479345309,
+      "ParentRecall@10": 0.531620437526475,
+      "ParentRecall@50": 0.9286768810373848,
+      "ParentMRR@10": 0.9777777777777777,
+      "ParentNDCG@10": 0.800486354855599
+    }
+  },
+  "parent_child": {
+    "evidence": {
+      "EvidenceRecall@5": 0.21110269544819277,
+      "EvidenceCoverage@5": 0.034204278020325295,
+      "EvidenceRecall@10": 0.3062247674733817,
+      "EvidenceCoverage@10": 0.05633011742819376,
+      "EvidenceRecall@50": 0.604937648884859,
+      "EvidenceCoverage@50": 0.14977469880082503
+    },
+    "parent": {
+      "evaluated_queries": 45,
+      "ParentRecall@3": 0.17435171632471322,
+      "ParentRecall@5": 0.2470352505013045,
+      "ParentRecall@8": 0.3331311864143895,
+      "ParentRecall@10": 0.3836843801786727,
+      "ParentRecall@50": 0.6020818626957396,
+      "ParentMRR@10": 0.9222222222222223,
+      "ParentNDCG@10": 0.6599249156472333
+    },
+    "retrieval_shape": {
+      "ChildDuplicateParentRate@50": 0.2711111111111111,
+      "UniqueParents@50Children": 36.44444444444444,
+      "UniqueSources@10Parents": 3.066666666666667
+    },
+    "timing": {
+      "load_seconds": 31.476,
+      "mean_seconds": 0.8148,
+      "median_seconds": 0.8033,
+      "p95_seconds": 1.0564,
+      "total_seconds": 36.667
+    }
+  }
+}

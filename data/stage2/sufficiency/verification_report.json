@@ -1,0 +1,52 @@
+{
+  "schema_version": "stage2-sufficiency-verification-v2",
+  "status": "PASS",
+  "queries_total": 64,
+  "eligible_queries": 60,
+  "excluded_queries": 4,
+  "excluded_qids": [
+    "A022",
+    "A030",
+    "A043",
+    "A046"
+  ],
+  "reviewed_queries": 15,
+  "reviewed_qids": [
+    "A003",
+    "A008",
+    "A015",
+    "A020",
+    "A022",
+    "A024",
+    "A030",
+    "A043",
+    "A046",
+    "A047",
+    "A058",
+    "A060",
+    "A061",
+    "A063",
+    "A064"
+  ],
+  "facts_total_eligible": 289,
+  "facts_per_eligible_query": {
+    "min": 1,
+    "median": 5.0,
+    "max": 9,
+    "mean": 4.817
+  },
+  "query_types": {
+    "comparison": 15,
+    "definition": 32,
+    "enumeration": 17
+  },
+  "primary_courses": {
+    "Computer Networks": 18,
+    "Data Structures": 19,
+    "Operating System": 27
+  },
+  "incomplete_eligible_qids": [],
+  "review_queue_size": 9,
+  "errors": [],
+  "review_queue_path": "E:\\RAG\\data\\stage2\\sufficiency\\review_queue.csv"
+}

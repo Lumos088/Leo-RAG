@@ -1,0 +1,126 @@
+﻿qid,doc_id,rank,score
+AI001,AI_d2l_linear_regression_0003_bc4bc0cf,1,0.0
+AI001,AI_d2l_linear_regression_0008_620971d0,2,0.0
+AI001,AI_d2l_linear_regression_0011_52656cd6,3,0.0
+AI001,AI_d2l_linear_regression_0010_c7a61c72,4,0.0
+AI001,AI_d2l_softmax_0006_0dea006f,5,0.0
+AI002,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_549,1,0.0
+AI002,AI_d2l_sgd_0007_fbb84a41,2,0.0
+AI002,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_215,3,0.0
+AI002,数据结构 (邓俊辉) (Z-Library)_chunk_86,4,0.0
+AI002,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_96,5,0.0
+AI003,AI_d2l_softmax_0004_cd4277e1,1,0.0
+AI003,AI_d2l_softmax_0006_0dea006f,2,0.0
+AI003,AI_d2l_softmax_0010_ad105db0,3,0.0
+AI003,AI_d2l_softmax_0009_99f77ae0,4,0.0
+AI003,AI_d2l_softmax_0003_7acae373,5,0.0
+AI004,AI_d2l_softmax_0007_d38ea792,1,0.0
+AI004,AI_d2l_softmax_0008_1c0220d8,2,0.0
+AI004,数据结构 (邓俊辉) (Z-Library)_chunk_464,3,0.0
+AI004,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_262,4,0.0
+AI004,数据结构 (邓俊辉) (Z-Library)_chunk_15,5,0.0
+AI005,AI_d2l_mlp_0007_7488acea,1,0.0
+AI005,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_391,2,0.0
+AI005,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_232,3,0.0
+AI005,AI_d2l_mlp_0004_9dd2c377,4,0.0
+AI005,"现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_655",5,0.0
+AI006,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_63",1,0.0
+AI006,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_100,2,0.0
+AI006,"现代操作系统 (Andrew S. Tanenbaum, Herbert Bos) (Z-Library)_chunk_154",3,0.0
+AI006,数据结构 (邓俊辉) (Z-Library)_chunk_481,4,0.0
+AI006,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_600",5,0.0
+AI007,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_91,1,0.0
+AI007,数据结构 (邓俊辉) (Z-Library)_chunk_14,2,0.0
+AI007,数据结构 (邓俊辉) (Z-Library)_chunk_68,3,0.0
+AI007,"[计算机科学丛书]数据结构与算法 Python语言实现 (Michael T. Goodrich, Roberto Tamassia etc.) (Z-Library)_chunk_650",4,0.0
+AI007,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_280,5,0.0
+AI008,AI_d2l_rnn_0004_9976a62b,1,0.0
+AI008,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_121,2,0.0
+AI008,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_280,3,0.0
+AI008,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_287,4,0.0
+AI008,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_116,5,0.0
+AI009,AI_d2l_attention_0004_a0680357,1,0.0
+AI009,AI_d2l_multihead_0001_f89a189f,2,0.0
+AI009,AI_d2l_attention_0003_21a44c3f,3,0.0
+AI009,AI_d2l_attention_0002_6ff3e374,4,0.0
+AI009,数据结构 (邓俊辉) (Z-Library)_chunk_260,5,0.0
+AI010,AI_d2l_multihead_0001_f89a189f,1,0.0
+AI010,AI_d2l_multihead_0002_8f1abd07,2,0.0
+AI010,数据结构 (邓俊辉) (Z-Library)_chunk_0,3,0.0
+AI010,AI_d2l_attention_0002_6ff3e374,4,0.0
+AI010,AI_d2l_attention_0004_a0680357,5,0.0
+AI011,AI_d2l_transformer_0001_95088dfa,1,0.0
+AI011,AI_d2l_transformer_0002_7063b2e3,2,0.0
+AI011,AI_d2l_transformer_0003_da66d28e,3,0.0
+AI011,AI_d2l_transformer_0004_462a31d9,4,0.0
+AI011,AI_hf_architectures_0002_4e2662b8,5,0.0
+AI012,AI_hf_architectures_0004_c95c823f,1,0.0
+AI012,AI_d2l_transformer_0001_95088dfa,2,0.0
+AI012,AI_d2l_transformer_0003_da66d28e,3,0.0
+AI012,AI_d2l_transformer_0004_462a31d9,4,0.0
+AI012,AI_hf_transformers_work_0004_c78578d3,5,0.0
+AI013,AI_d2l_sgd_0002_0464fd6e,1,0.0
+AI013,AI_d2l_sgd_0008_1ae14d3f,2,0.0
+AI013,AI_d2l_sgd_0007_fbb84a41,3,0.0
+AI013,AI_d2l_sgd_0003_182450f8,4,0.0
+AI013,AI_d2l_sgd_0001_71c5b9b4,5,0.0
+AI014,AI_hf_transformers_tasks_0001_33622f6a,1,0.0
+AI014,AI_hf_architectures_0001_224ecfb9,2,0.0
+AI014,AI_hf_transformers_work_0004_c78578d3,3,0.0
+AI014,AI_hf_transformers_tasks_0004_ad4e9652,4,0.0
+AI014,AI_hf_transformers_work_0001_0c8f3e8a,5,0.0
+AI015,AI_hf_transformers_work_0002_82688984,1,0.0
+AI015,AI_hf_architectures_0002_4e2662b8,2,0.0
+AI015,AI_hf_transformers_work_0004_c78578d3,3,0.0
+AI015,AI_hf_transformers_work_0003_7dbbcb28,4,0.0
+AI015,AI_hf_architectures_0001_224ecfb9,5,0.0
+AI016,AI_hf_architectures_0002_4e2662b8,1,0.0
+AI016,AI_hf_architectures_0001_224ecfb9,2,0.0
+AI016,数据结构 (邓俊辉) (Z-Library)_chunk_164,3,0.0
+AI016,AI_d2l_transformer_0003_da66d28e,4,0.0
+AI016,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_96",5,0.0
+AI017,AI_hf_tokenizers_0004_d648f663,1,0.0
+AI017,AI_hf_tokenizers_0001_5e4790a9,2,0.0
+AI017,AI_hf_tokenizers_0003_55acd62b,3,0.0
+AI017,AI_hf_question_answering_0002_a60c6ef5,4,0.0
+AI017,AI_hf_tokenizers_0002_2c8b557a,5,0.0
+AI018,AI_hf_finetuning_0001_f13b813d,1,0.0
+AI018,AI_hf_finetuning_0003_acb2c0cb,2,0.0
+AI018,AI_hf_finetuning_0002_927b4338,3,0.0
+AI018,AI_hf_question_answering_0009_d58d3fae,4,0.0
+AI018,AI_hf_finetuning_0004_d0104dd8,5,0.0
+AI019,AI_hf_learning_curves_0004_ca126f0a,1,0.0
+AI019,AI_hf_learning_curves_0002_f040ede0,2,0.0
+AI019,AI_hf_learning_curves_0003_6d475764,3,0.0
+AI019,AI_hf_learning_curves_0001_b6354b46,4,0.0
+AI019,AI_hf_learning_curves_0005_1aa8fdf3,5,0.0
+AI020,AI_hf_semantic_search_0001_3aeac085,1,0.0
+AI020,AI_hf_semantic_search_0004_a17d37e8,2,0.0
+AI020,AI_hf_semantic_search_0003_974d1e53,3,0.0
+AI020,数据结构 (邓俊辉) (Z-Library)_chunk_525,4,0.0
+AI020,Python数据结构与算法分析 第3版 (米勒 拉努姆 罗曼) (Z-Library)_chunk_309,5,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_81,1,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_15,2,0.0
+AI021,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_246,3,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_343,4,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_80,5,0.0
+AI022,AI_hf_lora_0001_cbdd363e,1,0.0
+AI022,AI_hf_lora_0002_bbd56d70,2,0.0
+AI022,AI_d2l_linear_regression_0006_43649c72,3,0.0
+AI022,AI_d2l_linear_regression_0004_a850704d,4,0.0
+AI022,AI_hf_lora_0003_67988141,5,0.0
+AI023,AI_hf_llm_evaluation_0002_2f981d94,1,0.0
+AI023,AI_d2l_linear_regression_0007_059877c8,2,0.0
+AI023,AI_d2l_rnn_0005_2969fab4,3,0.0
+AI023,数据结构（C语言版 第2版） (严蔚敏) (Z-Library)_chunk_12,4,0.0
+AI023,操作系统导论-OSTEP (王海鹏 译) (Z-Library)_chunk_524,5,0.0
+AI024,AI_hf_semantic_search_0004_a17d37e8,1,0.0
+AI024,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_209,2,0.0
+AI024,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_262",3,0.0
+AI024,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_315",4,0.0
+AI024,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_281,5,0.0
+AI025,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_174,1,0.0
+AI025,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_73,2,0.0
+AI025,数据结构 (邓俊辉) (Z-Library)_chunk_473,3,0.0
+AI025,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_87",4,0.0
+AI025,数据结构 (邓俊辉) (Z-Library)_chunk_448,5,0.0

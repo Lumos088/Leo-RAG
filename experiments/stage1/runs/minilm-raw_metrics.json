@@ -1,0 +1,61 @@
+{
+  "label": "minilm-raw",
+  "index_dir": "E:\\RAG\\vector_db\\stage1\\minilm\\raw",
+  "embedding": {
+    "key": "minilm",
+    "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "query_prefix": "",
+    "passage_prefix": "",
+    "normalize_embeddings": true
+  },
+  "index": {
+    "text_mode": "raw",
+    "dimension": 384,
+    "index_bytes": 11653677,
+    "offline_encode_seconds": 129.861
+  },
+  "parameters": {
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "output_k": 50,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": null
+  },
+  "topics": 64,
+  "timing_seconds": {
+    "model_load": 36.584,
+    "bm25_build": 7.408,
+    "reranker_load": 0.0,
+    "queries_total": 1.824,
+    "query_mean": 0.0285,
+    "total": 45.859
+  },
+  "systems": {
+    "dense": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.7725880456349206,
+      "Success@1": 0.703125,
+      "Success@5": 0.859375,
+      "Success@10": 0.921875,
+      "Recall@50": 0.5869304443302649,
+      "NDCG@10": 0.46927447990441856
+    },
+    "hybrid": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.9296875,
+      "Success@1": 0.890625,
+      "Success@5": 0.96875,
+      "Success@10": 0.984375,
+      "Recall@50": 0.9492911435649316,
+      "NDCG@10": 0.6395254413647925
+    }
+  },
+  "run_files": {
+    "dense": "E:\\RAG\\experiments\\stage1\\runs\\minilm-raw_dense.run",
+    "hybrid": "E:\\RAG\\experiments\\stage1\\runs\\minilm-raw_hybrid.run"
+  }
+}

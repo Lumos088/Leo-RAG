@@ -1,0 +1,13 @@
+{
+  "schema_version": "stage4-ai-evaluation-v1",
+  "config": "E:\\RAG\\config\\parent_child_stage4.json",
+  "topics": 25,
+  "top_k": 5,
+  "rerank": false,
+  "success": 0.52,
+  "precision": 0.144,
+  "recall": 0.36,
+  "mrr": 0.3533,
+  "ndcg": 0.2807,
+  "latency_mean_seconds": 0.1603
+}

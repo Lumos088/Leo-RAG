@@ -1,0 +1,255 @@
+{
+  "schema_version": "chunking-search-v1",
+  "generated_at": "2026-09-15T12:19:04+08:00",
+  "selection_scope": "development/evaluation pool only; frozen answer holdout not accessed",
+  "candidate_source": "E:\\RAG\\experiments\\chunking_optimization\\corpus_profile.json",
+  "model_limit": {
+    "model_max_seq_length": 128,
+    "special_tokens": 2,
+    "raw_body_tokens": 126,
+    "shared_safe_body_tokens": 73,
+    "worst_case_body_tokens": 73,
+    "note": "Shared-safe capacity uses the observed p95 metadata prefix; worst-case capacity is reported separately instead of letting one outlier collapse the search space."
+  },
+  "ranked_variants": [
+    {
+      "variant": "struct_t50_min30_max50_o15",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 50,
+        "min_tokens": 30,
+        "max_tokens": 50,
+        "overlap_max_tokens": 15,
+        "overlap_ratio_cap": 0.3,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7590123456790122,
+      "all_facts_covered_at_5": 0.5333333333333333,
+      "evidence_recall_at_5": 0.21414928002983302,
+      "parent_ndcg_at_10": 0.6547715559095202,
+      "success_at_1_proxy": 0.9444444444444444,
+      "child_duplicate_parent_rate_at_50": 0.24222222222222223,
+      "p95_query_seconds": 1.1621,
+      "children": 83345,
+      "index_bytes": 128017965
+    },
+    {
+      "variant": "struct_t50_min30_max50_o0",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 50,
+        "min_tokens": 30,
+        "max_tokens": 50,
+        "overlap_max_tokens": 0,
+        "overlap_ratio_cap": 0.0,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.726604938271605,
+      "all_facts_covered_at_5": 0.4888888888888889,
+      "evidence_recall_at_5": 0.2225618796049745,
+      "parent_ndcg_at_10": 0.6616451229299755,
+      "success_at_1_proxy": 0.9296296296296297,
+      "child_duplicate_parent_rate_at_50": 0.21644444444444444,
+      "p95_query_seconds": 1.2159,
+      "children": 77044,
+      "index_bytes": 118339629
+    },
+    {
+      "variant": "struct_t50_min30_max50_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 50,
+        "min_tokens": 30,
+        "max_tokens": 50,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.49,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.6905555555555556,
+      "all_facts_covered_at_5": 0.4888888888888889,
+      "evidence_recall_at_5": 0.1989299504104223,
+      "parent_ndcg_at_10": 0.6401420890331293,
+      "success_at_1_proxy": 0.9,
+      "child_duplicate_parent_rate_at_50": 0.3,
+      "p95_query_seconds": 1.0963,
+      "children": 95829,
+      "index_bytes": 147193389
+    },
+    {
+      "variant": "struct_t70_min30_max70_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 70,
+        "min_tokens": 30,
+        "max_tokens": 70,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.357,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7199382716049384,
+      "all_facts_covered_at_5": 0.4666666666666667,
+      "evidence_recall_at_5": 0.21110269544819277,
+      "parent_ndcg_at_10": 0.6599249156472333,
+      "success_at_1_proxy": 0.9222222222222223,
+      "child_duplicate_parent_rate_at_50": 0.2711111111111111,
+      "p95_query_seconds": 1.0564,
+      "children": 62155,
+      "index_bytes": 95470125
+    },
+    {
+      "variant": "struct_t70_min30_max70_o15",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 70,
+        "min_tokens": 30,
+        "max_tokens": 70,
+        "overlap_max_tokens": 15,
+        "overlap_ratio_cap": 0.214,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7126543209876545,
+      "all_facts_covered_at_5": 0.4666666666666667,
+      "evidence_recall_at_5": 0.2075137466891144,
+      "parent_ndcg_at_10": 0.647876462159056,
+      "success_at_1_proxy": 0.9111111111111111,
+      "child_duplicate_parent_rate_at_50": 0.23333333333333334,
+      "p95_query_seconds": 1.0728,
+      "children": 56219,
+      "index_bytes": 86352429
+    },
+    {
+      "variant": "struct_t70_min30_max70_o0",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 70,
+        "min_tokens": 30,
+        "max_tokens": 70,
+        "overlap_max_tokens": 0,
+        "overlap_ratio_cap": 0.0,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.6995061728395062,
+      "all_facts_covered_at_5": 0.4666666666666667,
+      "evidence_recall_at_5": 0.22140684030574817,
+      "parent_ndcg_at_10": 0.6712763533502918,
+      "success_at_1_proxy": 0.9222222222222223,
+      "child_duplicate_parent_rate_at_50": 0.21866666666666668,
+      "p95_query_seconds": 1.071,
+      "children": 53885,
+      "index_bytes": 82767405
+    },
+    {
+      "variant": "struct_t40_min30_max40_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 40,
+        "min_tokens": 30,
+        "max_tokens": 40,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.49,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.699320987654321,
+      "all_facts_covered_at_5": 0.4444444444444444,
+      "evidence_recall_at_5": 0.20876049074819142,
+      "parent_ndcg_at_10": 0.6353174224280876,
+      "success_at_1_proxy": 0.9296296296296295,
+      "child_duplicate_parent_rate_at_50": 0.27644444444444444,
+      "p95_query_seconds": 1.6255,
+      "children": 113890,
+      "index_bytes": 174935085
+    },
+    {
+      "variant": "struct_t40_min30_max40_o15",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 40,
+        "min_tokens": 30,
+        "max_tokens": 40,
+        "overlap_max_tokens": 15,
+        "overlap_ratio_cap": 0.375,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.6745061728395062,
+      "all_facts_covered_at_5": 0.4444444444444444,
+      "evidence_recall_at_5": 0.20168793367563434,
+      "parent_ndcg_at_10": 0.621350536404519,
+      "success_at_1_proxy": 0.9166666666666666,
+      "child_duplicate_parent_rate_at_50": 0.2497777777777778,
+      "p95_query_seconds": 1.7253,
+      "children": 106654,
+      "index_bytes": 163820589
+    },
+    {
+      "variant": "struct_t40_min30_max40_o0",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 40,
+        "min_tokens": 30,
+        "max_tokens": 40,
+        "overlap_max_tokens": 0,
+        "overlap_ratio_cap": 0.0,
+        "derived_from": {
+          "target": "paragraph p90/p95 and shared safe embedding capacity",
+          "minimum": "paragraph p75",
+          "maximum": "embedding max sequence minus metadata and special tokens",
+          "overlap": "no overlap or sentence p50/p75"
+        }
+      },
+      "strict_fact_recall_at_5": 0.6835802469135803,
+      "all_facts_covered_at_5": 0.4222222222222222,
+      "evidence_recall_at_5": 0.20466083852256725,
+      "parent_ndcg_at_10": 0.6258093016890831,
+      "success_at_1_proxy": 0.9074074074074073,
+      "child_duplicate_parent_rate_at_50": 0.21333333333333332,
+      "p95_query_seconds": 1.6912,
+      "children": 96463,
+      "index_bytes": 148167213
+    }
+  ],
+  "shortlist": [
+    "struct_t50_min30_max50_o15",
+    "struct_t50_min30_max50_o0",
+    "struct_t50_min30_max50_o25"
+  ]
+}

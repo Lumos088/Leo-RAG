@@ -1,0 +1,72 @@
+{
+  "label": "e5-base-raw-rerank",
+  "index_dir": "E:\\RAG\\vector_db\\stage1\\e5-base\\raw",
+  "embedding": {
+    "key": "e5-base",
+    "model_name": "intfloat/multilingual-e5-base",
+    "query_prefix": "query: ",
+    "passage_prefix": "passage: ",
+    "normalize_embeddings": true
+  },
+  "index": {
+    "text_mode": "raw",
+    "dimension": 768,
+    "index_bytes": 23307309,
+    "offline_encode_seconds": 82.264
+  },
+  "parameters": {
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "output_k": 50,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": 50
+  },
+  "topics": 64,
+  "timing_seconds": {
+    "model_load": 11.589,
+    "bm25_build": 7.294,
+    "reranker_load": 7.491,
+    "queries_total": 1.619,
+    "query_mean": 0.0253,
+    "total": 69.78
+  },
+  "systems": {
+    "dense": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.8723958333333333,
+      "Success@1": 0.8125,
+      "Success@5": 0.9375,
+      "Success@10": 0.9375,
+      "Recall@50": 0.6413535765377664,
+      "NDCG@10": 0.5241444135741452
+    },
+    "hybrid": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.9225260416666667,
+      "Success@1": 0.890625,
+      "Success@5": 0.953125,
+      "Success@10": 0.984375,
+      "Recall@50": 0.8129536549570399,
+      "NDCG@10": 0.663830254673275
+    },
+    "rerank": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.9442708333333333,
+      "Success@1": 0.921875,
+      "Success@5": 0.96875,
+      "Success@10": 0.984375,
+      "Recall@50": 0.8129536549570399,
+      "NDCG@10": 0.7320752597645073
+    }
+  },
+  "run_files": {
+    "dense": "E:\\RAG\\experiments\\stage1\\runs\\e5-base-raw-rerank_dense.run",
+    "hybrid": "E:\\RAG\\experiments\\stage1\\runs\\e5-base-raw-rerank_hybrid.run",
+    "rerank": "E:\\RAG\\experiments\\stage1\\runs\\e5-base-raw-rerank_rerank.run"
+  }
+}

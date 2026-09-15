@@ -1,0 +1,61 @@
+{
+  "label": "bge-m3-raw",
+  "index_dir": "E:\\RAG\\vector_db\\stage1\\bge-m3\\raw",
+  "embedding": {
+    "key": "bge-m3",
+    "model_name": "BAAI/bge-m3",
+    "query_prefix": "",
+    "passage_prefix": "",
+    "normalize_embeddings": true
+  },
+  "index": {
+    "text_mode": "raw",
+    "dimension": 1024,
+    "index_bytes": 31076397,
+    "offline_encode_seconds": 330.845
+  },
+  "parameters": {
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "output_k": 50,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": null
+  },
+  "topics": 64,
+  "timing_seconds": {
+    "model_load": 12.6,
+    "bm25_build": 7.403,
+    "reranker_load": 0.0,
+    "queries_total": 1.861,
+    "query_mean": 0.0291,
+    "total": 21.9
+  },
+  "systems": {
+    "dense": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.8774739583333334,
+      "Success@1": 0.8125,
+      "Success@5": 0.953125,
+      "Success@10": 0.984375,
+      "Recall@50": 0.7301875283570313,
+      "NDCG@10": 0.6038536333884036
+    },
+    "hybrid": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.9453125,
+      "Success@1": 0.921875,
+      "Success@5": 0.96875,
+      "Success@10": 0.96875,
+      "Recall@50": 0.888967073347798,
+      "NDCG@10": 0.6959130350644076
+    }
+  },
+  "run_files": {
+    "dense": "E:\\RAG\\experiments\\stage1\\runs\\bge-m3-raw_dense.run",
+    "hybrid": "E:\\RAG\\experiments\\stage1\\runs\\bge-m3-raw_hybrid.run"
+  }
+}

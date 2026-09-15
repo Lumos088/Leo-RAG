@@ -1,0 +1,61 @@
+{
+  "label": "e5-small-raw",
+  "index_dir": "E:\\RAG\\vector_db\\stage1\\e5-small\\raw",
+  "embedding": {
+    "key": "e5-small",
+    "model_name": "intfloat/multilingual-e5-small",
+    "query_prefix": "query: ",
+    "passage_prefix": "passage: ",
+    "normalize_embeddings": true
+  },
+  "index": {
+    "text_mode": "raw",
+    "dimension": 384,
+    "index_bytes": 11653677,
+    "offline_encode_seconds": 553.404
+  },
+  "parameters": {
+    "dense_k": 75,
+    "bm25_k": 50,
+    "rrf_k": 20,
+    "output_k": 50,
+    "dense_weight": 1.0,
+    "bm25_weight": 1.0,
+    "rerank_k": null
+  },
+  "topics": 64,
+  "timing_seconds": {
+    "model_load": 9.034,
+    "bm25_build": 7.184,
+    "reranker_load": 0.0,
+    "queries_total": 2.104,
+    "query_mean": 0.0329,
+    "total": 18.363
+  },
+  "systems": {
+    "dense": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.8391927083333334,
+      "Success@1": 0.765625,
+      "Success@5": 0.9375,
+      "Success@10": 0.953125,
+      "Recall@50": 0.6250201042742692,
+      "NDCG@10": 0.490118332432582
+    },
+    "hybrid": {
+      "evaluated_queries": 64,
+      "run_queries": 64,
+      "MRR@10": 0.9453125,
+      "Success@1": 0.921875,
+      "Success@5": 0.96875,
+      "Success@10": 0.96875,
+      "Recall@50": 0.81035933361063,
+      "NDCG@10": 0.6629692877381526
+    }
+  },
+  "run_files": {
+    "dense": "E:\\RAG\\experiments\\stage1\\runs\\e5-small-raw_dense.run",
+    "hybrid": "E:\\RAG\\experiments\\stage1\\runs\\e5-small-raw_hybrid.run"
+  }
+}

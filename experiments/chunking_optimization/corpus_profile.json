@@ -1,0 +1,376 @@
+{
+  "schema_version": "chunking-profile-v1",
+  "generated_at": "2026-09-15T12:40:40+08:00",
+  "tokenizer": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "parents_dir": "E:\\RAG\\data\\stage4\\parent_child\\minilm_c200_o50_v1\\parents",
+  "parent_count": 7706,
+  "subjects": {
+    "Data Structures": 2064,
+    "Operating System": 3303,
+    "Computer Networks": 2220,
+    "Artificial Intelligence": 119
+  },
+  "parent_tokens": {
+    "count": 7706,
+    "min": 4,
+    "p25": 217,
+    "p50": 365,
+    "p75": 551,
+    "p90": 612,
+    "p95": 645,
+    "max": 825,
+    "mean": 384.6
+  },
+  "paragraph_tokens": {
+    "count": 139717,
+    "min": 1,
+    "p25": 10,
+    "p50": 18,
+    "p75": 29,
+    "p90": 41,
+    "p95": 51,
+    "max": 353,
+    "mean": 21.21
+  },
+  "sentence_tokens": {
+    "count": 150690,
+    "min": 1,
+    "p25": 9,
+    "p50": 17,
+    "p75": 27,
+    "p90": 39,
+    "p95": 47,
+    "max": 353,
+    "mean": 19.67
+  },
+  "evidence_tokens": {
+    "count": 1515,
+    "min": 54,
+    "p25": 261,
+    "p50": 479,
+    "p75": 581,
+    "p90": 627,
+    "p95": 652,
+    "max": 817,
+    "mean": 430.0
+  },
+  "context_prefix_tokens": {
+    "count": 562,
+    "min": 32,
+    "p25": 37,
+    "p50": 39,
+    "p75": 42,
+    "p90": 45,
+    "p95": 53,
+    "max": 53,
+    "mean": 39.81
+  },
+  "embedding_capacity": {
+    "model_max_seq_length": 128,
+    "special_tokens": 2,
+    "raw_body_tokens": 126,
+    "shared_safe_body_tokens": 73,
+    "worst_case_body_tokens": 73,
+    "note": "Shared-safe capacity uses the observed p95 metadata prefix; worst-case capacity is reported separately instead of letting one outlier collapse the search space."
+  },
+  "candidates": [
+    {
+      "strategy": "structured",
+      "target_tokens": 40,
+      "min_tokens": 30,
+      "max_tokens": 40,
+      "overlap_max_tokens": 0,
+      "overlap_ratio_cap": 0.0,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 40,
+      "min_tokens": 30,
+      "max_tokens": 40,
+      "overlap_max_tokens": 15,
+      "overlap_ratio_cap": 0.375,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 40,
+      "min_tokens": 30,
+      "max_tokens": 40,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.49,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 50,
+      "min_tokens": 30,
+      "max_tokens": 50,
+      "overlap_max_tokens": 0,
+      "overlap_ratio_cap": 0.0,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 50,
+      "min_tokens": 30,
+      "max_tokens": 50,
+      "overlap_max_tokens": 15,
+      "overlap_ratio_cap": 0.3,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 50,
+      "min_tokens": 30,
+      "max_tokens": 50,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.49,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 70,
+      "min_tokens": 30,
+      "max_tokens": 70,
+      "overlap_max_tokens": 0,
+      "overlap_ratio_cap": 0.0,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 70,
+      "min_tokens": 30,
+      "max_tokens": 70,
+      "overlap_max_tokens": 15,
+      "overlap_ratio_cap": 0.214,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 70,
+      "min_tokens": 30,
+      "max_tokens": 70,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.357,
+      "derived_from": {
+        "target": "paragraph p90/p95 and shared safe embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "embedding max sequence minus metadata and special tokens",
+        "overlap": "no overlap or sentence p50/p75"
+      }
+    }
+  ],
+  "refinement_candidates": [
+    {
+      "strategy": "structured",
+      "target_tokens": 80,
+      "min_tokens": 30,
+      "max_tokens": 80,
+      "overlap_max_tokens": 0,
+      "overlap_ratio_cap": 0.0,
+      "derived_from": {
+        "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "raw embedding capacity (no metadata prefix)",
+        "overlap": "none or sentence p75, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 80,
+      "min_tokens": 30,
+      "max_tokens": 80,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.25,
+      "derived_from": {
+        "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "raw embedding capacity (no metadata prefix)",
+        "overlap": "none or sentence p75, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 100,
+      "min_tokens": 30,
+      "max_tokens": 100,
+      "overlap_max_tokens": 0,
+      "overlap_ratio_cap": 0.0,
+      "derived_from": {
+        "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "raw embedding capacity (no metadata prefix)",
+        "overlap": "none or sentence p75, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 100,
+      "min_tokens": 30,
+      "max_tokens": 100,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.25,
+      "derived_from": {
+        "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "raw embedding capacity (no metadata prefix)",
+        "overlap": "none or sentence p75, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 125,
+      "min_tokens": 30,
+      "max_tokens": 125,
+      "overlap_max_tokens": 0,
+      "overlap_ratio_cap": 0.0,
+      "derived_from": {
+        "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "raw embedding capacity (no metadata prefix)",
+        "overlap": "none or sentence p75, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 125,
+      "min_tokens": 30,
+      "max_tokens": 125,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.2,
+      "derived_from": {
+        "target": "paragraph p95 + sentence p75/p95, plus raw embedding capacity",
+        "minimum": "paragraph p75",
+        "maximum": "raw embedding capacity (no metadata prefix)",
+        "overlap": "none or sentence p75, capped at 25%"
+      }
+    }
+  ],
+  "hybrid_candidates": [
+    {
+      "strategy": "structured",
+      "target_tokens": 155,
+      "min_tokens": 30,
+      "max_tokens": 155,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.161,
+      "derived_from": {
+        "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+        "minimum": "paragraph p75",
+        "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+        "overlap": "sentence p75 or paragraph p95, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 155,
+      "min_tokens": 30,
+      "max_tokens": 155,
+      "overlap_max_tokens": 50,
+      "overlap_ratio_cap": 0.25,
+      "derived_from": {
+        "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+        "minimum": "paragraph p75",
+        "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+        "overlap": "sentence p75 or paragraph p95, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 205,
+      "min_tokens": 30,
+      "max_tokens": 205,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.122,
+      "derived_from": {
+        "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+        "minimum": "paragraph p75",
+        "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+        "overlap": "sentence p75 or paragraph p95, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 205,
+      "min_tokens": 30,
+      "max_tokens": 205,
+      "overlap_max_tokens": 50,
+      "overlap_ratio_cap": 0.244,
+      "derived_from": {
+        "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+        "minimum": "paragraph p75",
+        "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+        "overlap": "sentence p75 or paragraph p95, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 250,
+      "min_tokens": 30,
+      "max_tokens": 250,
+      "overlap_max_tokens": 25,
+      "overlap_ratio_cap": 0.1,
+      "derived_from": {
+        "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+        "minimum": "paragraph p75",
+        "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+        "overlap": "sentence p75 or paragraph p95, capped at 25%"
+      }
+    },
+    {
+      "strategy": "structured",
+      "target_tokens": 250,
+      "min_tokens": 30,
+      "max_tokens": 250,
+      "overlap_max_tokens": 50,
+      "overlap_ratio_cap": 0.2,
+      "derived_from": {
+        "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+        "minimum": "paragraph p75",
+        "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+        "overlap": "sentence p75 or paragraph p95, capped at 25%"
+      }
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+[
+  {
+    "qid": "AI001",
+    "query": "监督学习中的线性回归如何定义损失函数？",
+    "latency_seconds": 1.100899400014896,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.5,
+    "mrr": 1.0,
+    "ndcg": 0.7039180890341347
+  },
+  {
+    "qid": "AI002",
+    "query": "小批量随机梯度下降为什么比逐样本计算更适合训练？",
+    "latency_seconds": 0.6478002000367269,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.5,
+    "mrr": 0.25,
+    "ndcg": 0.3031610197508214
+  },
+  {
+    "qid": "AI003",
+    "query": "Softmax 回归如何把输出转换成类别概率？",
+    "latency_seconds": 0.43908149999333546,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.7415914148287854
+  },
+  {
+    "qid": "AI004",
+    "query": "交叉熵损失为什么适合多分类问题？",
+    "latency_seconds": 0.59160400001565,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.5,
+    "mrr": 1.0,
+    "ndcg": 0.7039180890341347
+  },
+  {
+    "qid": "AI005",
+    "query": "多层感知机为什么需要非线性激活函数？",
+    "latency_seconds": 0.5584065999719314,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 0.3333333333333333,
+    "ndcg": 0.5540663910176149
+  },
+  {
+    "qid": "AI006",
+    "query": "反向传播如何利用计算图和链式法则计算梯度？",
+    "latency_seconds": 0.538142399978824,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.7724397457735779
+  },
+  {
+    "qid": "AI007",
+    "query": "卷积神经网络中的平移不变性和局部性是什么意思？",
+    "latency_seconds": 0.5545135000138544,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.9134015924715543
+  },
+  {
+    "qid": "AI008",
+    "query": "循环神经网络的隐状态起什么作用？",
+    "latency_seconds": 0.5708405000041239,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 0.3333333333333333,
+    "ndcg": 0.53350083705442
+  },
+  {
+    "qid": "AI009",
+    "query": "注意力机制中的 Query、Key 和 Value 分别是什么？",
+    "latency_seconds": 0.6105662999907508,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.7724397457735779
+  },
+  {
+    "qid": "AI010",
+    "query": "多头注意力相比单头注意力有什么优势？",
+    "latency_seconds": 0.6025412000017241,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 1.0
+  },
+  {
+    "qid": "AI011",
+    "query": "Transformer 编码器和解码器分别由哪些核心模块组成？",
+    "latency_seconds": 0.5073137000435963,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.9385574520455129
+  },
+  {
+    "qid": "AI012",
+    "query": "Transformer 为什么需要位置编码？",
+    "latency_seconds": 0.47997520002536476,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.5,
+    "mrr": 0.5,
+    "ndcg": 0.44412286644879784
+  },
+  {
+    "qid": "AI013",
+    "query": "随机梯度下降中学习率如何影响收敛？",
+    "latency_seconds": 0.5440443999832496,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.9060254355346823
+  },
+  {
+    "qid": "AI014",
+    "query": "Transformer 可以用于哪些常见自然语言处理任务？",
+    "latency_seconds": 0.5307220999966376,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 1.0,
+    "mrr": 0.25,
+    "ndcg": 0.4306765580733931
+  },
+  {
+    "qid": "AI015",
+    "query": "预训练和微调在 Transformer 模型中是什么关系？",
+    "latency_seconds": 0.5222018999629654,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 0.5,
+    "ndcg": 0.6462302129493455
+  },
+  {
+    "qid": "AI016",
+    "query": "仅编码器、仅解码器和编码器-解码器模型适合什么任务？",
+    "latency_seconds": 0.6102992999949493,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 1.0,
+    "mrr": 0.5,
+    "ndcg": 0.6309297535714574
+  },
+  {
+    "qid": "AI017",
+    "query": "Tokenizer 如何把文本转换为模型可处理的输入 ID？",
+    "latency_seconds": 0.582817199989222,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.8212377705398237
+  },
+  {
+    "qid": "AI018",
+    "query": "使用 Trainer 微调模型时训练集和验证集各有什么作用？",
+    "latency_seconds": 0.5462259999476373,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.9060254355346823
+  },
+  {
+    "qid": "AI019",
+    "query": "如何从学习曲线判断模型过拟合或欠拟合？",
+    "latency_seconds": 0.5688701000181027,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 0.5,
+    "ndcg": 0.6787622294601761
+  },
+  {
+    "qid": "AI020",
+    "query": "语义搜索如何使用 Embedding 和 FAISS 找到相似文本？",
+    "latency_seconds": 0.5217113999533467,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 1.0
+  },
+  {
+    "qid": "AI021",
+    "query": "抽取式问答中的答案跨度是如何确定的？",
+    "latency_seconds": 0.6099984000320546,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 0.5,
+    "mrr": 0.3333333333333333,
+    "ndcg": 0.23463936301137822
+  },
+  {
+    "qid": "AI022",
+    "query": "LoRA 如何通过低秩矩阵减少需要训练的参数？",
+    "latency_seconds": 0.5621686999802478,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 1.0
+  },
+  {
+    "qid": "AI023",
+    "query": "大语言模型评测为什么要结合自动指标和人工评测？",
+    "latency_seconds": 0.5862521999515593,
+    "success": 1.0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 0.9134015924715543
+  },
+  {
+    "qid": "AI024",
+    "query": "FAISS 支持哪些向量距离或相似度度量？",
+    "latency_seconds": 0.5746271000243723,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 1.0,
+    "mrr": 1.0,
+    "ndcg": 1.0
+  },
+  {
+    "qid": "AI025",
+    "query": "余弦相似度如何通过归一化向量的内积实现？",
+    "latency_seconds": 0.6457863000105135,
+    "success": 1.0,
+    "precision": 0.2,
+    "recall": 1.0,
+    "mrr": 0.25,
+    "ndcg": 0.4306765580733931
+  }
+]

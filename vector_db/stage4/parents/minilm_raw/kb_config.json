@@ -1,0 +1,35 @@
+{
+  "schema_version": "stage1-index-v1",
+  "built_at": "2026-09-14T23:52:30+08:00",
+  "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "query_prefix": "",
+  "passage_prefix": "",
+  "normalize_embeddings": true,
+  "model_key": "minilm",
+  "text_mode": "raw",
+  "batch_size": 128,
+  "device": "cuda",
+  "index_type": "IndexFlatIP",
+  "dim": 384,
+  "ntotal": 7706,
+  "chunks_dir": "data/stage4/parent_child/minilm_c200_o50_v1/parents",
+  "chunk_files": [
+    "ds_chunks.json",
+    "os_chunks.json",
+    "cn_chunks.json",
+    "ai_chunks.json"
+  ],
+  "chunk_file_sha256": {
+    "ds_chunks.json": "1540f419ed7ad7f38bc8758bec6321f3c70a65967f67497d7e4f305be1bae4eb",
+    "os_chunks.json": "3383498be33a89a2d60b1f60f5f129da46beb878f7041dc2cf2ae65d6c6fca7c",
+    "cn_chunks.json": "298d9c686e3482de9448e2ee9ae7b5accdeb282f9f5a109b0d56e303ddbc7683",
+    "ai_chunks.json": "02b50ab8b15951fc1ef2d1495d4bb24c3dc2ebc893ad6be3e19eb3b69e9ca889"
+  },
+  "index_path": "vector_db/stage4/parents/minilm_raw/kb.index",
+  "meta_path": "vector_db/stage4/parents/minilm_raw/kb_meta.json",
+  "model_load_seconds": 12.662,
+  "encode_seconds": 8.711,
+  "chunks_per_second": 884.605,
+  "index_bytes": 11836461,
+  "metadata_bytes": 20418281
+}

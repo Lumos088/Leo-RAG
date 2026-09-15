@@ -1,0 +1,21 @@
+.cache/
+__pycache__/
+*.py[cod]
+data/runtime/*.db
+data/runtime/*.db-*
+
+# Local assistant/session files
+.claude/
+
+# Office temporary lock files
+~$*.docx
+
+# Recoverable snapshots and generated parameter-search corpora/indexes
+qrels.before_auto_merge_*.csv
+data/backup/
+data/experiments/
+vector_db/experiments/
+
+# Rebuildable historical embedding indexes; the active Stage 4 index is kept
+vector_db/stage1/
+vector_db/stage2/

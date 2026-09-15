@@ -1,0 +1,41 @@
+{
+  "schema_version": "parent-child-v1",
+  "ok": true,
+  "variant": "minilm_c200_o50_v1",
+  "parents": 7587,
+  "children": 20630,
+  "parent_ids_preserved": true,
+  "per_file": {
+    "ds_chunks.json": {
+      "parents": 2064,
+      "children": 6472
+    },
+    "os_chunks.json": {
+      "parents": 3303,
+      "children": 7758
+    },
+    "cn_chunks.json": {
+      "parents": 2220,
+      "children": 6400
+    }
+  },
+  "children_per_parent": {
+    "min": 1,
+    "median": 3,
+    "p95": 4,
+    "max": 8
+  },
+  "child_tokens": {
+    "min": 4,
+    "p25": 146,
+    "median": 180,
+    "p75": 192,
+    "p95": 199,
+    "max": 215
+  },
+  "course_children": {
+    "Data Structures": 6472,
+    "Operating System": 7758,
+    "Computer Networks": 6400
+  }
+}

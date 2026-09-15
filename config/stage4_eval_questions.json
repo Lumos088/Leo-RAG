@@ -1,0 +1,30 @@
+{
+  "schema_version": "stage4-ai-eval-v1",
+  "questions": [
+    {"qid":"AI001","query":"监督学习中的线性回归如何定义损失函数？","source_slug":"d2l_linear_regression","answer_terms":["squared error","loss function"]},
+    {"qid":"AI002","query":"小批量随机梯度下降为什么比逐样本计算更适合训练？","source_slug":"d2l_linear_regression","answer_terms":["minibatch","stochastic gradient"]},
+    {"qid":"AI003","query":"Softmax 回归如何把输出转换成类别概率？","source_slug":"d2l_softmax","answer_terms":["softmax","probabilities"]},
+    {"qid":"AI004","query":"交叉熵损失为什么适合多分类问题？","source_slug":"d2l_softmax","answer_terms":["cross-entropy","likelihood"]},
+    {"qid":"AI005","query":"多层感知机为什么需要非线性激活函数？","source_slug":"d2l_mlp","answer_terms":["activation function","nonlinear"]},
+    {"qid":"AI006","query":"反向传播如何利用计算图和链式法则计算梯度？","source_slug":"d2l_backprop","answer_terms":["backpropagation","chain rule"]},
+    {"qid":"AI007","query":"卷积神经网络中的平移不变性和局部性是什么意思？","source_slug":"d2l_cnn","answer_terms":["translation invariance","locality"]},
+    {"qid":"AI008","query":"循环神经网络的隐状态起什么作用？","source_slug":"d2l_rnn","answer_terms":["hidden state","recurrent"]},
+    {"qid":"AI009","query":"注意力机制中的 Query、Key 和 Value 分别是什么？","source_slug":"d2l_attention","answer_terms":["queries","keys","values"]},
+    {"qid":"AI010","query":"多头注意力相比单头注意力有什么优势？","source_slug":"d2l_multihead","answer_terms":["multiple attention heads","parallel"]},
+    {"qid":"AI011","query":"Transformer 编码器和解码器分别由哪些核心模块组成？","source_slug":"d2l_transformer","answer_terms":["transformer encoder","transformer decoder"]},
+    {"qid":"AI012","query":"Transformer 为什么需要位置编码？","source_slug":"d2l_transformer","answer_terms":["positional encoding","position"]},
+    {"qid":"AI013","query":"随机梯度下降中学习率如何影响收敛？","source_slug":"d2l_sgd","answer_terms":["learning rate","convergence"]},
+    {"qid":"AI014","query":"Transformer 可以用于哪些常见自然语言处理任务？","source_slug":"hf_transformers_tasks","answer_terms":["text classification","question answering"]},
+    {"qid":"AI015","query":"预训练和微调在 Transformer 模型中是什么关系？","source_slug":"hf_transformers_work","answer_terms":["pretraining","fine-tuning"]},
+    {"qid":"AI016","query":"仅编码器、仅解码器和编码器-解码器模型适合什么任务？","source_slug":"hf_architectures","answer_terms":["encoder-only","decoder-only"]},
+    {"qid":"AI017","query":"Tokenizer 如何把文本转换为模型可处理的输入 ID？","source_slug":"hf_tokenizers","answer_terms":["input IDs","tokenizer"]},
+    {"qid":"AI018","query":"使用 Trainer 微调模型时训练集和验证集各有什么作用？","source_slug":"hf_finetuning","answer_terms":["Trainer","evaluation"]},
+    {"qid":"AI019","query":"如何从学习曲线判断模型过拟合或欠拟合？","source_slug":"hf_learning_curves","answer_terms":["overfitting","underfitting"]},
+    {"qid":"AI020","query":"语义搜索如何使用 Embedding 和 FAISS 找到相似文本？","source_slug":"hf_semantic_search","answer_terms":["embeddings","FAISS"]},
+    {"qid":"AI021","query":"抽取式问答中的答案跨度是如何确定的？","source_slug":"hf_question_answering","answer_terms":["start logits","end logits"]},
+    {"qid":"AI022","query":"LoRA 如何通过低秩矩阵减少需要训练的参数？","source_slug":"hf_lora","answer_terms":["low-rank","trainable parameters"]},
+    {"qid":"AI023","query":"大语言模型评测为什么要结合自动指标和人工评测？","source_slug":"hf_llm_evaluation","answer_terms":["human evaluation","automatic"]},
+    {"qid":"AI024","query":"FAISS 支持哪些向量距离或相似度度量？","source_slug":"faiss_readme","answer_terms":["Euclidean distances","dot products"]},
+    {"qid":"AI025","query":"余弦相似度如何通过归一化向量的内积实现？","source_slug":"faiss_readme","answer_terms":["cosine similarity","normalized vectors"]}
+  ]
+}

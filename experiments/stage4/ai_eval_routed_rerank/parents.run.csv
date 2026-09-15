@@ -1,0 +1,126 @@
+﻿qid,doc_id,rank,score
+AI001,AI_d2l_linear_regression_0003_bc4bc0cf,1,0.0
+AI001,AI_d2l_linear_regression_0008_620971d0,2,0.0
+AI001,AI_d2l_linear_regression_0011_52656cd6,3,0.0
+AI001,AI_d2l_linear_regression_0010_c7a61c72,4,0.0
+AI001,AI_d2l_linear_regression_0007_059877c8,5,0.0
+AI002,AI_d2l_sgd_0001_71c5b9b4,1,0.0
+AI002,AI_d2l_sgd_0008_1ae14d3f,2,0.0
+AI002,AI_d2l_linear_regression_0006_43649c72,3,0.0
+AI002,AI_d2l_linear_regression_0005_1486cc5b,4,0.0
+AI002,AI_d2l_linear_regression_0004_a850704d,5,0.0
+AI003,AI_d2l_softmax_0004_cd4277e1,1,0.0
+AI003,AI_d2l_softmax_0006_0dea006f,2,0.0
+AI003,AI_d2l_softmax_0010_ad105db0,3,0.0
+AI003,AI_d2l_softmax_0009_99f77ae0,4,0.0
+AI003,AI_d2l_softmax_0003_7acae373,5,0.0
+AI004,AI_d2l_softmax_0007_d38ea792,1,0.0
+AI004,AI_d2l_softmax_0006_0dea006f,2,0.0
+AI004,AI_d2l_softmax_0008_1c0220d8,3,0.0
+AI004,数据结构 (邓俊辉) (Z-Library)_chunk_464,4,0.0
+AI004,AI_d2l_softmax_0001_e1fd8b12,5,0.0
+AI005,AI_d2l_mlp_0005_50b6e456,1,0.0
+AI005,AI_d2l_mlp_0007_7488acea,2,0.0
+AI005,AI_d2l_mlp_0003_1080a4c9,3,0.0
+AI005,AI_d2l_mlp_0004_9dd2c377,4,0.0
+AI005,AI_d2l_mlp_0008_4b042035,5,0.0
+AI006,AI_d2l_backprop_0003_2019e4c4,1,0.0
+AI006,AI_d2l_backprop_0005_893eb985,2,0.0
+AI006,AI_d2l_backprop_0004_ba77064f,3,0.0
+AI006,AI_d2l_backprop_0002_d796b72e,4,0.0
+AI006,AI_d2l_backprop_0006_b31d6758,5,0.0
+AI007,AI_d2l_cnn_0007_826e2283,1,0.0
+AI007,AI_d2l_cnn_0002_9bacd3a0,2,0.0
+AI007,AI_d2l_cnn_0004_fab587c8,3,0.0
+AI007,AI_d2l_cnn_0001_10eea5e3,4,0.0
+AI007,AI_d2l_cnn_0005_74e5be6f,5,0.0
+AI008,AI_d2l_rnn_0003_5a8d0b57,1,0.0
+AI008,AI_d2l_rnn_0005_2969fab4,2,0.0
+AI008,AI_d2l_rnn_0001_b1d09a1d,3,0.0
+AI008,AI_d2l_rnn_0004_9976a62b,4,0.0
+AI008,AI_d2l_rnn_0002_95dd548c,5,0.0
+AI009,AI_d2l_attention_0004_a0680357,1,0.0
+AI009,AI_d2l_multihead_0001_f89a189f,2,0.0
+AI009,AI_d2l_attention_0003_21a44c3f,3,0.0
+AI009,AI_d2l_attention_0001_0db8c2a5,4,0.0
+AI009,AI_d2l_attention_0002_6ff3e374,5,0.0
+AI010,AI_d2l_multihead_0001_f89a189f,1,0.0
+AI010,AI_d2l_multihead_0002_8f1abd07,2,0.0
+AI010,AI_d2l_transformer_0002_7063b2e3,3,0.0
+AI010,AI_d2l_transformer_0004_462a31d9,4,0.0
+AI010,AI_d2l_attention_0002_6ff3e374,5,0.0
+AI011,AI_d2l_transformer_0001_95088dfa,1,0.0
+AI011,AI_d2l_transformer_0002_7063b2e3,2,0.0
+AI011,AI_d2l_transformer_0003_da66d28e,3,0.0
+AI011,AI_d2l_transformer_0004_462a31d9,4,0.0
+AI011,AI_hf_architectures_0002_4e2662b8,5,0.0
+AI012,AI_hf_architectures_0004_c95c823f,1,0.0
+AI012,AI_d2l_transformer_0001_95088dfa,2,0.0
+AI012,AI_d2l_transformer_0003_da66d28e,3,0.0
+AI012,AI_d2l_transformer_0005_ed095a07,4,0.0
+AI012,AI_d2l_transformer_0004_462a31d9,5,0.0
+AI013,AI_d2l_sgd_0002_0464fd6e,1,0.0
+AI013,AI_d2l_sgd_0005_ef5d1efa,2,0.0
+AI013,AI_d2l_sgd_0008_1ae14d3f,3,0.0
+AI013,AI_d2l_sgd_0003_182450f8,4,0.0
+AI013,AI_d2l_sgd_0007_fbb84a41,5,0.0
+AI014,AI_hf_transformers_tasks_0001_33622f6a,1,0.0
+AI014,AI_hf_architectures_0001_224ecfb9,2,0.0
+AI014,AI_hf_transformers_work_0004_c78578d3,3,0.0
+AI014,AI_hf_transformers_tasks_0004_ad4e9652,4,0.0
+AI014,AI_hf_transformers_work_0001_0c8f3e8a,5,0.0
+AI015,AI_hf_transformers_work_0004_c78578d3,1,0.0
+AI015,AI_hf_transformers_work_0002_82688984,2,0.0
+AI015,AI_hf_architectures_0002_4e2662b8,3,0.0
+AI015,AI_hf_transformers_work_0003_7dbbcb28,4,0.0
+AI015,AI_hf_finetuning_0001_f13b813d,5,0.0
+AI016,AI_hf_architectures_0002_4e2662b8,1,0.0
+AI016,AI_hf_architectures_0001_224ecfb9,2,0.0
+AI016,数据结构 (邓俊辉) (Z-Library)_chunk_164,3,0.0
+AI016,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_96",4,0.0
+AI016,数据结构 (邓俊辉) (Z-Library)_chunk_192,5,0.0
+AI017,AI_hf_tokenizers_0004_d648f663,1,0.0
+AI017,AI_hf_tokenizers_0001_5e4790a9,2,0.0
+AI017,AI_hf_tokenizers_0003_55acd62b,3,0.0
+AI017,AI_hf_question_answering_0002_a60c6ef5,4,0.0
+AI017,AI_hf_tokenizers_0002_2c8b557a,5,0.0
+AI018,AI_hf_finetuning_0001_f13b813d,1,0.0
+AI018,AI_hf_finetuning_0003_acb2c0cb,2,0.0
+AI018,AI_hf_learning_curves_0004_ca126f0a,3,0.0
+AI018,AI_hf_finetuning_0002_927b4338,4,0.0
+AI018,AI_hf_question_answering_0009_d58d3fae,5,0.0
+AI019,AI_hf_learning_curves_0002_f040ede0,1,0.0
+AI019,AI_hf_learning_curves_0003_6d475764,2,0.0
+AI019,AI_hf_learning_curves_0004_ca126f0a,3,0.0
+AI019,AI_hf_learning_curves_0001_b6354b46,4,0.0
+AI019,AI_hf_question_answering_0009_d58d3fae,5,0.0
+AI020,AI_hf_semantic_search_0001_3aeac085,1,0.0
+AI020,AI_hf_semantic_search_0004_a17d37e8,2,0.0
+AI020,AI_hf_semantic_search_0003_974d1e53,3,0.0
+AI020,AI_faiss_readme_0001_f3617b25,4,0.0
+AI020,AI_faiss_readme_0002_d1d747b6,5,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_81,1,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_15,2,0.0
+AI021,AI_hf_question_answering_0005_f3e6ad5a,3,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_464,4,0.0
+AI021,数据结构 (邓俊辉) (Z-Library)_chunk_343,5,0.0
+AI022,AI_hf_lora_0001_cbdd363e,1,0.0
+AI022,AI_hf_lora_0002_bbd56d70,2,0.0
+AI022,AI_hf_lora_0003_67988141,3,0.0
+AI022,AI_d2l_linear_regression_0006_43649c72,4,0.0
+AI022,AI_d2l_linear_regression_0004_a850704d,5,0.0
+AI023,AI_hf_llm_evaluation_0002_2f981d94,1,0.0
+AI023,AI_hf_llm_evaluation_0001_cf7f5a60,2,0.0
+AI023,AI_hf_llm_evaluation_0003_20f8417e,3,0.0
+AI023,AI_hf_lora_0001_cbdd363e,4,0.0
+AI023,AI_d2l_rnn_0005_2969fab4,5,0.0
+AI024,AI_faiss_readme_0001_f3617b25,1,0.0
+AI024,AI_faiss_readme_0002_d1d747b6,2,0.0
+AI024,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_209,3,0.0
+AI024,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_262",4,0.0
+AI024,"计算机网络 (吴功宜,吴英) (Z-Library)(OCR)_chunk_315",5,0.0
+AI025,2024年王道计算机网络复习指导 (王道计算机) (Z-Library)_chunk_174,1,0.0
+AI025,计算机网络（第8版） (谢希仁) (Z-Library)(OCR)_chunk_73,2,0.0
+AI025,数据结构 (邓俊辉) (Z-Library)_chunk_473,3,0.0
+AI025,AI_faiss_readme_0001_f3617b25,4,0.0
+AI025,数据结构 (邓俊辉) (Z-Library)_chunk_448,5,0.0

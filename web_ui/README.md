@@ -12,33 +12,32 @@
 
 ## 检索模式
 
-| 模式            | 说明                                    | 可配置项 |
-| --------------- | --------------------------------------- | -------- |
-| `llm_retrieval` | LLM 检索（推荐）- 使用 LLM 进行智能检索 | top_k    |
-| `dense`         | 密集检索 - 可配置 BM25 融合与重排       | top_k, use_bm25, use_rerank |
+| 模式    | 说明                              | 可配置项                    |
+| ------- | --------------------------------- | --------------------------- |
+| `dense` | 密集检索，可配置 BM25 融合与重排 | top_k, use_bm25, use_rerank |
 
 ### Dense 模式管线组合
 
-| use_bm25 | use_rerank | 实际管线 |
-|----------|------------|----------|
-| false    | false      | Dense → LLM 生成 |
-| true     | false      | Dense+BM25(RRF) → LLM 生成 |
+| use_bm25 | use_rerank | 实际管线                                |
+| -------- | ---------- | --------------------------------------- |
+| false    | false      | Dense → LLM 生成                        |
+| true     | false      | Dense+BM25(RRF) → LLM 生成              |
 | true     | true       | Dense+BM25(RRF) → BGE Rerank → LLM 生成 |
 
 ### API 参数
 
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `question` | string | 必填 | 用户问题 |
-| `mode` | string | `llm_retrieval` | 检索模式 |
-| `top_k` | int | 5 | 返回结果数量 (1-10) |
-| `use_bm25` | bool | false | 启用 BM25 混合检索 |
-| `use_rerank` | bool | false | 启用 BGE 重排序 |
+| 参数         | 类型   | 默认值          | 说明                |
+| ------------ | ------ | --------------- | ------------------- |
+| `question`   | string | 必填            | 用户问题            |
+| `mode`       | string | `dense`         | 检索模式            |
+| `top_k`      | int    | 5               | 返回结果数量 (1-10) |
+| `use_bm25`   | bool   | false           | 启用 BM25 混合检索  |
+| `use_rerank` | bool   | false           | 启用 BGE 重排序     |
 
 ## 安装
 
 ```bash
-cd "H:\RAG project\stage2\web_ui"
+cd "<项目目录>\web_ui"
 pip install -r requirements.txt
 ```
 
@@ -92,7 +91,7 @@ curl http://localhost:8000/api/modes
 ```bash
 curl -X POST http://localhost:8000/api/chat \
   -H "Content-Type: application/json" \
-  -d '{"question": "什么是死锁？", "mode": "llm_retrieval", "top_k": 5, "use_bm25": false, "use_rerank": false}'
+  -d '{"question": "什么是死锁？", "mode": "dense", "top_k": 5, "use_bm25": false, "use_rerank": false}'
 ```
 
 #### 流式问答接口 (SSE)
@@ -142,7 +141,7 @@ RuntimeError: ❌ 未检测到 DEEPSEEK_API_KEY 环境变量
 FileNotFoundError: [Errno 2] No such file or directory: '.../vector_db/kb.index'
 ```
 
-**解决**: 确保 `H:\RAG project\stage2\vector_db\` 目录下存在 `kb.index` 和 `kb_meta.json`
+**解决**: 确保 `<项目目录>\vector_db\` 目录下存在 `kb.index` 和 `kb_meta.json`
 
 ### 3. 依赖安装失败
 

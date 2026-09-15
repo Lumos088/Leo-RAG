@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import asyncio
+from pathlib import Path
 from typing import Generator, Optional
 
 import uvicorn
@@ -18,7 +19,13 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 stage2_dir = os.path.dirname(current_dir)
 sys.path.append(stage2_dir)
 
-from api.rag_service import get_rag_service, RAGService
+try:
+    from api.rag_service import get_rag_service, RAGService
+    from api.conversation_store import ConversationNotFound, ConversationStore
+except ModuleNotFoundError:
+    from web_ui.api.rag_service import get_rag_service, RAGService
+    from web_ui.api.conversation_store import ConversationNotFound, ConversationStore
+from scripts.pipeline.hybrid_retrieval import RETRIEVAL_CONFIG
 
 # ============== FastAPI Backend ==============
 try:
@@ -33,13 +40,23 @@ except ImportError:
     FASTAPI_AVAILABLE = False
 
 if FASTAPI_AVAILABLE:
+    conversation_store = ConversationStore(Path(stage2_dir) / "data" / "runtime" / "conversations.db")
+
     # Request/Response Models
     class ChatRequest(BaseModel):
         question: str
-        mode: str = "llm_retrieval"
-        top_k: int = 5
-        use_bm25: bool = False
-        use_rerank: bool = False
+        mode: str = "dense"
+        top_k: int = int(RETRIEVAL_CONFIG["final_top_k"])
+        use_bm25: bool = True
+        use_rerank: bool = True
+        conversation_id: Optional[str] = None
+        request_id: Optional[str] = None
+
+    class ConversationCreate(BaseModel):
+        title: Optional[str] = None
+
+    class ConversationRename(BaseModel):
+        title: str
 
     class ChatResponse(BaseModel):
         answer: str
@@ -47,6 +64,7 @@ if FASTAPI_AVAILABLE:
         citations: List[dict]
         mode: str
         lang: str
+        retrieval_query: Optional[str] = None
 
     class ErrorResponse(BaseModel):
         error: str
@@ -76,24 +94,129 @@ if FASTAPI_AVAILABLE:
     async def get_modes():
         """Get supported retrieval modes"""
         return {
-            "modes": ["dense", "llm_retrieval"],
-            "default": "llm_retrieval"
+            "modes": ["dense"],
+            "default": "dense"
         }
+
+    def _conversation_or_404(conversation_id: str):
+        try:
+            return conversation_store.get_conversation(conversation_id)
+        except ConversationNotFound:
+            raise HTTPException(status_code=404, detail="Conversation not found")
+
+    def _prepare_memory(service, conversation_id: str, question: str, request_id: str | None = None):
+        conversation = _conversation_or_404(conversation_id)
+        messages = conversation_store.list_messages(conversation_id)
+        if request_id:
+            messages = [item for item in messages if item.get("request_id") != request_id]
+        prepared = service.memory.prepare(
+            question,
+            messages,
+            conversation.get("summary", ""),
+            conversation.get("summarized_through_message_id"),
+        )
+        if prepared["summary_updated"]:
+            conversation_store.update_summary(
+                conversation_id,
+                prepared["summary"],
+                prepared["summarized_through_message_id"],
+            )
+        return prepared
+
+    @app.get("/api/conversations")
+    async def list_conversations():
+        return {"conversations": conversation_store.list_conversations()}
+
+    @app.post("/api/conversations")
+    async def create_conversation(request: ConversationCreate):
+        return conversation_store.create_conversation(request.title)
+
+    @app.get("/api/conversations/{conversation_id}")
+    async def get_conversation(conversation_id: str):
+        conversation = _conversation_or_404(conversation_id)
+        conversation["messages"] = conversation_store.list_messages(conversation_id)
+        return conversation
+
+    @app.patch("/api/conversations/{conversation_id}")
+    async def rename_conversation(conversation_id: str, request: ConversationRename):
+        try:
+            return conversation_store.rename_conversation(conversation_id, request.title)
+        except ConversationNotFound:
+            raise HTTPException(status_code=404, detail="Conversation not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc))
+
+    @app.delete("/api/conversations/{conversation_id}")
+    async def delete_conversation(conversation_id: str):
+        try:
+            conversation_store.delete_conversation(conversation_id)
+        except ConversationNotFound:
+            raise HTTPException(status_code=404, detail="Conversation not found")
+        return {"deleted": True}
+
+    @app.post("/api/conversations/{conversation_id}/clear")
+    async def clear_conversation(conversation_id: str):
+        try:
+            return conversation_store.clear_messages(conversation_id)
+        except ConversationNotFound:
+            raise HTTPException(status_code=404, detail="Conversation not found")
+
+    @app.get("/api/conversations/{conversation_id}/messages")
+    async def get_conversation_messages(conversation_id: str):
+        try:
+            return {"messages": conversation_store.list_messages(conversation_id)}
+        except ConversationNotFound:
+            raise HTTPException(status_code=404, detail="Conversation not found")
 
     @app.post("/api/chat", response_model=ChatResponse)
     async def chat(request: ChatRequest):
         """Non-streaming chat endpoint"""
         try:
             service = get_rag_service()
+            prepared = None
+            if request.conversation_id:
+                if request.request_id:
+                    cached = conversation_store.get_message_by_request(
+                        request.conversation_id, request.request_id, "assistant"
+                    )
+                    if cached:
+                        metadata = cached.get("metadata", {})
+                        return ChatResponse(
+                            answer=cached["content"], retrieval=cached["retrieval"],
+                            citations=cached["citations"], mode=metadata.get("mode", request.mode),
+                            lang=metadata.get("lang", "zh"),
+                            retrieval_query=metadata.get("retrieval_query"),
+                        )
+                prepared = _prepare_memory(
+                    service, request.conversation_id, request.question, request.request_id
+                )
+                conversation_store.add_message(
+                    request.conversation_id, "user", request.question, request_id=request.request_id
+                )
             result = service.query(
                 request.question, request.mode,
-                top_k=request.top_k, use_bm25=request.use_bm25, use_rerank=request.use_rerank
+                top_k=request.top_k, use_bm25=request.use_bm25, use_rerank=request.use_rerank,
+                retrieval_question=prepared["retrieval_query"] if prepared else None,
+                conversation_context=prepared["conversation_context"] if prepared else "",
             )
 
             if "error" in result:
                 raise HTTPException(status_code=400, detail=result["error"])
 
+            if request.conversation_id:
+                conversation_store.add_message(
+                    request.conversation_id, "assistant", result["answer"],
+                    retrieval=result.get("retrieval", []), citations=result.get("citations", []),
+                    request_id=request.request_id,
+                    metadata={"mode": result["mode"], "lang": result["lang"],
+                              "retrieval_query": result.get("retrieval_query"),
+                              "use_bm25": request.use_bm25, "use_rerank": request.use_rerank},
+                )
             return ChatResponse(**result)
+        except ConversationNotFound:
+            raise HTTPException(status_code=404, detail="Conversation not found")
+        except HTTPException:
+            raise
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
 
@@ -103,14 +226,61 @@ if FASTAPI_AVAILABLE:
         async def generate():
             try:
                 service = get_rag_service()
+                prepared = None
+                if request.conversation_id:
+                    _conversation_or_404(request.conversation_id)
+                    if request.request_id:
+                        cached = conversation_store.get_message_by_request(
+                            request.conversation_id, request.request_id, "assistant"
+                        )
+                        if cached:
+                            metadata = cached.get("metadata", {})
+                            yield f"data: {json.dumps({'type': 'retrieval', 'retrieval': cached['retrieval'], 'citations': cached['citations'], 'mode': metadata.get('mode', request.mode), 'lang': metadata.get('lang', 'zh'), 'retrieval_query': metadata.get('retrieval_query')}, ensure_ascii=False)}\n\n"
+                            yield f"data: {json.dumps({'type': 'chunk', 'content': cached['content'], 'replayed': True}, ensure_ascii=False)}\n\n"
+                            yield f"data: {json.dumps({'type': 'done', 'answer': cached['content'], 'replayed': True}, ensure_ascii=False)}\n\n"
+                            return
+                    prepared = _prepare_memory(
+                        service, request.conversation_id, request.question, request.request_id
+                    )
+                    conversation_store.add_message(
+                        request.conversation_id, "user", request.question, request_id=request.request_id
+                    )
+                full_answer = ""
+                retrieval = []
+                citations = []
+                lang = "zh"
+                retrieval_query = prepared["retrieval_query"] if prepared else request.question
                 async for chunk in service.query_stream(
                     request.question, request.mode,
-                    top_k=request.top_k, use_bm25=request.use_bm25, use_rerank=request.use_rerank
+                    top_k=request.top_k, use_bm25=request.use_bm25, use_rerank=request.use_rerank,
+                    retrieval_question=prepared["retrieval_query"] if prepared else None,
+                    conversation_context=prepared["conversation_context"] if prepared else "",
                 ):
                     if chunk["type"] == "error":
                         yield f"data: {json.dumps(chunk, ensure_ascii=False)}\n\n"
                         break
+                    if chunk["type"] == "retrieval":
+                        retrieval = chunk.get("retrieval", [])
+                        citations = chunk.get("citations", [])
+                        lang = chunk.get("lang", lang)
+                        retrieval_query = chunk.get("retrieval_query", retrieval_query)
+                    elif chunk["type"] == "chunk":
+                        full_answer += chunk.get("content", "")
+                    elif chunk["type"] == "done" and request.conversation_id:
+                        final_answer = chunk.get("answer") or full_answer
+                        if final_answer:
+                            conversation_store.add_message(
+                                request.conversation_id, "assistant", final_answer,
+                                retrieval=retrieval, citations=citations,
+                                request_id=request.request_id,
+                                metadata={"mode": request.mode, "lang": lang,
+                                          "retrieval_query": retrieval_query,
+                                          "use_bm25": request.use_bm25,
+                                          "use_rerank": request.use_rerank},
+                            )
                     yield f"data: {json.dumps(chunk, ensure_ascii=False)}\n\n"
+            except ConversationNotFound:
+                yield f"data: {json.dumps({'type': 'error', 'message': 'Conversation not found'}, ensure_ascii=False)}\n\n"
             except Exception as e:
                 yield f"data: {json.dumps({'type': 'error', 'message': str(e)}, ensure_ascii=False)}\n\n"
 
@@ -201,31 +371,17 @@ if STREAMLIT_AVAILABLE:
         with st.sidebar:
             st.header("设置")
 
-            # Mode selection - only 2 options
-            modes = ["llm_retrieval", "dense"]
-            mode_labels = {
-                "llm_retrieval": "LLM 检索",
-                "dense": "密集检索",
-            }
-
-            selected_mode = st.selectbox(
-                "检索模式",
-                modes,
-                index=0,
-                format_func=lambda x: mode_labels.get(x, x)
+            # Top K slider
+            top_k = st.slider(
+                "最大召回数量", min_value=1,
+                max_value=int(RETRIEVAL_CONFIG["max_top_k"]),
+                value=int(RETRIEVAL_CONFIG["final_top_k"]), step=1
             )
 
-            # Top K slider
-            top_k = st.slider("最大召回数量", min_value=1, max_value=10, value=5, step=1)
-
-            # Determine if toggles are enabled based on mode
-            is_dense_mode = selected_mode == "dense"
-
-            # Hybrid toggle (only active in dense mode)
-            use_bm25 = st.toggle("混合检索（dense+bm25）", value=False, disabled=not is_dense_mode)
+            use_bm25 = st.toggle("混合检索（dense+bm25）", value=True)
 
             # Rerank toggle (only active when hybrid is on AND in dense mode)
-            use_rerank = st.toggle("启用重排（rerank）", value=False, disabled=not (is_dense_mode and use_bm25))
+            use_rerank = st.toggle("启用重排（rerank）", value=True, disabled=not use_bm25)
 
             # Auto-disable rerank if hybrid is off
             if not use_bm25:
@@ -233,15 +389,12 @@ if STREAMLIT_AVAILABLE:
 
             # Show effective pipeline description
             st.markdown("---")
-            if selected_mode == "llm_retrieval":
-                st.info("**当前管线**: LLM 智能检索 → LLM 生成")
+            if use_bm25 and use_rerank:
+                st.info("**当前管线**: Dense+BM25(RRF) → BGE Rerank → LLM 生成")
+            elif use_bm25:
+                st.info("**当前管线**: Dense+BM25(RRF) → LLM 生成")
             else:
-                if use_bm25 and use_rerank:
-                    st.info("**当前管线**: Dense+BM25(RRF) → BGE Rerank → LLM 生成")
-                elif use_bm25:
-                    st.info("**当前管线**: Dense+BM25(RRF) → LLM 生成")
-                else:
-                    st.info("**当前管线**: Dense → LLM 生成")
+                st.info("**当前管线**: Dense → LLM 生成")
 
             st.markdown("---")
             st.markdown("### 关于")
@@ -272,17 +425,8 @@ if STREAMLIT_AVAILABLE:
                 st.session_state.messages = []
 
         # Helper to format score display based on retrieval mode
-        def format_score(r, msg_mode, msg_use_bm25, msg_use_rerank):
-            if msg_mode == "llm_retrieval":
-                # LLM retrieval mode: show LLM scores + original dense score as reference
-                llm_rel = r.get("llm_relevance", "N/A")
-                llm_s = r.get("llm_score")
-                llm_match = r.get("llm_match", "")
-                llm_s_str = f"{llm_s:.2f}" if llm_s is not None else "N/A"
-                dense_s = r.get("score", 0.0)
-                match_str = f" | 匹配点: {llm_match}" if llm_match else ""
-                return f"LLM相关性: {llm_rel} | LLM相似度: {llm_s_str} | dense: {dense_s:.4f}{match_str}"
-            elif msg_use_bm25 and msg_use_rerank:
+        def format_score(r, msg_use_bm25, msg_use_rerank):
+            if msg_use_bm25 and msg_use_rerank:
                 # Rerank mode: rrf + rerank
                 rrf_s = r.get("rrf_score", 0.0)
                 rerank_s = r.get("rerank_score", 0.0)
@@ -307,12 +451,11 @@ if STREAMLIT_AVAILABLE:
 
                 # Show retrieval results for assistant messages
                 if message["role"] == "assistant" and "retrieval" in message:
-                    msg_mode = message.get("mode", "dense")
                     msg_use_bm25 = message.get("use_bm25", False)
                     msg_use_rerank = message.get("use_rerank", False)
                     with st.expander("📚 检索结果"):
                         for i, r in enumerate(message["retrieval"], 1):
-                            st.markdown(f"**[{i}]** {format_score(r, msg_mode, msg_use_bm25, msg_use_rerank)}")
+                            st.markdown(f"**[{i}]** {format_score(r, msg_use_bm25, msg_use_rerank)}")
                             st.markdown(f"- 课程: {r.get('subject', 'N/A')}")
                             st.markdown(f"- 文件: {r.get('chunk_file', 'N/A')}")
                             st.markdown(f"- ID: {r.get('id', 'N/A')}")
@@ -339,7 +482,7 @@ if STREAMLIT_AVAILABLE:
 
                         # Query RAG system with all parameters
                         result = service.query(
-                            prompt, selected_mode,
+                            prompt, "dense",
                             top_k=top_k, use_bm25=use_bm25, use_rerank=use_rerank
                         )
 
@@ -363,17 +506,16 @@ if STREAMLIT_AVAILABLE:
                             "role": "assistant",
                             "content": answer,
                             "retrieval": retrieval,
-                            "mode": selected_mode,
                             "lang": result.get("lang", "zh"),
-                            "use_bm25": selected_mode == "dense" and use_bm25,
-                            "use_rerank": selected_mode == "dense" and use_bm25 and use_rerank,
+                            "use_bm25": use_bm25,
+                            "use_rerank": use_bm25 and use_rerank,
                         })
 
                         # Render retrieval results immediately (not waiting for next rerun)
                         if retrieval:
                             with st.expander("📚 检索结果", expanded=True):
                                 for i, r in enumerate(retrieval, 1):
-                                    st.markdown(f"**[{i}]** {format_score(r, selected_mode, use_bm25 and selected_mode == 'dense', use_rerank and selected_mode == 'dense' and use_bm25)}")
+                                    st.markdown(f"**[{i}]** {format_score(r, use_bm25, use_rerank and use_bm25)}")
                                     st.markdown(f"- 课程: {r.get('subject', 'N/A')}")
                                     st.markdown(f"- 文件: {r.get('chunk_file', 'N/A')}")
                                     st.markdown(f"- ID: {r.get('id', 'N/A')}")
@@ -403,7 +545,7 @@ if __name__ == "__main__":
         if not STREAMLIT_AVAILABLE:
             print("Error: Streamlit not installed. Install with: pip install streamlit")
             sys.exit(1)
-        run_streamlit_ui()
+        import streamlit_ui  # noqa: F401 - canonical Streamlit frontend
     else:
         # Direct execution - check for command line args
         import argparse
@@ -428,4 +570,4 @@ if __name__ == "__main__":
             if not STREAMLIT_AVAILABLE:
                 print("Error: Streamlit not installed. Install with: pip install streamlit")
                 sys.exit(1)
-            run_streamlit_ui()
+            import streamlit_ui  # noqa: F401 - canonical Streamlit frontend

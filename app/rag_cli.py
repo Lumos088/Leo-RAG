@@ -5,14 +5,14 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 from scripts.pipeline.retriever import FaissRetriever
+from scripts.pipeline.hybrid_retrieval import hybrid_search, rrf
 from app.reranker import BGECrossEncoderReranker
 from app.bm25_retriever import BM25Retriever
 
 from openai import OpenAI
 
-MODE = "dense"      # "dense", "dense_rerank", "dense_bm25", "llm_retrieval"
+MODE = "dense"      # "dense", "dense_rerank", "dense_bm25"
 RECALL_N = 50            # rerank 前的召回数量
-FUSION_K = 20            # dense + bm25 融合时的召回数量
 TOP_K = 5
 MAX_CONTEXT_CHARS = 8000
 META_PATH = os.path.join(parent_dir, "vector_db", "kb_meta.json")
@@ -36,9 +36,6 @@ def get_main_score(r):
         if r.get("bm25_score") is not None else
         r.get("rrf_score", 0.0)
     )
-
-def rrf(rank, k=60):
-    return 1.0 / (k + rank)
 
 def build_context(results):
     blocks = []
@@ -115,65 +112,13 @@ def rag_answer(question: str, context: str, answer_lang: str):
 
     return resp.choices[0].message.content
 
-def llm_retrieval(question: str, retriever, bm25_retriever, subject_filter=None):
-    api_key = os.environ.get("DEEPSEEK_API_KEY")
-    if not api_key:
-        raise RuntimeError("❌ 未检测到 DEEPSEEK_API_KEY")
-
-    client = OpenAI(
-        api_key=api_key,
-        base_url=DEEPSEEK_BASE_URL
-    )
-
-    search_type = "dense+bm25" if bm25_retriever else "Dense"
-
-    dense_results = retriever.search(question, top_k=RECALL_N)
-    if bm25_retriever:
-        bm25_results = bm25_retriever.search(question, top_k=RECALL_N)
-
-    docs_text = ""
-    for i, r in enumerate(dense_results[:10], 1):
-        docs_text += f"{i}. ID-{r['id']} 课程-{r.get('subject', 'N/A')} 文本-{r['text'][:200]}...\n"
-
-    if bm25_retriever:
-        for i, r in enumerate(bm25_results[:10], 1):
-            docs_text += f"{i+10}. ID-{r['id']} 课程-{r.get('subject', 'N/A')} 文本-{r['text'][:200]}...\n"
-
-    system_prompt = (
-        "你是面向计算机专业多课程（数据结构/操作系统/计算机网络）的检索模型，仅基于指定教材知识库片段检索，不引入外部知识，结果需严格匹配查询所属课程。\n"
-        f"请按以下规则判定相关性并输出结构化结果，检索类型：【{search_type}】（Dense/dense+bm25）：\n"
-        "1. 相关性规则（与rel3/2/1/0标注一致）：\n"
-        "   - rel=3：含完整解答核心知识点；rel=2：含关键知识点但需补充；rel=1：主题相关无直接解答；rel=0：无关联。\n"
-        "2. 检索信号：\n"
-        "   - Dense检索：仅基于语义相似度；dense+bm25检索：均等融合BM25关键词匹配与Dense语义相似度。\n"
-        "3. 输出格式：ID-[文本ID] 课程-[DS/OS/CN] 相关性-[3/2/1/0] 匹配点-[关键词/语义描述] 相似度-[分数]\n"
-        f"4. 约束：若指定课程过滤【{subject_filter}】，仅检索该课程片段。"
-    )
-
-    user_prompt = (
-        f"当前查询：{question}\n"
-        f"知识库片段集：{docs_text}\n\n"
-        "请按上述规则输出检索结果。"
-    )
-
-    resp = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        temperature=0.1,
-    )
-
-    return resp.choices[0].message.content, dense_results
-
 def main():
     retriever = FaissRetriever()
     reranker = BGECrossEncoderReranker() if MODE == "dense_rerank" else None
 
     with open(META_PATH, "r", encoding="utf-8") as f:
         docs = json.load(f)
-    bm25_retriever = BM25Retriever(docs) if MODE in ["dense_bm25", "llm_retrieval"] else None
+    bm25_retriever = BM25Retriever(docs) if MODE == "dense_bm25" else None
 
     print(f"\n✅ RAG CLI（DeepSeek）启动成功 | 模式: {MODE}")
     print("输入问题，exit 退出。\n")
@@ -187,87 +132,18 @@ def main():
 
         answer_lang = detect_lang(question)
 
-        if MODE == "llm_retrieval":
-            print("\n========== LLM 检索 ==========")
-            
-            retrieval_result, dense_results = llm_retrieval(question, retriever, bm25_retriever, subject_filter=None)
-            print(retrieval_result)
-            
-            print("\n========== 最终结果 ==========")
-            print("基于 LLM 检索结果生成回答...")
-            
-            try:
-                import re
-                
-                json_match = re.search(r'\[.*\]', retrieval_result, re.DOTALL)
-                if json_match:
-                    retrieval_data = json.loads(json_match.group())
-                    
-                    if len(retrieval_data) >= 5:
-                        top_docs = retrieval_data[:5]
-                        
-                        results = []
-                        for doc_info in top_docs:
-                            doc_id = doc_info.get("ID", "")
-                            for r in dense_results:
-                                if r["id"] == doc_id:
-                                    results.append(r)
-                                    break
-                        
-                        if len(results) > 0:
-                            context, citations = build_context(results)
-                            answer = rag_answer(question, context, answer_lang)
-                            
-                            print("\n================= Top-k Retrieval =================")
-                            for i, r in enumerate(results, 1):
-                                msg = f"[{i}] score={r.get('score', 0.0):.4f}"
-                                msg += f" subject={r.get('subject')} chunk_file={r.get('chunk_file')} id={r.get('id')}"
-                                print(msg)
-                            
-                            print("\n================= Answer =================")
-                            print(answer)
-                        else:
-                            print("❌ 未能从检索结果中找到匹配的文档")
-                    else:
-                        print(f"❌ 检索结果不足5个，仅找到 {len(retrieval_data)} 个")
-                else:
-                    print("❌ 未能解析检索结果中的JSON数据")
-            except Exception as e:
-                print(f"❌ 解析检索结果失败：{e}")
-            
-            continue
-
         if MODE == "dense":
             results = retriever.search(question, top_k=TOP_K)
         elif MODE == "dense_rerank":
             candidates = retriever.search(question, top_k=RECALL_N)
             results = reranker.rerank(question, candidates, top_k=TOP_K)
         elif MODE == "dense_bm25":
-            dense_results = retriever.search(question, top_k=FUSION_K)
-            bm25_results = bm25_retriever.search(question, top_k=FUSION_K)
-
-            merged = {}
-
-            for rank, r in enumerate(dense_results, 1):
-                rid = r["id"]
-                merged.setdefault(rid, dict(r))
-                merged[rid]["dense_score"] = r.get("score")
-                merged[rid]["dense_rank"] = rank
-                merged[rid]["rrf_score"] = merged[rid].get("rrf_score", 0.0) + rrf(rank)
-
-            for rank, r in enumerate(bm25_results, 1):
-                rid = r["id"]
-                merged.setdefault(rid, dict(r))
-                merged[rid]["bm25_score"] = r.get("bm25_score")
-                merged[rid]["bm25_rank"] = rank
-                merged[rid]["rrf_score"] = merged[rid].get("rrf_score", 0.0) + rrf(rank)
-
-            results = sorted(merged.values(), key=lambda x: x["rrf_score"], reverse=True)[:TOP_K]
+            results = hybrid_search(retriever, bm25_retriever, question)[:TOP_K]
 
             for r in results:
                 r["score"] = r.get("dense_score") if r.get("dense_score") is not None else r.get("bm25_score", 0.0)
         else:
-            raise ValueError("MODE must be 'dense', 'dense_rerank', 'dense_bm25' or 'llm_retrieval'")
+            raise ValueError("MODE must be 'dense', 'dense_rerank' or 'dense_bm25'")
 
         context, citations = build_context(results)
 

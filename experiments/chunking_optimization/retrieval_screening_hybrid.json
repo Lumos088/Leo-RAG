@@ -1,0 +1,177 @@
+{
+  "schema_version": "chunking-search-v1",
+  "generated_at": "2026-09-15T13:02:30+08:00",
+  "selection_scope": "development/evaluation pool only; frozen answer holdout not accessed",
+  "candidate_source": "E:\\RAG\\experiments\\chunking_optimization\\corpus_profile.json",
+  "model_limit": {
+    "model_max_seq_length": 128,
+    "special_tokens": 2,
+    "raw_body_tokens": 126,
+    "shared_safe_body_tokens": 73,
+    "worst_case_body_tokens": 73,
+    "note": "Shared-safe capacity uses the observed p95 metadata prefix; worst-case capacity is reported separately instead of letting one outlier collapse the search space."
+  },
+  "ranked_variants": [
+    {
+      "variant": "struct_t205_min30_max205_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 205,
+        "min_tokens": 30,
+        "max_tokens": 205,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.122,
+        "derived_from": {
+          "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+          "minimum": "paragraph p75",
+          "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+          "overlap": "sentence p75 or paragraph p95, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7849382716049382,
+      "all_facts_covered_at_5": 0.5555555555555556,
+      "evidence_recall_at_5": 0.26674309420090564,
+      "parent_ndcg_at_10": 0.7319513552798944,
+      "success_at_1_proxy": 0.9518518518518517,
+      "child_duplicate_parent_rate_at_50": 0.16133333333333336,
+      "p95_query_seconds": 1.2659,
+      "children": 18813,
+      "index_bytes": 28896813
+    },
+    {
+      "variant": "struct_t205_min30_max205_o50",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 205,
+        "min_tokens": 30,
+        "max_tokens": 205,
+        "overlap_max_tokens": 50,
+        "overlap_ratio_cap": 0.244,
+        "derived_from": {
+          "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+          "minimum": "paragraph p75",
+          "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+          "overlap": "sentence p75 or paragraph p95, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7815432098765432,
+      "all_facts_covered_at_5": 0.5555555555555556,
+      "evidence_recall_at_5": 0.2417436571185982,
+      "parent_ndcg_at_10": 0.7185199345514354,
+      "success_at_1_proxy": 0.925925925925926,
+      "child_duplicate_parent_rate_at_50": 0.19022222222222224,
+      "p95_query_seconds": 1.0715,
+      "children": 20008,
+      "index_bytes": 30732333
+    },
+    {
+      "variant": "struct_t155_min30_max155_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 155,
+        "min_tokens": 30,
+        "max_tokens": 155,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.161,
+        "derived_from": {
+          "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+          "minimum": "paragraph p75",
+          "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+          "overlap": "sentence p75 or paragraph p95, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7688271604938273,
+      "all_facts_covered_at_5": 0.5555555555555556,
+      "evidence_recall_at_5": 0.2494435124333428,
+      "parent_ndcg_at_10": 0.7166341964642043,
+      "success_at_1_proxy": 0.948888888888889,
+      "child_duplicate_parent_rate_at_50": 0.1937777777777778,
+      "p95_query_seconds": 1.1864,
+      "children": 24790,
+      "index_bytes": 38077485
+    },
+    {
+      "variant": "struct_t155_min30_max155_o50",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 155,
+        "min_tokens": 30,
+        "max_tokens": 155,
+        "overlap_max_tokens": 50,
+        "overlap_ratio_cap": 0.25,
+        "derived_from": {
+          "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+          "minimum": "paragraph p75",
+          "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+          "overlap": "sentence p75 or paragraph p95, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7649382716049383,
+      "all_facts_covered_at_5": 0.5555555555555556,
+      "evidence_recall_at_5": 0.24253716579299997,
+      "parent_ndcg_at_10": 0.7155543109526915,
+      "success_at_1_proxy": 0.9472222222222222,
+      "child_duplicate_parent_rate_at_50": 0.22577777777777777,
+      "p95_query_seconds": 1.26,
+      "children": 26172,
+      "index_bytes": 40200237
+    },
+    {
+      "variant": "struct_t250_min30_max250_o25",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 250,
+        "min_tokens": 30,
+        "max_tokens": 250,
+        "overlap_max_tokens": 25,
+        "overlap_ratio_cap": 0.1,
+        "derived_from": {
+          "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+          "minimum": "paragraph p75",
+          "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+          "overlap": "sentence p75 or paragraph p95, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7798765432098764,
+      "all_facts_covered_at_5": 0.5333333333333333,
+      "evidence_recall_at_5": 0.2467246929086996,
+      "parent_ndcg_at_10": 0.7159044299717253,
+      "success_at_1_proxy": 0.9187301587301587,
+      "child_duplicate_parent_rate_at_50": 0.13022222222222224,
+      "p95_query_seconds": 1.0828,
+      "children": 15452,
+      "index_bytes": 23734317
+    },
+    {
+      "variant": "struct_t250_min30_max250_o50",
+      "parameters": {
+        "strategy": "structured",
+        "target_tokens": 250,
+        "min_tokens": 30,
+        "max_tokens": 250,
+        "overlap_max_tokens": 50,
+        "overlap_ratio_cap": 0.2,
+        "derived_from": {
+          "target": "dense body capacity + structural quantiles, bounded by 2x dense capacity",
+          "minimum": "paragraph p75",
+          "maximum": "soft hybrid bound; BM25 and BGE read beyond dense truncation",
+          "overlap": "sentence p75 or paragraph p95, capped at 25%"
+        }
+      },
+      "strict_fact_recall_at_5": 0.7708024691358024,
+      "all_facts_covered_at_5": 0.5111111111111111,
+      "evidence_recall_at_5": 0.25302849200075134,
+      "parent_ndcg_at_10": 0.7192196806377787,
+      "success_at_1_proxy": 0.9229629629629629,
+      "child_duplicate_parent_rate_at_50": 0.14266666666666666,
+      "p95_query_seconds": 1.0893,
+      "children": 15886,
+      "index_bytes": 24400941
+    }
+  ],
+  "shortlist": [
+    "struct_t205_min30_max205_o25",
+    "struct_t205_min30_max205_o50",
+    "struct_t155_min30_max155_o25"
+  ]
+}
